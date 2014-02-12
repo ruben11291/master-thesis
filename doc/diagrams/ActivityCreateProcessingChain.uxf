@@ -4,10 +4,10 @@
   <element>
     <type>com.umlet.element.custom.Systemborder</type>
     <coordinates>
-      <x>630</x>
-      <y>252</y>
+      <x>623</x>
+      <y>189</y>
       <w>392</w>
-      <h>560</h>
+      <h>623</h>
     </coordinates>
     <panel_attributes>topcenter:Create Processing Chain
 </panel_attributes>
@@ -16,8 +16,8 @@
   <element>
     <type>com.umlet.element.custom.InitialState</type>
     <coordinates>
-      <x>812</x>
-      <y>287</y>
+      <x>805</x>
+      <y>217</y>
       <w>14</w>
       <h>14</h>
     </coordinates>
@@ -25,21 +25,10 @@
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>798</x>
-      <y>273</y>
-      <w>34</w>
-      <h>62</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>21;49;21;21</additional_attributes>
-  </element>
-  <element>
     <type>com.umlet.element.custom.StateSubDiagram</type>
     <coordinates>
-      <x>770</x>
-      <y>322</y>
+      <x>763</x>
+      <y>308</y>
       <w>105</w>
       <h>63</h>
     </coordinates>
@@ -49,7 +38,7 @@
   <element>
     <type>com.umlet.element.custom.FinalState</type>
     <coordinates>
-      <x>812</x>
+      <x>805</x>
       <y>651</y>
       <w>14</w>
       <h>14</h>
@@ -60,7 +49,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>798</x>
+      <x>791</x>
       <y>581</y>
       <w>34</w>
       <h>83</h>
@@ -71,7 +60,7 @@
   <element>
     <type>com.umlet.element.custom.StateSubDiagram</type>
     <coordinates>
-      <x>756</x>
+      <x>749</x>
       <y>539</y>
       <w>133</w>
       <h>63</h>
@@ -82,7 +71,7 @@
   <element>
     <type>com.umlet.element.custom.State</type>
     <coordinates>
-      <x>784</x>
+      <x>777</x>
       <y>413</y>
       <w>70</w>
       <h>42</h>
@@ -93,7 +82,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>798</x>
+      <x>791</x>
       <y>497</y>
       <w>34</w>
       <h>55</h>
@@ -104,18 +93,18 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>798</x>
-      <y>364</y>
+      <x>791</x>
+      <y>350</y>
       <w>34</w>
-      <h>62</h>
+      <h>76</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>21;49;21;21</additional_attributes>
+    <additional_attributes>21;63;21;21</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.custom.Systemborder</type>
     <coordinates>
-      <x>917</x>
+      <x>910</x>
       <y>553</y>
       <w>98</w>
       <h>28</h>
@@ -126,7 +115,7 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>868</x>
+      <x>861</x>
       <y>546</y>
       <w>62</w>
       <h>34</h>
@@ -137,7 +126,7 @@
   <element>
     <type>com.umlet.element.custom.State</type>
     <coordinates>
-      <x>756</x>
+      <x>749</x>
       <y>476</y>
       <w>126</w>
       <h>42</h>
@@ -148,12 +137,46 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>798</x>
+      <x>791</x>
       <y>434</y>
       <w>34</w>
       <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>21;42;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.ReceiveSignal</type>
+    <coordinates>
+      <x>770</x>
+      <y>252</y>
+      <w>84</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>GS
+Ready(idGS)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>791</x>
+      <y>203</y>
+      <w>34</w>
+      <h>62</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>21;49;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>791</x>
+      <y>259</y>
+      <w>34</w>
+      <h>62</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>21;49;21;21</additional_attributes>
   </element>
 </diagram>
