@@ -1,10 +1,14 @@
  #!/usr/bin/env python
 
-class orchestator:
+class Iorchestator:
+    def setImage(self,img):
+        print "Hay imagen",img
+
+class orchestator(Iorchestator):
 
     def __init__(self):
         print " asdf"
 
 
-    def getImage(img):
-        print "Hay imagen"
+
+    
