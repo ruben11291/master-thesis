@@ -1,7 +1,7 @@
  #!/usr/bin/env python
 import orchestator
 from orchestator import *
-from ftplib import FTP
+from ftplib import FTP, error_reply,error_temp,error_proto,all_errors
 import threading
 
 # ftp = FTP('localhost')
@@ -32,14 +32,15 @@ class listener:
                 print "all_errors"
 
     def pooling(self):
-        while true:
+        while True:
             try:
                 for i in self.ftpconex:
-                    if(i.size("rawdata")):
-                        lock.acquire()
+                    if(self.ifdata(i)):
+                        print "DATA"
+                        this.lock.acquire()
                         self.downloading.append(i)
-                        lock.release()
-                        t = downloadThread(filename,folder,i);
+                        this.lock.release()
+                        t = downloadThread(this.data[0],i);
                         t.start()
             except error_reply:
                 print "error_reply"
@@ -49,7 +50,25 @@ class listener:
                 print "error_proto"
             except all_errors:
                 print "all_errors"
+                
+  
+        
+    def ifdata(self,ftp):
+        self.data = []
 
+    #this function is executed ever than ftp.dir gets a line
+        def proccesingLine(line):
+            name = line.split(' ')[-1]
+            if(name[0] == 'W'):
+                this.data.append(name)
+        try:
+            ftp.dir(proccesingLine)
+            if(len(self.data) == 0):
+                return False
+            return True
+        except Exception as e:
+            print "Unexpected Error",e 
+                
 
   
 
@@ -92,3 +111,5 @@ class downloadThread(threading.Thread):
             sock.close()
         except:
             print "Unexpedted error"
+
+
