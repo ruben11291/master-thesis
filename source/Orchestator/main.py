@@ -9,6 +9,5 @@ if __name__ == "__main__":
     print "NADA"
 
     orch =  orchestator()
-    lst = listener(((Iorchestator)orch))
-
+    lst = listener( orch )
     lst.pooling()
