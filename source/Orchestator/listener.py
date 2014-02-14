@@ -3,9 +3,16 @@ import orchestator
 from orchestator import *
 from ftplib import FTP, error_reply,error_temp,error_proto,all_errors
 import threading
-
+import pdb
 # ftp = FTP('localhost')
 # ftp.login('deimos','deimos')
+
+lock = threading.Lock()
+
+
+# TODO: 
+# Hacer metodo para enviar a memoria compartida para la nube
+# Avisar al controlador
 
 
 class listener:
@@ -13,7 +20,7 @@ class listener:
     ftpconex =[]
     gstations=[]
     downloading = []
-    lock = threading.Lock()
+    
 
     def connect(self):
         for i in range(len(self.gstations)):
@@ -32,15 +39,18 @@ class listener:
                 print "all_errors"
 
     def pooling(self):
+        pdb.set_trace()
         while True:
             try:
                 for i in self.ftpconex:
                     if(self.ifdata(i)):
-                        print "DATA"
-                        this.lock.acquire()
+                        #print "DATA"
+                        lock.acquire()
                         self.downloading.append(i)
-                        this.lock.release()
-                        t = downloadThread(this.data[0],i);
+                        self.ftpconex.remove(i)
+                        lock.release()
+                       # print len(self.ftpconex),len(self.downloading)
+                        t = downloadThread(self.data[0],i,self.orchestator,self.ftpconex,self.downloading);
                         t.start()
             except error_reply:
                 print "error_reply"
@@ -56,13 +66,15 @@ class listener:
     def ifdata(self,ftp):
         self.data = []
 
-    #this function is executed ever than ftp.dir gets a line
-        def proccesingLine(line):
-            name = line.split(' ')[-1]
-            if(name[0] == 'W'):
-                this.data.append(name)
+        def proccesingLines(lines):
+            for line in lines:
+                name = line.split(' ')[-1]
+                if(name[0] == 'W'):
+                    self.data.append(name)
         try:
-            ftp.dir(proccesingLine)
+           # ftp.dir(proccesingLine)
+            names = ftp.nlst()
+            proccesingLines(names)
             if(len(self.data) == 0):
                 return False
             return True
@@ -86,30 +98,51 @@ class listener:
 #Get the data from FTP connection
 
 class downloadThread(threading.Thread):
-    def __init__(self, filename,folder, ftp,listener):
+    def __init__(self, filename, ftp,orchestrator,ftpconex,downloading):
         threading.Thread.__init__(self)
         self.filename = filename
-        self.folder = folder
         self.ftp = ftp
-        self.listener = listener
+        self.orchestrator = orchestrator
+        self.ftpconex = ftpconex
+        self.downloading = downloading
 
     def run(self):
-        self.downloadFile(filename,folder,ftp)
+        self.downloadFile()
         print "run hilo download"
-
-    def downloadFile(self,filename, folder, ftp):
+       
+    def downloadFile(self):
         try:
-            ftp.voidcmd('TYPE I')
-            sock = ftp.transfercmd('RETR ' + filename)
-            f = open(folder + filename, 'wb')
+            #print len(self.ftpconex), len(self.downloading)
+            self.ftp.voidcmd('TYPE I')
+            sock = self.ftp.transfercmd('RETR ' + self.filename)
+            f = open("/home/deimos/test", 'wb')
             while True:
                 block = sock.recv(1024*1024)
                 if not block:
                     break
-                ftp.voidcmd('NOOP')
+                self.ftp.voidcmd('NOOP')
                 f.write(block)
             sock.close()
-        except:
-            print "Unexpedted error"
+            lock.acquire(True)
+            self.ftpconex.append(self.ftp)
+            self.downloading.remove(self.ftp)
+            lock.release()
+           # print len(self.ftpconex), len(self.downloading)
+            self.orchestrator.setImage("/home/deimos/test")
+
+        except Exception as e :
+            print "Unexpected error" ,e
 
 
+    # def downloadFile(self):
+    #     try:
+    #         f = open("/home/deimos/des","wb")
+    #         self.ftp.retrbinary('RETR %s' % self.file,f.write)
+    #         f.close()
+    #         self.lock.adquire()
+    #         self.ftpconex.append(self.ftp)
+    #         self.downloading.remove(self.ftp)
+    #         self.lock.release()
+    #     except:
+    #         print "Unexpedted error"
+            
