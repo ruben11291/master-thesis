@@ -98,11 +98,11 @@ class listener:
 #Get the data from FTP connection
 
 class downloadThread(threading.Thread):
-    def __init__(self, filename, ftp,orchestrator,ftpconex,downloading):
+    def __init__(self, filename, ftp,orchestra,ftpconex,downloading):
         threading.Thread.__init__(self)
         self.filename = filename
         self.ftp = ftp
-        self.orchestrator = orchestrator
+        self.orchestrator = orchestra
         self.ftpconex = ftpconex
         self.downloading = downloading
 
@@ -112,7 +112,7 @@ class downloadThread(threading.Thread):
        
     def downloadFile(self):
         try:
-            #print len(self.ftpconex), len(self.downloading)
+            print len(self.ftpconex), len(self.downloading)
             self.ftp.voidcmd('TYPE I')
             sock = self.ftp.transfercmd('RETR ' + self.filename)
             f = open("/home/deimos/test", 'wb')
@@ -127,9 +127,10 @@ class downloadThread(threading.Thread):
             self.ftpconex.append(self.ftp)
             self.downloading.remove(self.ftp)
             lock.release()
-           # print len(self.ftpconex), len(self.downloading)
-            self.orchestrator.setImage("/home/deimos/test")
-
+            print len(self.ftpconex), len(self.downloading)
+            #self.orchestrator.processRawData("/home/deimos/test")
+            o = self.orchestrator
+            o.processRawData("/home/deimos/test")
         except Exception as e :
             print "Unexpected error" ,e
 
