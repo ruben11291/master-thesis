@@ -1,5 +1,4 @@
  #!/usr/bin/env python
-import orchestator
 from orchestator import *
 from ftplib import FTP, error_reply,error_temp,error_proto,all_errors
 import threading
@@ -20,8 +19,8 @@ class listener:
     ftpconex =[]
     gstations=[]
     downloading = []
+    lastdata = {}
     
-
     def connect(self):
         for i in range(len(self.gstations)):
            #ftpconex[i] = FTP(i[0],i[1])
@@ -30,13 +29,13 @@ class listener:
                 ftp.login('deimos','deimos')
                 self.ftpconex.append(ftp)
             except error_reply:
-                print "error_reply"
+                print "[Listener] error_reply"
             except error_temp:
-                print "error_temp"
+                print "[Listener] error_temp"
             except error_proto:
-                print "error_proto"
+                print "[Listener] error_proto"
             except all_errors:
-                print "all_errors"
+                print "[Listener] all_errors"
 
     def pooling(self):
         pdb.set_trace()
@@ -44,7 +43,8 @@ class listener:
             try:
                 for i in self.ftpconex:
                     if(self.ifdata(i)):
-                        #print "DATA"
+                        # #print "DATA"
+                        # self.orchestator.processRawData("")
                         lock.acquire()
                         self.downloading.append(i)
                         self.ftpconex.remove(i)
@@ -53,13 +53,13 @@ class listener:
                         t = downloadThread(self.data[0],i,self.orchestator,self.ftpconex,self.downloading);
                         t.start()
             except error_reply:
-                print "error_reply"
+                print "[Listener] error_reply"
             except error_temp:
-                print "error_temp"
+                print "[Listener] error_temp"
             except error_proto:
-                print "error_proto"
+                print "[Listener] error_proto"
             except all_errors:
-                print "all_errors"
+                print "[Listener] all_errors"
                 
   
         
@@ -79,7 +79,7 @@ class listener:
                 return False
             return True
         except Exception as e:
-            print "Unexpected Error",e 
+            print "[Listener] Unexpected Error",e 
                 
 
   
@@ -90,7 +90,7 @@ class listener:
             self.gstations.append(["localhost",2000+i])
        
         self.connect()
-        print "Listener ready"
+        print "[Listener] Listener ready!"
 
 
 
@@ -107,12 +107,13 @@ class downloadThread(threading.Thread):
         self.downloading = downloading
 
     def run(self):
+        print "[Listener] Creating download thread!"
         self.downloadFile()
-        print "run hilo download"
        
     def downloadFile(self):
         try:
-            print len(self.ftpconex), len(self.downloading)
+           # print len(self.ftpconex), len(self.downloading)
+            print "[Listener] Downloading raw data!"
             self.ftp.voidcmd('TYPE I')
             sock = self.ftp.transfercmd('RETR ' + self.filename)
             f = open("/home/deimos/test", 'wb')
@@ -128,11 +129,10 @@ class downloadThread(threading.Thread):
             self.downloading.remove(self.ftp)
             lock.release()
             print len(self.ftpconex), len(self.downloading)
-            #self.orchestrator.processRawData("/home/deimos/test")
-            o = self.orchestrator
-            o.processRawData("/home/deimos/test")
+            print "[Listener] Sending raw data to orchestrator!"
+            self.orchestrator.processRawData("/home/deimos/test")
         except Exception as e :
-            print "Unexpected error" ,e
+            print "[Listener] Unexpected error asd" ,e
 
 
     # def downloadFile(self):

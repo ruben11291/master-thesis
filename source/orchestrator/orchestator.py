@@ -6,27 +6,32 @@ from processingChain import processingChainController
 
 class Iorchestator:
     def setImage(self,img):
-        pass
+        None
     
 
 class orchestator(Iorchestator):
 
     def __init__(self):
-        print " asdf"
+        print "[Orchestrator] Creating orchestrator!"
+        controller = processingChainController.get()
+        controller.setOrchestrator(self)
+        print "[Orchestrator] Initializing processing chaing controller!"
 
     def processRawData(self,img):
+        print "[Orchestrator] Creating processing chain!"
         controller = processingChainController.get()
         controller.createProcessingChain(img)
         
-    def processedRawData(fileOutput):
+    def processedRawData(self,fileOutput):
         #eviar a base de datos si se quiere
-        pass
+        print "[Orchestrator] Processed raw data!"
+      
 
     def sendToCatalog(self):
-        pass
+        None
 
     def sendToStore(self):
-        pass
+        None
 
     
 
