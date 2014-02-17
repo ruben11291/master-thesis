@@ -1,0 +1,61 @@
+\begin{thebibliography}{10}
+
+\bibitem{Nepi}
+Quereilhac A., Tribino J., Guevgeozian L., and Kouvakas A.
+\newblock Nepi v3.0.
+\newblock 2013.
+
+\bibitem{git}
+S.~Chacon.
+\newblock {\em Pro Git}.
+\newblock Apress, 2009.
+
+\bibitem{Ruby}
+Ruby~Software Community.
+\newblock {Ruby Documentation}.
+\newblock \url{https://www.ruby-lang.org/en/documentation/}, última consulta
+  el 16 de Febrero de 2014.
+
+\bibitem{GPLv3}
+Free~Software Foundation.
+\newblock {Licencia GPL versión 3 de la Free Software Foundation}.
+\newblock \url{http://www.fsf.org/licensing/licenses/gpl.html}, última
+  consulta el 8 de Noviembre de 2013.
+
+\bibitem{Python}
+Python~Software Foundation.
+\newblock Python v3.4 documentation.
+\newblock última consulta el 8 de Noviembre de 2013.
+
+\bibitem{GS}
+GeoNetwork.
+\newblock Geonetwork user manual.
+\newblock \url{http://docs.geoserver.org/stable/en/user/}, última consulta el
+  16 de Febrero de 2014.
+
+\bibitem{GN}
+GeoNetwork.
+\newblock Geonetwork user manual.
+\newblock Enero, 30 , 2014.
+
+\bibitem{UML}
+Object~Management Group.
+\newblock Omg unified modeling language, infraestructure.
+\newblock Abril, 5 , 2010.
+
+\bibitem{latex}
+L.~Lamport.
+\newblock {\em LaTEX: User's Guide \& Reference Manual}.
+\newblock Addison-Wesley, 1986.
+
+\bibitem{emacs}
+R.~Stallman, A.~Universitet, and D.~Afdeling.
+\newblock {\em GNU Emacs manual}.
+\newblock Free Software Foundation, 1993.
+
+\bibitem{make}
+R.M. Stallman and R.~McGrath.
+\newblock {\em GNU make}, volume 2002.
+\newblock Free Software Foundation, 1988.
+
+\end{thebibliography}

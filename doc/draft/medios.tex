@@ -1,0 +1,89 @@
+%Medios
+
+\section{Medios que se pretenden utilizar}
+\label{sec:medios}
+
+El propósito del proyecto es realizar una simulación de un sistema distribuido robusto, modular y altamente escalable.
+La distribución del proyecto se realizará mediante alguna licencia libre como GPLv3\cite{GPLv3}.
+
+Se seguirá el \emph{proceso unificado de desarrollo de software} durante la realización del proyecto.
+Para la notación se usará \emph{UML}\cite{UML}.
+
+\subsection{Recursos Hardware}
+\label{sec:hardware}
+Se dispondrá de varios \emph{Testbed} proporcionados por el proyecto europeo \emph{Fed4FIRE} los cuales son:
+\begin{enumerate}
+\item \emph{PlanetLab Europe\cite{PLE}:} es la rama europea del sistema PlanetLab, la red más grande del mundo para realizar experimentos. Tiene servidores distribuidos a lo largo de todo el mundo y se pueden evaluar distintas métricas de red como latencia, ruido, pérdida de paquetes, étc. Esta facility se usará para obtener las medidas reales de los parámetros que se utilizarán en los nodos desarrollados en Virtual Wall y BonFIRE.
+
+\item \emph{Virtual Wall\cite{VW}:}Consiste en numerosos nodos físicos (concretamente 100) mediante los cuales se pueden realizar simulaciones. Es totalmente configurable, permitiendo crear la red deseada para el experimento y definir los parámetros de la red.
+\item \emph{BonFIRE\cite{BF}:} Es una plataforma Cloud orientada a la experimentación. Contiene 7 testbeds en Europa geográficamente distribuidos que ofrecen servicios de almacenamiento, procesamiento y networking de manera heterogénea.
+
+Además se dispondrá de un computador localizado en \emph{Elecnor Deimos} en Puertollano para el desarrollo y la ejecución de los casos de prueba. El hardware de este constará de un procesador Intel Core i5 a 3,2 MHz, 8 Gb de memoria RAM y 1 Tb de disco duro.
+
+\end{enumerate}
+
+\subsection{Recursos Software}
+\label{sec:software}
+Los sistemas operativos, entornos de programación y herramientas que se
+utilizarán en el desarrollo del proyecto serán Software Libre.
+
+\begin{itemize}
+
+\item \emph {Sistema Operativo CentOS}\footnote{http://www.centos.org/}.
+
+\item \emph{GNU Make~\cite{make}:}
+  herramienta para la generación automática de
+  ejecutables, que se empleará para automatizar cualquier proceso susceptible de
+  ello.
+
+\item \emph{GNU Emacs~\cite{emacs}:}
+  editor de textos extensible y configurable, para el desarrollo e implementación del proyecto.
+
+
+\item\emph{ Git~\cite{git}:} ofrece un
+  sistema de control de versiones distribuido y la posibilidad de llevar ese
+  control fuera de línea, frente a los sistemas de control de versiones
+  centralizados como \textsc{CVS} o Subversion. %~\cite{svn}.
+
+\item \emph{Python \cite{Python}:} lenguaje interpretado multiparadigma y multiplataforma que se usará para programar gran parte de este proyecto. Se usará la versión 2.7.4 para el desarrollo de este proyecto.
+\footnote{\href{http://python.org}{Página web oficial de Python}}
+
+\item \emph{Ruby \cite{Ruby}:} lenguaje interpretado, de propósito general y orientado a objetos que se usará para la construcción de la plataforma de procesamiento de datos raw en la nube.
+Se usará la versión 1.9 para el desarrollo de este proyecto.
+
+\item \emph{Nepi\cite{Nepi}:} Es una plataforma basada en Python para diseñar y realizar experimentos en plataformas de evaluación de redes como por ejemplo PlanetLab. Se usará para realizar la simulación sobre PlanetLab y obtener los parámetros reales para realizar la simulación.
+
+\item \emph{GeoServer \cite{GS}:}
+
+\item \emph{GeoNetwork\cite{GN}:}
+
+
+\end{itemize}
+
+
+\subsection{Documentación}
+\label{sec:documentacion}
+
+\begin{itemize}
+\item \LaTeX~\cite{latex}: lenguaje de marcado de documentos, utilizado para
+  realizar este documento y, en un futuro, la documentación del proyecto.
+
+\item Bib\TeX: herramienta distribuida con \LaTeX para generar las listas de
+  referencias tanto de este documento como de la memoria del proyecto.
+\end{itemize}
+
+
+
+
+
+
+
+
+% Local Variables:
+%   coding: utf-8
+%   fill-column: 90
+%   mode: flyspell
+%   ispell-local-dictionary: "castellano"
+%   mode: latex
+%   TeX-master: "main"
+% End:

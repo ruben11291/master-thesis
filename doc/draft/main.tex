@@ -1,0 +1,98 @@
+\documentclass[a4paper,spanish,11pt,twoside]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+%\usepackage{url}
+\usepackage{anysize}
+
+\usepackage[T1]{fontenc}
+\usepackage[bookmarks,hyperfootnotes=false,colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black,pagecolor=black,anchorcolor=black,breaklinks=true]{hyperref}% Hiperenlaces
+
+\usepackage{graphicx}
+\usepackage{fixme}
+\graphicspath{{figures/}}
+
+% Párrafos
+\setlength{\parskip}{8pt}
+%interlineado
+
+\marginsize {35mm}{20mm}{25mm}{25mm}
+
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+
+
+\renewcommand*{\thepage}{\roman{page}}
+\begin{titlepage}
+\begin{center}
+  \includegraphics[width=.3\textwidth]{logos/emblema_informatica-gray.pdf} \\
+  \vspace*{0,5cm} {\Large \textsc{Universidad de Castilla-la Mancha\\}}
+  \vspace{3mm}
+  {\Large \textbf{Escuela Superior de Informática}}  \\
+  \vspace{1,3cm}
+  {\Large \textbf{Ingeniería en Informática}}\\
+  \vspace{1cm}
+  {\Large \textbf{Anteproyecto}} \\
+  \vspace{1,3cm}
+  \LARGE{\textbf{Geo-Cloud}\\Diseño e implementación de un sistema geoespacial en la nube}
+  \vspace{0.1cm}
+
+\end{center}
+\vspace{2.0cm}
+\begin{table}[!h]
+  \Large
+  \begin{tabular}{rl}
+      \textbf{Autor}: & Rubén Pérez Pascual \\
+      \textbf{Director}: & Jonathan Becedas \\
+      \textbf{Tutor}: & Carlos Gonzáles Morcillo
+  \end{tabular}
+\end{table}
+% \vspace{1,5cm} \\
+\begin{flushright}
+%\vspace{1cm}
+{\large \today}
+\end{flushright}
+\end{titlepage}
+
+
+
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\pagestyle{fancy}
+\fancyhead[L]{Anteproyecto}
+\fancyhead[R]{Rubén Pérez Pascual}
+\fancyfoot[C]{\thepage}
+\renewcommand{\sectionmark}[1]{\markboth{\textbf{\thesection. #1}}{}}
+\renewcommand*{\thepage}{\arabic{page}}
+ \setcounter{page}{1}
+
+
+
+%\section{Introducción}
+\input{intro.tex}
+
+%\section{Objetivos}
+\input{objetivos.tex}
+
+
+%\section{Método y fases de trabajo}
+\input{metodos.tex}
+
+%\section{Medios que se pretenden utilizar}
+\input{medios.tex}
+
+\clearpage
+% \section{Licencia}
+% \input{licencia.tex}
+
+
+ \bibliography{references}
+  \bibliographystyle{plain}
+
+\end{document}
