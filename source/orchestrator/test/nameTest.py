@@ -1,8 +1,13 @@
 #!/usr/bin/env python
 
 import os
+import sys
 import time
 import unittest
+
+sys.path.append("..")
+
+import orchestator
 
 def processingName(name):
     sp = name.split('_')
