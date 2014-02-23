@@ -1,83 +1,57 @@
 \section{Introducción}
 \label{sec:intro}
 
-Las compañías dedicadas a la observación de la Tierra (EO industries) implementan la adquisición, almacenamiento, procesamiento y distribución de las imágenes captadas, en su propias granjas de servidores. Sin embargo estas soluciones tienen riesgos ligados a esa infraestructura. Por ejemplo, la escalabilidad. Puede ser que en un momento crítico, se demanden más recursos y esa infraestructura no puede procesar todas las peticiones.
+Las compañías dedicadas a observación de la Tierra, conocidas como \emph{EO industries} en la jerga internacional, han incrementado la venta de imágenes en un 550\% en la última década. Se estima que este aumento sea de cuatro veces superior en lo que resta de década. Por esta motivo, observación de la Tierra está reconocido como uno de los campos clave en el ámbito europeo. Para apoyar dicho ámbito, la Comisión Europea junto con la Agencia Espacial Europea y la Agencia Europea del Medioambiente (EC, ESA y EEA por sus siglas en inglés respectivamente) han creado el sistema GMES/Copernicus, de modo que aumente la capacidad europea en temas relacionados con la observación de la Tierra.
 
-En los últimos años, se ha puesto de moda hablar de \emph{Cloud Computing}. Este concepto se basa en el concepto de procesamiento distribuido. Esto no es ni más ni menos que unificar granjas de servidores para unificar recursos tanto de proceso como de almacenamiento, de forma transparente al usario.
+La observación de la Tierra consiste en el registro de datos espacio temporales del mundo, y se aplican a numerosos sectores: monitorización del medioambiente, desastres naturales y seguridad ciudadana entre otros. Los sensores que aportan mayor información al respecto son los satélites de observación de la Tierra.
 
-El consorcio europeo Fed4FIRE \cite{F4F} proporciona una serie de \emph{Testbeds} para el desarrollo de distintas investigaciones. Estas herramientas han sido el resultado de varios proyectos europeos y los que cabe destacar bajo el punto de vista de este proyecto son los siguientes:
+Sin embargo, dichos sistemas proporcionan la información a unos precios elevados, lo que limita el acceso a la misma de un mayor número de usuarios de otros ámbitos y del público en general. Esto ocurre, principalmente, por dos motivos: i) la tecnología empleada es cara, ii) los caminos que sigue la información desde que se obtiene con los satélites hasta que llega a los usuarios requieren de unas infraestructuras específicas, que conllevan un mayor coste que el propio de la instrumentación empleada, es decir, el satélite. Esto provoca que las instalaciones en donde se procesan y distribuyen los datos estén en localizaciones propiedad de las empresas explotadoras de los datos, tanto por seguridad como por coste de inversión, lo que conlleva las siguientes limitaciones: i) dichas infraestructuras deben sobredimensionarse para almacenar los datos procedentes de los satélites, ii) la información debe ser procesada en la infraestructura y después distribuida con métodos tradicionales a los usuarios finales y iii) la arquitectura del sistema impide que el servicio ofrecido sea flexible.
+
+Sin embargo, en los últimos años la tecnología de internet del futuro ha ido desarrollando nuevas características, sobre todo con la aparición de sistemas distribuidos o también denominados \emph{cloud} o nube. La nube puede contribuir a agilizar tanto la infraestructura, anteriormente descrita, como el servicio que se proporciona al cliente final, debido a sus características: i) es elástica, ii) es escalable, iii) es flexible y iv) puede trabajar bajo demanda.
+
+En el proyecto GEO-Cloud se estudia la posibilidad de transferir los centros de datos de Elecnor Deimos a la nube, con el objetivo de procesar y distribuir las imágenes capturadas con satélites de observación de la Tierra en nube, y comprobar si realmente esta tecnología puede emplearse en los tradicionales sistemas de observación de la Tierra.
+
+GEO-Cloud nace, por tanto, en el seno del proyecto europeo integrador Fed4FIRE (IP FP7 project nº 318389).
+
+Fed4FIRE\cite{F4F} es un proyecto de integración FP7 cuya causa es la búsqueda y la experimentación con la internet del futuro. El proyecto está conformado por 17 organizaciones de 8 países distintos.
+Principalmente, sus objetivos se basan en construir herramientas para que los investigadores puedan realizar diversos experimentos. Estas utilidades son:
 \begin{itemize}
-\item \emph{PlanetLab Europe:}
-
-
+\item Virtual Wall
+\item PlanetLab Europe
+\item Norbit
+\item w-iLab.t
+\item Nitos
+\item Netmode
+\item SmartSantander
+\item FuSeCo
+\item UBristol OFELIA island
+\item Koren testbed
+\item NITOS testbed
+\item BonFIRE
 \end{itemize}
 
-La observación de la Tierra ha sido siempre y será uno de los sectores más
-Actualmente, uno de los sectores de la informática que más se ha desarrollado ha sido
-la computación gráfica. Esto es debido a que no solamente ha formado parte de la comunidad
-científica, si no que ha invadido diversos mercados. Entre estos, se encuentran  la visualización médica, el avance de los videojuegos, las cinematográficas y al potente hardware donde desarrollarse.
-Sobre todo el negocio cinematográfico y de videojuegos están consiguiendo que
-las técnicas de computación gráfica avancen más rápidamente.
+De entre toda esta cantidad de herramientas que se ofrecen, el proyecto GEO-Cloud utilizará Virtual Wall, PlanetLab Europe y BonFIRE.
 
-El proceso de construcción de una escena 3D cuenta con una
-serie de etapas principales que pueden resumirse como:
-
+El proyecto GEO-Cloud consiste en la construcción de un experimento con las distintas secciones:
 \begin{itemize}
-\item \emph{Modelado:} Construcción de la escena representando los objetos con diversas técnicas,
-ya sean mallas poligonales, superficies NURBS, superficies implícitas, etc...
-\item \emph{Asignación de materiales:} Cada objeto tiene unas propiedades y comportamientos respecto
-a como refleja la luz incidente, como el modelo de sombreado empleado, la textura, color o índice de refracción.
-\item\emph {Iluminación:}En esta fase se definen las luces de la escena.
-\item\emph {Fase de rendering:} Dependiendo del nivel de realismo con el que se simule el comportamiento físico de la luz, tenemos diferentes familias de métodos de rendering como los basados en RayCasting, RayTracing, PathTracing, etc...
-\end {itemize}
-
-
-\subsection{Rendering}
-\label{sec:rendering}
-
-Antes se mencionó que el último paso para representar una escena 3D como una imagen 2D se denomina rendering. A continuación se explicarán algunos de los algoritmos más
-usados en este proceso, pero antes se definirán varios conceptos básicos\cite{ground_up} para facilitar su comprensión.
-\begin{itemize}
-\item\emph{Plano de vista:} Matriz de píxeles, la cual coincide con el límite de la escena que el observador es capaz de ver desde su posición.
-\item\emph{Punto de vista:} Situación del observador.
+\item Diseñar y construir un orquestador en la nube BonFIRE que permita el procesamiento de las imágenes obtenidas por los satélites y controle todo este proceso. Estos procesadores son proporcionados por la empresa Elecnor Deimos y se tratarán como caja negra.
+\item Realizar un sistema de archivo y catálogo para conseguir que el resultado obtenido del procesamiento anterior quede almacenado en la nube y accesible por los clientes finales.
+\item Diseñar y construir un pequeño experimento para obtener las medidas realies de los parámetros y métricas involucradas en las comunicaciones de todos los componentes como clientes, estaciones de tierra, nube y constelación de satélites.
+\item Diseñar y construir el software que simulará los distintos satélites, estaciones de tierra y clientes accediendo a los recursos mediante un servicio web. Para este proceso será necesario  conocer los distintos parámetros y métricas de comunicacion reales (obtenidos en el paso anterior)  para construir un experimento realista.
+\item Finalmente, para validad el sistema se simulará un caso de uso.
 \end{itemize}
 
-Existen diversos algoritmos con esta finalidad, cada uno con sus ventajas e inconvenientes\cite{real-time}. Estos son \emph{RayCasting}, \emph{RayTracing} y
-\emph{PathTracing} y básicamente realizan el proceso de render de esta foma:
-\begin{itemize}
-\item\emph{RayCasting:} Consiste en lanzar rayos desde el plano de vista, uno por cada píxel, y encontrar el punto de intersección
-más cercano con los objetos de la escena. Su eficiencia es bastante aceptable pero genera resultados con poca calidad debido a que no simula efectos de rebote de la luz entre superficies.
-\item\emph{RayTracing:} Es un método elegante  y sencillo que permite calcular de una forma unificada la reflexión y refracción de la luz,
-sombras, eliminación de objetos ocultos entre otras características. Existen dos aproximaciones para la implementación de este algoritmo. La primera alternativa se basa en lanzar rayos desde las fuentes emisoras de luz y seguir el camino desde estas hasta el punto de vista (\emph{forward RayTracing}).
-La otra versión del algoritmo (\emph{backward RayTracing}) donde los rayos parten del plano de imagen y alcanzan a los objetos de la escena.  Este método evita trazar
-inútilmente rayos que en el caso de que se lanzaran desde las fuentes de luz, muchos no llegarían al plano de vista y por lo tanto no representarían nada, únicamente consumiendo recursos computacionales.
-\item\emph{PathTracing:} Lanza rayos aleatorios para simular sombras suaves, motion blur  y profundidad de campo. Este algoritmo calcula todos los posibles caminos
-de luz, por lo que consigue un resultado muy realista, pero es muy costoso computacionalmente.
-\end{itemize}
-
-% \subsection{Multimodal Rendering}
-%
-% El desarrollo de numerosas aplicaciones en los diversos campos de la ciencia han incrementado la demanda de sistemas de visualización multimodal. Estos sistemas son capaces
-% de renderizar simultáneamente varias propiedades en la misma región 3D
 
 \subsection{Problemática}
 \label{sec:problematica}
 
+Geo-cloud pretende enfrentar dos implementaciones. La primera y ya asentada configuración propia de las compañías procesando sus propias imágenes y almacenándolas, con todo lo que conlleva.
+La segunda, el resultado de la implementación de Geo-cloud. Esta implementación estará en la nube permitiendo.
+
+
+
 % \href{}
-Como se ha podido observar, existen limitaciones importantes a la hora de renderizar. El primero es debido
-al gran coste computacional. Como se ha mencionado anteriormente, los rayos se refractan, reflejan en los distintos objetos,
-cada uno de ellos con distintas propiedades. Con lo cual, el comportamiento del rayo no está para nada determinado y puede
-ser complejo estudiar su comportamiento. Las escenas que se quieren renderizar a un nivel de detalle realista y son
-muy complejas, requieren varias horas de render. Incluso si este proceso se realiza en un \emph{cluster} muy potente
-y con la última tecnología en redes de altas prestaciones, se requiere un tiempo de cómputo muy alto. Estas condiciones no son permisibles, por ejemplo en algunos casos de diagnóstico por imagen, cuando la imagen se tiene que ir procesando a tiempo real.
 
-En torno a eso, se tiene el problema de que en una imagen existen diversas zonas de distinta complejidad. Estas partes se podrían renderizar usando diferentes algoritmos sin perder demasiada información visual\cite{magarro}. Con este planteamiento,  surge el problema de la división de tareas y asignación balanceada a los distintos nodos procesadores. Con lo cual, se podría dividir esa escena respecto a la complejidad de cada partición
-y a cada una se le asignaría un algoritmo de render para conseguir ganar en eficiencia sin perder calidad en el resultado.
-
-Relacionado con el cálculo de la complejidad de las distintas zonas de la imagen, se plantean diferentes enfoques. Estos pueden ser por ejemplo
-las distintas fuentes de luz de la escena, la cantidad de caras de los objetos, la distancia a la que están del plano de vista y si será conveniente o no
-aplicarle un tipo de renderizado más óptimo si apenas se percibirá, como también el renderizar algún objeto que desde el punto de vista del observador
-no será visible.
 
 
 
