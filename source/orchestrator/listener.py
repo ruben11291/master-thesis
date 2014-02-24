@@ -32,8 +32,8 @@ send it to orchestrator"""
     def connect(self):
         self.counter = 0
         """Simply it connects listener to all ftp connections of ground stations"""
-       # for i in range(len(self.gstations)):
-        for i in range(5):
+        for i in range(len(self.gstations)):
+        #    pdb.set_trace()
            #ftpconex[i] = FTP(i[0],i[1])
             try:
                 ftp = FTP(self.gstations[i][0])
