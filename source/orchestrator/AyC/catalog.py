@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..")
 
-
+import pdb
 from geoserver.catalog import Catalog
 from geoserver.workspace import Workspace
 from geoserver.store import DataStore
@@ -14,11 +14,11 @@ class catalog:
     def createWkspace(self,name):
         vk = self.cat.create_workspace(name,name)
         vk.enabled = True
-        self.cat.save(vk)
         return vk
 
     def addImage(self,name,workspace,data):
-        self.cat.create_coveragestore("Imagen","/usr/share/tomcat/webapps/geoserver/data/data/DE2_MS__L1CT___20140220T104454.tif",vk)
+        pdb.set_trace()
+        self.cat.create_coveragestore(name,"/usr/share/tomcat/webapps/geoserver/data/data/DE2_MS__L1CT___20140220T104454.tif",workspace)
 
         inf = CoverageStore(self.cat,workspace,name)
 

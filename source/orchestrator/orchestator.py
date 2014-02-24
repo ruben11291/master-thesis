@@ -27,14 +27,22 @@ class orchestator(Iorchestator):
         controller.createProcessingChain(img)
         
     def processedRawData(self,fileOutput):
-        #eviar a base de datos si se quiere
+        #eviar a espacio compartido y donde tiene el working directory geoserver
         print "[Orchestrator] Processed raw data!"
         self.sendToCatalog(fileOutput)
 
     def sendToCatalog(self, data):
         self.i = self.i +1
-        wksp = self.catalog.createWkspace("Escen"+str(self.i))
-        self.catalog.addImage(str(self.i),data,wksp)
+        wksp = None
+       # pdb.set_trace()
+        while True:
+            try:
+                wksp = self.catalog.createWkspace("Escen"+str(self.i))
+                break
+            except Exception:
+                self.i = self.i+1
+        print data
+        self.catalog.addImage(str(self.i),wksp,data)
         
 
     def sendToStore(self):
