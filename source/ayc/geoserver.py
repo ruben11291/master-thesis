@@ -1,5 +1,7 @@
 import sys
+print sys.path
 sys.path.append("..")
+
 
 from geoserver.catalog import Catalog
 from geoserver.workspace import Workspace
@@ -7,7 +9,6 @@ from geoserver.store import DataStore
 from geoserver.store import CoverageStore
 
 cat = Catalog("http://localhost:8080/geoserver/rest")
-
 vk = cat.create_workspace("workspace","wokspace")
 vk.enabled = True
 
