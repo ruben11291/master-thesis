@@ -5,39 +5,44 @@ Las compañías dedicadas a observación de la Tierra, conocidas como \emph{EO i
 
 La observación de la Tierra consiste en el registro de datos espacio temporales del mundo, y se aplican a numerosos sectores: monitorización del medioambiente, desastres naturales y seguridad ciudadana entre otros. Los sensores que aportan mayor información al respecto son los satélites de observación de la Tierra.
 
-Sin embargo, dichos sistemas proporcionan la información a unos precios elevados, lo que limita el acceso a la misma de un mayor número de usuarios de otros ámbitos y del público en general. Esto ocurre, principalmente, por dos motivos: i) la tecnología empleada es cara, ii) los caminos que sigue la información desde que se obtiene con los satélites hasta que llega a los usuarios requieren de unas infraestructuras específicas, que conllevan un mayor coste que el propio de la instrumentación empleada, es decir, el satélite. Esto provoca que las instalaciones en donde se procesan y distribuyen los datos estén en localizaciones propiedad de las empresas explotadoras de los datos, tanto por seguridad como por coste de inversión, lo que conlleva las siguientes limitaciones: i) dichas infraestructuras deben sobredimensionarse para almacenar los datos procedentes de los satélites, ii) la información debe ser procesada en la infraestructura y después distribuida con métodos tradicionales a los usuarios finales y iii) la arquitectura del sistema impide que el servicio ofrecido sea flexible.
+Sin embargo, dichos sistemas proporcionan la información a unos precios elevados, lo que limita el acceso a la misma de un mayor número de usuarios de otros ámbitos y del público en general. Esto ocurre, principalmente, por dos motivos:
+\begin{enumerate}
+\item La tecnología empleada es cara.
+\item Los caminos que sigue la información desde que se obtiene con los satélites hasta que llega a los usuarios requieren de unas infraestructuras específicas, que conllevan un mayor coste que el propio de la instrumentación empleada, es decir, el satélite.
+\end{enumerate}
 
-Sin embargo, en los últimos años la tecnología de internet del futuro ha ido desarrollando nuevas características, sobre todo con la aparición de sistemas distribuidos o también denominados \emph{cloud} o nube. La nube puede contribuir a agilizar tanto la infraestructura, anteriormente descrita, como el servicio que se proporciona al cliente final, debido a sus características: i) es elástica, ii) es escalable, iii) es flexible y iv) puede trabajar bajo demanda.
+Sin embargo, en los últimos años la tecnología de internet del futuro ha ido desarrollando nuevas características, sobre todo con la aparición de sistemas distribuidos o también denominados \emph{cloud} o nube. La nube puede contribuir a agilizar tanto la infraestructura, anteriormente descrita, como el servicio que se proporciona al cliente final, debido a sus características:
+\begin{itemize}
+\item Es elástica
+\item Es escalable
+\item Es flexible
+\item Puede trabajar bajo demanda
+\end{itemize}
 
 En el proyecto GEO-Cloud se estudia la posibilidad de transferir los centros de datos de Elecnor Deimos a la nube, con el objetivo de procesar y distribuir las imágenes capturadas con satélites de observación de la Tierra en nube, y comprobar si realmente esta tecnología puede emplearse en los tradicionales sistemas de observación de la Tierra.
 
 GEO-Cloud nace, por tanto, en el seno del proyecto europeo integrador Fed4FIRE (IP FP7 project nº 318389).
 
 Fed4FIRE\cite{F4F} es un proyecto de integración FP7 cuya causa es la búsqueda y la experimentación con la internet del futuro. El proyecto está conformado por 17 organizaciones de 8 países distintos.
-Principalmente, sus objetivos se basan en construir herramientas para que los investigadores puedan realizar diversos experimentos. Estas utilidades son:
+Principalmente, sus objetivos se basan en construir diversas herramientas\footnote{Para más información ir a \url{http://www.fed4fire.eu/}} para que los investigadores puedan realizar diversos experimentos, entre las que nosotros utilizaremos las siguientes:
 \begin{itemize}
 \item Virtual Wall
 \item PlanetLab Europe
-\item Norbit
-\item w-iLab.t
-\item Nitos
-\item Netmode
-\item SmartSantander
-\item FuSeCo
-\item UBristol OFELIA island
-\item Koren testbed
-\item NITOS testbed
 \item BonFIRE
 \end{itemize}
-
-De entre toda esta cantidad de herramientas que se ofrecen, el proyecto GEO-Cloud utilizará Virtual Wall, PlanetLab Europe y BonFIRE.
 
 El proyecto GEO-Cloud consiste en la construcción de un experimento con las distintas secciones:
 \begin{itemize}
 \item Diseñar y construir un orquestador en la nube BonFIRE que permita el procesamiento de las imágenes obtenidas por los satélites y controle todo este proceso. Estos procesadores son proporcionados por la empresa Elecnor Deimos y se tratarán como caja negra.
+
 \item Realizar un sistema de archivo y catálogo para conseguir que el resultado obtenido del procesamiento anterior quede almacenado en la nube y accesible por los clientes finales.
-\item Diseñar y construir un pequeño experimento para obtener las medidas realies de los parámetros y métricas involucradas en las comunicaciones de todos los componentes como clientes, estaciones de tierra, nube y constelación de satélites.
-\item Diseñar y construir el software que simulará los distintos satélites, estaciones de tierra y clientes accediendo a los recursos mediante un servicio web. Para este proceso será necesario  conocer los distintos parámetros y métricas de comunicacion reales (obtenidos en el paso anterior)  para construir un experimento realista.
+
+\item Diseñar y construir un pequeño experimento sobre PlanetLab Europe, para obtener las medidas reales de los parámetros y métricas involucradas en las comunicaciones de todos los componentes como clientes, estaciones de tierra, nube y constelación de satélites.
+
+\item Diseñar y construir el software que simulará sobre VirtualWall, los distintos satélites, estaciones de tierra y clientes accediendo a los recursos mediante un servicio web. Para este proceso será necesario  conocer los distintos parámetros y métricas de comunicacion reales (obtenidos en el paso anterior)  para construir un experimento realista.
+
+\item Construir un experimento aunando lo desarrollado en los tres testbeds antes mencionados.
+
 \item Finalmente, para validad el sistema se simulará un caso de uso.
 \end{itemize}
 
@@ -45,17 +50,24 @@ El proyecto GEO-Cloud consiste en la construcción de un experimento con las dis
 \subsection{Problemática}
 \label{sec:problematica}
 
+En las empresas actuales de observación de la Tierra, tanto por seguridad como por coste de inversión,  las instalaciones donde se procesan y distribuyen los datos están en localizaciones propiedad de las empresas explotadoras de los datos, tanto por seguridad como por coste de inversión, lo que conlleva las siguientes limitaciones:
+\begin{itemize}
+\item Dichas infraestructuras deben sobredimensionarse para almacenar los datos procedentes de los satélites.
+\item La información debe ser procesada en la infraestructura y después distribuida con métodos tradicionales a los usuarios finales.
+\item La arquitectura del sistema impide que el servicio ofrecido sea flexible.
+\item Estos sistemas no son escalables.
+\end{itemize}
+
+Por contrapartida, en los últimos años la tecnología de internet del futuro ha ido desarrollando nuevas características, sobre todo con la aparición de sistemas distribuidos o también denominados \emph{cloud} o nube. La nube puede contribuir a agilizar tanto la infraestructura, anteriormente descrita, como el servicio que se proporciona al cliente final, debido a sus características:
+\begin{itemize}
+\item Es elástica
+\item Es escalable
+\item Es flexible
+\item Puede trabajar bajo demanda
+\end{itemize}
+
 Geo-cloud pretende enfrentar dos implementaciones. La primera y ya asentada configuración propia de las compañías procesando sus propias imágenes y almacenándolas, con todo lo que conlleva.
-La segunda, el resultado de la implementación de Geo-cloud. Esta implementación estará en la nube permitiendo.
-
-
-
-% \href{}
-
-
-
-
-
+La segunda, el proyecto GEO-Cloud que estudia la posibilidad de transferir los centros de datos de Elecnor Deimos a la nube, con el objetivo de procesar y distribuir las imágenes capturadas con satélites de observación de la Tierra en nube, y comprobar si realmente esta tecnología puede emplearse en los tradicionales sistemas de observación de la Tierra.
 
 
 % Local Variables:

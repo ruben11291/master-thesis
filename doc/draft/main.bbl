@@ -16,32 +16,51 @@ Ruby~Software Community.
 \newblock \url{https://www.ruby-lang.org/en/documentation/}, última consulta
   el 16 de Febrero de 2014.
 
+\bibitem{BF}
+BonFIRE Consortium and University of~Southampton.
+\newblock {BonFIRE Documentation}.
+\newblock \url{http://doc.bonfire-project.eu/R4.0.5/}, última consulta el 24
+  de Febrero de 2014.
+
+\bibitem{F4F}
+Fed4FIRE Consortium.
+\newblock {Fed4FIRE Documentation}.
+\newblock \url{http://doc.fed4fire.eu/index.html}, última consulta el 24 de
+  Febrero de 2014.
+
+\bibitem{PLE}
+PlanetLab Europe.
+\newblock {PlanetLab Documentation}.
+\newblock \url{http://doc.planet-lab.eu/html/}, última consulta el 24 de
+  Febrero de 2014.
+
 \bibitem{GPLv3}
 Free~Software Foundation.
 \newblock {Licencia GPL versión 3 de la Free Software Foundation}.
 \newblock \url{http://www.fsf.org/licensing/licenses/gpl.html}, última
-  consulta el 8 de Noviembre de 2013.
+  consulta el 13 de Enero de 2014.
 
 \bibitem{Python}
 Python~Software Foundation.
 \newblock Python v3.4 documentation.
-\newblock última consulta el 8 de Noviembre de 2013.
+\newblock última consulta el 18 de Febrero de 2014.
 
 \bibitem{GS}
-GeoNetwork.
-\newblock Geonetwork user manual.
+GeoServer.
+\newblock Geoserveruser manual.
 \newblock \url{http://docs.geoserver.org/stable/en/user/}, última consulta el
   16 de Febrero de 2014.
-
-\bibitem{GN}
-GeoNetwork.
-\newblock Geonetwork user manual.
-\newblock Enero, 30 , 2014.
 
 \bibitem{UML}
 Object~Management Group.
 \newblock Omg unified modeling language, infraestructure.
 \newblock Abril, 5 , 2010.
+
+\bibitem{VW}
+iMinds.
+\newblock {VirtualWall Documentation}.
+\newblock \url{http://www.iminds.be/en/develop-test}, última consulta el 24 de
+  Febrero de 2014.
 
 \bibitem{latex}
 L.~Lamport.
