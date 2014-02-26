@@ -56,8 +56,15 @@ Object~Management Group.
 \newblock Omg unified modeling language, infraestructure.
 \newblock Abril, 5 , 2010.
 
+\bibitem{jFed}
+iMinds Research~Institute.
+\newblock jfed : Java based framework to support sfa testbed federation client
+  tools.
+\newblock \url{http:http://jfed.iminds.be/}, última consulta el 26 de Febrero
+  de 2014.
+
 \bibitem{VW}
-iMinds.
+iMinds Research~Institute.
 \newblock {VirtualWall Documentation}.
 \newblock \url{http://www.iminds.be/en/develop-test}, última consulta el 24 de
   Febrero de 2014.

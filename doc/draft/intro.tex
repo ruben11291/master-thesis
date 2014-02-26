@@ -1,7 +1,7 @@
 \section{Introducción}
 \label{sec:intro}
 
-Las compañías dedicadas a observación de la Tierra, conocidas como \emph{EO industries} en la jerga internacional, han incrementado la venta de imágenes en un 550\% en la última década. Se estima que este aumento sea de cuatro veces superior en lo que resta de década. Por esta motivo, observación de la Tierra está reconocido como uno de los campos clave en el ámbito europeo. Para apoyar dicho ámbito, la Comisión Europea junto con la Agencia Espacial Europea y la Agencia Europea del Medioambiente (EC, ESA y EEA por sus siglas en inglés respectivamente) han creado el sistema GMES/Copernicus, de modo que aumente la capacidad europea en temas relacionados con la observación de la Tierra.
+Las compañías dedicadas a observación de la Tierra, conocidas como \emph{EO industries} en la jerga internacional, han incrementado la venta de imágenes en un 550\% en la última década. Se estima que este aumento sea de cuatro veces superior en lo que resta de la actual. Por este motivo, observación de la Tierra está reconocido como uno de los campos clave en el ámbito europeo. Para apoyar dicho ámbito, la Comisión Europea junto con la Agencia Espacial Europea y la Agencia Europea del Medioambiente (EC, ESA y EEA por sus siglas en inglés respectivamente) han creado el sistema GMES/Copernicus, de modo que aumente la capacidad europea en temas relacionados con la observación de la Tierra.
 
 La observación de la Tierra consiste en el registro de datos espacio temporales del mundo, y se aplican a numerosos sectores: monitorización del medioambiente, desastres naturales y seguridad ciudadana entre otros. Los sensores que aportan mayor información al respecto son los satélites de observación de la Tierra.
 
@@ -11,7 +11,7 @@ Sin embargo, dichos sistemas proporcionan la información a unos precios elevado
 \item Los caminos que sigue la información desde que se obtiene con los satélites hasta que llega a los usuarios requieren de unas infraestructuras específicas, que conllevan un mayor coste que el propio de la instrumentación empleada, es decir, el satélite.
 \end{enumerate}
 
-Sin embargo, en los últimos años la tecnología de internet del futuro ha ido desarrollando nuevas características, sobre todo con la aparición de sistemas distribuidos o también denominados \emph{cloud} o nube. La nube puede contribuir a agilizar tanto la infraestructura, anteriormente descrita, como el servicio que se proporciona al cliente final, debido a sus características:
+Por otro lado, en los últimos años la tecnología de \emph{internet del futuro} ha ido desarrollando nuevas características, sobre todo con la aparición de sistemas distribuidos, también denominados \emph{cloud} o nube. La nube puede contribuir a agilizar tanto la infraestructura, anteriormente descrita, como el servicio que se proporciona al cliente final, debido a sus características:
 \begin{itemize}
 \item Es elástica
 \item Es escalable
@@ -19,19 +19,21 @@ Sin embargo, en los últimos años la tecnología de internet del futuro ha ido 
 \item Puede trabajar bajo demanda
 \end{itemize}
 
-En el proyecto GEO-Cloud se estudia la posibilidad de transferir los centros de datos de Elecnor Deimos a la nube, con el objetivo de procesar y distribuir las imágenes capturadas con satélites de observación de la Tierra en nube, y comprobar si realmente esta tecnología puede emplearse en los tradicionales sistemas de observación de la Tierra.
+En el proyecto GEO-Cloud se estudia la posibilidad de transferir los centros de datos de Elecnor Deimos a la nube, con el objetivo de procesar y distribuir las imágenes capturadas con satélites de observación de la Tierra en nube, y comprobar si realmente esta tecnología puede sustituirse por los tradicionales sistemas de observación de la Tierra.
 
-GEO-Cloud nace, por tanto, en el seno del proyecto europeo integrador Fed4FIRE (IP FP7 project nº 318389).
+GEO-Cloud nace, por tanto, en el seno del proyecto europeo integrador Fed4FIRE\cite{F4F} (IP FP7 project nº 318389).
 
-Fed4FIRE\cite{F4F} es un proyecto de integración FP7 cuya causa es la búsqueda y la experimentación con la internet del futuro. El proyecto está conformado por 17 organizaciones de 8 países distintos.
-Principalmente, sus objetivos se basan en construir diversas herramientas\footnote{Para más información ir a \url{http://www.fed4fire.eu/}} para que los investigadores puedan realizar diversos experimentos, entre las que nosotros utilizaremos las siguientes:
+El objetivo del proyecto Fed4FIRE es la creación de una red federada de infraestructuras de \emph{internet del futuro} para realizar experimentos científicos.  El proyecto está conformado por 29 organizaciones de 11 países distintos, con un coste total de 10.851.133 de euros.\footnote{Para más información visitar \url{http://www.fed4fire.eu/}}.
+
+En GEO-Cloud  utilizaremos las siguientes infraestructuras:
 \begin{itemize}
-\item Virtual Wall
-\item PlanetLab Europe
-\item BonFIRE
+\item Virtual Wall\cite{VW}
+\item PlanetLab Europe\cite{PLE}
+\item BonFIRE\cite{BF}
 \end{itemize}
 
-El proyecto GEO-Cloud consiste en la construcción de un experimento con las distintas secciones:
+El proyecto GEO-Cloud consiste en el modelado y la implementación de un experimento para validad la infraestructura de Fed4FIRE. Para desplegar el experimento en Fed4FIRE habrá que desarrollar los siguientes módulos software:
+
 \begin{itemize}
 \item Diseñar y construir un orquestador en la nube BonFIRE que permita el procesamiento de las imágenes obtenidas por los satélites y controle todo este proceso. Estos procesadores son proporcionados por la empresa Elecnor Deimos y se tratarán como caja negra.
 
@@ -43,14 +45,14 @@ El proyecto GEO-Cloud consiste en la construcción de un experimento con las dis
 
 \item Construir un experimento aunando lo desarrollado en los tres testbeds antes mencionados.
 
-\item Finalmente, para validad el sistema se simulará un caso de uso.
+\item Finalmente, para validar el sistema se simulará un caso de uso.
 \end{itemize}
 
 
 \subsection{Problemática}
 \label{sec:problematica}
 
-En las empresas actuales de observación de la Tierra, tanto por seguridad como por coste de inversión,  las instalaciones donde se procesan y distribuyen los datos están en localizaciones propiedad de las empresas explotadoras de los datos, tanto por seguridad como por coste de inversión, lo que conlleva las siguientes limitaciones:
+En las empresas actuales de observación de la Tierra,  las instalaciones donde se procesan y distribuyen los datos están en localizaciones propiedad de las empresas explotadoras de los datos, tanto por seguridad como por coste de inversión, lo que conlleva las siguientes limitaciones:
 \begin{itemize}
 \item Dichas infraestructuras deben sobredimensionarse para almacenar los datos procedentes de los satélites.
 \item La información debe ser procesada en la infraestructura y después distribuida con métodos tradicionales a los usuarios finales.
@@ -58,17 +60,7 @@ En las empresas actuales de observación de la Tierra, tanto por seguridad como 
 \item Estos sistemas no son escalables.
 \end{itemize}
 
-Por contrapartida, en los últimos años la tecnología de internet del futuro ha ido desarrollando nuevas características, sobre todo con la aparición de sistemas distribuidos o también denominados \emph{cloud} o nube. La nube puede contribuir a agilizar tanto la infraestructura, anteriormente descrita, como el servicio que se proporciona al cliente final, debido a sus características:
-\begin{itemize}
-\item Es elástica
-\item Es escalable
-\item Es flexible
-\item Puede trabajar bajo demanda
-\end{itemize}
-
-Geo-cloud pretende enfrentar dos implementaciones. La primera y ya asentada configuración propia de las compañías procesando sus propias imágenes y almacenándolas, con todo lo que conlleva.
-La segunda, el proyecto GEO-Cloud que estudia la posibilidad de transferir los centros de datos de Elecnor Deimos a la nube, con el objetivo de procesar y distribuir las imágenes capturadas con satélites de observación de la Tierra en nube, y comprobar si realmente esta tecnología puede emplearse en los tradicionales sistemas de observación de la Tierra.
-
+Tras la realización de este proyecto, se podrá valorar si es valorable la posibilidad de cambiar los sistemas actuales de procesado a un procesamiento en \emph{Cloud}.
 
 % Local Variables:
 %   coding: utf-8
