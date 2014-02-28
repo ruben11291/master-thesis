@@ -1,0 +1,25 @@
+2014-02-27 13:10:37,447 LinuxApplication INFO  guid 2 - host planetlab1.u-strasbg.fr - Retrieving 'stdout' trace all  
+Ignoring unknown parameter "name resolver order"
+2014-02-27 13:10:37,456 PlanetlabNode INFO  guid 1 - host planetlab1.u-strasbg.fr - Deploying node 
+2014-02-27 13:10:37,456 ExperimentController ERROR Error while processing tasks in the EC: Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/nepi/execution/ec.py", line 918, in _process
+    timeout = tdiffsec(task.timestamp, now)
+  File "/usr/lib/python2.6/site-packages/nepi/util/timefuncs.py", line 65, in tdiffsec
+    return diff.total_seconds()
+AttributeError: 'datetime.timedelta' object has no attribute 'total_seconds'
+
+2014-02-27 13:10:37,456 ExperimentController ERROR Error while processing tasks in the EC: Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/nepi/execution/ec.py", line 918, in _process
+    timeout = tdiffsec(task.timestamp, now)
+  File "/usr/lib/python2.6/site-packages/nepi/util/timefuncs.py", line 65, in tdiffsec
+    return diff.total_seconds()
+AttributeError: 'datetime.timedelta' object has no attribute 'total_seconds'
+
+2014-02-27 13:10:48,019 LinuxApplication ERROR  guid 2 - host planetlab1.u-strasbg.fr -  Couldn't find trace stdout  - ERROR: Permission denied (publickey,keyboard-interactive).
+  
+Traceback (most recent call last):
+  File "pPLE.py", line 28, in <module>
+    ec.shutdown()
+  File "/usr/lib/python2.6/site-packages/nepi/execution/ec.py", line 813, in shutdown
+    raise RuntimeError("EC failure. Can not exit gracefully")
+RuntimeError: EC failure. Can not exit gracefully
