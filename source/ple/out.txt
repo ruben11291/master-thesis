@@ -1,0 +1,44 @@
+2014-02-28 13:14:05,128 LinuxApplication INFO  guid 3 - host planetlab1.u-strasbg.fr - Retrieving 'stdout' trace all  
+2014-02-28 13:14:05,148 LinuxNode INFO  guid 1 - host planetlab1.u-strasbg.fr - Deploying node 
+2014-02-28 13:14:05,151 LinuxNode INFO  guid 2 - host planetlab1.dit.upm.es - Deploying node 
+2014-02-28 13:14:05,582 LinuxApplication ERROR  guid 3 - host planetlab1.u-strasbg.fr -  Couldn't find trace stdout  - OUT: error
+  
+2014-02-28 13:14:05,584 LinuxApplication INFO  guid 4 - host planetlab1.dit.upm.es - Retrieving 'stdout' trace all  
+2014-02-28 13:14:09,161 LinuxApplication INFO  guid 3 - host planetlab1.u-strasbg.fr - Deploying command 'ping -c5planetlab1.dit.upm.es'  
+2014-02-28 13:14:09,494 LinuxApplication INFO  guid 3 - host planetlab1.u-strasbg.fr - Uploading command 'ping -c5planetlab1.dit.upm.es' 
+2014-02-28 13:14:09,962 LinuxApplication INFO  guid 3 - host planetlab1.u-strasbg.fr - Provisioning finished 
+2014-02-28 13:14:12,823 LinuxNode ERROR  guid 2 - host planetlab1.dit.upm.es - Unresponsive host. Wrong answer.  - ERROR: Permission denied (publickey).
+  
+2014-02-28 13:14:12,823 LinuxNode ERROR  guid 2 - host planetlab1.dit.upm.es - Deploy failed. Unresponsive node planetlab1.dit.upm.es 
+2014-02-28 13:14:12,824 LinuxNode ERROR  guid 2 - host planetlab1.dit.upm.es - Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nepi/execution/resource.py", line 114, in wrapped
+    return func(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/nepi/execution/resource.py", line 514, in deploy
+    self.do_deploy()
+  File "/usr/local/lib/python2.7/dist-packages/nepi/resources/linux/node.py", line 358, in do_deploy
+    self.do_provision()
+  File "/usr/local/lib/python2.7/dist-packages/nepi/resources/linux/node.py", line 330, in do_provision
+    raise RuntimeError, msg
+RuntimeError: Deploy failed. Unresponsive node planetlab1.dit.upm.es
+ 
+2014-02-28 13:14:12,825 ExperimentController ERROR Error occurred while executing task: Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nepi/execution/ec.py", line 960, in _execute
+    task.result = task.callback()
+  File "/usr/local/lib/python2.7/dist-packages/nepi/execution/resource.py", line 904, in deploy_with_conditions
+    self.deploy()
+  File "/usr/local/lib/python2.7/dist-packages/nepi/execution/resource.py", line 114, in wrapped
+    return func(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/nepi/execution/resource.py", line 514, in deploy
+    self.do_deploy()
+  File "/usr/local/lib/python2.7/dist-packages/nepi/resources/linux/node.py", line 358, in do_deploy
+    self.do_provision()
+  File "/usr/local/lib/python2.7/dist-packages/nepi/resources/linux/node.py", line 330, in do_provision
+    raise RuntimeError, msg
+RuntimeError: Deploy failed. Unresponsive node planetlab1.dit.upm.es
+
+2014-02-28 13:14:13,165 LinuxApplication INFO  guid 4 - host planetlab1.dit.upm.es - Deploying command 'ping -c5planetlab1.u-strasbg.fr'  
+2014-02-28 13:14:13,286 LinuxApplication ERROR  guid 4 - host planetlab1.dit.upm.es -  Couldn't find trace stdout  - ERROR: Permission denied (publickey).
+  
+2014-02-28 13:14:13,337 LinuxApplication INFO  guid 3 - host planetlab1.u-strasbg.fr - Releasing resource 
+2014-02-28 13:14:14,338 LinuxNode INFO  guid 1 - host planetlab1.u-strasbg.fr - Cleaning up processes 
+2014-02-28 13:14:21,027 LinuxApplication INFO  guid 4 - host planetlab1.dit.upm.es - Releasing resource 

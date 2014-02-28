@@ -8,22 +8,39 @@ ec = ExperimentController("testple")
 
 # The username in this case is the slice name, the one to use for login in 
 # via ssh into PlanetLab nodes. Replace with your own slice name.
-hostname = "planetlab1.u-strasbg.fr"
-username="wal8il8im88ge_as"
+hostname1 = "planetlab1.u-strasbg.fr"
+hostname2 = "planetlab1.dit.upm.es"
+slice1 = "test1"
+slice2 = "test2"
+
+name1= "wa8il8im88ge"
+
+#username="wal8il8im88ge_as"
 ssh_key = "/home/deimos/.ssh/id_rsa"
-node = ec.register_resource("LinuxNode")
-ec.set(node,"hostname",hostname)
-ec.set(node,"username",username)
-ec.set(node,"identity",ssh_key)
+node1 = ec.register_resource("LinuxNode")
+ec.set(node1,"hostname",hostname1)
+ec.set(node1,"username",name1+"_"+slice1)
+ec.set(node1,"identity",ssh_key)
+
+node2 = ec.register_resource("LinuxNode")
+ec.set(node2,"hostname",hostname2)
+ec.set(node2,"username",name1+"_"+slice2)
+ec.set(node2,"identity",ssh_key)
 
 app = ec.register_resource("LinuxApplication")
-ec.set(app,"command","ping www.google.es")
-ec.register_connection(app,node)
+ec.set(app,"command","ping -c5"+hostname2)
+ec.register_connection(app,node1)
 
+app2 = ec.register_resource("LinuxApplication")
+ec.set(app2,"command","ping -c5"+hostname1)
+ec.register_connection(app2,node2)
 
 # Deploy the experiment:
 ec.deploy()
 ec.trace(app,"stdout")
+ec.trace(app2,"stdout")
+ec.wait_finished(app)
+ec.wait_finished(app2)
 # Do the experiment controller shutdown:
 ec.shutdown()
 
