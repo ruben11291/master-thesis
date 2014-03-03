@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.10.27)  1 MAR 2014 12:04
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.10.27)  3 MAR 2014 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,7 +573,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-<figures/logos/emblema_informatica-gray.pdf, id=28, 618.11432pt x 737.07487pt>
+<figures/logos/emblema_informatica-gray.pdf, id=40, 618.11432pt x 737.07487pt>
 File: figures/logos/emblema_informatica-gray.pdf Graphic file (type pdf)
 
 <use figures/logos/emblema_informatica-gray.pdf>
@@ -656,14 +656,14 @@ LaTeX Info: Redefining \% on input line 21.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E5AC2CCD483B99A6D0C483D0A1A1DCFB;336.
+(rerunfilecheck)             Checksum: 7086A35163B90398B29519A48E066204;531.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
  ) 
 Here is how much of TeX's memory you used:
- 6991 strings out of 493485
- 100268 string characters out of 3143525
- 188357 words of memory out of 3000000
- 10164 multiletter control sequences out of 15000+200000
+ 6997 strings out of 493485
+ 100378 string characters out of 3143525
+ 188360 words of memory out of 3000000
+ 10167 multiletter control sequences out of 15000+200000
  53650 words of font info for 45 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,11n,78p,370b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -673,10 +673,10 @@ hare/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/publ
 ic/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 tt10.pfb>
-Output written on main.pdf (5 pages, 254287 bytes).
+Output written on main.pdf (5 pages, 257076 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 269 compressed objects within 3 object streams
- 21 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 284 compressed objects within 3 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 
