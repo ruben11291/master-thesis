@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rspec generated="2014-03-03T13:23:48.674+01:00" generated_by="Experimental jFed Rspec Editor" type="request" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd" xmlns="http://www.geni.net/resources/rspec/3" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <node client_id="GS0" component_id="urn:publicid:IDN+ple:upcple+node+aguila1.lsi.upc.edu" component_manager_id="urn:publicid:IDN+ple:ibbtple+authority+cm" exclusive="false">
+        <sliver_type name="plab-vserver"/>
+        <jFed:location x="43.0" y="40.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <sliver/>
+    </node>
+    <node client_id="GS1" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="246.0" y="42.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS2" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="465.0" y="41.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS3" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="43.0" y="118.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS4" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="242.0" y="115.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS5" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="462.0" y="111.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS6" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="39.0" y="184.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS7" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="237.0" y="184.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS8" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="477.0" y="181.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS9" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="31.0" y="259.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS10" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="247.0" y="261.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS11" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="475.0" y="253.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS12" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <jFed:location x="37.0" y="312.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+</rspec>
