@@ -1,0 +1,480 @@
+"GEO-Cloud_001-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,84089.193,11 Aug 2014 15:51:29.193,84734.890,11 Aug 2014 16:02:14.890,645.698
+
+"GEO-Cloud_001-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,83236.377,11 Aug 2014 15:37:16.377,83850.615,11 Aug 2014 15:47:30.615,614.238
+
+
+"GEO-Cloud_001-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,80058.332,11 Aug 2014 14:44:18.332,80581.741,11 Aug 2014 14:53:01.741,523.409
+
+"GEO-Cloud_001-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,78461.000,11 Aug 2014 14:17:41.000,78616.112,11 Aug 2014 14:20:16.112,155.112
+
+
+"GEO-Cloud_001-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,80867.052,11 Aug 2014 14:57:47.052,81427.728,11 Aug 2014 15:07:07.728,560.676
+
+"GEO-Cloud_001-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,79118.754,11 Aug 2014 14:28:38.754,79424.699,11 Aug 2014 14:33:44.699,305.945
+7,84694.764,11 Aug 2014 16:01:34.764,84999.400,11 Aug 2014 16:06:39.400,304.636
+
+
+"GEO-Cloud_001-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,79526.022,11 Aug 2014 14:35:26.022,79762.293,11 Aug 2014 14:39:22.293,236.271
+
+
+"GEO-Cloud_001-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+12,82396.795,11 Aug 2014 15:23:16.795,82984.621,11 Aug 2014 15:33:04.621,587.826
+
+"GEO-Cloud_002-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,83753.408,11 Aug 2014 15:45:53.408,84389.939,11 Aug 2014 15:56:29.939,636.531
+
+"GEO-Cloud_002-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,82890.061,11 Aug 2014 15:31:30.061,83517.403,11 Aug 2014 15:41:57.403,627.342
+
+
+"GEO-Cloud_002-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,79724.521,11 Aug 2014 14:38:44.521,80223.648,11 Aug 2014 14:47:03.648,499.127
+
+
+
+"GEO-Cloud_002-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,80541.354,11 Aug 2014 14:52:21.354,81071.918,11 Aug 2014 15:01:11.918,530.564
+
+"GEO-Cloud_002-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,78803.723,11 Aug 2014 14:23:23.723,79069.016,11 Aug 2014 14:27:49.016,265.294
+7,84359.488,11 Aug 2014 15:55:59.488,84981.288,11 Aug 2014 16:06:21.288,621.800
+
+
+"GEO-Cloud_002-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,79172.101,11 Aug 2014 14:29:32.101,79415.062,11 Aug 2014 14:33:35.062,242.961
+
+
+"GEO-Cloud_002-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+12,82057.409,11 Aug 2014 15:17:37.409,82646.965,11 Aug 2014 15:27:26.965,589.556
+
+"GEO-Cloud_003-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,83419.427,11 Aug 2014 15:40:19.427,84043.869,11 Aug 2014 15:50:43.869,624.441
+
+"GEO-Cloud_003-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,82544.838,11 Aug 2014 15:25:44.838,83182.892,11 Aug 2014 15:36:22.892,638.053
+
+
+"GEO-Cloud_003-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,79392.162,11 Aug 2014 14:33:12.162,79863.830,11 Aug 2014 14:41:03.830,471.668
+
+
+
+"GEO-Cloud_003-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,80218.928,11 Aug 2014 14:46:58.928,80713.233,11 Aug 2014 14:55:13.233,494.305
+
+"GEO-Cloud_003-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,78493.082,11 Aug 2014 14:18:13.082,78709.737,11 Aug 2014 14:21:49.737,216.655
+7,84025.126,11 Aug 2014 15:50:25.126,84637.228,11 Aug 2014 16:00:37.228,612.102
+
+
+"GEO-Cloud_003-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,78818.156,11 Aug 2014 14:23:38.156,79068.265,11 Aug 2014 14:27:48.265,250.109
+15,84793.019,11 Aug 2014 16:03:13.019,84999.400,11 Aug 2014 16:06:39.400,206.381
+
+
+"GEO-Cloud_003-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+11,81718.066,11 Aug 2014 15:11:58.066,82309.500,11 Aug 2014 15:21:49.500,591.434
+
+"GEO-Cloud_004-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,83087.032,11 Aug 2014 15:34:47.032,83696.279,11 Aug 2014 15:44:56.279,609.248
+
+"GEO-Cloud_004-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,82200.349,11 Aug 2014 15:20:00.349,82846.828,11 Aug 2014 15:30:46.828,646.478
+
+
+"GEO-Cloud_004-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,79061.252,11 Aug 2014 14:27:41.252,79501.630,11 Aug 2014 14:35:01.630,440.378
+6,84801.059,11 Aug 2014 16:03:21.059,84999.400,11 Aug 2014 16:06:39.400,198.341
+
+
+
+"GEO-Cloud_004-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,79900.269,11 Aug 2014 14:41:40.269,80350.543,11 Aug 2014 14:49:10.543,450.273
+
+"GEO-Cloud_004-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+7,83691.375,11 Aug 2014 15:44:51.375,84292.740,11 Aug 2014 15:54:52.740,601.365
+
+
+"GEO-Cloud_004-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,78463.887,11 Aug 2014 14:17:43.887,78721.554,11 Aug 2014 14:22:01.554,257.667
+15,84444.659,11 Aug 2014 15:57:24.659,84662.106,11 Aug 2014 16:01:02.106,217.447
+
+
+"GEO-Cloud_004-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+10,81378.446,11 Aug 2014 15:06:18.446,81971.900,11 Aug 2014 15:16:11.900,593.454
+
+"GEO-Cloud_005-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,82756.507,11 Aug 2014 15:29:16.507,83347.215,11 Aug 2014 15:39:07.215,590.708
+
+"GEO-Cloud_005-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,81856.715,11 Aug 2014 15:14:16.715,82509.393,11 Aug 2014 15:25:09.393,652.678
+
+
+"GEO-Cloud_005-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,78732.397,11 Aug 2014 14:22:12.397,79136.748,11 Aug 2014 14:28:56.748,404.351
+7,84459.534,11 Aug 2014 15:57:39.534,84999.400,11 Aug 2014 16:06:39.400,539.866
+
+
+
+"GEO-Cloud_005-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,79586.901,11 Aug 2014 14:36:26.901,79982.674,11 Aug 2014 14:43:02.674,395.773
+
+"GEO-Cloud_005-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,83358.407,11 Aug 2014 15:39:18.407,83947.980,11 Aug 2014 15:49:07.980,589.573
+
+
+"GEO-Cloud_005-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+15,84095.914,11 Aug 2014 15:51:35.914,84309.426,11 Aug 2014 15:55:09.426,213.512
+
+
+"GEO-Cloud_005-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+10,81038.711,11 Aug 2014 15:00:38.711,81634.313,11 Aug 2014 15:10:34.313,595.602
+
+"GEO-Cloud_006-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,82428.185,11 Aug 2014 15:23:48.185,82996.688,11 Aug 2014 15:33:16.688,568.503
+
+"GEO-Cloud_006-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,81514.089,11 Aug 2014 15:08:34.089,82170.786,11 Aug 2014 15:19:30.786,656.697
+
+
+"GEO-Cloud_006-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,78461.000,11 Aug 2014 14:17:41.000,78768.641,11 Aug 2014 14:22:48.641,307.641
+7,84118.474,11 Aug 2014 15:51:58.474,84778.962,11 Aug 2014 16:02:58.962,660.488
+
+
+
+"GEO-Cloud_006-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,79281.656,11 Aug 2014 14:31:21.656,79607.123,11 Aug 2014 14:36:47.123,325.468
+4,84923.583,11 Aug 2014 16:05:23.583,84999.400,11 Aug 2014 16:06:39.400,75.817
+
+"GEO-Cloud_006-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,83026.390,11 Aug 2014 15:33:46.390,83603.096,11 Aug 2014 15:43:23.096,576.706
+
+
+"GEO-Cloud_006-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+15,83746.940,11 Aug 2014 15:45:46.940,83957.276,11 Aug 2014 15:49:17.276,210.336
+
+
+"GEO-Cloud_006-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+10,80699.021,11 Aug 2014 14:54:59.021,81296.897,11 Aug 2014 15:04:56.897,597.876
+
+"GEO-Cloud_007-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,82101.988,11 Aug 2014 15:18:21.988,82644.141,11 Aug 2014 15:27:24.141,542.153
+
+"GEO-Cloud_007-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,81172.143,11 Aug 2014 15:02:52.143,81830.685,11 Aug 2014 15:13:50.685,658.542
+
+
+"GEO-Cloud_007-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+7,83777.575,11 Aug 2014 15:46:17.575,84434.633,11 Aug 2014 15:57:14.633,657.058
+
+"GEO-Cloud_007-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,81955.480,11 Aug 2014 15:15:55.480,82133.184,11 Aug 2014 15:18:53.184,177.704
+
+
+"GEO-Cloud_007-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+2,78991.597,11 Aug 2014 14:26:31.597,79216.207,11 Aug 2014 14:30:16.207,224.610
+3,84576.773,11 Aug 2014 15:59:36.773,84999.400,11 Aug 2014 16:06:39.400,422.627
+
+"GEO-Cloud_007-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,82695.033,11 Aug 2014 15:28:15.033,83257.743,11 Aug 2014 15:37:37.743,562.710
+
+
+"GEO-Cloud_007-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+15,83397.381,11 Aug 2014 15:39:57.381,83605.349,11 Aug 2014 15:43:25.349,207.968
+
+
+"GEO-Cloud_007-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+10,80359.058,11 Aug 2014 14:49:19.058,80959.316,11 Aug 2014 14:59:19.316,600.258
+
+"GEO-Cloud_008-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,81778.408,11 Aug 2014 15:12:58.408,82289.426,11 Aug 2014 15:21:29.426,511.018
+
+"GEO-Cloud_008-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,80831.037,11 Aug 2014 14:57:11.037,81489.261,11 Aug 2014 15:08:09.261,658.224
+
+
+"GEO-Cloud_008-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+7,83437.014,11 Aug 2014 15:40:37.014,84089.432,11 Aug 2014 15:51:29.432,652.418
+
+"GEO-Cloud_008-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,81554.586,11 Aug 2014 15:09:14.586,81852.454,11 Aug 2014 15:14:12.454,297.868
+
+
+"GEO-Cloud_008-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+2,84231.574,11 Aug 2014 15:53:51.574,84877.722,11 Aug 2014 16:04:37.722,646.147
+
+"GEO-Cloud_008-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,82364.506,11 Aug 2014 15:22:44.506,82912.059,11 Aug 2014 15:31:52.059,547.553
+
+
+"GEO-Cloud_008-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+15,83047.394,11 Aug 2014 15:34:07.394,83253.831,11 Aug 2014 15:37:33.831,206.437
+
+
+"GEO-Cloud_008-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+10,80018.982,11 Aug 2014 14:43:38.982,80621.723,11 Aug 2014 14:53:41.723,602.742
+
+"GEO-Cloud_009-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,81458.092,11 Aug 2014 15:07:38.092,81932.237,11 Aug 2014 15:15:32.237,474.145
+
+"GEO-Cloud_009-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,80490.959,11 Aug 2014 14:51:30.959,81146.655,11 Aug 2014 15:02:26.655,655.697
+
+
+"GEO-Cloud_009-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+7,83096.969,11 Aug 2014 15:34:56.969,83743.508,11 Aug 2014 15:45:43.508,646.539
+
+"GEO-Cloud_009-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,81175.059,11 Aug 2014 15:02:55.059,81550.589,11 Aug 2014 15:09:10.589,375.530
+
+
+"GEO-Cloud_009-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,83888.080,11 Aug 2014 15:48:08.080,84540.115,11 Aug 2014 15:59:00.115,652.035
+
+"GEO-Cloud_009-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,82035.003,11 Aug 2014 15:17:15.003,82566.185,11 Aug 2014 15:26:06.185,531.182
+
+
+"GEO-Cloud_009-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+15,82697.136,11 Aug 2014 15:28:17.136,82902.904,11 Aug 2014 15:31:42.904,205.768
+
+
+"GEO-Cloud_009-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+10,79678.956,11 Aug 2014 14:37:58.956,80284.270,11 Aug 2014 14:48:04.270,605.314
+
+"GEO-Cloud_010-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,81141.499,11 Aug 2014 15:02:21.499,81571.496,11 Aug 2014 15:09:31.496,429.997
+
+"GEO-Cloud_010-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,80151.615,11 Aug 2014 14:45:51.615,80802.516,11 Aug 2014 14:56:42.516,650.902
+
+
+"GEO-Cloud_010-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,82757.150,11 Aug 2014 15:29:17.150,83396.494,11 Aug 2014 15:39:56.494,639.345
+
+"GEO-Cloud_010-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,80804.764,11 Aug 2014 14:56:44.764,81239.100,11 Aug 2014 15:03:59.100,434.337
+
+
+"GEO-Cloud_010-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,83545.919,11 Aug 2014 15:42:25.919,84200.780,11 Aug 2014 15:53:20.780,654.861
+
+"GEO-Cloud_010-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,81706.244,11 Aug 2014 15:11:46.244,82219.749,11 Aug 2014 15:20:19.749,513.505
+
+
+"GEO-Cloud_010-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+15,82346.275,11 Aug 2014 15:22:26.275,82552.247,11 Aug 2014 15:25:52.247,205.972
+
+
+"GEO-Cloud_010-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+10,79338.660,11 Aug 2014 14:32:18.660,79946.628,11 Aug 2014 14:42:26.628,607.968
+
+"GEO-Cloud_011-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,80830.215,11 Aug 2014 14:57:10.215,81206.263,11 Aug 2014 15:03:26.263,376.048
+
+"GEO-Cloud_011-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,79813.374,11 Aug 2014 14:40:13.374,80457.140,11 Aug 2014 14:50:57.140,643.766
+
+
+"GEO-Cloud_011-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,82417.907,11 Aug 2014 15:23:37.907,83048.689,11 Aug 2014 15:34:08.689,630.783
+
+"GEO-Cloud_011-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,80440.506,11 Aug 2014 14:50:40.506,80921.836,11 Aug 2014 14:58:41.836,481.330
+
+
+"GEO-Cloud_011-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,83205.404,11 Aug 2014 15:36:45.404,83860.061,11 Aug 2014 15:47:40.061,654.657
+
+"GEO-Cloud_011-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,81378.585,11 Aug 2014 15:06:18.585,81873.042,11 Aug 2014 15:14:33.042,494.457
+
+
+"GEO-Cloud_011-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+15,81995.147,11 Aug 2014 15:16:35.147,82202.192,11 Aug 2014 15:20:02.192,207.045
+
+
+"GEO-Cloud_011-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+11,78998.419,11 Aug 2014 14:26:38.419,79609.106,11 Aug 2014 14:36:49.106,610.687
+12,84768.974,11 Aug 2014 16:02:48.974,84999.400,11 Aug 2014 16:06:39.400,230.426
+
+"GEO-Cloud_012-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,80526.564,11 Aug 2014 14:52:06.564,80833.610,11 Aug 2014 14:57:13.610,307.045
+
+"GEO-Cloud_012-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,79475.966,11 Aug 2014 14:34:35.966,80110.131,11 Aug 2014 14:45:10.131,634.165
+
+
+"GEO-Cloud_012-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,82078.956,11 Aug 2014 15:17:58.956,82699.723,11 Aug 2014 15:28:19.723,620.766
+
+"GEO-Cloud_012-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,80080.297,11 Aug 2014 14:44:40.297,80600.170,11 Aug 2014 14:53:20.170,519.874
+
+
+"GEO-Cloud_012-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,82866.220,11 Aug 2014 15:31:06.220,83517.641,11 Aug 2014 15:41:57.641,651.421
+
+"GEO-Cloud_012-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,81051.771,11 Aug 2014 15:00:51.771,81525.669,11 Aug 2014 15:08:45.669,473.898
+
+
+"GEO-Cloud_012-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,81643.435,11 Aug 2014 15:10:43.435,81852.404,11 Aug 2014 15:14:12.404,208.970
+
+
+"GEO-Cloud_012-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+11,78657.912,11 Aug 2014 14:20:57.912,79271.374,11 Aug 2014 14:31:11.374,613.463
+12,84430.379,11 Aug 2014 15:57:10.379,84999.400,11 Aug 2014 16:06:39.400,569.021
+
+"GEO-Cloud_013-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,80237.947,11 Aug 2014 14:47:17.947,80446.476,11 Aug 2014 14:50:46.476,208.530
+
+"GEO-Cloud_013-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,79139.636,11 Aug 2014 14:28:59.636,79761.582,11 Aug 2014 14:39:21.582,621.946
+4,84984.892,11 Aug 2014 16:06:24.892,84999.400,11 Aug 2014 16:06:39.400,14.508
+
+
+"GEO-Cloud_013-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,81740.503,11 Aug 2014 15:12:20.503,82349.706,11 Aug 2014 15:22:29.706,609.203
+
+"GEO-Cloud_013-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,79723.375,11 Aug 2014 14:38:43.375,80275.182,11 Aug 2014 14:47:55.182,551.806
+
+
+"GEO-Cloud_013-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,82528.571,11 Aug 2014 15:25:28.571,83173.659,11 Aug 2014 15:36:13.659,645.088
+
+"GEO-Cloud_013-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,80726.033,11 Aug 2014 14:55:26.033,81177.731,11 Aug 2014 15:02:57.731,451.697
+
+
+"GEO-Cloud_013-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,81291.324,11 Aug 2014 15:04:51.324,81503.044,11 Aug 2014 15:08:23.044,211.720
+
+
+"GEO-Cloud_013-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+11,78461.000,11 Aug 2014 14:17:41.000,78933.587,11 Aug 2014 14:25:33.587,472.587
+12,84091.676,11 Aug 2014 15:51:31.676,84673.326,11 Aug 2014 16:01:13.326,581.650
+
+
+"GEO-Cloud_014-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,78804.644,11 Aug 2014 14:23:24.644,79411.556,11 Aug 2014 14:33:31.556,606.911
+4,84632.504,11 Aug 2014 16:00:32.504,84999.400,11 Aug 2014 16:06:39.400,366.896
+
+
+"GEO-Cloud_014-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,81402.759,11 Aug 2014 15:06:42.759,81998.758,11 Aug 2014 15:16:38.758,595.999
+
+"GEO-Cloud_014-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,79369.335,11 Aug 2014 14:32:49.335,79947.625,11 Aug 2014 14:42:27.625,578.290
+
+
+"GEO-Cloud_014-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,82192.678,11 Aug 2014 15:19:52.678,82828.234,11 Aug 2014 15:30:28.234,635.556
+
+"GEO-Cloud_014-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,80401.616,11 Aug 2014 14:50:01.616,80829.283,11 Aug 2014 14:57:09.283,427.667
+
+
+"GEO-Cloud_014-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,80939.001,11 Aug 2014 14:58:59.001,81154.257,11 Aug 2014 15:02:34.257,215.256
+
+
+"GEO-Cloud_014-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+11,78461.000,11 Aug 2014 14:17:41.000,78595.891,11 Aug 2014 14:19:55.891,134.891
+12,83753.023,11 Aug 2014 15:45:53.023,84335.557,11 Aug 2014 15:55:35.557,582.534
+
+
+"GEO-Cloud_015-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,78470.810,11 Aug 2014 14:17:50.810,79059.584,11 Aug 2014 14:27:39.584,588.774
+5,84281.535,11 Aug 2014 15:54:41.535,84840.496,11 Aug 2014 16:04:00.496,558.961
+
+
+"GEO-Cloud_015-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,81065.471,11 Aug 2014 15:01:05.471,81646.464,11 Aug 2014 15:10:46.464,580.993
+
+"GEO-Cloud_015-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,79017.456,11 Aug 2014 14:26:57.456,79617.584,11 Aug 2014 14:36:57.584,600.128
+
+
+"GEO-Cloud_015-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,81858.306,11 Aug 2014 15:14:18.306,82480.956,11 Aug 2014 15:24:40.956,622.650
+
+"GEO-Cloud_015-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,80078.340,11 Aug 2014 14:44:38.340,80479.878,11 Aug 2014 14:51:19.878,401.538
+
+
+"GEO-Cloud_015-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,80586.161,11 Aug 2014 14:53:06.161,80805.695,11 Aug 2014 14:56:45.695,219.534
+
+
+"GEO-Cloud_015-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+12,83414.098,11 Aug 2014 15:40:14.098,83997.698,11 Aug 2014 15:49:57.698,583.599
+
+"GEO-Cloud_016-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,84765.323,11 Aug 2014 16:02:45.323,84999.400,11 Aug 2014 16:06:39.400,234.077
+
+"GEO-Cloud_016-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,78461.000,11 Aug 2014 14:17:41.000,78705.665,11 Aug 2014 14:21:45.665,244.665
+4,83931.928,11 Aug 2014 15:48:51.928,84512.197,11 Aug 2014 15:58:32.197,580.269
+
+
+"GEO-Cloud_016-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,80728.872,11 Aug 2014 14:55:28.872,81292.910,11 Aug 2014 15:04:52.910,564.039
+
+"GEO-Cloud_016-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,78667.641,11 Aug 2014 14:21:07.641,79285.504,11 Aug 2014 14:31:25.504,617.863
+
+
+"GEO-Cloud_016-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,81525.752,11 Aug 2014 15:08:45.752,82131.875,11 Aug 2014 15:18:51.875,606.123
+
+"GEO-Cloud_016-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,79756.545,11 Aug 2014 14:39:16.545,80129.486,11 Aug 2014 14:45:29.486,372.941
+
+
+"GEO-Cloud_016-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,80233.003,11 Aug 2014 14:47:13.003,80457.501,11 Aug 2014 14:50:57.501,224.498
+
+
+"GEO-Cloud_016-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+12,83075.059,11 Aug 2014 15:34:35.059,83659.900,11 Aug 2014 15:44:19.900,584.841
+
+"GEO-Cloud_017-To-Chetumal - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,84426.563,11 Aug 2014 15:57:06.563,84999.400,11 Aug 2014 16:06:39.400,572.837
+
+"GEO-Cloud_017-To-Cordoba - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+4,83583.691,11 Aug 2014 15:43:03.691,84182.297,11 Aug 2014 15:53:02.297,598.606
+
+
+"GEO-Cloud_017-To-Irkutsk - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+5,80393.224,11 Aug 2014 14:49:53.224,80938.157,11 Aug 2014 14:58:58.157,544.933
+
+"GEO-Cloud_017-To-Kourou - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,78461.000,11 Aug 2014 14:17:41.000,78951.737,11 Aug 2014 14:25:51.737,490.737
+
+
+"GEO-Cloud_017-To-Malaysia - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+3,81195.354,11 Aug 2014 15:03:15.354,81780.985,11 Aug 2014 15:13:00.985,585.631
+
+"GEO-Cloud_017-To-Prince_Albert - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+6,79436.647,11 Aug 2014 14:33:56.647,79778.009,11 Aug 2014 14:39:38.009,341.362
+
+
+"GEO-Cloud_017-To-Svalbard - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+14,79879.722,11 Aug 2014 14:41:19.722,80109.819,11 Aug 2014 14:45:09.819,230.097
+
+
+"GEO-Cloud_017-To-Troll - Access","Start Time (EpSec)","Start Time (UTCG)","Stop Time (EpSec)","Stop Time (UTCG)","Duration (sec)"
+12,82736.065,11 Aug 2014 15:28:56.065,83322.315,11 Aug 2014 15:38:42.315,586.249
+
