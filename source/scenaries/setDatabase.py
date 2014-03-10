@@ -39,7 +39,6 @@ allscenarios = sys.argv[2]
 gs = {"Chetumal":0,"Cordoba":1,"Dubai":2,"Irkutsk":3,"Kourou":4,"Krugersdorp":5,"Malaysia":6,"Prince_Albert":7,"Puertollano":8,"Svalbard":9,"Sydney":10,"Troll":11}
 
 def initGroundStations():
-   
   #  pdb.set_trace()
     try:
         con = mdb.connect(host, 'root','','Scenarios')
@@ -74,6 +73,7 @@ def initGroundStations():
    
 
 def initScenaries(file):
+    
     try:
         f = open(file,"r")
         con = mdb.connect(host,'root','','Scenarios')
@@ -122,13 +122,11 @@ def initScenaries(file):
 def initSatellites(*args):
     """This functions consists in the initialitation of satellites. This is made by iterating the lines of scenarios files. Once the usefull time of data adquisition of each satellite in each scenario, it will be comparated with each action got from the orbital data by the scenario files.
 The scenario file must be named like "Scenario_NUM_NAMESCENARIO.csv" """
-
     try:
         con = mdb.connect(host,'root','','Scenarios')
         cur = con.cursor()
         data_scenarios = getAllData(args[0][0])
      
-        f = ""
         try:
             for doc in args[0][1:]:
     #Format of the file name must be "Scenario_NUM_NAME.csv"
@@ -237,6 +235,7 @@ def getAllData(file):
     return scenarios
 
 def dropDatabase():
+    con=""
     try:
         con = mdb.connect(host, 'root','','Scenarios')
         cur = con.cursor()
@@ -245,14 +244,12 @@ def dropDatabase():
             cur.execute('delete from GroundStations')
             cur.execute('delete from Scenarios')
         con.commit()
-    except (mdb.DatabaseError,mdb.Error,mdb.InterfaceError):
+    except (mdb.DatabaseError,mdb.Error,mdb.InterfaceError) as e:
         if con:
             con.rollback()
-            print "[DropDataBase] DatabaseError ocurred!"
-    finally:
-        if con:
             con.close()
-            
+        print "[DropDataBase] DatabaseError ocurred!",e
+ 
 dropDatabase()
 initGroundStations()
 initScenaries(allscenarios)
