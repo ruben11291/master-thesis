@@ -1,11 +1,9 @@
 \section{Introducción}
 \label{sec:intro}
 
-Las compañías dedicadas a observación de la Tierra, conocidas como \emph{EO industries} en la jerga internacional, han incrementado la venta de imágenes en un 550\% en la última década. Se estima que este aumento sea de cuatro veces superior en lo que resta de la actual. Por este motivo, observación de la Tierra está reconocido como uno de los campos clave en el ámbito europeo. Para apoyar dicho ámbito, la Comisión Europea junto con la Agencia Espacial Europea y la Agencia Europea del Medioambiente (EC, ESA y EEA por sus siglas en inglés respectivamente) han creado el sistema GMES/Copernicus, de modo que aumente la capacidad europea en temas relacionados con la observación de la Tierra.
+Las compañías dedicadas a observación de la Tierra, conocidas como \emph{EO industries} en la jerga internacional, han incrementado la venta de imágenes en un 550\% en la última década. Se estima que este aumento sea de cuatro veces superior en lo que resta de la actual. Por este motivo, la observación de la Tierra está reconocido como uno de los campos clave en el ámbito europeo. Para apoyar dicho área, la Comisión Europea junto con la Agencia Espacial Europea y la Agencia Europea del Medioambiente (EC, ESA y EEA por sus siglas en inglés respectivamente) han creado el sistema GMES/Copernicus, de modo que aumente la capacidad europea en temas relacionados con la observación de la Tierra.
 
-La observación de la Tierra consiste en el registro de datos espacio temporales del mundo, y se aplican a numerosos sectores: monitorización del medioambiente, desastres naturales y seguridad ciudadana entre otros. Los sensores que aportan mayor información al respecto son los satélites de observación de la Tierra.
-
-Sin embargo, dichos sistemas proporcionan la información a unos precios elevados, lo que limita el acceso a la misma de un mayor número de usuarios de otros ámbitos y del público en general. Esto ocurre, principalmente, por dos motivos:
+La observación de la Tierra consiste en el registro de datos espacio-temporales del mundo, y se aplican a numerosos sectores: monitorización del medioambiente,gestión de desastres naturales y seguridad ciudadana entre otros. Los sensores que aportan mayor información al respecto son los satélites de observación de la Tierra. Sin embargo, dichos sistemas proporcionan la información a unos precios elevados, lo que limita el acceso a la misma de un mayor número de usuarios de otros ámbitos y del público en general. Esto ocurre, principalmente, por dos motivos:
 \begin{enumerate}
 \item La tecnología empleada es cara.
 \item Los caminos que sigue la información desde que se obtiene con los satélites hasta que llega a los usuarios requieren de unas infraestructuras específicas, que conllevan un mayor coste que el propio de la instrumentación empleada, es decir, el satélite.
@@ -27,23 +25,23 @@ El objetivo del proyecto Fed4FIRE es la creación de una red federada de infraes
 
 En GEO-Cloud  utilizaremos las siguientes infraestructuras:
 \begin{itemize}
-\item Virtual Wall\cite{VW}
-\item PlanetLab Europe\cite{PLE}
-\item BonFIRE\cite{BF}
+\item Virtual Wall\cite{VW}: Ver Sección 4.1 del presente documento.
+\item PlanetLab Europe\cite{PLE}: Ver Sección 4.1 del presente documento.
+\item BonFIRE\cite{BF}: Ver Sección 4.1 del presente documento.
 \end{itemize}
 
 El proyecto GEO-Cloud consiste en el modelado y la implementación de un experimento para validad la infraestructura de Fed4FIRE. Para desplegar el experimento en Fed4FIRE habrá que desarrollar los siguientes módulos software:
 
 \begin{itemize}
-\item Diseñar y construir un orquestador en la nube BonFIRE que permita el procesamiento de las imágenes obtenidas por los satélites y controle todo este proceso. Estos procesadores son proporcionados por la empresa Elecnor Deimos y se tratarán como caja negra.
+\item Un orquestador en la nube BonFIRE que permita el procesamiento de las imágenes obtenidas por los satélites y controle todo este proceso. Estos procesadores son proporcionados por la empresa Elecnor Deimos y se tratarán como caja negra.
 
-\item Realizar un sistema de archivo y catálogo para conseguir que el resultado obtenido del procesamiento anterior quede almacenado en la nube y accesible por los clientes finales.
+\item Un sistema de archivo y catálogo para conseguir que el resultado obtenido del procesamiento anterior quede almacenado en la nube y accesible por los clientes finales.
 
-\item Diseñar y construir un pequeño experimento sobre PlanetLab Europe, para obtener las medidas reales de los parámetros y métricas involucradas en las comunicaciones de todos los componentes como clientes, estaciones de tierra, nube y constelación de satélites.
+\item Herramienta de profiling sobre PlanetLab Europe, para obtener las medidas reales de los parámetros y métricas involucradas en las comunicaciones de todos los componentes como clientes, estaciones de tierra, nube y constelación de satélites.
 
-\item Diseñar y construir el software que simulará sobre VirtualWall, los distintos satélites, estaciones de tierra y clientes accediendo a los recursos mediante un servicio web. Para este proceso será necesario  conocer los distintos parámetros y métricas de comunicacion reales (obtenidos en el paso anterior)  para construir un experimento realista.
+\item Software que simulará sobre VirtualWall, los distintos satélites, estaciones de tierra y clientes accediendo a los recursos mediante un servicio web. Para este proceso será necesario  conocer los distintos parámetros y métricas de comunicacion reales (obtenidos en el paso anterior)  para construir un experimento realista.
 
-\item Construir un experimento aunando lo desarrollado en los tres testbeds antes mencionados.
+\item Creación del experimento aunando lo desarrollado en los tres testbeds antes mencionados.
 
 \item Finalmente, para validar el sistema se simulará un caso de uso.
 \end{itemize}
@@ -60,7 +58,7 @@ En las empresas actuales de observación de la Tierra,  las instalaciones donde 
 \item Estos sistemas no son escalables.
 \end{itemize}
 
-Tras la realización de este proyecto, se podrá valorar si es valorable la posibilidad de cambiar los sistemas actuales de procesado a un procesamiento en \emph{Cloud}.
+Tras la realización de este proyecto, se podrá valorar si es posible  cambiar los sistemas actuales de procesado a un procesamiento en \emph{Cloud}.
 
 % Local Variables:
 %   coding: utf-8

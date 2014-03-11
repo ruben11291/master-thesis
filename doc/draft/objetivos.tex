@@ -9,7 +9,7 @@ un sistema que simule una constelación de satélites y varias estaciones de tie
 \begin{figure}
 \begin{center}
 \includegraphics[width=.9\textwidth]{GEOCloud_in_Fed4FIRE.pdf}
-\caption{Geo-Cloud en Fed4FIRE. Imágen obtenida de Fed4FIRE Federation}
+\caption{Geo-Cloud en Fed4FIRE. Imágen obtenida de Fed4FIRE Federation\cite{F4F}}
 \end{center}
 \end{figure}
 
@@ -17,10 +17,10 @@ Por ello en este proyecto se plantean los siguientes objetivos:
 
 \begin{itemize}
 
-\item \textbf{Implementación de los servicios basados en Cloud en la plataforma BonFIRE:}  Se pretende desarrollar un servicio de procesamiento de datos Raw y creación de imágenes ortorectificadas en Cloud. Para esta implementación será necesario conocer la arquitectura de la cadena de procesado que se implementa en Elecnor Deimos. Además se debe dar soporte a las peticiones de los clientes con lo cuál se deben de implementar servicios de distribución de estos resultados entre los usuarios finales.
+\item \textbf{Implementación de los servicios basados en Cloud en la plataforma BonFIRE:}  Se pretende desarrollar un servicio de procesamiento de datos obtenidos en crudo y creación de imágenes ortorectificadas en Cloud. Para esta implementación será necesario conocer la arquitectura de la cadena de procesado que se implementa en Elecnor Deimos. Además se debe dar soporte a las peticiones de los clientes con lo cual se deben de implementar servicios de distribución de estos resultados entre los usuarios finales.
 
 \item \textbf{Implementación de la constelación de satélites, estaciones de tierra y clientes sobre PlanetLab Europe:}  Para esto se usará PlanetLab Europe, con la que conseguiremos simular conexiones de red entre distintos nodos distribuidos por el mundo.
-A tavés de la implementación del modelo de red en PlanetLab Europe se podrán medir las características de una red real. Se realizarán dos capas en esta implementación. La primera modelará las estaciones de tierra y la constelación; la segunda, los clientes finales accediendo a los servicios Cloud.
+A tavés de la implementación del modelo de red en PlanetLab Europe se podrán medir las características de una red real. Se realizarán dos capas en esta implementación. La primera modelará las estaciones de tierra y la constelación; la segunda, el acceso de los clientes finales  a los servicios Cloud.
 
 \item \textbf{Implementación de la constelación de satélites, estaciones de tierra y clientes sobre VirtualWall:} Tras realizar la implementación sobre PlanetLab Europe, se conseguirá toda la información de una red real, con lo que se realizará un modelo sobre VirtualWall de acuerdo a esos parámetros. Además esta plataforma permitirá tener completo control sobre los recursos y todos los factores envueltos en los distintos casos de prueba, con lo que se podrá evaluar su comportamiento.
 
