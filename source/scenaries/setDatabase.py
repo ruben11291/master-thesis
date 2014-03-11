@@ -144,15 +144,15 @@ The scenario file must be named like "Scenario_NUM_NAMESCENARIO.csv" """
     #when the satellite is in the action area of ground station and when it goes out 
     #from the area
                 #pdb.set_trace()
+                count =0
                 for l in lines:
                    
         #The missing format is like "GEO-Cloud_005-To-Troll" where 005 is the number
         #of the satellite, Troll is the ground station
                     if(l.find("GEO") != -1):
+                        #count+=1
                         sat = int(l[l.index("_")+1:l.index("_")+4])
-                        groundStation = l.split("-")[3]
-                       
-                    
+                        groundStation = l.split("-")[3]         
                     else:
             #Whether we are not looking for the Gs or Number of satellite, we are in
             #data line, in which are been the usefull time for us, the leave time and the total
@@ -161,27 +161,31 @@ The scenario file must be named like "Scenario_NUM_NAMESCENARIO.csv" """
                         start = l[1]
                         end = l[3]
                         time = l[5]
-                        #print groundStation, sat
-                        # print scenarie, data_scenarios[scenarie]
-                        if data_scenarios.has_key(scenarie) and data_scenarios[scenarie].has_key(str(sat)):#if this satellite has usefull time for this scenario
+                        count+=1
+                        print count
+                        #pdb.set_trace()
+                        if data_scenarios.has_key(scenarie) and data_scenarios[scenarie].has_key(str(sat) ):#if this satellite has usefull time for this scenario
                             #compare times
+                            into=[]
+                            time_into=[]
+                            #For each interest zone 
                             for i in data_scenarios[scenarie][str(sat)]:
-                             
-                                if(float(i[0]) >= float(start) and float(i[0]) < float(end)):
-                                    #print i
-                            #times = data_scenarios[scenarie][str(sat)]
-                           # print times
-                         
-                            #print start,end,time, sat, gs[groundStation[:-1]]
-                            #print data_scenarios[scenarie][str(sat)], sat, groundStation
-                            #insert into the database with usefull times
-                                    with con:
-                                        cur.execute("insert into Satellites values(%s,%s,%s,%s,%s,%s,%s)",(sat,scenarie,gs[groundStation[:-1]],start, end,data_scenarios[scenarie][str(sat)][0][0],data_scenarios[scenarie][str(sat)][0][1]))
-                                    con.commit()
+                                into.append((float(end) >=float(i[1]) and float(i[1]) >= float(start)) or (float(i[0]) <= float(end) and float(i[0]) >= float(start)))
+
+                                time_into.append(i)
+                            if (into.count(True) != 0):
+                                usefull=time_into[into.index(True)]
+                            else:
+                                usefull=(-1,-1)
+                            with con:
+                                cur.execute("insert into Satellites values(%s,%s,%s,%s,%s,%s,%s)",(sat,scenarie,gs[groundStation[:-1]],start, end,usefull[0],usefull[1]))
+                                con.commit()
 
                             #     print iteration, sat, scenarie
                             #     print len(data_scenarios[scenarie][str(sat)])
                         else:
+                            #pdb.set_trace()
+
                             #inser into the database without usefull times
                             with con:
                                 cur.execute("insert into Satellites values(%s,%s,%s,%s,%s,%s,%s)",(sat,scenarie,gs[groundStation[:-1]],start, end,-1,-1))
@@ -197,8 +201,8 @@ The scenario file must be named like "Scenario_NUM_NAMESCENARIO.csv" """
                 f.close()
 
         print "[InitSatellites] Success!"
-    except(mdb.IntegrityError,mdb.DatabaseError,mdb.InterfaceError,mdb.Error):
-        print "[InitSatellites] DataBaseError ocurred!"
+    except(mdb.IntegrityError,mdb.DatabaseError,mdb.InterfaceError,mdb.Error) as e:
+        print "[InitSatellites] DataBaseError ocurred!",e
     finally:
         if con:
             con.close()
