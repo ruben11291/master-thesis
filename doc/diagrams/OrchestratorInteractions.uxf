@@ -431,7 +431,7 @@ endChain(idChain)</panel_attributes>
     <coordinates>
       <x>256</x>
       <y>648</y>
-      <w>664</w>
+      <w>672</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;
@@ -459,7 +459,7 @@ Archive&amp;Catalog</panel_attributes>
       <h>64</h>
     </coordinates>
     <panel_attributes> 
-Archive&amp;Catalog</panel_attributes>
+Ground Stations</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
