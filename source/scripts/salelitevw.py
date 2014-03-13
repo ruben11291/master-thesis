@@ -36,9 +36,15 @@ hostDatabase: is the host where the MySQL database is located
 
 
 class Satellite:
+    ###########Values############ 
     usefull_priority = 4
     useless_priority = 2
-
+    acquisition_rate = 1395 #Mbps
+    ###Calculation of time penality
+    t = time.time()
+    time.time()
+    time_penality=time.time()-t 
+    #############################
     def __init__(self,id,scenario,host):
         
         try:
@@ -63,12 +69,14 @@ class Satellite:
             s = sched.scheduler(time.time, time.sleep)
             print "Scenario times are ",self.scenario_times,type(self.scenario_times[0])
 
+            reference_time = time.time()+5 # added 5 seconds for the sched can be produced without impairments and have enough time for program this.
+
             for seq in self.rows:
                 zone_in_time= float(seq[3])
                 zone_out_time=float(seq[4])
                 ground_station = int(seq[2])
                 if seq[-1] == -1:
-                    s.enter(10,self.useless_priority,self.f1, argument=(str(seq[-2]),))
+                    s.enter(reference_time + float(seq[3]),self.useless_priority,self.notInteresting , argument=(reference_time+zone_in_time,reference_time+zone_out_time,ground_station,))
                     #I can access to the event
                     #Maybe could be interesting to create a queue or a reference containing the last running event
                 else:
@@ -80,11 +88,15 @@ class Satellite:
             print "[Behaviours] Nothing to schedule"
             exit(-1)
 
-    def f1(self,time):
-        print "Im the f1 function and print %s" %(time)
-        while(1):
-            None
-
+    def notInteresting(self,time_start, time_end, gs):
+        t_temp = time.time()
+        offset= 0
+        while(t_temp < time_end+offset):
+            print "Una vez"
+            d = time.time()-t_temp
+            sleep(1-d)
+            t_temp = time.time()
+            offset += time_penality*2
 
 if __name__=="__main__":
     if(len(sys.argv) != 4):
