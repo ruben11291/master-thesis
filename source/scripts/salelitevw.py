@@ -24,6 +24,7 @@ import os
 from ftplib import FTP
 import MySQLdb as mdb
 import sched,time
+import pdb
 
 """This script simulates the behaviour of a satellite
 Must be executed by "python <id> <scenario> <hostDatabase>"
@@ -45,22 +46,27 @@ class Satellite:
     time.time()
     time_penality=time.time()-t 
     #############################
+    penalty_times = 0
+    
     def __init__(self,id,scenario,host):
         
         try:
+            #pdb.set_trace()
             con = mdb.connect(host,'root','','Scenarios')
             cur = con.cursor()
-            satellite_info = 'select * from Satellites where idSatellite=%s and Scenario=%s ORDER BY ;'%(id,scenario)
-            scenario_times = 'select timeIni,timeEnd from Scenarios where Name=%s'%(scenario)
+            satellite_info = 'select * from Satellites where idSatellite=%s and Scenario=%s ORDER BY timeInStation;'%(id,scenario)
+            scenario_times = 'select timeIni,timeEnd from Scenarios where Name=%s;'%(scenario)
             with con:
                 cur.execute(satellite_info)
                 self.rows= cur.fetchall()#Getting the Satellite events and its times
                 cur.execute(scenario_times)
                 s_times= cur.fetchall()[0]#Getting when the scenario starts and finishes
-                self.scenario_times = [float(i)/1000 for i in s_times]
-                #Convers the time into seconds 
+                
                 
             con.close()
+            self.scenario_times = [float(i)/10000 for i in s_times]
+                #Convers the time into seconds 
+
         except Exception as e:
             print "Exception ", e
 
@@ -69,35 +75,76 @@ class Satellite:
             s = sched.scheduler(time.time, time.sleep)
             print "Scenario times are ",self.scenario_times,type(self.scenario_times[0])
 
-            reference_time = time.time()+5 # added 5 seconds for the sched can be produced without impairments and have enough time for program this.
-
+            reference_time = 5 # added 5 seconds for the sched can be produced without impairments and have enough time for program this.
+            
             for seq in self.rows:
-                zone_in_time= float(seq[3])
-                zone_out_time=float(seq[4])
+                zone_in_time= float(seq[3])/10000 #time in which the satellite goes into the visibility cone
+                zone_out_time=float(seq[4])/10000# time in which the satellite goes out the visibility cone
                 ground_station = int(seq[2])
-                if seq[-1] == -1:
-                    s.enter(reference_time + float(seq[3]),self.useless_priority,self.notInteresting , argument=(reference_time+zone_in_time,reference_time+zone_out_time,ground_station,))
-                    #I can access to the event
-                    #Maybe could be interesting to create a queue or a reference containing the last running event
+                interesting_zone_start = float(seq[-2])/10000 if float(seq[-2]) > -1 else -1 #time in which the satellite starts to cacht the interesting zone
+                interesting_zone_end= float(seq[-1])/10000 if float(seq[-1]) > -1 else -1  #time in which the satellite stops to cacht the interesting zone. 
+                #pdb.set_trace()
+                if interesting_zone_start == -1:
+                    s.enter(reference_time + zone_in_time,self.useless_priority,self.notInteresting , argument=(reference_time+zone_in_time,reference_time+zone_out_time,ground_station,))
                 else:
-                    s.enter(3,self.usefull_priority,self.f1,argument=(str(seq[-1]),))
+
+                    #First case: 
+                    if interesting_zone_start < zone_in_time:
+                        
+                        size_offset_before =  (zone_in_time - interesting_zone_start) * self.acquisition_rate  #difference between the times in which the satellite goes into the cone and the time in which the satellite goes into the interesting zone
+                        interesting_zone_start = zone_in_time
+                    else: 
+                        size_offset_before = 0
+                        
+                    #Second case:
+                    if interesting_zone_end > zone_out_time: 
+                        
+                        interesting_zone_end = zone_out_time
+                        
+                    #Scheduling the tasks
+                        
+                    if interesting_zone_start != zone_in_time:
+                        
+                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.notInteresting, argument=(reference_time+zone_in_time, reference_time + interesting_zone_start,ground_station,))
+                        s.enter(reference_time + interesting_zone_start, self.usefull_priority, self.Interesting, argument = (reference_time + interesting_zone_start, reference_time+interesting_zone_end, ground_station,0,))
+                    else:
+                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.Interesting, argument=(reference_time+zone_in_time, reference_time + interesting_zone_end ,ground_station,size_offset_before,))
+                    if interesting_zone_end < zone_out_time:
+                        s.enter(reference_time + interesting_zone_end , self.useless_priority, self.notInteresting, argument = (reference_time+interesting_zone_end, reference_time+ zone_out_time, ground_station, ))
+                    
                 print seq," Scheduled" 
+
             s.run()
-            print "after"
+
+
         else:
             print "[Behaviours] Nothing to schedule"
             exit(-1)
 
     def notInteresting(self,time_start, time_end, gs):
-        t_temp = time.time()
         offset= 0
-        while(t_temp < time_end+offset):
-            print "Una vez"
-            d = time.time()-t_temp
-            sleep(1-d)
-            t_temp = time.time()
-            offset += time_penality*2
+        t_temp = time.time() # save the current time in t_temp
+        print "Not interesting GS:",gs, "time_start :",time_start," time_end :",time_end
+        while(t_temp < time_end+offset):# while current time is less that time_end+offset
+            print "Una vez", t_temp, time_end+offset, time_start
+            d = time.time()-t_temp # save the lose time realising the send
+            self.penalty_times +=1
+            time.sleep(1-d)
+            offset += self.time_penality*self.penalty_times 
+            t_temp = time.time()#update the time
 
+    def Interesting(self,time_start, time_end, gs, offsetbytes):
+        offset= 0
+        t_temp = time.time() # save the current time in t_temp
+        print "Interesting GS:",gs, "time_start :",time_start," time_end :",time_end
+        while(t_temp < time_end+offset):# while current time is less that time_end+offset
+            print "Una vez", t_temp, time_end+offset
+            d = time.time()-t_temp # save the lose time realising the send
+            self.penalty_times += 1
+            time.sleep(1-d)
+            offset += self.time_penality*self.penalty_times 
+            t_temp = time.time()#update the time
+            
 if __name__=="__main__":
     if(len(sys.argv) != 4):
         print "Error with arguments. Must introduce the satellite's id, scenario and host in which database is located"
