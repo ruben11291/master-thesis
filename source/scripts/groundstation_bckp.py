@@ -23,8 +23,8 @@ import sys
 import os
 from ftplib import FTP
 import MySQLdb as mdb
+import asyncore
 import socket
-import select
 import time
 import signal
 import pdb
@@ -39,7 +39,7 @@ hostDatabase: is the host where the MySQL database is located
 """
 
 
-class GroundStation():
+class GroundStation(asyncore.dispatcher):
     ###########Values############ 
     image_size = 44 #MBytes
     acquisition_rate = 1395 #Mbps
@@ -53,8 +53,8 @@ class GroundStation():
     
     def __init__(self,id,scenario,hostdb):
         
-       # asyncore.dispatcher.__init__(self)
-       # self.handlerClass = ConnectionHandler
+        asyncore.dispatcher.__init__(self)
+        self.handlerClass = ConnectionHandler
 
         try:
             self.id = id
@@ -77,13 +77,10 @@ class GroundStation():
             con.close()
 
             signal.signal(signal.SIGINT, self.sighandler)
-
-            self.created_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
             #self.set_reuse_addr()
-            self.created_socket.bind((self.host, self.port))
-            self.created_socket.listen(self.max_connections)
-            pdb.set_trace()
-            self.serverFunction()
+            self.bind((self.host, self.port))
+            self.listen(self.max_connections)
 
             print "Listening"
 
@@ -93,35 +90,53 @@ class GroundStation():
         
     def sighandler(self, signum, frame):
         print "Closing the Ground Station"
-
-        for pid in self.pids:
-            os.kill(pid,signal.SIGUSR1)
-
-        print "Kill the sons"
-
-        self.created_socket.close()
+        self.close()
         exit(0)
     
 
-    def serverFunction(self):
-        readList = [self.created_socket]
+    def handle_accept(self):
+        pair = self.accept()
+        if pair is not None:
+            sock, addr = pair
+            print 'Incoming connection from %s:%s' % (repr(addr),sock)
+            #pdb.set_trace()
+            self.pids.append(os.fork())
+            if os.getpid() > 0:
+                self.handlerClass(sock,addr,self)
+            print os.getpid()
+    
 
-        while True:
-            (sread, swrite, sex) = select.select(readList,[],[]);
+class ConnectionHandler(asyncore.dispatcher):
+    
+    def __init__(self,conn_sock, client_address, server):
+        self.server = server
+        self.client_address = client_address
+        self.buffer = ""
         
-            for sock in sread:
-                if sock == self.created_socket:
-                    (newsock,address) = self.created_socket.accept()
-                    pid = os.fork()
-                    if pid > 0:
-                        self.pids.append(pid)
-                        print "I'm the father"
-                    else:
-                        print "I'm the son"
-            
+        self.is_writable = False
+        asyncore.dispatcher.__init__(self, conn_sock)
 
+    def readable(self):
+        return True
+
+    def handle_read(self):
+        print "Conection Handl"
+        data = self.recv(1024)
+        if data:
             
-   
+            print data
+            print self
+            time.sleep(2)
+
+    def handle_close(self):
+        print "conn_closed: client_address=%s:%s" % \
+                     (self.client_address[0],
+                      self.client_address[1])
+        self.close()
+
+
+
+
 if __name__=="__main__":
     if(len(sys.argv) != 4):
         print "Error with arguments. Must introduce the satellite's id, scenario and host in which database is located"
@@ -132,6 +147,7 @@ if __name__=="__main__":
     host = sys.argv[3]
     if os.getpid() > 0:
         gs = GroundStation(id,scenario,host)
+        asyncore.loop()
     else :
         print "I'm a fork"
 

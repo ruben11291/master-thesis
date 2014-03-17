@@ -40,13 +40,19 @@ class Satellite:
     ###########Values############ 
     usefull_priority = 4
     useless_priority = 2
+    without_priority = 0
+
     acquisition_rate = 1395 #Mbps
+    time_image_acquisition = 23.4 #seconds
+    time_image_download = 14.4 #seconds
+
     ###Calculation of time penality
     t = time.time()
     time.time()
     time_penality=time.time()-t 
     #############################
-    penalty_times = 0
+
+    penalty_times = 0 # This variable will contain the times that penalty times will be acumulated
     
     def __init__(self,id,scenario,host):
         
@@ -54,7 +60,11 @@ class Satellite:
             self.id = id
             self.scenario = scenario
             self.host = host
+            self.lifo = [] # buffer lifo in which images will be storage for downloading
+            self.index_of_image = 0 # the index of catched images
             #pdb.set_trace()
+            ##realise the connection with the ground station
+
             con = mdb.connect(host,'root','','Scenarios')
             cur = con.cursor()
             satellite_info = 'select * from Satellites where idSatellite=%s and Scenario=%s ORDER BY timeInStation;'%(self.id,self.scenario)
@@ -82,6 +92,8 @@ class Satellite:
             init_time = time.time()
             print "Init Time ",init_time
             for seq in self.rows:
+                #Get the time in which the next visibility cone starts. If the actual zone is the last, initial time will be -1, else it will acquire the initial time value.
+                initial_time_next_element = -1 if len(self.rows)-1 == self.rows.index(seq) else self.rows[self.rows.index(seq)+1][3] 
 
                 abs_zone_in_time = float(seq[3])
                 abs_zone_out_time = float(seq[4])
@@ -94,15 +106,21 @@ class Satellite:
                 interesting_zone_end= abs_int_zone_end/10000 if float(seq[-1]) > -1 else -1  #time in which the satellite stops to cacht the interesting zone. 
                 #pdb.set_trace()
 
+                #If this visibility cone hasn't got any interesting area
                 if interesting_zone_start == -1:
-                    s.enter(reference_time + zone_in_time,self.useless_priority,self.notInteresting , argument=(reference_time+zone_in_time,reference_time+((abs_zone_out_time-abs_zone_in_time)/ reductionRate ),ground_station,))
+                    s.enter(reference_time + zone_in_time,self.useless_priority,self.notInteresting , argument=(reference_time+zone_in_time,((abs_zone_out_time-abs_zone_in_time)/ reductionRate ),ground_station,))
+                    
+                   
+
+                #If this visibility cone has got any interesting area
                 else:
 
                     #First case: 
                     if abs_int_zone_start < abs_zone_in_time:
-                        
+                        # If the interesting area starts before the visibility area starts, we must to calculate the area of interest cachted by the satellite
                         size_offset_before =  ((abs_zone_in_time - abs_int_zone_start)/reductionRate) * self.acquisition_rate  #difference between the times in which the satellite goes into the cone and the time in which the satellite goes into the interesting zone
                         abs_int_zone_start = abs_zone_in_time
+
                     else: 
                         size_offset_before = 0
                         
@@ -115,13 +133,19 @@ class Satellite:
                         
                     if abs_int_zone_start != abs_zone_in_time:
                         
-                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.notInteresting, argument=(reference_time+zone_in_time, reference_time + ((abs_int_zone_start-abs_zone_in_time)/ reductionRate) ,ground_station,))
-                        s.enter(reference_time + interesting_zone_start, self.usefull_priority, self.Interesting, argument = (reference_time + interesting_zone_start, reference_time+((abs_int_zone_end-abs_int_zone_start) / reductionRate ), ground_station,0,))
+                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.notInteresting, argument=(reference_time+zone_in_time,((abs_int_zone_start-abs_zone_in_time)/ reductionRate) ,ground_station,))
+                        s.enter(reference_time + interesting_zone_start, self.usefull_priority, self.Interesting, argument = (reference_time + interesting_zone_start, ((abs_int_zone_end-abs_int_zone_start) / reductionRate ), ground_station,0,))
                     else:
-                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.Interesting, argument=(reference_time+zone_in_time, reference_time + ((abs_int_zone_end-abs_int_zone_start) / reductionRate) ,ground_station,size_offset_before,))
-                    if interesting_zone_end < zone_out_time:
-                        s.enter(reference_time + interesting_zone_end , self.useless_priority, self.notInteresting, argument = (reference_time+interesting_zone_end, reference_time+ ((abs_zone_out_time - abs_int_zone_end) / reductionRate), ground_station, ))
+                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.Interesting, argument=(reference_time+zone_in_time, ((abs_int_zone_end-abs_int_zone_start) / reductionRate) ,ground_station,size_offset_before,))
+
+                    if abs_int_zone_end < abs_zone_out_time:
+                        s.enter(reference_time + interesting_zone_end , self.useless_priority, self.notInteresting, argument = (reference_time+interesting_zone_end, ((abs_zone_out_time - abs_int_zone_end) / reductionRate), ground_station, ))
                     
+
+                #Also, we are going to schedule the area between two visibility cones
+                if initial_time_next_element != -1:
+                    s.enter(reference_time + zone_out_time, self.without_priority, self.outOfVisibility, argument =(reference_time+zone_out_time, ((initial_time_next_element - abs_zone_out_time)/ reductionRate),))
+
               #  print seq," Scheduled" 
 
             s.run()
@@ -139,17 +163,10 @@ class Satellite:
         print "[Sat%s] In not interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
         while(t_temp < final_time+offset):# while current time is less that time_end+offset
             print "[Sat%s] Sended package with noise data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
-            # d = time.time()-t_temp # save the lose time realising the send
-            # self.penalty_times +=1
-            # time.sleep(1-d)
-            # offset += self.time_penality*self.penalty_times 
-            # t_temp = time.time()#update the time
-
             self.penalty_times += 1
             offset += self.time_penality*self.penalty_times 
-            t_temp = time.time()#update the time
-            d = time.time()-t_temp # save the lose time realising the send
-            time.sleep(1-d)
+            time.sleep(1-(time.time()-t_temp))
+            t_temp = time.time()
 
         print "Desviation of normal behaviour : %f TotalTime : %f" %(t_temp-final_time,t_temp-begin_time) #real final time minus the corresponding final_time
 
@@ -158,17 +175,33 @@ class Satellite:
         t_temp = time.time() # save the current time in t_temp
         final_time = t_temp+time_end
         begin_time = t_temp
+        
         print "[Sat%s] In interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
         while(t_temp < final_time+offset):# while current time is less that time_end+offset
             print "[Sat%s] Sended package with usefull data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
             self.penalty_times += 1
             offset += self.time_penality*self.penalty_times 
-            t_temp = time.time()#update the time
-            d = time.time()-t_temp # save the lose time realising the send
-            time.sleep(1-d)
+            time.sleep(1-(time.time()-t_temp))
+            t_temp = time.time()
             
         print "Desviation of normal behaviour : %f TotalTime : %f" %(t_temp-final_time,t_temp-begin_time) #real final time minus the corresponding final_time
             
+    def outOfVisibility(self,time_start,time_end):
+        offset  = 0
+        t_temp = time.time()
+        begin_time = t_temp
+        final_time = t_temp+time_end
+        print "[Sat%s] Between visibility cones :Start: %f TimeEnd: %f ActualPenality: %f " % (self.id,time_start,time_end, self.penalty_times*self.time_penality)
+        while (t_temp < final_time + offset):
+            print "[Sat%s] Getting images : StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
+            self.penalty_times += 1
+            offset += self.time_penality*self.penalty_times 
+            time.sleep(1-(time.time()-t_temp))
+            t_temp = time.time()
+        print "Desviation of normal behaviour : %f TotalTime : %f" %(t_temp-final_time,t_temp-begin_time) #real final time minus the corresponding final_time
+
+
+                                
 if __name__=="__main__":
     if(len(sys.argv) != 4):
         print "Error with arguments. Must introduce the satellite's id, scenario and host in which database is located"
