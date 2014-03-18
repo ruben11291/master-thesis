@@ -62,7 +62,7 @@ class GroundStation():
             self.hostdb = hostdb
 
             self.host = 'localhost'
-            self.port = 5002 #port in which the server will be listenning for in connections
+            self.port = 5000 #port in which the server will be listenning for in connections
             #pdb.set_trace()
             con = mdb.connect(host,'root','','Scenarios')
             cur = con.cursor()
@@ -82,26 +82,31 @@ class GroundStation():
             #self.set_reuse_addr()
             self.created_socket.bind((self.host, self.port))
             self.created_socket.listen(self.max_connections)
-            pdb.set_trace()
+            #pdb.set_trace()
+
+            print "[GroundStation%s] The ground station has started!"%(self.id
+)
             self.serverFunction()
 
-            print "Listening"
-
+        except socket.error as msg:
+            print "Exception" , msg
+            self.created_socket.close()
+            
         except Exception as e:
             print "Exception ", e
 
         
     def sighandler(self, signum, frame):
-        print "Closing the Ground Station"
-
+        print "[GroundStation%s] Closing the Ground Station" %(self.id)
         for pid in self.pids:
-            os.kill(pid,signal.SIGUSR1)
-
-        print "Kill the sons"
-
+            os.kill(pid,signal.SIGINT)
         self.created_socket.close()
         exit(0)
-    
+   
+    def sonSighandler(self, signum, frame):
+        print "[DownloadWorker%s]Closing the downloading process"%(self.pid)
+        self.socket.close()
+        exit(0)
 
     def serverFunction(self):
         readList = [self.created_socket]
@@ -112,16 +117,28 @@ class GroundStation():
             for sock in sread:
                 if sock == self.created_socket:
                     (newsock,address) = self.created_socket.accept()
-                    pid = os.fork()
-                    if pid > 0:
-                        self.pids.append(pid)
-                        print "I'm the father"
-                    else:
+                    print "[GroundStation%s] New connection from %s:%s!" %(self.id,newsock,address)
+                    self.pid = os.fork()
+                    if self.pid == 0:          
                         print "I'm the son"
+                        self.Download(sock)
+                    else:
+                        self.pids.append(self.pid)
+                        print "I'm the father"
             
 
             
-   
+    def Download(self,sock):
+        self.socket = sock
+        signal.signal(signal.SIGINT, self.sonSighandler)
+        t = time.time()
+        final_time = t+20
+        while t < final_time :
+            print "Downloading %s" %(os.getpid())
+            time.sleep(1)
+            t = time.time()
+
+
 if __name__=="__main__":
     if(len(sys.argv) != 4):
         print "Error with arguments. Must introduce the satellite's id, scenario and host in which database is located"
@@ -130,9 +147,8 @@ if __name__=="__main__":
     id = sys.argv[1]
     scenario = sys.argv[2]
     host = sys.argv[3]
-    if os.getpid() > 0:
-        gs = GroundStation(id,scenario,host)
-    else :
-        print "I'm a fork"
+    gs = GroundStation(id,scenario,host)
+    
+
 
 #f = FTP('localhost','deimos','deimos')
