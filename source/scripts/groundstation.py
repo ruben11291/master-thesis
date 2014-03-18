@@ -27,7 +27,9 @@ import select
 import time
 import signal
 import pdb
-import re
+from struct import *
+
+
 """This script simulates the behaviour of a GroundStation
 Must be executed by "python <id> <scenario> <hostDatabase>"
 
@@ -80,7 +82,8 @@ class GroundStation():
     time_penality=time.time()-t 
     #############################
     max_connections = 20
-    SIZE_PACKET = 20480 #Bytes
+    SIZE_PACKET = 204800 #Bytes
+    FORMAT = '!c204800s'
 
     def __init__(self,id,scenario,hostdb):
         
@@ -164,8 +167,9 @@ class GroundStation():
             while True :
                 data = self.socket.recv(self.SIZE_PACKET)
                 if data != "":
-                    print "Downloading %s Len %d" %(os.getpid(), len(data))
-                    print data
+                    type, padding = unpack(self.FORMAT,data)
+                    print "Downloading %s Len %d" %(os.getpid(), len(padding))
+                    print type
                 else:
                     print "No recibo nada"
                     break

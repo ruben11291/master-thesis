@@ -56,15 +56,21 @@ class Satellite:
 
     penalty_times = 0 # This variable will contain the times that penalty times will be acumulated
 
-    padding_size = 20480 #Bytes
+    padding_size = 204800 #Bytes
+    format = '!c204800s'
     
     def __init__(self,id,scenario,host):
-
+      
         self.padding = ""
-        while len(self.padding) < padding_size:
-            self.padding +="0"
-
-
+        count = 0
+        while len(self.padding) < self.padding_size:
+            self.padding +=str(count)
+            count+=1
+        pdb.set_trace()
+        self.packet = pack(self.format,'T',self.padding)
+        del self.padding
+        
+        
 
         try:
             self.id = id
