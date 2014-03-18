@@ -24,6 +24,8 @@ import os
 from ftplib import FTP
 import MySQLdb as mdb
 import sched,time
+import socket
+from struct import *
 import pdb
 
 """This script simulates the behaviour of a satellite
@@ -53,15 +55,22 @@ class Satellite:
     #############################
 
     penalty_times = 0 # This variable will contain the times that penalty times will be acumulated
+
+    padding_size = 20480 #Bytes
     
     def __init__(self,id,scenario,host):
-        
+
+        self.padding = ""
+        while len(self.padding) < padding_size:
+            self.padding +="0"
+
+
+
         try:
             self.id = id
             self.scenario = scenario
             self.host = host
-            self.lifo = [] # buffer lifo in which images will be storage for downloading
-            self.index_of_image = 0 # the index of catched images
+            self.total_desviation = 0
             #pdb.set_trace()
             ##realise the connection with the ground station
 
@@ -69,7 +78,11 @@ class Satellite:
             cur = con.cursor()
             satellite_info = 'select * from Satellites where idSatellite=%s and Scenario=%s ORDER BY timeInStation;'%(self.id,self.scenario)
             scenario_times = 'select timeIni,timeEnd from Scenarios where Name=%s;'%(self.scenario)
-           
+            #############################
+            #Must obtain the ip directions from database
+
+            self.groundIP = socket.gethostbyname(socket.gethostname())
+
             with con:
                 cur.execute(satellite_info)
                 self.rows= cur.fetchall()#Getting the Satellite events and its times
@@ -81,8 +94,13 @@ class Satellite:
             self.scenario_times = [float(i)/10000 for i in s_times]
                 #Convers the time into seconds 
 
+        except socket.error as e:
+            print "[Satellite %s] Error creating the socket!"%(self.id)
+            exit(-1)
         except Exception as e:
             print "Exception ", e
+            exit(-1)
+
 
     def scheduleBehaviours(self):
         if self.rows and self.scenario_times:
@@ -146,59 +164,79 @@ class Satellite:
                 if initial_time_next_element != -1:
                     s.enter(reference_time + zone_out_time, self.without_priority, self.outOfVisibility, argument =(reference_time+zone_out_time, ((initial_time_next_element - abs_zone_out_time)/ reductionRate),))
 
-              #  print seq," Scheduled" 
-
-            s.run()
-            print "End time ",time.time()-init_time
+            try:
+                s.run()
+                print "End time ",time.time()-init_time
+                print "Total Desviation: %f Total Penalty: %f"%(self.total_desviation,self.time_penality*self.penalty_times)
+            except socket.error:
+                print "[Sat%s] Error with ground station connection!\nExiting"%(self.id)
+                exit(-1)
 
         else:
             print "[Behaviours] Nothing to schedule"
             exit(-1)
 
     def notInteresting(self,time_start, time_end, gs):
-        offset= 0
+        offset= penal_times =0
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.connect((self.groundIP,5000))
         t_temp = time.time() # save the current time in t_temp
         final_time = t_temp+time_end
         begin_time = t_temp
         print "[Sat%s] In not interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
         while(t_temp < final_time+offset):# while current time is less that time_end+offset
+            self.socket.send("NotInteresting\n")
             print "[Sat%s] Sended package with noise data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
-            self.penalty_times += 1
-            offset += self.time_penality*self.penalty_times 
+            penal_times += 1
+            offset = self.time_penality*penal_times 
             time.sleep(1-(time.time()-t_temp))
             t_temp = time.time()
-
-        print "Desviation of normal behaviour : %f TotalTime : %f" %(t_temp-final_time,t_temp-begin_time) #real final time minus the corresponding final_time
+        self.penalty_times += penal_times
+        self.socket.shutdown(1)
+        self.socket.close()
+        local_desviation = t_temp-final_time
+        self.total_desviation += local_desviation
+        print "Desviation of normal behaviour : %f TotalTime : %f" %(local_desviation,t_temp-begin_time) #real final time minus the corresponding final_time
 
     def Interesting(self,time_start, time_end, gs, offsetbytes):
-        offset= 0
+        offset = penal_times = 0
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.connect((self.groundIP,5000))
         t_temp = time.time() # save the current time in t_temp
         final_time = t_temp+time_end
         begin_time = t_temp
         
         print "[Sat%s] In interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
         while(t_temp < final_time+offset):# while current time is less that time_end+offset
+            self.socket.send("Interesting\n")
             print "[Sat%s] Sended package with usefull data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
-            self.penalty_times += 1
-            offset += self.time_penality*self.penalty_times 
+            penal_times += 1
+            offset = self.time_penality*penal_times 
             time.sleep(1-(time.time()-t_temp))
             t_temp = time.time()
-            
-        print "Desviation of normal behaviour : %f TotalTime : %f" %(t_temp-final_time,t_temp-begin_time) #real final time minus the corresponding final_time
+        self.penalty_times += penal_times
+        self.socket.shutdown(1)
+        self.socket.close()
+        local_desviation = t_temp-final_time
+        self.total_desviation += local_desviation
+        print "Desviation of normal behaviour : %f TotalTime : %f" %(local_desviation,t_temp-begin_time) #real final time minus the corresponding final_time
             
     def outOfVisibility(self,time_start,time_end):
-        offset  = 0
+        offset  = penal_times = 0
         t_temp = time.time()
         begin_time = t_temp
         final_time = t_temp+time_end
         print "[Sat%s] Between visibility cones :Start: %f TimeEnd: %f ActualPenality: %f " % (self.id,time_start,time_end, self.penalty_times*self.time_penality)
         while (t_temp < final_time + offset):
             print "[Sat%s] Getting images : StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
-            self.penalty_times += 1
-            offset += self.time_penality*self.penalty_times 
+            penal_times += 1
+            offset = self.time_penality*penal_times 
             time.sleep(1-(time.time()-t_temp))
             t_temp = time.time()
-        print "Desviation of normal behaviour : %f TotalTime : %f" %(t_temp-final_time,t_temp-begin_time) #real final time minus the corresponding final_time
+        self.penalty_times +=penal_times
+        local_desviation = t_temp-final_time
+        self.total_desviation += local_desviation
+        print "Desviation of normal behaviour : %f TotalTime : %f" %(local_desviation,t_temp-begin_time) #real final time minus the corresponding final_time
 
 
                                 
@@ -213,4 +251,3 @@ if __name__=="__main__":
     sat = Satellite(id,scenario,host)
     sat.scheduleBehaviours()
 
-#f = FTP('localhost','deimos','deimos')

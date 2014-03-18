@@ -21,14 +21,13 @@
 
 import sys
 import os
-from ftplib import FTP
 import MySQLdb as mdb
 import socket
 import select
 import time
 import signal
 import pdb
-
+import re
 """This script simulates the behaviour of a GroundStation
 Must be executed by "python <id> <scenario> <hostDatabase>"
 
@@ -38,6 +37,37 @@ scenario: is the scenario that will be simulated
 hostDatabase: is the host where the MySQL database is located
 """
 
+
+def modHostsFile():
+    """This method solves the bug in the Unix based systems. This bug is based on
+    a wrong line in /etc/hosts. The second line that must contain the IP of the phisical interface, is shown as 127.0.1.1, so it is wrong."""
+    f = open("/etc/hosts","rw")
+    lines = f.readlines()
+    f.close()
+    ifconfig=os.popen("ifconfig")
+    ip = ""
+
+    for line in ifconfig:
+        if line.find("eth0") != -1:
+            ip = ifconfig.next().split(":")[1].split(" ")[0]
+            break
+            
+        elif line.find("wlan0") != -1:
+            ip = ifconfig.next().split(":")[1].split(" ")[0]
+            break
+    f = open("/tmp/hosts","w")
+    for line in lines:
+        if line.find(socket.gethostname()) != -1:
+            to_add = ip +" "+socket.gethostname()+"\n"
+            f.write(to_add)
+        else:
+            f.write(line)
+    f.close()
+
+    os.system("sudo mv /tmp/hosts /etc/hosts")
+
+
+    
 
 class GroundStation():
     ###########Values############ 
@@ -50,7 +80,8 @@ class GroundStation():
     time_penality=time.time()-t 
     #############################
     max_connections = 20
-    
+    SIZE_PACKET = 20480 #Bytes
+
     def __init__(self,id,scenario,hostdb):
         
        # asyncore.dispatcher.__init__(self)
@@ -61,7 +92,7 @@ class GroundStation():
             self.scenario = scenario
             self.hostdb = hostdb
 
-            self.host = 'localhost'
+            self.host = socket.gethostbyname(socket.gethostname())
             self.port = 5000 #port in which the server will be listenning for in connections
             #pdb.set_trace()
             con = mdb.connect(host,'root','','Scenarios')
@@ -79,7 +110,7 @@ class GroundStation():
             signal.signal(signal.SIGINT, self.sighandler)
 
             self.created_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            #self.set_reuse_addr()
+            self.created_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
             self.created_socket.bind((self.host, self.port))
             self.created_socket.listen(self.max_connections)
             #pdb.set_trace()
@@ -117,33 +148,43 @@ class GroundStation():
             for sock in sread:
                 if sock == self.created_socket:
                     (newsock,address) = self.created_socket.accept()
-                    print "[GroundStation%s] New connection from %s:%s!" %(self.id,newsock,address)
+                    print "[GroundStation%s] New connection from %s!" %(self.id,address)
                     self.pid = os.fork()
                     if self.pid == 0:          
-                        print "I'm the son"
-                        self.Download(sock)
+                        self.Download(newsock)
                     else:
                         self.pids.append(self.pid)
-                        print "I'm the father"
             
 
             
     def Download(self,sock):
-        self.socket = sock
-        signal.signal(signal.SIGINT, self.sonSighandler)
-        t = time.time()
-        final_time = t+20
-        while t < final_time :
-            print "Downloading %s" %(os.getpid())
-            time.sleep(1)
-            t = time.time()
-
+        try:
+            self.socket = sock
+            signal.signal(signal.SIGINT, self.sonSighandler)
+            while True :
+                data = self.socket.recv(self.SIZE_PACKET)
+                if data != "":
+                    print "Downloading %s Len %d" %(os.getpid(), len(data))
+                    print data
+                else:
+                    print "No recibo nada"
+                    break
+           
+        except socket.error as e:
+            print "[DownloadingException]",e
+        except Exception as e:
+            print e
+        finally:
+            self.socket.close()
+            print "Socket closed"
+            exit(0)
 
 if __name__=="__main__":
     if(len(sys.argv) != 4):
         print "Error with arguments. Must introduce the satellite's id, scenario and host in which database is located"
         exit(-1)
-
+        
+    modHostsFile()
     id = sys.argv[1]
     scenario = sys.argv[2]
     host = sys.argv[3]
@@ -151,4 +192,3 @@ if __name__=="__main__":
     
 
 
-#f = FTP('localhost','deimos','deimos')
