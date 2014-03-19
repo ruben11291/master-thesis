@@ -19,16 +19,9 @@
 #
 # Author: Ruben Perez <ruben.perez@deimos-space.com>
 
-import sys
-import os
+import sys,os,socket,select,time,datetime,signal
 import MySQLdb as mdb
-import socket
-import select
-import time
-import signal
 import pdb
-from struct import *
-
 
 """This script simulates the behaviour of a GroundStation
 Must be executed by "python <id> <scenario> <hostDatabase>"
@@ -73,17 +66,16 @@ def modHostsFile():
 
 class GroundStation():
     ###########Values############ 
-    image_size = 44 #MBytes
+    bits_rate = 160 #Mbps
     acquisition_rate = 1395 #Mbps
-
+    compresion_rate = 14.1 
+    img_size = 288 #MBytes
     ###Calculation of time penality
     t = time.time()
     time.time()
     time_penality=time.time()-t 
     #############################
     max_connections = 20
-    SIZE_PACKET = 204800 #Bytes
-    FORMAT = '!c204800s'
 
     def __init__(self,id,scenario,hostdb):
         
@@ -164,14 +156,21 @@ class GroundStation():
         try:
             self.socket = sock
             signal.signal(signal.SIGINT, self.sonSighandler)
+            usefull_info = useless_info = 0
             while True :
-                data = self.socket.recv(self.SIZE_PACKET)
+                data = self.socket.recv(1024)
                 if data != "":
-                    type, padding = unpack(self.FORMAT,data)
-                    print "Downloading %s Len %d" %(os.getpid(), len(padding))
-                    print type
+                    if data == 'I': #not interesting data
+                        useless_info += self.bits_rate
+
+                    elif data =='U': #interesting data
+                        useless_info += self.bits_rate - (self.acquisition_rate /self.compresion_rate)
+                        usefull_info += self.acquisition_rate/self.compresion_rate
+
+                    print "Reciving %s from %s " %(data,os.getpid())
                 else:
-                    print "No recibo nada"
+                    print "useless info = %d usefull info = %d"%(useless_info,usefull_info)
+                    self.createFile(int(useless_info/self.img_size), int(usefull_info/self.img_size))
                     break
            
         except socket.error as e:
@@ -182,6 +181,23 @@ class GroundStation():
             self.socket.close()
             print "Socket closed"
             exit(0)
+
+    def createFile(self, useless_images, usefull_images):
+        for _ in xrange(useless_images):
+            nano = str(time.time()).split('.')[1]
+            name = "W_GS%d_%d_USELESS_%s" %(int(self.id),int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
+            os.system("cp /tmp/original.bin /tmp/"+name+".bin")
+            print "Image %s created!"%(name)
+            time.sleep(0.2)
+
+        for _ in xrange(usefull_images):
+            nano = str(time.time()).split('.')[1]
+            name = "W_GS%d_%d_USEFULL_%s" %(int(self.id),int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
+            os.system("cp /tmp/original.bin /tmp/"+name+".bin")
+            print "Image %s created!"%(name)
+            time.sleep(0.2)
+
+
 
 if __name__=="__main__":
     if(len(sys.argv) != 4):

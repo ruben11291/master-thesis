@@ -25,7 +25,6 @@ from ftplib import FTP
 import MySQLdb as mdb
 import sched,time
 import socket
-from struct import *
 import pdb
 
 """This script simulates the behaviour of a satellite
@@ -56,22 +55,10 @@ class Satellite:
 
     penalty_times = 0 # This variable will contain the times that penalty times will be acumulated
 
-    padding_size = 204800 #Bytes
-    format = '!c204800s'
+  
     
     def __init__(self,id,scenario,host):
       
-        self.padding = ""
-        count = 0
-        while len(self.padding) < self.padding_size:
-            self.padding +=str(count)
-            count+=1
-        pdb.set_trace()
-        self.packet = pack(self.format,'T',self.padding)
-        del self.padding
-        
-        
-
         try:
             self.id = id
             self.scenario = scenario
@@ -100,6 +87,7 @@ class Satellite:
             self.scenario_times = [float(i)/10000 for i in s_times]
                 #Convers the time into seconds 
 
+            
         except socket.error as e:
             print "[Satellite %s] Error creating the socket!"%(self.id)
             exit(-1)
@@ -191,7 +179,8 @@ class Satellite:
         begin_time = t_temp
         print "[Sat%s] In not interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
         while(t_temp < final_time+offset):# while current time is less that time_end+offset
-            self.socket.send("NotInteresting\n")
+          
+            print "Enviado " ,self.socket.send('I')
             print "[Sat%s] Sended package with noise data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
             penal_times += 1
             offset = self.time_penality*penal_times 
@@ -214,7 +203,7 @@ class Satellite:
         
         print "[Sat%s] In interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
         while(t_temp < final_time+offset):# while current time is less that time_end+offset
-            self.socket.send("Interesting\n")
+            self.socket.send('U')
             print "[Sat%s] Sended package with usefull data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
             penal_times += 1
             offset = self.time_penality*penal_times 
