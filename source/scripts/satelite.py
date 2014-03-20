@@ -42,7 +42,7 @@ class Satellite:
     usefull_priority = 4
     useless_priority = 2
     without_priority = 0
-
+    compression_rate = 14.1
     acquisition_rate = 1395 #Mbps
     time_image_acquisition = 23.4 #seconds
     time_image_download = 14.4 #seconds
@@ -130,7 +130,7 @@ class Satellite:
                     #First case: 
                     if abs_int_zone_start < abs_zone_in_time:
                         # If the interesting area starts before the visibility area starts, we must to calculate the area of interest cachted by the satellite
-                        size_offset_before =  ((abs_zone_in_time - abs_int_zone_start)/reductionRate) * self.acquisition_rate  #difference between the times in which the satellite goes into the cone and the time in which the satellite goes into the interesting zone
+                        size_offset_before =  (((abs_zone_in_time - abs_int_zone_start)/reductionRate) * self.acquisition_rate )/ self.compression_rate  #difference between the times in which the satellite goes into the cone and the time in which the satellite goes into the interesting zone
                         abs_int_zone_start = abs_zone_in_time
 
                     else: 
