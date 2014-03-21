@@ -162,7 +162,8 @@ class GroundStation():
                 if data != "":
                     if data == 'I': #not interesting data
                         useless_info += self.bits_rate
-
+                    elif data == 'B': #interesting data with interesting data adcquired before
+                        usefull_info += self.bits_rate
                     elif data =='U': #interesting data
                         useless_info += self.bits_rate - (self.acquisition_rate /self.compresion_rate)
                         usefull_info += self.acquisition_rate/self.compresion_rate

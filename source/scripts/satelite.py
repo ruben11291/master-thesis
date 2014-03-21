@@ -130,7 +130,7 @@ class Satellite:
                     #First case: 
                     if abs_int_zone_start < abs_zone_in_time:
                         # If the interesting area starts before the visibility area starts, we must to calculate the area of interest cachted by the satellite
-                        size_offset_before =  (((abs_zone_in_time - abs_int_zone_start)/reductionRate) * self.acquisition_rate )/ self.compression_rate  #difference between the times in which the satellite goes into the cone and the time in which the satellite goes into the interesting zone
+                        time_offset_before =  ((abs_zone_in_time - abs_int_zone_start)/reductionRate)  #difference between the times in which the satellite goes into the cone and the time in which the satellite goes into the interesting zone
                         abs_int_zone_start = abs_zone_in_time
 
                     else: 
@@ -148,7 +148,7 @@ class Satellite:
                         s.enter(reference_time + zone_in_time, self.usefull_priority, self.notInteresting, argument=(reference_time+zone_in_time,((abs_int_zone_start-abs_zone_in_time)/ reductionRate) ,ground_station,))
                         s.enter(reference_time + interesting_zone_start, self.usefull_priority, self.Interesting, argument = (reference_time + interesting_zone_start, ((abs_int_zone_end-abs_int_zone_start) / reductionRate ), ground_station,0,))
                     else:
-                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.Interesting, argument=(reference_time+zone_in_time, ((abs_int_zone_end-abs_int_zone_start) / reductionRate) ,ground_station,size_offset_before,))
+                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.Interesting, argument=(reference_time+zone_in_time, ((abs_int_zone_end-abs_int_zone_start) / reductionRate) ,ground_station,time_offset_before,))
 
                     if abs_int_zone_end < abs_zone_out_time:
                         s.enter(reference_time + interesting_zone_end , self.useless_priority, self.notInteresting, argument = (reference_time+interesting_zone_end, ((abs_zone_out_time - abs_int_zone_end) / reductionRate), ground_station, ))
@@ -193,15 +193,25 @@ class Satellite:
         self.total_desviation += local_desviation
         print "Desviation of normal behaviour : %f TotalTime : %f" %(local_desviation,t_temp-begin_time) #real final time minus the corresponding final_time
 
-    def Interesting(self,time_start, time_end, gs, offsetbytes):
+    def Interesting(self,time_start, time_end, gs, offset_time):
         offset = penal_times = 0
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect((self.groundIP,5000))
         t_temp = time.time() # save the current time in t_temp
         final_time = t_temp+time_end
+        intermediate_time = t_temp + offset_time
         begin_time = t_temp
         
         print "[Sat%s] In interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
+
+        while(t_temp < intermediate_time+offset):# while current time is less that time_end+offset
+            self.socket.send('B')
+            print "[Sat%s] Sended package with all data usefull: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)
+            penal_times += 1
+            offset = self.time_penality*penal_times 
+            time.sleep(1-(time.time()-t_temp))
+            t_temp = time.time()
+
         while(t_temp < final_time+offset):# while current time is less that time_end+offset
             self.socket.send('U')
             print "[Sat%s] Sended package with usefull data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time)

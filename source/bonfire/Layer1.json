@@ -1,0 +1,593 @@
+{
+  "name": "Layer1-Geo-Cloud",
+  "description": "Satellite Simulation",
+  "duration": 120,
+  "resources": [
+  {
+     "network": {
+       "name": "Net1",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.1.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net2",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.2.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net3",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.3.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net4",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.4.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net5",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.5.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net6",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.6.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net7",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.7.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net8",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.8.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net9",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.9.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net10",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.10.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net11",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.11.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+{
+     "network": {
+       "name": "Net12",
+       "locations": [
+        "be-ibbt"
+       ],
+       "address": "172.16.12.0",
+       "size": "C",
+       "lossrate": 0.00001,
+       "bandwidth": 100,
+       "latency": 2
+     }
+   },
+
+	{
+         "compute": {
+             "name": "Sat1",
+             "description": "Sat1.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat2",
+             "description": "Sat2.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat3",
+             "description": "Sat3.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat4",
+             "description": "Sat4.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat5",
+             "description": "Sat5.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat6",
+             "description": "Sat6.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat7",
+             "description": "Sat7.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat8",
+             "description": "Sat8.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat9",
+             "description": "Sat9.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat10",
+             "description": "Sat10.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat11",
+             "description": "Sat11.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat12",
+             "description": "Sat12.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat13",
+             "description": "Sat13.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat14",
+             "description": "Sat14.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat15",
+             "description": "Sat15.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat16",
+             "description": "Sat16.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     },
+	{
+         "compute": {
+             "name": "Sat17",
+             "description": "Sat17.",
+             "instanceType": "small",
+             "locations": ["be-ibbt"],
+	     "cluster": "clusterex",
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"},
+		{ "network": "Net2"},
+		{ "network": "Net3"},
+		{ "network": "Net4"},
+		{ "network": "Net5"},
+		{ "network": "Net6"},
+		{ "network": "Net7"},
+		{ "network": "Net8"},
+		{ "network": "Net9"},
+		{ "network": "Net10"},
+		{ "network": "Net11"},
+		{ "network": "Net12"}
+             ]
+         }
+     }
+
+	
+]
+
+
+}
