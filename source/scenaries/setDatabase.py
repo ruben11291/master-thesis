@@ -39,13 +39,14 @@ allscenarios = sys.argv[2]
 gs = {"Chetumal":0,"Cordoba":1,"Dubai":2,"Irkutsk":3,"Kourou":4,"Krugersdorp":5,"Malaysia":6,"Prince_Albert":7,"Puertollano":8,"Svalbard":9,"Sydney":10,"Troll":11}
 
 def initGroundStations():
-  #  pdb.set_trace()
+    #pdb.set_trace()
+    con =None
     try:
         con = mdb.connect(host, 'root','','Scenarios')
         cur = con.cursor()
         with con:
             for ground in gs:
-                cur.execute('insert into GroundStations values (%s, %s)',(str(gs[ground]),ground))
+                cur.execute('insert into GroundStations values (%s, %s,%s)',(str(gs[ground]),ground,""))
  
         con.commit()
         print "[GroundStations] Success!"
@@ -73,8 +74,9 @@ def initGroundStations():
    
 
 def initScenaries(file):
-    
+    f = con = None
     try:
+        #pdb.set_trace()
         f = open(file,"r")
         con = mdb.connect(host,'root','','Scenarios')
         cur = con.cursor()
@@ -122,11 +124,12 @@ def initScenaries(file):
 def initSatellites(*args):
     """This functions consists in the initialitation of satellites. This is made by iterating the lines of scenarios files. Once the usefull time of data adquisition of each satellite in each scenario, it will be comparated with each action got from the orbital data by the scenario files.
 The scenario file must be named like "Scenario_NUM_NAMESCENARIO.csv" """
+    con = None
     try:
         con = mdb.connect(host,'root','','Scenarios')
         cur = con.cursor()
         data_scenarios = getAllData(args[0][0])
-     
+        f = None
         try:
             for doc in args[0][1:]:
     #Format of the file name must be "Scenario_NUM_NAME.csv"
@@ -162,7 +165,7 @@ The scenario file must be named like "Scenario_NUM_NAMESCENARIO.csv" """
                         end = l[3]
                         time = l[5]
                         count+=1
-                        print count
+                        #print count
                         #pdb.set_trace()
                         if data_scenarios.has_key(scenarie) and data_scenarios[scenarie].has_key(str(sat) ):#if this satellite has usefull time for this scenario
                             #compare times
@@ -215,6 +218,7 @@ def getAllData(file):
     The format of scenarios is the next:
     {scenario:{sat:[(num,num),...], sat:[(num,num),...]}, scenario:{sat:{[(num,num),...], sat:[(num,num),...]}} """
 
+    f = None
     scenarios ={}
     try:
        # pdb.set_trace()
@@ -239,7 +243,7 @@ def getAllData(file):
     return scenarios
 
 def dropDatabase():
-    con=""
+    con=None
     try:
         con = mdb.connect(host, 'root','','Scenarios')
         cur = con.cursor()

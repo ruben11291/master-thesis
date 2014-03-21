@@ -92,11 +92,13 @@ class GroundStation():
             #pdb.set_trace()
             con = mdb.connect(host,'root','','Scenarios')
             cur = con.cursor()
-            satellite_info = 'select * from GroundStations where idGrounStations=%s;'%(self.id)
+            #satellite_info = 'select * from GroundStations where idGrounStations=%s;'%(self.id)
             self.pids = [] # will get the pids of forks
-           
+            update_ip = 'UPDATE GroundStations SET IP=\'%s\' WHERE idGrounStations=%s' %(self.host,self.id);
+            
             with con:
-                cur.execute(satellite_info)
+                #cur.execute(satellite_info)
+                cur.execute(update_ip)
                 self.rows= cur.fetchall()#Getting the Satellite events and its times
               
                 

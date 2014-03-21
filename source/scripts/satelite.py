@@ -64,19 +64,23 @@ class Satellite:
             self.scenario = scenario
             self.host = host
             self.total_desviation = 0
-            #pdb.set_trace()
+            pdb.set_trace()
             ##realise the connection with the ground station
 
             con = mdb.connect(host,'root','','Scenarios')
             cur = con.cursor()
             satellite_info = 'select * from Satellites where idSatellite=%s and Scenario=%s ORDER BY timeInStation;'%(self.id,self.scenario)
             scenario_times = 'select timeIni,timeEnd from Scenarios where Name=%s;'%(self.scenario)
+            
+            ips_groundstations = 'select IP from GroundStations order by idGrounStations;'
             #############################
             #Must obtain the ip directions from database
 
             self.groundIP = socket.gethostbyname(socket.gethostname())
 
             with con:
+                cur.execute(ips_groundstations)
+                self.ips = cur.fetchall() #Getting the ips from ground stations
                 cur.execute(satellite_info)
                 self.rows= cur.fetchall()#Getting the Satellite events and its times
                 cur.execute(scenario_times)
@@ -114,13 +118,14 @@ class Satellite:
                 zone_in_time= abs_zone_in_time/10000 #time in which the satellite goes into the visibility cone
                 zone_out_time= abs_zone_out_time/10000# time in which the satellite goes out the visibility cone
                 ground_station = int(seq[2])
+                ip_groundstation = self.ips[ground_station][0] #the ip of the ground station
                 interesting_zone_start = abs_int_zone_start/10000 if float(seq[-2]) > -1 else -1 #time in which the satellite starts to cacht the interesting zone
                 interesting_zone_end= abs_int_zone_end/10000 if float(seq[-1]) > -1 else -1  #time in which the satellite stops to cacht the interesting zone. 
                 #pdb.set_trace()
 
                 #If this visibility cone hasn't got any interesting area
                 if interesting_zone_start == -1:
-                    s.enter(reference_time + zone_in_time,self.useless_priority,self.notInteresting , argument=(reference_time+zone_in_time,((abs_zone_out_time-abs_zone_in_time)/ reductionRate ),ground_station,))
+                    s.enter(reference_time + zone_in_time,self.useless_priority,self.notInteresting , argument=(reference_time+zone_in_time,((abs_zone_out_time-abs_zone_in_time)/ reductionRate ),ground_station,ip_groundstation))
                     
                    
 
@@ -145,13 +150,13 @@ class Satellite:
                         
                     if abs_int_zone_start != abs_zone_in_time:
                         
-                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.notInteresting, argument=(reference_time+zone_in_time,((abs_int_zone_start-abs_zone_in_time)/ reductionRate) ,ground_station,))
-                        s.enter(reference_time + interesting_zone_start, self.usefull_priority, self.Interesting, argument = (reference_time + interesting_zone_start, ((abs_int_zone_end-abs_int_zone_start) / reductionRate ), ground_station,0,))
+                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.notInteresting, argument=(reference_time+zone_in_time,((abs_int_zone_start-abs_zone_in_time)/ reductionRate) ,ground_station,ip_groundstation))
+                        s.enter(reference_time + interesting_zone_start, self.usefull_priority, self.Interesting, argument = (reference_time + interesting_zone_start, ((abs_int_zone_end-abs_int_zone_start) / reductionRate ), ground_station,ip_groundstation,0,))
                     else:
-                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.Interesting, argument=(reference_time+zone_in_time, ((abs_int_zone_end-abs_int_zone_start) / reductionRate) ,ground_station,time_offset_before,))
+                        s.enter(reference_time + zone_in_time, self.usefull_priority, self.Interesting, argument=(reference_time+zone_in_time, ((abs_int_zone_end-abs_int_zone_start) / reductionRate) ,ground_station,ip_groundstation,time_offset_before,))
 
                     if abs_int_zone_end < abs_zone_out_time:
-                        s.enter(reference_time + interesting_zone_end , self.useless_priority, self.notInteresting, argument = (reference_time+interesting_zone_end, ((abs_zone_out_time - abs_int_zone_end) / reductionRate), ground_station, ))
+                        s.enter(reference_time + interesting_zone_end , self.useless_priority, self.notInteresting, argument = (reference_time+interesting_zone_end, ((abs_zone_out_time - abs_int_zone_end) / reductionRate), ground_station,ip_groundstation, ))
                     
 
                 #Also, we are going to schedule the area between two visibility cones
@@ -170,14 +175,14 @@ class Satellite:
             print "[Behaviours] Nothing to schedule"
             exit(-1)
 
-    def notInteresting(self,time_start, time_end, gs):
+    def notInteresting(self,time_start, time_end, gs,ipGs):
         offset= penal_times =0
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect((self.groundIP,5000))
         t_temp = time.time() # save the current time in t_temp
         final_time = t_temp+time_end
         begin_time = t_temp
-        print "[Sat%s] In not interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
+        print "[Sat%s] In not interesting zone : GroundStation: %s:%s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,ipGs,time_start,time_end,self.penalty_times*self.time_penality)
         while(t_temp < final_time+offset):# while current time is less that time_end+offset
           
             print "Enviado " ,self.socket.send('I')
@@ -193,7 +198,7 @@ class Satellite:
         self.total_desviation += local_desviation
         print "Desviation of normal behaviour : %f TotalTime : %f" %(local_desviation,t_temp-begin_time) #real final time minus the corresponding final_time
 
-    def Interesting(self,time_start, time_end, gs, offset_time):
+    def Interesting(self,time_start, time_end, gs,ipGs, offset_time):
         offset = penal_times = 0
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect((self.groundIP,5000))
@@ -202,7 +207,7 @@ class Satellite:
         intermediate_time = t_temp + offset_time
         begin_time = t_temp
         
-        print "[Sat%s] In interesting zone : GroundStation: %s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,time_start,time_end,self.penalty_times*self.time_penality)
+        print "[Sat%s] In interesting zone : GroundStation: %s:%s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,ipGs,time_start,time_end,self.penalty_times*self.time_penality)
 
         while(t_temp < intermediate_time+offset):# while current time is less that time_end+offset
             self.socket.send('B')
