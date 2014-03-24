@@ -46,7 +46,7 @@ def initGroundStations():
         cur = con.cursor()
         with con:
             for ground in gs:
-                cur.execute('insert into GroundStations values (%s, %s,%s)',(str(gs[ground]),ground,""))
+                cur.execute('insert into GroundStations values (%s, %s,%s,%s)',(str(gs[ground]),ground,"",""))
  
         con.commit()
         print "[GroundStations] Success!"

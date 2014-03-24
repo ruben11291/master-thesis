@@ -21,6 +21,7 @@
 
 import sys,os,socket,select,time,datetime,signal
 import MySQLdb as mdb
+import logging
 import pdb
 
 """This script simulates the behaviour of a GroundStation
@@ -32,36 +33,44 @@ scenario: is the scenario that will be simulated
 hostDatabase: is the host where the MySQL database is located
 """
 
-
 def modHostsFile():
     """This method solves the bug in the Unix based systems. This bug is based on
     a wrong line in /etc/hosts. The second line that must contain the IP of the phisical interface, is shown as 127.0.1.1, so it is wrong."""
-    f = open("/etc/hosts","rw")
-    lines = f.readlines()
-    f.close()
-    ifconfig=os.popen("ifconfig")
-    ip = ""
-
-    for line in ifconfig:
-        if line.find("eth0") != -1:
-            ip = ifconfig.next().split(":")[1].split(" ")[0]
-            break
+    try:
+        f = open("/etc/hosts","rw")
+        lines = f.readlines()
+        f.close()
+        ifconfig=os.popen("ifconfig")
+        ip = ""
+    
+        logger.info("Start modifing the file /etc/hosts")
+        for line in ifconfig:
+            if line.find("eth0") != -1:
+                ip = ifconfig.next().split(":")[1].split(" ")[0]
+                logging.debug("Eth0 is encountered")
+                break
             
-        elif line.find("wlan0") != -1:
-            ip = ifconfig.next().split(":")[1].split(" ")[0]
-            break
-    f = open("/tmp/hosts","w")
-    for line in lines:
-        if line.find(socket.gethostname()) != -1:
-            to_add = ip +" "+socket.gethostname()+"\n"
-            f.write(to_add)
-        else:
-            f.write(line)
-    f.close()
-
-    os.system("sudo mv /tmp/hosts /etc/hosts")
-
-
+            elif line.find("wlan0") != -1:
+                ip = ifconfig.next().split(":")[1].split(" ")[0]
+                logging.debug("Wlan0 is encountered")
+                break
+        f = open("/tmp/hosts","w")
+        for line in lines:
+            if line.find(socket.gethostname()) != -1:
+                to_add = ip +" "+socket.gethostname()+"\n"
+                f.write(to_add)
+            else:
+                f.write(line)
+        f.close()
+    
+        os.system("sudo mv /tmp/hosts /etc/hosts")
+        logger.info("File /etc/hosts modified")
+        logger.debug("File /etc/hosts modified")
+    except IOError as e:
+        logger.error("[GroundStation%s] Error with file!"%(self.id),exc_info=True)
+        exit(-1)
+    except Exception as e:
+        logger.error("[GroundStation%s] Unexpected Exception!"%(self.id),exc_info=True)
     
 
 class GroundStation():
@@ -81,58 +90,89 @@ class GroundStation():
         
        # asyncore.dispatcher.__init__(self)
        # self.handlerClass = ConnectionHandler
-
+        logger.info("Starting the initialitation")
         try:
             self.id = id
             self.scenario = scenario
             self.hostdb = hostdb
-
-            self.host = socket.gethostbyname(socket.gethostname())
-            self.port = 5000 #port in which the server will be listenning for in connections
-            #pdb.set_trace()
-            con = mdb.connect(host,'root','','Scenarios')
-            cur = con.cursor()
-            #satellite_info = 'select * from GroundStations where idGrounStations=%s;'%(self.id)
             self.pids = [] # will get the pids of forks
-            update_ip = 'UPDATE GroundStations SET IP=\'%s\' WHERE idGrounStations=%s' %(self.host,self.id);
+            self.host = socket.gethostbyname(socket.gethostname())
+            self.port = 5000 #port in which the server will be listenning for in connections. May can be changed.
+            #pdb.set_trace()
+          
+           
+            self.port = self.create_socket(self.port)
             
-            with con:
-                #cur.execute(satellite_info)
-                cur.execute(update_ip)
-                self.rows= cur.fetchall()#Getting the Satellite events and its times
-              
-                
-            con.close()
 
+            update_ip = 'UPDATE GroundStations SET ip=\'%s\',port =\'%s\' WHERE idGroundStation=%s' %(self.host,self.port,self.id); #mysql sentence for update GroundStations table
+
+            #update the data base with the current ip and host where the gs is running
+            self.updateDB(update_ip)
+
+            #Set the handler for SIGINT signal
             signal.signal(signal.SIGINT, self.sighandler)
 
-            self.created_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.created_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-            self.created_socket.bind((self.host, self.port))
-            self.created_socket.listen(self.max_connections)
-            #pdb.set_trace()
-
-            print "[GroundStation%s] The ground station has started!"%(self.id
-)
+            logger.info("[GroundStation%s] The ground station has started!",(self.id
+))
+            logger.debug("[GroundStation%s] The ground station has started!",(self.id
+))
             self.serverFunction()
 
         except socket.error as msg:
-            print "Exception" , msg
-            self.created_socket.close()
-            
+            logger.error("[GroundStation%s] Error with socket connection!",self.id)
         except Exception as e:
-            print "Exception ", e
+            logger.error("[GroundStation%s] Exception Unexpected",(self.id),exc_info=True)
 
+    def updateDB(self,sentence):
+        try:
+            logger.info("[GroundStation%s] Connecting with the data base",self.id)
+            con = mdb.connect(host,'root','','Scenarios')
+            cur = con.cursor()
+        
+            with con:
+                cur.execute(sentence)
+                self.rows= cur.fetchall()#Getting the Satellite events and its times
+                logger.info("[GroundStation%s] Fetching records of database",self.id)
+                logger.debug("[GroundStation%s] Send: \n %s"%(self.id,sentence))
+                
+            con.close()
+        except (mdb.DataError,mdb.DatabaseError,mdb.Error,mdb.InterfaceError) as e:
+            logger.error("[GroundStation%s] Error with database: %s!"%(self.id),exc_info=True)
+            exit(-1)
+
+    def create_socket(self,port):
+        nosocket = True
+        logger.debug("[GroundStation%s] Creating the socket",self.id)
+        while nosocket:
+            try:
+                self.created_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                self.created_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+                self.created_socket.bind((self.host, port))
+                self.created_socket.listen(self.max_connections)
+                nosocket =False
+
+            except socket.error:
+                port +=1
+            except socket.herror:
+                logger.debug("[GroundStation%s] Error creating the socket!"%(self.id))
+                exit(-1)
+            except Exception as e:
+                logger.debug("[GroundStation%s] Error creating the socket!"%(self.id))
+                exit(-1)
+        logger.debug("[GroundStation%s] Socket created in port %d"%(self.id,port))
+        logger.info("[GroundStation%s] Socket created in port %d"%(self.id,port))
+        return port
         
     def sighandler(self, signum, frame):
-        print "[GroundStation%s] Closing the Ground Station" %(self.id)
+        logger.debug("[GroundStation%s] Closing the Ground Station" %(self.id))
         for pid in self.pids:
             os.kill(pid,signal.SIGINT)
+            logger.debug("Killed process %d",pid)
         self.created_socket.close()
         exit(0)
    
     def sonSighandler(self, signum, frame):
-        print "[DownloadWorker%s]Closing the downloading process"%(self.pid)
+        logger.info("[DownloadWorker%s]Closing the downloading process"%(self.pid))
         self.socket.close()
         exit(0)
 
@@ -145,7 +185,7 @@ class GroundStation():
             for sock in sread:
                 if sock == self.created_socket:
                     (newsock,address) = self.created_socket.accept()
-                    print "[GroundStation%s] New connection from %s!" %(self.id,address)
+                    logger.info("[GroundStation%s] New connection from %s!" %(self.id,address))
                     self.pid = os.fork()
                     if self.pid == 0:          
                         self.Download(newsock)
@@ -157,32 +197,34 @@ class GroundStation():
     def Download(self,sock):
         try:
             self.socket = sock
-            signal.signal(signal.SIGINT, self.sonSighandler)
+            signal.signal(signal.SIGINT, self.sonSighandler) #set the handler for SIGINT signal
             usefull_info = useless_info = 0
             while True :
                 data = self.socket.recv(1024)
                 if data != "":
+                    logger.info("[GroundStation%s] Fork %s Receiving data from %s"%(self.id,os.getpid(),self.socket.getsockname()))                              
                     if data == 'I': #not interesting data
                         useless_info += self.bits_rate
+                        logger.debug("[GroundStation%s] Received I packet",self.id)
                     elif data == 'B': #interesting data with interesting data adcquired before
                         usefull_info += self.bits_rate
+                        logger.debug("[GroundStation%s] Received B packet",self.id)
                     elif data =='U': #interesting data
                         useless_info += self.bits_rate - (self.acquisition_rate /self.compresion_rate)
                         usefull_info += self.acquisition_rate/self.compresion_rate
-
-                    print "Reciving %s from %s " %(data,os.getpid())
+                        logger.debug("[GroundStation%s] Received U packet",self.id)
                 else:
-                    print "useless info = %d usefull info = %d"%(useless_info,usefull_info)
+                    logger.info("[GroundStation%s] Useless info = %d Usefull info = %d"%(self.id,useless_info,usefull_info))
                     self.createFile(int(useless_info/self.img_size), int(usefull_info/self.img_size))
                     break
            
         except socket.error as e:
-            print "[DownloadingException]",e
+            logger.error("[GroundStation%s] Error with the socket!"%(self.id))
         except Exception as e:
-            print e
+            logger.error("[GroundStation%s] %s "%(self.id, e))
         finally:
+            logger.info("[GroundStation%s] Socket %s closed"%(self.id,self.socket.getsockname()))
             self.socket.close()
-            print "Socket closed"
             exit(0)
 
     def createFile(self, useless_images, usefull_images):
@@ -190,23 +232,53 @@ class GroundStation():
             nano = str(time.time()).split('.')[1]
             name = "W_GS%d_%d_USELESS_%s" %(int(self.id),int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
             os.system("cp /tmp/original.bin /tmp/"+name+".bin")
-            print "Image %s created!"%(name)
+            logger.info("[GroundStation%s] ImageUseless %s created!"%(self.id,name))
             time.sleep(0.2)
 
         for _ in xrange(usefull_images):
             nano = str(time.time()).split('.')[1]
             name = "W_GS%d_%d_USEFULL_%s" %(int(self.id),int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
             os.system("cp /tmp/original.bin /tmp/"+name+".bin")
-            print "Image %s created!"%(name)
+            logger.info("[GroundStation%s] ImageUseful %s created!"%(self.id,name))
             time.sleep(0.2)
 
 
 
 if __name__=="__main__":
-    if(len(sys.argv) != 4):
+    """Ground Station behaviour simulation.
+    This software realises the simulation of the GEO-Cloud 'grounds stations individually.
+    The parameters are:
+    id: id ground station
+    scenario : scenario in which the ground station will simulate
+    host: IP of data base host
+    level_loggin: Level for the log
+    """
+
+    if(len(sys.argv) < 4):
         print "Error with arguments. Must introduce the satellite's id, scenario and host in which database is located"
         exit(-1)
-        
+
+    loglevel = "INFO"
+    if(len(sys.argv) > 4):
+        loglevel = sys.argv[4]
+        if loglevel.find("log")!= -1:
+            loglevel = loglevel[loglevel.index("g")+2:]
+
+  
+    numeric_level = getattr(logging, loglevel.upper(), None)
+    if not isinstance(numeric_level, int):
+        raise ValueError('Invalid log level: %s' % loglevel)
+
+
+    logging.basicConfig(level=numeric_level)
+    logger = logging.getLogger()
+
+    handler = logging.FileHandler("gs%s.log"%(sys.argv[1]),mode="w")
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    handler.setLevel(logging.DEBUG)
+    logger.addHandler(handler)
+
     modHostsFile()
     id = sys.argv[1]
     scenario = sys.argv[2]
