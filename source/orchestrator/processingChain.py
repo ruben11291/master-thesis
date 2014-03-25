@@ -5,12 +5,19 @@ import threading
 from orchestator import *
 
 class processingChainController:
+    """ProcessingChainController Class.
+    This class is a singleton whose function is to create new processing chains objects
+    in order to process the raw images sended by the Orchestrator.
+    The methods are:
+    *setOrchestrator(orchestrator) : assign the passed Orchestrator to ProcessingChainController in order to stablish communication with.
+    *createProcessingChain(pathRawData): creates a new processing chain object whose raw data is the param pathRawData
+    *deleteProcessingChain(idThread): delete the processing chain that has finished.
+    *processed(idThread,fileOutput): says to the Orchestrator that the file has been created (processed image) and removes the thread from system.
+    """
+
     _controller = None
 
-    # def __new__(cls,*args,**kwargs):
-    #     if not cls._instance:
-    #         cls._instance = super(Singleton,cls).__new__(cls,*args,**kwargs)
-    #     return cls._instance
+   
 
     @classmethod
     def get(cls):
