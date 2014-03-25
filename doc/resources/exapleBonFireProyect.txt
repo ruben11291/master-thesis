@@ -1,0 +1,37 @@
+{
+  "name": "GeoCloud",
+  "description": "TestManaged",
+  "duration": 120,
+  "aggregator": "uk-epcc",
+  "resources": [
+	{"storage": {
+		"name": "Storage block",
+		"description": "An extra storage block.",
+		"type": "DATABLOCK",
+		"size": 512,
+		"fstype": "ext3"
+		}
+	},
+    {"network": {
+			"name": "customnetwork",
+			"locations": ["be-ibbt"],
+			"address": "192.168.1.1",
+			"size": "C",
+			"lossrate": 1.0,
+			"bandwidth": 700,
+			"latency": 21
+	}
+	},
+   {"compute": {
+        "name": "Client",
+         "description": "A description of the client.",
+         "instanceType": "small",
+          "locations": ["fr-inria"],
+          "resources": [
+           { "storage": "Storage Block"},
+           { "network": "customnetwork"}
+		]
+	}
+	}
+	]
+}
