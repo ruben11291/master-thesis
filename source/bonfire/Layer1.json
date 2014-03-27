@@ -164,9 +164,8 @@
          "compute": {
              "name": "Sat1",
              "description": "Sat1.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -189,9 +188,8 @@
          "compute": {
              "name": "Sat2",
              "description": "Sat2.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -214,9 +212,9 @@
          "compute": {
              "name": "Sat3",
              "description": "Sat3.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -239,9 +237,9 @@
          "compute": {
              "name": "Sat4",
              "description": "Sat4.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -264,9 +262,9 @@
          "compute": {
              "name": "Sat5",
              "description": "Sat5.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -289,9 +287,9 @@
          "compute": {
              "name": "Sat6",
              "description": "Sat6.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -314,9 +312,9 @@
          "compute": {
              "name": "Sat7",
              "description": "Sat7.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -339,9 +337,9 @@
          "compute": {
              "name": "Sat8",
              "description": "Sat8.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -364,9 +362,9 @@
          "compute": {
              "name": "Sat9",
              "description": "Sat9.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -389,9 +387,9 @@
          "compute": {
              "name": "Sat10",
              "description": "Sat10.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -414,9 +412,9 @@
          "compute": {
              "name": "Sat11",
              "description": "Sat11.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -439,9 +437,9 @@
          "compute": {
              "name": "Sat12",
              "description": "Sat12.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -464,9 +462,9 @@
          "compute": {
              "name": "Sat13",
              "description": "Sat13.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -489,9 +487,9 @@
          "compute": {
              "name": "Sat14",
              "description": "Sat14.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -514,9 +512,9 @@
          "compute": {
              "name": "Sat15",
              "description": "Sat15.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -539,9 +537,9 @@
          "compute": {
              "name": "Sat16",
              "description": "Sat16.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -564,9 +562,9 @@
          "compute": {
              "name": "Sat17",
              "description": "Sat17.",
-             "instanceType": "small",
+             "instanceType": "Large-EN",
              "locations": ["be-ibbt"],
-	     "cluster": "clusterex",
+
              "resources": [
                  { "storage": "@BonFIRE Debian Squeeze 2G v6"},
                  { "network": "@BonFIRE WAN"},
@@ -584,10 +582,22 @@
 		{ "network": "Net12"}
              ]
          }
-     }
+     },
 
-	
+	{
+         "compute": {
+             "name": "GroundStation",
+             "description": "GroundStation",
+             "instanceType": "Large-EN",
+             "locations": ["be-ibbt"],
+	     "min": 12,
+             "resources": [
+                 { "storage": "@BonFIRE Debian Squeeze 2G v6"},
+                 { "network": "@BonFIRE WAN"},
+		{ "network": "Net1"}
+             ]
+         }
+     }	
 ]
-
 
 }
