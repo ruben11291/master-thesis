@@ -4,43 +4,78 @@ from nepi.execution.ec import ExperimentController
 from nepi.execution.resource import ResourceAction, ResourceState
 import os
 
-ec = ExperimentController("testple")
+
+def create_node(ec,slice,pluser,plpass,hostname=None,country=None):
+	node = ec.register_resource("PlanetlabNode")
+	
+	ec.set(node,"username",slice)
+	ec.set(node,"pluser",pluser)
+	ec.set(node,"plpassword",plpass)
+	if hostname:
+		ec.set(node,"hostname",hostname)
+	if country:
+		ec.set(node,"country",country)
+	
+	ec.set(node, "cleanHome", True)
+	ec.set(node, "cleanProcesses", True)
+
+	return node
+
+def create_app(ec,command,sudo=None,dependencies=None,source=None):
+	app = ec.register_resource("LinuxApplication")
+	if sudo:
+		ec.set(app,"sudo",sudo)
+	if dependencies:
+		ec.set(app,"depends",dependencies)
+	if source:
+		ec.set(app,"sources",source)
+
+	ec.set(app,"command",command)
+	return app
+
+#Host where the ground stations will be allocated
+hosts ={"China":"planetlab1.buaa.edu.cn","Spain":"planetlab2.dit.upm.es","Uruguay":"planetlab1-santiago.lan.redclara.net","PuertoRico":"planetlab-01.ece.uprm.edu","Argentina":"planet-lab1.itba.edu.ar","Israel":"planet1.cs.huji.ac.il","Brazil":"planetlab1.pop-pa.rnp.br","ReunionIsland":"lim-planetlab-1.univ-reunion.fr","Malaysia":"planetlab1.comp.nus.edu.sg","Canada":"planetlab-1.usask.ca","Australia":"plnode01.cs.mu.oz.au"}
+#Host where the BonFIRE cloud will be
+bonfire_host = ("France","ple6.ipv6.lip6.fr")
+
+ec = ExperimentController("test_ple")
 
 # The username in this case is the slice name, the one to use for login in 
 # via ssh into PlanetLab nodes. Replace with your own slice name.
-hostname1 = "planetlab1.u-strasbg.fr"
-hostname2 = "planetlab1.dit.upm.es"
-slice1 = "test1"
-slice2 = "test2"
 
-name1= "wa8il8im88ge"
-
-#username="wal8il8im88ge_as"
+slice = "ibbtple_geocloud"
+pleuser="jonathan.becedas@elecnor-deimos.com"
+plepass="deimos_space14"
 ssh_key = "/home/deimos/.ssh/id_rsa"
-node1 = ec.register_resource("LinuxNode")
-ec.set(node1,"hostname",hostname1)
-ec.set(node1,"username",name1+"_"+slice1)
-ec.set(node1,"identity",ssh_key)
+source_file = "E2E_0Gerardo.bin" #file that client will send
+port = 20000 #port in which the iperf will run
 
-node2 = ec.register_resource("LinuxNode")
-ec.set(node2,"hostname",hostname2)
-ec.set(node2,"username",name1+"_"+slice2)
-ec.set(node2,"identity",ssh_key)
+#node1 = create_node(ec,slice,pleuser,plepass,hostname="planetlab1.u-strasbg.fr")
+#node2 = create_node(ec,slice,pleuser,plepass,hostname="planetlab2.dit.upm.es")
+nodes = [] 
+apps = []
 
-app = ec.register_resource("LinuxApplication")
-ec.set(app,"command","ping -c5"+hostname2)
-ec.register_connection(app,node1)
+bonfire = create_node(ec,slice,pleuser,plepass,hostname=bonfire_host[1],country=bonfire_host[0])
+command="iperf -s -p %d -f m"%(port)
+app_bf = create_app(ec,command,dependencies="iperf")
+ec.register_connection(app_bf,bonfire)
 
-app2 = ec.register_resource("LinuxApplication")
-ec.set(app2,"command","ping -c5"+hostname1)
-ec.register_connection(app2,node2)
+
+for host in hosts:
+	node = create_node(ec,slice,pleuser,plepass,hostname=hosts[host],country=host)	
+	command="iperf -f m -F $SRC/%s -p %d -o %s -c %s"%(source_file, port, target_file, bonfire.ip())
+	app = create_app(ec,command,dependencies="iperf",source=source_file)
+	ec.register_connection(app,node)
+	#The app will be started once the app_bf application is running
+	ec.register_condition(app,ResourceAction.START, app_bf, ResourceState.STARTED)
+	apps.append(app)
+	nodes.append(node)
 
 # Deploy the experiment:
 ec.deploy()
-ec.trace(app,"stdout")
-ec.trace(app2,"stdout")
-ec.wait_finished(app)
-ec.wait_finished(app2)
+ec.wait_finished(apps)
+
+print ec.trace(app1,"stdout")
 # Do the experiment controller shutdown:
 ec.shutdown()
 

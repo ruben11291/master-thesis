@@ -16,21 +16,9 @@
 #
 # Author: Ruben Perez <ruben.perez@deimos-space.com>
 
-#!/bin/bash
+This bash script install all dependencies for GeoServer software (java, wget, tomcat,etc). 
+Then, install Apache Tomcat 6. When that is done, GeoServer is installed to run over Tomcat as WAR archive.
 
-
-if [ $# -lt '2' ] 
-then
-	echo "Error with arguments. Must enter <SCENARIO_ID> <IP_DATA_BASE> [INFO|DEBUG|ERROR]!"
-	exit
-fi
-scenario=$1
-ip_db=$2
-level=$3
-
-for num in {0..11};
-do
-	python groundstation.py $num $scenario $ip_db $level&
-	sleep 1
-done
-
+Execution:
+-- The script must be executed in a BonFIRE node as root as follows:
+--- $ ./install.sh

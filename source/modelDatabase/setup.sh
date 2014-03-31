@@ -16,21 +16,14 @@
 #
 # Author: Ruben Perez <ruben.perez@deimos-space.com>
 
+
 #!/bin/bash
+model=modelDataBase
 
+apt-get update
+apt-get upgrade -y
+apt-get install mysql-server -y
+apt-get install build-essential python-dev libmysqlclient-dev -y
+apt-get install python-mysqldb
 
-if [ $# -lt '2' ] 
-then
-	echo "Error with arguments. Must enter <SCENARIO_ID> <IP_DATA_BASE> [INFO|DEBUG|ERROR]!"
-	exit
-fi
-scenario=$1
-ip_db=$2
-level=$3
-
-for num in {0..11};
-do
-	python groundstation.py $num $scenario $ip_db $level&
-	sleep 1
-done
-
+mysql -u root -p < modelDataBase

@@ -16,21 +16,15 @@
 #
 # Author: Ruben Perez <ruben.perez@deimos-space.com>
 
-#!/bin/bash
 
+This directory contains the files needed for creating the data base model and subsystem.
+The description of this files is the next:
+-- dbmodel.mwb : model in readable format to Mysql-workbench
+-- dbmodel.mwb.bak : backup of dbmodel.mwb
+-- modelDataBase : sql scheme for installing within mysql database. 
+-- schema.png : png that shows graphically the data base schema.
+-- setup.sh : bash script that install all dependencies for mysql data base and the schema within database.
 
-if [ $# -lt '2' ] 
-then
-	echo "Error with arguments. Must enter <SCENARIO_ID> <IP_DATA_BASE> [INFO|DEBUG|ERROR]!"
-	exit
-fi
-scenario=$1
-ip_db=$2
-level=$3
-
-for num in {0..11};
-do
-	python groundstation.py $num $scenario $ip_db $level&
-	sleep 1
-done
-
+Execution: 
+-- The execution must be realised in a BonFIRE node as follows:
+-- $ ./setup.sh
