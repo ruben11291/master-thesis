@@ -1,96 +1,80 @@
-#!/usr/bin/env python
-import pdb
 from nepi.execution.ec import ExperimentController
 from nepi.execution.resource import ResourceAction, ResourceState
 import os
 
 
-def create_node(ec,slice,pluser,plpass,hostname=None,country=None):
-	node = ec.register_resource("PlanetlabNode")
-	
-	ec.set(node,"username",slice)
-	ec.set(node,"pluser",pluser)
-	ec.set(node,"plpassword",plpass)
-	if hostname:
-		ec.set(node,"hostname",hostname)
-	if country:
-		ec.set(node,"country",country)
-	
-	ec.set(node, "cleanHome", True)
-	ec.set(node, "cleanProcesses", True)
+def create_node(ec, username, pluser, plpass, hostname=None, country=None):
 
-	return node
+    node = ec.register_resource("PlanetlabNode")
 
-def create_app(ec,command,sudo=None,dependencies=None,source=None):
-	app = ec.register_resource("LinuxApplication")
-	if sudo:
-		ec.set(app,"sudo",sudo)
-	if dependencies:
-		ec.set(app,"depends",dependencies)
-	if source:
-		ec.set(app,"sources",source)
+    ec.set(node,"username", username)
+    ec.set(node,"pluser", pluser)
+    ec.set(node,"plpassword", plpass)
+    if hostname:
+        ec.set(node,"hostname", hostname)
+    if country:
+        ec.set(node,"country", country)
 
-	ec.set(app,"command",command)
-	return app
+    ec.set(node, "cleanHome", True)
+    ec.set(node, "cleanProcesses", True)
 
+    return node
+
+def create_app(ec, command, sudo=None, dependencies=None, source=None):
+
+    app = ec.register_resource("LinuxApplication")
+    if sudo:
+        ec.set(app,"sudo",sudo)
+    if dependencies:
+        ec.set(app,"depends",dependencies)
+    if source:
+        ec.set(app,"sources",source)
+
+    ec.set(app,"command",command)
+    return app
 
 
 ec = ExperimentController("test_ple")
 
-# The username in this case is the slice name, the one to use for login in 
-# via ssh into PlanetLab nodes. Replace with your own slice name.
+username = "ibbtple_geocloud"
+pl_user = "jonathan.becedas@elecnor-deimos.com"
+pl_password =  "deimos_space14"
 
-slice = "ibbtple_geocloud"
-pleuser="jonathan.becedas@elecnor-deimos.com"
-plepass="******" #Enter the password
-ssh_key = "/home/deimos/.ssh/id_rsa"
-source_file = "/home/deimos/GeoCloudResources/E2E_0Gerardo.bin" #file that client will send
-target_file = "iperfOut.txt"
-
-
-
-
+source_file = "/user/lguevgeo/home/desarrollo/nepi_3dev/examples/big_buck_bunny_240p_mpeg4_lq.ts"
+target_file = "output.txt"
 
 #Host where the BonFIRE cloud will be
-bonfire_host = ("France","ple6.ipv6.lip6.fr")
+host1 = "ple6.ipv6.lip6.fr"
+host2 = "planetlab2.utt.fr"
 
+
+port = 20000
 #Creates the BonFIRE node and the application is added
-bonfire = create_node(ec,slice,pleuser,plepass,hostname=bonfire_host[1],country=bonfire_host[0])
-command="iperf -s -f m -t 30 -D"
-#command = "ping -c 5 planetlab2.utt.fr"
-print "Server command ",command
-app_bf = create_app(ec,command,dependencies="iperf")
-ec.register_connection(app_bf,bonfire)
+node_server = create_node(ec, username, pl_user, pl_password, hostname=host1)
+node_client = create_node(ec, username, pl_user, pl_password, hostname=host2)
 
-node1 = create_node(ec,slice,pleuser,plepass,hostname="planetlab2.utt.fr")
-command="iperf -f m -F $SRC%s -o $SRC/%s -c %s -t 30"%(source_file, target_file, bonfire_host[1])
-#command="ping -c 5 "+bonfire_host[1]
-print "Client command ",command
-app = create_app(ec,command,dependencies="iperf",source=source_file)
-ec.register_connection(app,node1)
+command_server = "iperf -s -f m -t 30 -i 1 -p %d -u" %(port)
+command_client = "iperf -f m  -c %s  -t 10 -p %d -i 1 -u > %s" % ( host1,port,target_file)
 
-#The app will be started once the app_bf application is running
+app_server = create_app(ec, command_server, dependencies="iperf")
+ec.register_connection(node_server, app_server)
 
-ec.register_condition(node1, ResourceAction.DEPLOY, bonfire, ResourceState.PROVISIONED)
-ec.register_condition(bonfire, ResourceAction.START , node1,ResourceState.READY)
-ec.register_condition(node1, ResourceAction.START, bonfire, ResourceState.STARTED)
-#ec.register_condition(app, ResourceAction.START, app_bf, ResourceState.STARTED)
-#ec.register_condition(app,ResourceAction.START, app_bf, ResourceState.STARTED)
+app_client = create_app(ec, command_client, dependencies="iperf", source=source_file)
+ec.register_connection(node_client, app_client)
+
+ec.register_condition(app_client, ResourceAction.START, app_server, ResourceState.STARTED)
 
 
 # Deploy the experiment:
 ec.deploy()
-pdb.set_trace()
-ec.wait_finished([app,app_bf])
 
+ec.wait_finished([app_client])
 
-trace=ec.trace(app,"$SRC/"+target_file)
-f = open("output.txt","w")
+trace = ec.trace(app_client, target_file)
+print trace
+f = open("hostout.txt","w")
 f.write(trace)
 f.close()
 
-#print ec.trace(app1,"stdout")
-# Do the experiment controller shutdown:
 ec.shutdown()
 
-# END
