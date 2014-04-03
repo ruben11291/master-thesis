@@ -7,7 +7,7 @@ import os
 
 def create_node(ec,slice,pluser,plpass,hostname=None,country=None):
 	node = ec.register_resource("PlanetlabNode")
-	
+
 	ec.set(node,"username",slice)
 	ec.set(node,"pluser",pluser)
 	ec.set(node,"plpassword",plpass)
@@ -15,7 +15,7 @@ def create_node(ec,slice,pluser,plpass,hostname=None,country=None):
 		ec.set(node,"hostname",hostname)
 	if country:
 		ec.set(node,"country",country)
-	
+
 	ec.set(node, "cleanHome", True)
 	ec.set(node, "cleanProcesses", True)
 
@@ -42,36 +42,36 @@ bonfire_host = ("France","ple6.ipv6.lip6.fr")
 
 ec = ExperimentController("test_ple")
 
-# The username in this case is the slice name, the one to use for login in 
+# The username in this case is the slice name, the one to use for login in
 # via ssh into PlanetLab nodes. Replace with your own slice name.
 
 slice = "ibbtple_geocloud"
 pleuser="jonathan.becedas@elecnor-deimos.com"
 plepass= os.environ["PL_PASS"]
 ssh_key = "~/.ssh/id_rsa"
-source_file = "/home/deimos/GeoCloudResources/E2E_0Gerardo.bin" #file that client will send
+#source_file = "/home/deimos/GeoCloudResources/E2E_0Gerardo.bin" #file that client will send
 target_file = "data.txt"
 port = 20000
 
 #node1 = create_node(ec,slice,pleuser,plepass,hostname="planetlab1.u-strasbg.fr")
 #node2 = create_node(ec,slice,pleuser,plepass,hostname="planetlab2.dit.upm.es")
-nodes = [] 
+nodes = []
 apps = []
 
 
-command_server = "iperf -s -f m -t 30 -i 1 -p %d -u" %(port)
+command_server = "timeout 5m iperf -s -f m -t 30 -i 1 -p %d -u" %(port)
 
 #Creates the BonFIRE node and the application is added
-bonfire_node = create_node(ec,slice,pleuser,plepass,hostname=bonfire_host[1],country=bonfire_host[0])
+bonfire_node = create_node(ec,slice,pleuser,plepass,hostname=bonfire_host[1])
 app_bonfire = create_app(ec,command_server,dependencies="iperf")
 ec.register_connection(app_bonfire,bonfire_node)
 
 node_app=dict()
 
 for host in hosts:
-	node = create_node(ec,slice,pleuser,plepass,hostname=hosts[host],country=host)
-	command_client = "iperf -f m  -c %s  -t 3600 -p %d -i 1 -u > %d%s" % ( bonfire_host[1],port,node,target_file)	
-	app = create_app(ec,command_client,dependencies="iperf",source=source_file)
+	node = create_node(ec,slice,pleuser,plepass,hostname=hosts[host])
+	command_client = "iperf -f m  -c %s  -t 3 -p %d -i 1 -u " % ( bonfire_host[1],port)
+	app = create_app(ec,command_client,dependencies="iperf")
 	ec.register_connection(app,node)
 	#The app will be started once the app_bf application is running
 	apps.append(app)
@@ -82,13 +82,14 @@ for host in hosts:
 
 # Deploy the experiment:
 ec.deploy()
-ec.wait_finished(apps)
+ec.wait_finished([apps,app_bonfire])
 
 for node, app in node_app.iteritems():
-	trace=ec.trace(node,str(node)+target_file)
-	f = open(str(node)+"output.txt","w")
-	f.write(trace)
-	f.close()
+	trace=ec.trace(node,"stdout")
+	if trace:
+		f = open(str(node)+"output.txt","w")
+		f.write(trace)
+		f.close()
 #print ec.trace(app1,"stdout")
 # Do the experiment controller shutdown:
 ec.shutdown()
