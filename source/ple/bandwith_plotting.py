@@ -25,7 +25,9 @@ def plot_bandwith(file):
         #bandwith.append(line.split(
     x = np.linspace(float(time[0]),float(time[-1]))
     print x,bandwith
-    plt.plot(time[:-1],bandwith[:-1],"r")
+    x = np.linspace(-100,100)
+    #plt.plot(time[:-1],bandwith[:-1],"r")
+    plt.plot(x,x**2)
     plt.show()
 
 if __name__=="__main__":
