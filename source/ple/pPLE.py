@@ -52,6 +52,7 @@ ssh_key = "~/.ssh/id_rsa"
 target_file = "data.txt"
 port = 20001
 seconds = 43200
+seconds = 3600
 nodes = []
 apps = []
 
