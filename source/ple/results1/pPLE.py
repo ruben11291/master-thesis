@@ -50,13 +50,13 @@ plepass= os.environ["PL_PASS"]
 ssh_key = "~/.ssh/id_rsa"
 #source_file = "/home/deimos/GeoCloudResources/E2E_0Gerardo.bin" #file that client will send
 target_file = "data.txt"
-port = 20001
+port = 20000
 seconds = 43200
 nodes = []
 apps = []
 
 
-command_server = "timeout %dm iperf -s -f m -i 1 -p %d " %((seconds/60)+2,port)#the timeout takes in advantage to 5 minutes
+command_server = "timeout %dm iperf -s -f m -t 30 -i 1 -p %d -u" %((seconds/60)+2,port)#the timeout takes in advantage to 5 minutes
 
 #Creates the BonFIRE node and the application is added
 bonfire_node = create_node(ec,slice,pleuser,plepass,hostname=bonfire_host[1])
@@ -71,7 +71,7 @@ node_app=dict()
 for host in hosts:
 	node = create_node(ec,slice,pleuser,plepass,hostname=hosts[host],country=host)
 	nodes.append(node)
-	command_client = "iperf  -i 1 -f m -c %s -t %d -p %d  > node%d.out " % (bonfire_host[1],seconds,port,node)
+	command_client = "iperf -f m  -c %s  -t %d -p %d -i 1 -u > node%d.out " % (bonfire_host[1],seconds,port,node)
 	app = create_app(ec,command_client,dependencies="iperf")
 	ec.register_connection(app,node)
 	#The app will be started once the app_bf application is running

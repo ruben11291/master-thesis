@@ -53,3 +53,23 @@ Also, I remastered and improved the Orchestrator report adding new images and ex
 
 Finally, on thursday, I started to design and to develop the satellite software. This software is complicated because it is necessary to simulate each zone ( as if this zone is interesting as no it is). The interesting areas and the visibility cones are simulated using the scheduler module of python.
 Like a real scheduler, I took the time of each zone and, calculating the relative time respect of beginning execution time, and done the schedule with all areas, which own priority that could be high o low.
+
+\subsection{6-april-14}
+This last weeks I have tried to create and execute de PLE experiment. I had some troubles with the PLE nodes because some are unreachables, or the ssh connection were refused, so those nodes 
+must be changed for others that are full functional.
+The nodes field register must be updated with the finally selected nodes.
+The execution of the experiment was succesfully and I could obtain some information as loss rate and delay. The execution takes 12 hours sending iformation to senver.
+The iperf software was used for to do this, and the client command has to be explained in the documentation.
+The next step is to do the PLE experiment documentation to explain:
+-- the iperf software
+-- why the parameters in the client and server has been choosen
+-- Nepi
+-- Script using Nepi
+-- time of execution
+-- obtained results
+-- graphical results : average bandwith per node, average loss rate per node and average delay per node
+----- bandwith behaviour per node for a 12 hours
+----- " loss rate and jitter
+
+Also, we wrote two abstracts for the FOOS congres.
+
