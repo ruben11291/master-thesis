@@ -18,38 +18,16 @@ mpl.rcParams['figure.subplot.bottom']=0.0
 mpl.rcParams['savefig.bbox']='tight'
 
 #plt.set_figsize_inches(1024,872)
-def plot_bandwith(file,subplot):
-    bandwith = []
-    time = []
+def plot_delay(file,subplot):
+
+    delays=[]
     for line in file:
-        l = line.split(",")
-        if len(l) == 9: #the it is a client report
-            transfered=l[7]
-            Bps=float(l[8])
-            time_=l[6].split('-')[0]
-            if (Bps > 0.0):
-                bandwith.append(Bps/1000)
-                time.append(time_)
-        else:
-            #the server's report
-            total_trans=l[7]
-            average_bandwith=l[8]
-            jitter=l[9]
-            loss=l[10]
-            total_pack=l[11]
-            loss_rate =l[12]
-    # average_bandwith=0
-    # for i in bandwith:
-    #     average_bandwith+=i
-    # average_bandwith = average_bandwith/len(bandwith)
-    # average=[]
-    # stdp=[] #standar deviation positive
-    # stdn =[] #standard deviation negative
-    # sd = np.std(bandwith)
-    # for i in bandwith:
-    #     average.append(average_bandwith)
-    #     stdp.append(average_bandwith+sd)
-    #     stdn.append(average_bandwith-sd)
+        if line.find("time") != -1:
+            if line[line.find("time")+4]=='=':
+                data =line.split("time")[1].split("=")[1].split(" ")[0]
+                delays.append(float(data))
+    (mu,sigma) = norm.fit(delays)
+    print mu, sigma
 
     # print "Average ", average_bandwith, "SD ",sd
     #plt.xlabel("Time (s)")
@@ -59,17 +37,13 @@ def plot_bandwith(file,subplot):
     #plt.plot(time[:-1],stdp[:-1],"g",label="Standard deviation")
     #plt.plot(time[:-1],stdn[:-1],"g")
     #plt.legend()
-    (mu,sigma) = norm.fit(bandwith[:-1])
-    #print mu, sigma
-
-   # plt.subplot(340+current)
    # plt.subplots(nrows=4,ncols=3)
-    n , bins , patches = subplot.hist(bandwith[:-1], 30,normed=True,facecolor='green',alpha=1)
+    n , bins , patches = subplot.hist(delays, 30,normed=True,facecolor='green',alpha=1)
     #print bins
     #y = mlab.normpdf(bins,average_bandwith,sd)
     y = mlab.normpdf(bins,mu,sigma)
    # plt.xlabel("Bandwidth (Mbps)",fontsize=15)
-    subplot.set_xlabel("Bandwidth (Mbps)",fontsize=4.5,style='italic')
+    subplot.set_xlabel("Delay (Ms)",fontsize=4.5,style='italic')
 
     #subplot.plot(bins,y,'b-')
     subplot.plot(bins, 1/(sigma * np.sqrt(2 * np.pi)) *np.exp( - (bins - mu)**2 / (2 * sigma**2) ),linewidth=2, color='r')
@@ -95,9 +69,9 @@ if __name__=="__main__":
         #pdb.set_trace()
         for fileinput in os.listdir(os.sys.argv[1]):
             f = open(os.sys.argv[1]+"/"+fileinput,"r")
-            plot_bandwith(f,gfx.pop())
+            plot_delay(f,gfx.pop())
         #plt.show()
-        savefig("GSGraph"+".png",bbox_inches='tight',dpi=300)
+        savefig("DelayHistGS"+".png",bbox_inches='tight',dpi=300)
 
     except IOError as e:
         print e

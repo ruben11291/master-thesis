@@ -48,7 +48,8 @@ def create_app(ec,command,sudo=None,dependencies=None,source=None):
 #Argentina is missing ,"Argentina":"planet-lab2.itba.edu.ar"
 #Argentina after planetlab1.pop-rs.rnp.br
 #Host where the ground stations will be allocated
-hosts ={"Argentina":"planet-lab2.itba.edu.ar","China":"planetlab1.buaa.edu.cn","Spain":"planetlab2.dit.upm.es","Norway":"planetlab1.cs.uit.no","New Zealand":"planetlab1.cs.otago.ac.nz","Florida":"planetlab1.csee.usf.edu","Israel":"planetlab2.mta.ac.il","Brazil":"planetlab1.pop-pa.rnp.br","Reunion Island":"lim-planetlab-1.univ-reunion.fr","Malaysia":"planetlab1.comp.nus.edu.sg","Canada":"planetlab-2.usask.ca","Australia":"pl1.eng.monash.edu.au"}
+#hosts ={"Argentina":"planet-lab2.itba.edu.ar","China":"planetlab1.buaa.edu.cn","Spain":"planetlab2.dit.upm.es","Norway":"planetlab1.cs.uit.no","New Zealand":"planetlab1.cs.otago.ac.nz","Florida":"planetlab1.csee.usf.edu","Israel":"planetlab2.mta.ac.il","Brazil":"planetlab1.pop-pa.rnp.br","Reunion Island":"lim-planetlab-1.univ-reunion.fr","Malaysia":"planetlab1.comp.nus.edu.sg","Canada":"planetlab-2.usask.ca","Australia":"pl1.eng.monash.edu.au"}
+hosts={"New Zealand":"planetlab1.cs.otago.ac.nz"}
 #Host where the BonFIRE cloud will be
 bonfire_host = ("France","ple6.ipv6.lip6.fr")
 

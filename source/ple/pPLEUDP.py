@@ -35,9 +35,7 @@ def create_app(ec,command,sudo=None,dependencies=None,source=None):
 
 #Argentina is missing ,"Argentina":"planet-lab2.itba.edu.ar"
 #Host where the ground stations will be allocated
-
-#hosts ={"Argentina":"planetlab1.pop-rs.rnp.br","China":"planetlab1.buaa.edu.cn","Spain":"planetlab2.dit.upm.es","Norway":"planetlab1.cs.uit.no","New Zealand":"planetlab1.cs.otago.ac.nz","Florida":"planetlab1.csee.usf.edu","Israel":"planetlab2.mta.ac.il","Brazil":"planetlab1.pop-pa.rnp.br","Reunion Island":"lim-planetlab-1.univ-reunion.fr","Malaysia":"planetlab1.comp.nus.edu.sg","Canada":"planetlab-2.usask.ca","Australia":"pl1.eng.monash.edu.au"}
-hosts ={"Argentina":"planetlab1.pop-rs.rnp.br","China":"planetlab1.buaa.edu.cn","Spain":"planetlab2.dit.upm.es","Norway":"planetlab1.cs.uit.no","New Zealand":"planetlab1.cs.otago.ac.nz","Florida":"planetlab1.csee.usf.edu","Israel":"planetlab2.mta.ac.il","Brazil":"planetlab1.pop-pa.rnp.br","Malaysia":"planetlab1.comp.nus.edu.sg","Canada":"planetlab-2.usask.ca","Australia":"pl1.eng.monash.edu.au"}
+hosts ={"Argentina":"planetlab1.pop-rs.rnp.br","China":"planetlab1.buaa.edu.cn","Spain":"planetlab2.dit.upm.es","Norway":"planetlab1.cs.uit.no","New Zealand":"planetlab1.cs.otago.ac.nz","Florida":"planetlab1.csee.usf.edu","Israel":"planetlab2.mta.ac.il","Brazil":"planetlab1.pop-pa.rnp.br","Reunion Island":"lim-planetlab-1.univ-reunion.fr","Malaysia":"planetlab1.comp.nus.edu.sg","Canada":"planetlab-2.usask.ca","Australia":"pl1.eng.monash.edu.au"}
 #hosts={"New Zealand":"planetlab1.cs.otago.ac.nz"}
 #Host where the BonFIRE cloud will be
 bonfire_host = ("France","ple6.ipv6.lip6.fr")
@@ -60,7 +58,7 @@ nodes = []
 apps = []
 
 
-command_server = "timeout %dm iperf -s -f m -i 1 -p %d " %((seconds/60)+5,port)#the timeout takes in advantage to 5 minutes
+command_server = "timeout %dm iperf -s -f m -i 1 -p %d -u" %((seconds/60)+2,port)#the timeout takes in advantage to 5 minutes
 
 #Creates the BonFIRE node and the application is added
 bonfire_node = create_node(ec,slice,pleuser,plepass,hostname=bonfire_host[1])
@@ -75,7 +73,7 @@ node_app=dict()
 for host in hosts:
 	node = create_node(ec,slice,pleuser,plepass,hostname=hosts[host],country=host)
 	nodes.append(node)
-	command_client = "iperf  -i 1 -f m -c %s -t %d -p %d  -y c > node%d.out " % (bonfire_host[1],seconds,port,node)
+	command_client = "iperf  -i 1 -f m -c %s -t %d -p %d  -y c -u > node%d.out " % (bonfire_host[1],seconds,port,node)
 	app = create_app(ec,command_client,dependencies="iperf")
 	ec.register_connection(app,node)
 	#The app will be started once the app_bf application is running

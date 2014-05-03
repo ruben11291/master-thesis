@@ -5,12 +5,25 @@ from nepi.execution.resource import ResourceAction, ResourceState
 import os
 
 
-def create_node(ec,slice,pluser,plpass,country):
+def create_node(ec,slice,pluser,plpass,hostname=None):
 	node = ec.register_resource("PlanetlabNode")
 
 	ec.set(node,"username",slice)
 	ec.set(node,"pluser",pluser)
 	ec.set(node,"plpassword",plpass)
+	ec.set(node,"hostname",hostname)
+
+	ec.set(node, "cleanHome", True)
+	ec.set(node, "cleanProcesses", True)
+
+	return node
+def create_node2(ec,slice,pluser,plpass,country):
+	node = ec.register_resource("PlanetlabNode")
+
+	ec.set(node,"username",slice)
+	ec.set(node,"pluser",pluser)
+	ec.set(node,"plpassword",plpass)
+
 	ec.set(node,"country",country)
 	ec.set(node, "cleanHome", True)
 	ec.set(node, "cleanProcesses", True)
@@ -29,16 +42,10 @@ def create_app(ec,command,sudo=None,dependencies=None,source=None):
 	ec.set(app,"command",command)
 	return app
 
-#No tiene : Denmark
-#Austria,
-#################
-nodes_customers=("Argentina","Australia","Austria","Belgium","Brazil","Canada","China","Cyprus","Czech Republic","Denmark","Ecuador","Egypt","Findland","France","Germany","Greece","HongKong","Hungary","Iceland","India","Ireland","Israel","Italy","Japan","Jordan","Korea","Mexico","Netherlands","NewZealand","Norway","Pakistan","Poland","Portugal","PuertoRico", "Romania","RussianFederation","Singapore","Slovenia","Spain","SriLanca", "Sweeden","Switzerland","Taiwan","Thailand","Tunisia","Turkey","UnitedKingdom","UnitedStates","Uruguay","Venezuela")
-
-ec = ExperimentController("test_ple")
 
 # The username in this case is the slice name, the one to use for login in
 # via ssh into PlanetLab nodes. Replace with your own slice name.
-
+ec = ExperimentController("test_ple")
 slice = "ibbtple_geocloud"
 pleuser= os.environ["PL_USER"]
 plepass= os.environ["PL_PASS"]
@@ -73,15 +80,34 @@ nodes_customers=("Argentina","Australia","Belgium","Brazil","Canada","China","Cz
 # apps.append(app)
 # node_app[node] =app
 
-for host in nodes_customers:
-	print host
-	node= create_node(ec,slice,pleuser,plepass,host)
-	nodes.append(node)
-	command_client = "ping %s -w %d  > node%d.out " % ("ple6.ipv6.lip6.fr",seconds,node)
-	app=create_app(ec,command_client)
-	ec.register_connection(app,node)
-	apps.append(app)
-	node_app[node] =app
+
+target_file = "data.txt"
+port = 20004
+seconds = 43200
+seconds = 3600 #5 h
+nodes = []
+apps = []
+
+
+command_server = "timeout %dm iperf -s -f m -i 1 -p %d -u" %((seconds/60)+2,port)#the timeout takes in advantage to 5 minutes
+bonfire_host = ("France","ple6.ipv6.lip6.fr")
+
+#Creates the BonFIRE node and the application is added
+bonfire_node = create_node(ec,slice,pleuser,plepass,hostname=bonfire_host[1])
+app_bonfire = create_app(ec,command_server,dependencies="iperf")
+ec.register_connection(app_bonfire,bonfire_node)
+apps.append(app_bonfire)
+node_app=dict()
+
+
+
+node= create_node2(ec,slice,pleuser,plepass,"Israel")
+nodes.append(node)
+command_client = "iperf  -i 1 -f m -c %s -t %d -p %d   -u> node%d.out " % (bonfire_host[1],seconds,port,node)
+app = create_app(ec,command_client,dependencies="iperf")
+ec.register_connection(app,node)
+node_app[node] =app
+ec.register_condition(app,ResourceAction.START, app_bonfire, ResourceState.STARTED)
 
 #pdb.set_trace()
 ec.deploy()
@@ -89,12 +115,10 @@ ec.deploy()
 ec.wait_finished(apps)
 
 
-for node, app in node_app.iteritems():
-#	print "iteration :",node,app
-	trace=ec.trace(app,"node%d.out"%(node))
-	f = open(ec.get(node,"country")+":"+ec.get(node,"ip")+":"+"node%d_PING.out"%(node),"w")
-	f.write(trace)
-	f.close()
+trace=ec.trace(app,"node%d.out"%(node))
+f = open(ec.get(node,"country")+":"+ec.get(node,"ip")+":"+"node%d_IPERF.out"%(node),"w")
+f.write(trace)
+f.close()
 #print ec.trace(app1,"stdout")
 # Do the experiment controller shutdown:
 ec.shutdown()

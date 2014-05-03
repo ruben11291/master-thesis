@@ -1,0 +1,93 @@
+2014-04-30 13:40:21,626 LinuxApplication INFO  guid 4 - host pl1.eng.monash.edu.au - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node3.out ' 
+2014-04-30 13:40:21,632 LinuxApplication INFO  guid 6 - host rochefort.infonet.fundp.ac.be - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node5.out ' 
+2014-04-30 13:40:21,639 LinuxApplication INFO  guid 8 - host planetlab1.pop-pa.rnp.br - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node7.out ' 
+2014-04-30 13:40:21,643 LinuxApplication INFO  guid 10 - host planetlab-2.usask.ca - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node9.out ' 
+2014-04-30 13:40:21,646 LinuxApplication INFO  guid 12 - host planetlab1.cqupt.edu.cn - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node11.out ' 
+2014-04-30 13:40:21,649 LinuxApplication INFO  guid 14 - host planetlab1.cesnet.cz - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node13.out ' 
+2014-04-30 13:40:21,651 LinuxApplication INFO  guid 16 - host planetlab-1.research.netlab.hut.fi - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node15.out ' 
+2014-04-30 13:40:21,652 LinuxApplication INFO  guid 18 - host ple3.ipv6.lip6.fr - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node17.out ' 
+2014-04-30 13:40:21,656 LinuxApplication INFO  guid 20 - host planetlab2.cs.uoi.gr - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node19.out ' 
+2014-04-30 13:40:21,664 LinuxApplication INFO  guid 22 - host planetlab02.tkn.tu-berlin.de - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node21.out ' 
+2014-04-30 13:40:21,673 LinuxApplication INFO  guid 24 - host planetlab1.ie.cuhk.edu.hk - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node23.out ' 
+2014-04-30 13:40:21,676 LinuxApplication INFO  guid 26 - host planet2.elte.hu - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node25.out ' 
+2014-04-30 13:40:21,684 LinuxApplication INFO  guid 28 - host netapp6.cs.kookmin.ac.kr - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node27.out ' 
+2014-04-30 13:40:21,686 LinuxApplication INFO  guid 30 - host planetlab-node-01.ucd.ie - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node29.out ' 
+2014-04-30 13:40:21,688 LinuxApplication INFO  guid 32 - host planetlab2.tau.ac.il - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node31.out ' 
+2014-04-30 13:40:21,691 LinuxApplication INFO  guid 34 - host planet-lab-node1.netgroup.uniroma2.it - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node33.out ' 
+2014-04-30 13:40:21,699 LinuxApplication INFO  guid 38 - host planetlab2.cs.vu.nl - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node37.out ' 
+2014-04-30 13:40:21,700 LinuxApplication INFO  guid 36 - host planet1.pnl.nitech.ac.jp - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node35.out ' 
+2014-04-30 13:40:21,701 LinuxApplication INFO  guid 40 - host planetlab1.cs.otago.ac.nz - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node39.out ' 
+2014-04-30 13:40:21,710 LinuxApplication INFO  guid 42 - host planetlab1.cs.uit.no - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node41.out ' 
+2014-04-30 13:40:21,721 LinuxApplication INFO  guid 46 - host ple2.dmcs.p.lodz.pl - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node45.out ' 
+2014-04-30 13:40:21,723 LinuxApplication INFO  guid 44 - host planetlab-1.tagus.ist.utl.pt - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node43.out ' 
+2014-04-30 13:40:21,723 LinuxApplication INFO  guid 48 - host plab1.cs.msu.ru - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node47.out ' 
+2014-04-30 13:40:21,725 LinuxApplication INFO  guid 50 - host planetlab1.comp.nus.edu.sg - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node49.out ' 
+2014-04-30 13:40:21,726 LinuxApplication INFO  guid 52 - host dplanet2.uoc.edu - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node51.out ' 
+2014-04-30 13:40:21,727 LinuxApplication INFO  guid 54 - host planetlab2.s3.kth.se - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node53.out ' 
+2014-04-30 13:40:21,728 LinuxApplication INFO  guid 56 - host planetlab2.unineuchatel.ch - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node55.out ' 
+2014-04-30 13:40:21,735 LinuxApplication INFO  guid 58 - host ple1.ait.ac.th - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node57.out ' 
+2014-04-30 13:40:21,753 LinuxApplication INFO  guid 60 - host planetlab2.xeno.cl.cam.ac.uk - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node59.out ' 
+2014-04-30 13:40:21,767 LinuxApplication INFO  guid 62 - host planetlab1.csee.usf.edu - Starting command 'ping ple6.ipv6.lip6.fr -w 3600  > node61.out ' 
+2014-04-30 14:41:03,827 LinuxApplication INFO  guid 2 - host planet-lab2.uba.ar - Retrieving 'node1.out' trace all  
+2014-04-30 14:41:05,955 LinuxApplication INFO  guid 4 - host pl1.eng.monash.edu.au - Retrieving 'node3.out' trace all  
+2014-04-30 14:41:08,188 LinuxApplication INFO  guid 6 - host rochefort.infonet.fundp.ac.be - Retrieving 'node5.out' trace all  
+2014-04-30 14:41:08,907 LinuxApplication INFO  guid 8 - host planetlab1.pop-pa.rnp.br - Retrieving 'node7.out' trace all  
+2014-04-30 14:41:11,032 LinuxApplication INFO  guid 10 - host planetlab-2.usask.ca - Retrieving 'node9.out' trace all  
+2014-04-30 14:41:13,657 LinuxApplication INFO  guid 12 - host planetlab1.cqupt.edu.cn - Retrieving 'node11.out' trace all  
+2014-04-30 14:41:15,911 LinuxApplication INFO  guid 14 - host planetlab1.cesnet.cz - Retrieving 'node13.out' trace all  
+2014-04-30 14:41:17,072 LinuxApplication INFO  guid 16 - host planetlab-1.research.netlab.hut.fi - Retrieving 'node15.out' trace all  
+2014-04-30 14:41:22,025 LinuxApplication INFO  guid 18 - host ple3.ipv6.lip6.fr - Retrieving 'node17.out' trace all  
+2014-04-30 14:41:22,764 LinuxApplication INFO  guid 20 - host planetlab2.cs.uoi.gr - Retrieving 'node19.out' trace all  
+2014-04-30 14:41:24,200 LinuxApplication INFO  guid 22 - host planetlab02.tkn.tu-berlin.de - Retrieving 'node21.out' trace all  
+2014-04-30 14:41:25,158 LinuxApplication INFO  guid 24 - host planetlab1.ie.cuhk.edu.hk - Retrieving 'node23.out' trace all  
+2014-04-30 14:41:27,095 LinuxApplication INFO  guid 26 - host planet2.elte.hu - Retrieving 'node25.out' trace all  
+2014-04-30 14:41:28,076 LinuxApplication INFO  guid 28 - host netapp6.cs.kookmin.ac.kr - Retrieving 'node27.out' trace all  
+2014-04-30 14:41:30,363 LinuxApplication INFO  guid 30 - host planetlab-node-01.ucd.ie - Retrieving 'node29.out' trace all  
+2014-04-30 14:41:31,699 LinuxApplication INFO  guid 32 - host planetlab2.tau.ac.il - Retrieving 'node31.out' trace all  
+2014-04-30 14:41:33,489 LinuxApplication INFO  guid 34 - host planet-lab-node1.netgroup.uniroma2.it - Retrieving 'node33.out' trace all  
+2014-04-30 14:41:34,310 LinuxApplication INFO  guid 36 - host planet1.pnl.nitech.ac.jp - Retrieving 'node35.out' trace all  
+2014-04-30 14:41:36,435 LinuxApplication INFO  guid 38 - host planetlab2.cs.vu.nl - Retrieving 'node37.out' trace all  
+2014-04-30 14:41:37,143 LinuxApplication INFO  guid 40 - host planetlab1.cs.otago.ac.nz - Retrieving 'node39.out' trace all  
+2014-04-30 14:41:38,802 LinuxApplication INFO  guid 42 - host planetlab1.cs.uit.no - Retrieving 'node41.out' trace all  
+2014-04-30 14:41:39,761 LinuxApplication INFO  guid 44 - host planetlab-1.tagus.ist.utl.pt - Retrieving 'node43.out' trace all  
+2014-04-30 14:41:40,857 LinuxApplication INFO  guid 46 - host ple2.dmcs.p.lodz.pl - Retrieving 'node45.out' trace all  
+2014-04-30 14:41:41,731 LinuxApplication INFO  guid 48 - host plab1.cs.msu.ru - Retrieving 'node47.out' trace all  
+2014-04-30 14:41:45,195 LinuxApplication INFO  guid 50 - host planetlab1.comp.nus.edu.sg - Retrieving 'node49.out' trace all  
+2014-04-30 14:41:47,802 LinuxApplication INFO  guid 52 - host dplanet2.uoc.edu - Retrieving 'node51.out' trace all  
+2014-04-30 14:41:50,393 LinuxApplication INFO  guid 54 - host planetlab2.s3.kth.se - Retrieving 'node53.out' trace all  
+2014-04-30 14:41:53,473 LinuxApplication INFO  guid 56 - host planetlab2.unineuchatel.ch - Retrieving 'node55.out' trace all  
+2014-04-30 14:41:57,515 LinuxApplication INFO  guid 58 - host ple1.ait.ac.th - Retrieving 'node57.out' trace all  
+2014-04-30 14:42:04,713 LinuxApplication INFO  guid 60 - host planetlab2.xeno.cl.cam.ac.uk - Retrieving 'node59.out' trace all  
+2014-04-30 14:42:07,516 LinuxApplication INFO  guid 62 - host planetlab1.csee.usf.edu - Retrieving 'node61.out' trace all  
+2014-04-30 14:42:13,020 LinuxApplication INFO  guid 2 - host planet-lab2.uba.ar - Releasing resource 
+2014-04-30 14:42:13,022 LinuxApplication INFO  guid 4 - host pl1.eng.monash.edu.au - Releasing resource 
+2014-04-30 14:42:13,028 LinuxApplication INFO  guid 6 - host rochefort.infonet.fundp.ac.be - Releasing resource 
+2014-04-30 14:42:13,029 LinuxApplication INFO  guid 8 - host planetlab1.pop-pa.rnp.br - Releasing resource 
+2014-04-30 14:42:13,031 LinuxApplication INFO  guid 10 - host planetlab-2.usask.ca - Releasing resource 
+2014-04-30 14:42:13,032 LinuxApplication INFO  guid 12 - host planetlab1.cqupt.edu.cn - Releasing resource 
+2014-04-30 14:42:13,033 LinuxApplication INFO  guid 14 - host planetlab1.cesnet.cz - Releasing resource 
+2014-04-30 14:42:13,035 LinuxApplication INFO  guid 16 - host planetlab-1.research.netlab.hut.fi - Releasing resource 
+2014-04-30 14:42:13,036 LinuxApplication INFO  guid 18 - host ple3.ipv6.lip6.fr - Releasing resource 
+2014-04-30 14:42:13,037 LinuxApplication INFO  guid 20 - host planetlab2.cs.uoi.gr - Releasing resource 
+2014-04-30 14:42:13,039 LinuxApplication INFO  guid 22 - host planetlab02.tkn.tu-berlin.de - Releasing resource 
+2014-04-30 14:42:13,040 LinuxApplication INFO  guid 24 - host planetlab1.ie.cuhk.edu.hk - Releasing resource 
+2014-04-30 14:42:13,041 LinuxApplication INFO  guid 26 - host planet2.elte.hu - Releasing resource 
+2014-04-30 14:42:13,043 LinuxApplication INFO  guid 28 - host netapp6.cs.kookmin.ac.kr - Releasing resource 
+2014-04-30 14:42:13,044 LinuxApplication INFO  guid 30 - host planetlab-node-01.ucd.ie - Releasing resource 
+2014-04-30 14:42:13,045 LinuxApplication INFO  guid 32 - host planetlab2.tau.ac.il - Releasing resource 
+2014-04-30 14:42:13,047 LinuxApplication INFO  guid 34 - host planet-lab-node1.netgroup.uniroma2.it - Releasing resource 
+2014-04-30 14:42:13,048 LinuxApplication INFO  guid 36 - host planet1.pnl.nitech.ac.jp - Releasing resource 
+2014-04-30 14:42:13,049 LinuxApplication INFO  guid 38 - host planetlab2.cs.vu.nl - Releasing resource 
+2014-04-30 14:42:13,051 LinuxApplication INFO  guid 40 - host planetlab1.cs.otago.ac.nz - Releasing resource 
+2014-04-30 14:42:13,052 LinuxApplication INFO  guid 42 - host planetlab1.cs.uit.no - Releasing resource 
+2014-04-30 14:42:13,054 LinuxApplication INFO  guid 44 - host planetlab-1.tagus.ist.utl.pt - Releasing resource 
+2014-04-30 14:42:13,055 LinuxApplication INFO  guid 46 - host ple2.dmcs.p.lodz.pl - Releasing resource 
+2014-04-30 14:42:13,056 LinuxApplication INFO  guid 48 - host plab1.cs.msu.ru - Releasing resource 
+2014-04-30 14:42:13,057 LinuxApplication INFO  guid 50 - host planetlab1.comp.nus.edu.sg - Releasing resource 
+2014-04-30 14:42:13,059 LinuxApplication INFO  guid 52 - host dplanet2.uoc.edu - Releasing resource 
+2014-04-30 14:42:13,060 LinuxApplication INFO  guid 54 - host planetlab2.s3.kth.se - Releasing resource 
+2014-04-30 14:42:13,061 LinuxApplication INFO  guid 56 - host planetlab2.unineuchatel.ch - Releasing resource 
+2014-04-30 14:42:13,063 LinuxApplication INFO  guid 58 - host ple1.ait.ac.th - Releasing resource 
+2014-04-30 14:42:13,064 LinuxApplication INFO  guid 60 - host planetlab2.xeno.cl.cam.ac.uk - Releasing resource 
+2014-04-30 14:42:13,065 PlanetlabNode INFO  guid 59 - host planetlab2.xeno.cl.cam.ac.uk - Cleaning up processes 
+2014-04-30 14:42:13,065 LinuxApplication INFO  guid 62 - host planetlab1.csee.usf.edu - Releasing resource 
