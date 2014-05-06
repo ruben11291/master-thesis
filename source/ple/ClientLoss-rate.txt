@@ -1,0 +1,31 @@
+Node Portugal, Loss-rate: 0.000237
+Node Brazil, Loss-rate: 0.000763
+Node Russian Federation, Loss-rate: 0.000000
+Node Italy, Loss-rate: 0.000016
+Node Ireland, Loss-rate: 0.000187
+Node Israel, Loss-rate: 0.000424
+Node Belgium, Loss-rate: 0.000184
+Node New Zealand, Loss-rate: 0.002044
+Node Sweden, Loss-rate: 0.000963
+Node Australia, Loss-rate: 0.000040
+Node Singapore, Loss-rate: 0.000050
+Node Japan, Loss-rate: 0.000445
+Node Hong Kong, Loss-rate: 0.001352
+Node Netherlands, Loss-rate: 0.000623
+Node United Kingdom, Loss-rate: 0.000050
+Node Finland, Loss-rate: 0.000022
+Node Greece, Loss-rate: 0.156840
+Node Spain, Loss-rate: 0.001483
+Node United States, Loss-rate: 0.000034
+Node Poland, Loss-rate: 0.000028
+Node Hungary, Loss-rate: 0.000044
+Node Korea, Republic of, Loss-rate: 0.000012
+Node Canada, Loss-rate: 0.000100
+Node Argentina, Loss-rate: 0.005187
+Node Norway, Loss-rate: 0.000181
+Node Thailand, Loss-rate: 0.000184
+Node Switzerland, Loss-rate: 0.000399
+Node China, Loss-rate: 0.000483
+Node Germany, Loss-rate: 0.000414
+Node Czech Republic, Loss-rate: 0.000012
+Node France, Loss-rate: 0.000411

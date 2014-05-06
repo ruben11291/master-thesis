@@ -1,0 +1,38 @@
+Node France, Mu: 0.273073 Sigma:0.301535
+Node Switzerland, Mu: 14.745501 Sigma:4.261593
+Node Belgium, Mu: 31.728539 Sigma:47.203988
+Node Spain, Mu: 45.529232 Sigma:4.288186
+Node Netherlands, Mu: 20.186817 Sigma:7.702484
+Node Spain, Mu: 27.197632 Sigma:1.418612
+Node Germany, Mu: 48.594328 Sigma:5.097654
+Node Italy, Mu: 32.414597 Sigma:7.345108
+Node Czech Republic, Mu: 27.521367 Sigma:4.136220
+Node United Kingdom, Mu: 17.093975 Sigma:5.070244
+Node Ireland, Mu: 21.461830 Sigma:4.278779
+Node Portugal, Mu: 44.628323 Sigma:5.033462
+Node Hungary, Mu: 35.037211 Sigma:4.226534
+Node Poland, Mu: 53.103548 Sigma:4.204185
+Node Norway, Mu: 59.234261 Sigma:1.382998
+Node Greece, Mu: 54.617127 Sigma:4.565056
+Node Sweden, Mu: 45.069598 Sigma:27.110465
+Node Finland, Mu: 46.972868 Sigma:5.292955
+Node Israel, Mu: 115.761992 Sigma:54.158721
+Node Israel, Mu: 70.081679 Sigma:4.243071
+Node Russian Federation, Mu: 193.865830 Sigma:4.743945
+Node Canada, Mu: 166.633028 Sigma:1.364346
+Node Florida, Mu: 154.209601 Sigma:1.314127
+Node United States, Mu: 156.166992 Sigma:4.195054
+Node China, Mu: 242.297943 Sigma:4.664348
+Node China, Mu: 281.606416 Sigma:10.965620
+Node Brazil, Mu: 317.206839 Sigma:1.226175
+Node Korea, Republic of, Mu: 302.908380 Sigma:4.257230
+Node Reunion Island, Mu: 207.366898 Sigma:3.150162
+Node Thailand, Mu: 224.464973 Sigma:5.175334
+Node Hong Kong, Mu: 265.410228 Sigma:5.815682
+Node Japan, Mu: 271.900753 Sigma:4.865709
+Node Malaysia, Mu: 201.515008 Sigma:13.641897
+Node Singapore, Mu: 210.717257 Sigma:15.094545
+Node Argentina, Mu: 302.688424 Sigma:1.628971
+Node Argentina, Mu: 304.554190 Sigma:4.977954
+Node Australia, Mu: 375.310920 Sigma:2.353757
+Node New Zealand, Mu: 340.900785 Sigma:2.509783

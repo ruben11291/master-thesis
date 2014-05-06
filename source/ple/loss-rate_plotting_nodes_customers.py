@@ -18,7 +18,7 @@ mpl.rcParams['figure.subplot.bottom']=0.0
 mpl.rcParams['savefig.bbox']='tight'
 
 #plt.set_figsize_inches(1024,872)
-def plot_loss_rate(file,node):
+def plot_loss_rate(file,node,outfile):
     loss_rate=0
     for line in file:
         l = line.split(",")
@@ -35,7 +35,7 @@ def plot_loss_rate(file,node):
     #plt.plot(node,mu,".")
 #    plt.errorbar(node,mu,yerr=sigma,label=r"Node %d: $\mu=%3.f,\ \sigma=%.3f$"%(node,mu,sigma),fmt=".",barsabove=True)
     plt.plot(node,loss_rate,"o",label="Node %d"%(node))
-
+    outfile.write("Node %s, Loss-rate: %f\n"%(file.name.split(":")[0].split("/")[1],float(loss_rate)))
     #subplot.plot(bins,y,'b-')
    # subplot.subplots_adjust(left=0.15)
     #print file.name.split(":")[0].split("/")[1]
@@ -63,10 +63,11 @@ if __name__=="__main__":
     try:
         #pdb.set_trace()
         node=1
+        output=open("ClientLoss-rate.txt","w")
         for directory in sys.argv[1:]:
             for fileinput in os.listdir(directory):
                 f = open(directory+"/"+fileinput,"r")
-                plot_loss_rate(f,node)
+                plot_loss_rate(f,node,output)
                 node+=1
         #plt.show()
         savefig("LossRateCustomers"+".png",bbox_inches='tight',dpi=300)

@@ -1,0 +1,12 @@
+Node Spain, Mu: 27.197632 Sigma:1.418612
+Node Norway, Mu: 59.234261 Sigma:1.382998
+Node Israel, Mu: 115.761992 Sigma:54.158721
+Node Canada, Mu: 166.633028 Sigma:1.364346
+Node Florida, Mu: 154.209601 Sigma:1.314127
+Node China, Mu: 242.297943 Sigma:4.664348
+Node Brazil, Mu: 317.206839 Sigma:1.226175
+Node Reunion Island, Mu: 207.366898 Sigma:3.150162
+Node Malaysia, Mu: 201.515008 Sigma:13.641897
+Node Argentina, Mu: 302.688424 Sigma:1.628971
+Node Australia, Mu: 375.310920 Sigma:2.353757
+Node New Zealand, Mu: 340.900785 Sigma:2.509783

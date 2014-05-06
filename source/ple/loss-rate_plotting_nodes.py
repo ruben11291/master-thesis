@@ -18,8 +18,8 @@ mpl.rcParams['figure.subplot.bottom']=0.0
 mpl.rcParams['savefig.bbox']='tight'
 
 #plt.set_figsize_inches(1024,872)
-def plot_loss_rate(file,node):
-
+def plot_loss_rate(file,node,outfile):
+    num=0
     for line in file:
         if line.find("%") != -1:
             print line
@@ -36,13 +36,13 @@ def plot_loss_rate(file,node):
     plt.grid(True)
     plt.tight_layout()
     #plt.legend(title=
-    plt.legend(ncol=2,shadow=True,bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.,fontsize=10)
+    plt.legend(ncol=2,shadow=True,bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.,fontsize=10,numpoints=1)
     #plt.set_figwidth(20)
     #plt.autoscale(enable=True, axis='both', tight=True)
 #savefig(file.name.split(":")[0].split("/")[1]+"GS"+".png")
     #plt.show()
     plt.xlim(xmin=-1,xmax=13)#x limits
-
+    outfile.write("Node %s, Loss-rate: %f\n"%(file.name.split(":")[0].split("/")[1],float(num)))
    # plt.ylim(ymin=mu-sigma-2)#y limit
     #plt.ylim(ymax=mu+sigma+2)
 
@@ -51,11 +51,12 @@ if __name__=="__main__":
         print "Error with arguments. You must enter at least a file"
     try:
         #pdb.set_trace()
+        output=open("GSLoss-rate.txt","w")
         node=1
         for directory in sys.argv[1:]:
             for fileinput in os.listdir(directory):
                 f = open(directory+"/"+fileinput,"r")
-                plot_loss_rate(f,node)
+                plot_loss_rate(f,node,output)
                 node+=1
         #plt.show()
         savefig("Loss-rateGS"+".png",bbox_inches='tight',dpi=300)
