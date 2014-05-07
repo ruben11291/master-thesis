@@ -40,7 +40,7 @@ mkdir /usr/share/tomcat7
 mv /tmp/apache-tomcat-7.0.53 /usr/share/tomcat7
 
 mv /tmp/geoserver.war /usr/share/tomcat7/apache-tomcat-7.0.53/webapps
-mv /tmp/*.jar /usr/share/tomcat7/apache-tomcat-7.0.53/WEB-INF/lib/
+mv /tmp/*.jar /usr/share/tomcat7/apache-tomcat-7.0.53/webapps/geoserver/WEB-INF/lib/
 
 /usr/share/tomcat7/apache-tomcat-7.0.52/bin/startup.sh
 
