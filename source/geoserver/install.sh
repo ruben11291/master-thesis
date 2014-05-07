@@ -24,9 +24,9 @@ apt-get install unzip wget openjdk-6-jdk openjdk-6-jre -y
 cd /tmp
 rm -rf /tmp/geo* /tmp/apache* /usr/share/tomcat*
 wget --tries=10 downloads.sourceforge.net/project/geoserver/GeoServer/2.5/geoserver-2.5-war.zip&& unzip geoserver-2.5-war.zip && rm geoserver-2.5-war.zip
-wget --tries=10 apache.rediris.es/tomcat/tomcat-7/v7.0.52/bin/apache-tomcat-7.0.52.tar.gz && tar xvzf  apache-tomcat-7.0.52.tar.gz 
-
-export CATALINA_HOME=/usr/share/tomcat7/apache-tomcat-7.0.52/
+wget --tries=10 apache.rediris.es/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.tar.gz && tar xvzf  apache-tomcat-7.0.53.tar.gz 
+wget --tries=10 http://sourceforge.net/projects/geoserver/files/GeoServer Extensions/2.5/geoserver-2.5-csw-plugin.zip && unzip geoserver-2.5-csw-plugin.zip && rm geoserver-2.5-csw-plugin.zip
+export CATALINA_HOME=/usr/share/tomcat7/apache-tomcat-7.0.53/
 export JAVA_OPTS="-Xms1024m -Xmx10246m -XX:NewSize=256m -XX:MaxNewSize=356m -XX:PermSize=256m -XX:MaxPermSize=356m"
 
 JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk
@@ -37,9 +37,10 @@ PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 export PATH
 
 mkdir /usr/share/tomcat7
-mv /tmp/apache-tomcat-7.0.52 /usr/share/tomcat7
+mv /tmp/apache-tomcat-7.0.53 /usr/share/tomcat7
 
-mv /tmp/geoserver.war /usr/share/tomcat7/apache-tomcat-7.0.52/webapps
+mv /tmp/geoserver.war /usr/share/tomcat7/apache-tomcat-7.0.53/webapps
+mv /tmp/*.jar /usr/share/tomcat7/apache-tomcat-7.0.53/WEB-INF/lib/
 
 /usr/share/tomcat7/apache-tomcat-7.0.52/bin/startup.sh
 
