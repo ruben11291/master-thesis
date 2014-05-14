@@ -1,0 +1,21 @@
+2014-05-09 11:43:30,756 - INFO - Start modifing the file /etc/hosts
+2014-05-09 11:43:30,768 - INFO - File /etc/hosts modified
+2014-05-09 11:43:30,769 - INFO - Starting the initialitation
+2014-05-09 11:43:30,770 - INFO - [GroundStation11] Socket created in port 5003
+2014-05-09 11:43:30,770 - INFO - [GroundStation11] Connecting with the data base
+2014-05-09 11:43:30,793 - INFO - [GroundStation11] Fetching records of database
+2014-05-09 11:43:30,796 - INFO - [GroundStation11] The ground station has started!
+2014-05-09 11:44:19,116 - INFO - [GroundStation11] New connection from ('172.27.1.61', 52730)!
+2014-05-09 11:44:19,119 - INFO - [GroundStation11] Fork 2364 Receiving data from ('172.27.1.61', 5003)
+2014-05-09 11:44:20,120 - INFO - [GroundStation11] Fork 2364 Receiving data from ('172.27.1.61', 5003)
+2014-05-09 11:44:20,121 - INFO - [GroundStation11] New connection from ('172.27.1.61', 52731)!
+2014-05-09 11:44:20,124 - INFO - [GroundStation11] Fork 2365 Receiving data from ('172.27.1.61', 5003)
+2014-05-09 11:44:21,122 - INFO - [GroundStation11] Fork 2364 Receiving data from ('172.27.1.61', 5003)
+2014-05-09 11:44:21,125 - INFO - [GroundStation11] Fork 2365 Receiving data from ('172.27.1.61', 5003)
+2014-05-09 11:44:22,126 - INFO - [GroundStation11] Useless info = 480 Usefull info = 0
+2014-05-09 11:44:22,136 - INFO - [GroundStation11] Fork 2365 Receiving data from ('172.27.1.61', 5003)
+2014-05-09 11:44:22,137 - INFO - [GroundStation11] ImageUseless W_GS11_1_USELESS_11:44:22:13_09-05-14 created!
+2014-05-09 11:44:22,343 - INFO - [GroundStation11] Socket ('172.27.1.61', 5003) closed
+2014-05-09 11:44:23,139 - INFO - [GroundStation11] Useless info = 480 Usefull info = 0
+2014-05-09 11:44:23,145 - INFO - [GroundStation11] ImageUseless W_GS11_1_USELESS_11:44:23:14_09-05-14 created!
+2014-05-09 11:44:23,346 - INFO - [GroundStation11] Socket ('172.27.1.61', 5003) closed

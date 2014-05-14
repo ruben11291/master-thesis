@@ -1,0 +1,11 @@
+2014-05-09 11:47:17,100 - INFO - [Satellite13] Initializing!
+2014-05-09 11:47:17,113 - INFO - [Satellite13] Scheduling the tasks!
+2014-05-09 11:47:17,113 - INFO - [Satellite13] Init time 1399628837.11!
+2014-05-09 11:47:17,113 - INFO - [Satellite13] Starting the simulation!!
+2014-05-09 11:47:28,490 - INFO - [Satellite13] In not interesting zone : GroundStation: 9:('172.27.1.61', 5009) Start: 11.363800 TimeEnd: 2.340000 ActualPenality: 0.000000 
+2014-05-09 11:47:28,490 - INFO - [Satellite13] Sended package with noise data: StartTime: 1399628848.490691 CurrentTime: 0.000000 ApproximatedFinalTime: 2.340000
+2014-05-09 11:47:29,492 - INFO - [Satellite13] Sended package with noise data: StartTime: 1399628848.490691 CurrentTime: 1.001793 ApproximatedFinalTime: 2.340000
+2014-05-09 11:47:30,493 - INFO - [Satellite13] Sended package with noise data: StartTime: 1399628848.490691 CurrentTime: 2.002829 ApproximatedFinalTime: 2.340000
+2014-05-09 11:47:31,494 - INFO - [Satellite13] Desviation of normal behaviour : 0.663883 TotalTime : 3.003883
+2014-05-09 11:47:31,494 - INFO - [Satellite('13', 14.38132905960083)] End time 
+2014-05-09 11:47:31,495 - INFO - [Satellite13] Total Desviation: 0.663883 Total Penalty: 0.000000

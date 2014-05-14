@@ -1,0 +1,7 @@
+2014-05-09 11:36:58,093 - INFO - [Satellite6] Initializing!
+2014-05-09 11:36:58,103 - INFO - [Satellite6] Scheduling the tasks!
+2014-05-09 11:36:58,103 - INFO - [Satellite6] Init time 1399628218.1!
+2014-05-09 11:36:58,105 - INFO - [Satellite6] Starting the simulation!!
+2014-05-09 11:37:09,471 - ERROR - [Satellite6] Ground Station 11 unreachable!
+2014-05-09 11:37:09,472 - INFO - [Satellite('6', 11.368352890014648)] End time 
+2014-05-09 11:37:09,472 - INFO - [Satellite6] Total Desviation: 0.000000 Total Penalty: 0.000000

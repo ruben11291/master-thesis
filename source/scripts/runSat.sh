@@ -19,16 +19,18 @@
 #!/bin/bash
 
 
-if [ $# -lt '1' ] 
+if [ $# -lt '2' ] 
 then
-	echo "Error with arguments. Must introduce the id scenario to simulate it!"
+	echo "Error with arguments. Must enter <SCENARIO_ID> <IP_DATA_BASE> [INFO|DEBUG|ERROR]!"
 	exit
 fi
 scenario=$1
-level=$2
+ip_db=$2
+level=$3
 
 for num in {0..16};
 do
-	python satelite.py $num $scenario localhost $2&
+	python satellite.py $num $scenario $ip_db &
+	sleep 1
 done
 

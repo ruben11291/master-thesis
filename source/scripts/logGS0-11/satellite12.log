@@ -1,0 +1,16 @@
+2014-05-09 11:47:16,102 - INFO - [Satellite12] Initializing!
+2014-05-09 11:47:16,117 - INFO - [Satellite12] Scheduling the tasks!
+2014-05-09 11:47:16,118 - INFO - [Satellite12] Init time 1399628836.12!
+2014-05-09 11:47:16,119 - INFO - [Satellite12] Starting the simulation!!
+2014-05-09 11:47:27,493 - INFO - [Satellite12] In not interesting zone : GroundStation: 8:('172.27.1.61', 5008) Start: 11.363800 TimeEnd: 1.680000 ActualPenality: 0.000000 
+2014-05-09 11:47:27,493 - INFO - [Satellite12] Sended package with noise data: StartTime: 1399628847.493748 CurrentTime: 0.000000 ApproximatedFinalTime: 1.680000
+2014-05-09 11:47:28,495 - INFO - [Satellite12] Sended package with noise data: StartTime: 1399628847.493748 CurrentTime: 1.001775 ApproximatedFinalTime: 1.680001
+2014-05-09 11:47:29,496 - INFO - [Satellite12] Desviation of normal behaviour : 0.322807 TotalTime : 2.002807
+2014-05-09 11:47:29,496 - INFO - [Satellite12] Between visibility cones :Start: 11.365480 TimeEnd: 0.310000 ActualPenality: 0.000002 
+2014-05-09 11:47:29,496 - INFO - [Satellite12] Getting images : StartTime: 1399628849.496793 CurrentTime: 0.000000 ApproximatedFinalTime: 0.310000
+2014-05-09 11:47:30,497 - INFO - [Satellite12] Desviation of normal behaviour : 0.690730 TotalTime : 1.000730
+2014-05-09 11:47:30,498 - INFO - [Satellite12] In not interesting zone : GroundStation: 9:('172.27.1.61', 5009) Start: 11.365790 TimeEnd: 0.350000 ActualPenality: 0.000003 
+2014-05-09 11:47:30,498 - INFO - [Satellite12] Sended package with noise data: StartTime: 1399628850.498781 CurrentTime: 0.000000 ApproximatedFinalTime: 0.350000
+2014-05-09 11:47:31,506 - INFO - [Satellite12] Desviation of normal behaviour : 0.657328 TotalTime : 1.007328
+2014-05-09 11:47:31,510 - INFO - [Satellite('12', 15.391978025436401)] End time 
+2014-05-09 11:47:31,510 - INFO - [Satellite12] Total Desviation: 1.670865 Total Penalty: 0.000004

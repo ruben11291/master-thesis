@@ -18,29 +18,47 @@
 
 
 #!/bin/bash
+VERSIONGS=2.5
+VERSIONT=7.0.53
+PLUGIN=geoserver-${VERSIONGS}-csw-plugin.zip
+WAR=geoserver-${VERSIONGS}-war.zip
+APACHE=apache-tomcat-${VERSIONT}
 
 apt-get update && apt-get upgrade -y
 apt-get install unzip wget openjdk-6-jdk openjdk-6-jre -y
 cd /tmp
-rm -rf /tmp/geo* /tmp/apache* /usr/share/tomcat*
-wget --tries=10 downloads.sourceforge.net/project/geoserver/GeoServer/2.5/geoserver-2.5-war.zip&& unzip geoserver-2.5-war.zip && rm geoserver-2.5-war.zip
-wget --tries=10 apache.rediris.es/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.tar.gz && tar xvzf  apache-tomcat-7.0.53.tar.gz 
-wget --tries=10 http://sourceforge.net/projects/geoserver/files/GeoServer Extensions/2.5/geoserver-2.5-csw-plugin.zip && unzip geoserver-2.5-csw-plugin.zip && rm geoserver-2.5-csw-plugin.zip
-export CATALINA_HOME=/usr/share/tomcat7/apache-tomcat-7.0.53/
+rm -rf /tmp/geo* /tmp/apache* /usr/share/tomcat* /tmp/*.jar
+wget --tries=10 downloads.sourceforge.net/project/geoserver/GeoServer/${VERSIONGS}/$WAR&& unzip ${WAR} && rm ${WAR}
+wget --tries=10 apache.rediris.es/tomcat/tomcat-7/v${VERSIONT}/bin/${APACHE}.tar.gz && tar xvzf  ${APACHE}.tar.gz 
+wget --tries=10 http://sourceforge.net/projects/geoserver/files/"GeoServer Extensions"/${VERSIONGS}/${PLUGIN} && unzip ${PLUGIN} && rm ${PLUGIN}
+#http://downloads.sourceforge.net/project/geoserver/GeoServer%20Extensions/${VERSIONGS}/${PLUGIN}?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgeoserver%2Ffiles%2FGeoServer%2520Extensions%2F2.5%2F&ts=1399541643&use_mirror=kent
+export CATALINA_HOME=/usr/share/tomcat7/${APACHE}/
 export JAVA_OPTS="-Xms1024m -Xmx10246m -XX:NewSize=256m -XX:MaxNewSize=356m -XX:PermSize=256m -XX:MaxPermSize=356m"
+
 
 JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk
 JRE_HOME=/usr/lib/jvm/java-1.6.0-openjdk/jre
-export JAVA_HOME
-export JRE_HOME
+#export JAVA_HOME
+#export JRE_HOME
 PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 export PATH
 
 mkdir /usr/share/tomcat7
-mv /tmp/apache-tomcat-7.0.53 /usr/share/tomcat7
+mv /tmp/${APACHE} /usr/share/tomcat7
 
-mv /tmp/geoserver.war /usr/share/tomcat7/apache-tomcat-7.0.53/webapps
+sed -i 's/"8080"/"80"/g' /usr/share/tomcat7/${APACHE}/conf/server.xml
+
+mv /tmp/geoserver.war /usr/share/tomcat7/${APACHE}/webapps
+sleep 2s
+
+/usr/share/tomcat7/${APACHE}/bin/startup.sh
+#/usr/share/tomcat7/${APACHE}/bin/startup.sh
+
+sleep 2s
+
 mv /tmp/*.jar /usr/share/tomcat7/apache-tomcat-7.0.53/webapps/geoserver/WEB-INF/lib/
 
-/usr/share/tomcat7/apache-tomcat-7.0.52/bin/startup.sh
+#/usr/share/tomcat7/${APACHE}/bin/stop.sh
+/usr/share/tomcat7/${APACHE}/bin/startup.sh
+
 

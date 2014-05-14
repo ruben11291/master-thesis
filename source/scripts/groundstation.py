@@ -75,7 +75,7 @@ def modHostsFile():
 
 class GroundStation():
     ###########Values############ 
-    bits_rate = 160 #Mbps
+    bits_rate = 160 #MBps
     acquisition_rate = 1395 #Mbps
     compresion_rate = 14.1 
     img_size = 288 #MBytes
@@ -204,18 +204,18 @@ class GroundStation():
                 if data != "":
                     logger.info("[GroundStation%s] Fork %s Receiving data from %s"%(self.id,os.getpid(),self.socket.getsockname()))                              
                     if data == 'I': #not interesting data
-                        useless_info += self.bits_rate
+                        useless_info += float(self.bits_rate)
                         logger.debug("[GroundStation%s] Received I packet",self.id)
                     elif data == 'B': #interesting data with interesting data adcquired before
-                        usefull_info += self.bits_rate
+                        usefull_info += float(self.bits_rate)
                         logger.debug("[GroundStation%s] Received B packet",self.id)
                     elif data =='U': #interesting data
-                        useless_info += self.bits_rate - (self.acquisition_rate /self.compresion_rate)
-                        usefull_info += self.acquisition_rate/self.compresion_rate
+                        useless_info += self.bits_rate - (float(self.acquisition_rate )/float(self.compresion_rate))
+                        usefull_info += float(self.acquisition_rate)/float(self.compresion_rate)
                         logger.debug("[GroundStation%s] Received U packet",self.id)
                 else:
-                    logger.info("[GroundStation%s] Useless info = %d Usefull info = %d"%(self.id,useless_info,usefull_info))
-                    self.createFile(int(useless_info/self.img_size), int(usefull_info/self.img_size))
+                    logger.info("[GroundStation%s] Useless info = %d Usefull info = %d"%(self.id,useless_info/5.0,usefull_info/5.0))
+                    self.createFile((int(useless_info/5.0)/(self.img_size*8)), int((usefull_info/5.0)/(self.img_size*8)))
                     break
            
         except socket.error as e:

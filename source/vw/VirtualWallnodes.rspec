@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rspec generated="2014-05-08T01:38:41.138+02:00" generated_by="Experimental jFed Rspec Editor" type="request" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd" xmlns="http://www.geni.net/resources/rspec/3" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <node client_id="gs0" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="518.0" y="443.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs1" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="755.0" y="434.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs2" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="121.0" y="373.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs3" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="337.0" y="382.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs4" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="557.0" y="381.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs5" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="760.0" y="383.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs6" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="968.0" y="388.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs7" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="114.0" y="296.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs8" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="328.0" y="306.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs9" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="541.0" y="312.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs10" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="769.0" y="315.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="gs11" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkcy1jVG4tX1duRjg/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="1024.0" y="316.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat0" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="97.0" y="152.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat1" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="287.0" y="152.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat2" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="503.0" y="149.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat3" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="729.0" y="150.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat4" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="999.0" y="135.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat5" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="71.0" y="90.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat6" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="259.0" y="93.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat7" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="443.0" y="94.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat8" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="638.0" y="90.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat9" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="829.0" y="94.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat10" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="1016.0" y="83.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat11" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="71.0" y="32.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat12" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="258.0" y="22.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat13" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="441.0" y="22.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat14" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="631.0" y="17.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat15" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="832.0" y="18.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="sat16" component_manager_id="urn:publicid:IDN+wall2.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get install dstat"/>
+            <install url="https://drive.google.com/a/deimos-space.com/file/d/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc/edit?usp=sharing" install_path="/local"/>
+        </services>
+        <jFed:location x="1021.0" y="20.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+</rspec>

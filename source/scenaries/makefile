@@ -24,4 +24,4 @@ SC4=Scenario_4_Precision_Agriculture_Argentina.csv
 #SC5=Scenario_5_6_Basemap_Worldwide.csv
 
 all:
-	python2.6 setDatabase.py localhost All_Scenarios.csv $(SC1) $(SC2) $(SC3) $(SC4)
+	python setDatabase.py localhost All_Scenarios.csv $(SC1) $(SC2) $(SC3) $(SC4)

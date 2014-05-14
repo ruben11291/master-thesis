@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rspec generated="2014-05-09T14:26:28.889+02:00" generated_by="Experimental jFed Rspec Editor" type="request" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd" xmlns="http://www.geni.net/resources/rspec/3" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:delay="http://www.protogeni.net/resources/rspec/ext/delay/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <node client_id="SSS" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb"/>
+            <execute shell="sh" command="wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+        </services>
+        <jFed:location x="490.0" y="132.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+    <node client_id="GS0" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb"/>
+            <execute shell="sh" command="wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+        </services>
+        <jFed:location x="450.0" y="331.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+    </node>
+</rspec>

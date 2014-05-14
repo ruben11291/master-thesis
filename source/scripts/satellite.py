@@ -48,7 +48,7 @@ class Satellite:
     time_image_acquisition = 23.4 #seconds
     time_image_download = 14.4 #seconds
 
-    ###Calculation of time penality
+    ###Calculation of time penalty
     t = time.time()
     time.time()
     time_penality=time.time()-t 
@@ -112,7 +112,7 @@ class Satellite:
             logger.info("[Satellite%s] Scheduling the tasks!"%(self.id))
 
             s = sched.scheduler(time.time, time.sleep)
-            reductionRate = 10
+            reductionRate = 1
             reference_time = 5 # added 5 seconds for the sched can be produced without impairments and have enough time for program this.
             init_time = time.time()
             logger.info("[Satellite%s] Init time %s!"%(self.id,str(init_time)))
@@ -125,6 +125,7 @@ class Satellite:
                 abs_zone_out_time = float(seq[4])
                 abs_int_zone_start = float(seq[-2])
                 abs_int_zone_end = float(seq[-1])
+                print abs_zone_in_time, abs_zone_out_time
                 zone_in_time= abs_zone_in_time/10000 #time in which the satellite goes into the visibility cone
                 zone_out_time= abs_zone_out_time/10000# time in which the satellite goes out the visibility cone
                 ground_station = int(seq[2])
@@ -197,6 +198,8 @@ class Satellite:
 
     def notInteresting(self,time_start, time_end, gs,ipGs):
         offset= penal_times =0
+        count=0
+        print float(time_end-time_start)
         try:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.socket.connect(ipGs)
@@ -204,19 +207,23 @@ class Satellite:
             final_time = t_temp+time_end
             begin_time = t_temp
             logger.info("[Satellite%s] In not interesting zone : GroundStation: %s:%s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,ipGs,time_start,time_end,self.penalty_times*self.time_penality))
-            while(t_temp < final_time+offset):# while current time is less that time_end+offset
+            while(t_temp <= (final_time+float(offset))):# while current time is less that time_end+offset
           
                 self.socket.send('I')
-                logger.info("[Satellite%s] Sended package with noise data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time))
-                penal_times += 1
-                offset = self.time_penality*penal_times 
-                time.sleep(1-(time.time()-t_temp))
+                logger.info("[Satellite%s] Sended package with noise data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+float(offset))-begin_time))
+                penal_times += 2
+                offset = float(self.time_penality)*penal_times 
+                time.sleep(0.2-(time.time()-t_temp))
                 t_temp = time.time()
+                print t_temp, (final_time+float(offset))
+                count+=1
+            print count
+            print (t_temp+offset)-begin_time
             self.penalty_times += penal_times
             self.socket.shutdown(1)
             self.socket.close()
             local_desviation = t_temp-final_time
-            self.total_desviation += local_desviation
+            self.total_desviation += float(local_desviation)
             logger.info("[Satellite%s] Desviation of normal behaviour : %f TotalTime : %f" %(self.id,local_desviation,t_temp-begin_time)) #real final time minus the corresponding final_time
 
         except socket.error:
@@ -224,36 +231,44 @@ class Satellite:
             
     def Interesting(self,time_start, time_end, gs,ipGs, offset_time):
         offset = penal_times = 0
+        count = 0
+        print float(time_end-time_start)
         try:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.socket.connect(ipGs)
             t_temp = time.time() # save the current time in t_temp
             final_time = t_temp+time_end
-            intermediate_time = t_temp + offset_time
+            intermediate_time = t_temp + float(offset_time)
             begin_time = t_temp
-        
             logger.info("[Satellite%s] In interesting zone : GroundStation: %s:%s Start: %f TimeEnd: %f ActualPenality: %f " %(self.id,gs,ipGs,time_start,time_end,self.penalty_times*self.time_penality))
             
-            while(t_temp < intermediate_time+offset):# while current time is less that time_end+offset
+            while(t_temp <= (intermediate_time+float(offset))):# while current time is less that time_end+offset
                 self.socket.send('B')
-                logger.info("[Satellite%s] Sended package with all data usefull: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time))
-                penal_times += 1
-                offset = self.time_penality*penal_times 
-                time.sleep(1-(time.time()-t_temp))
+                logger.info("[Satellite%s] Sended package with all data usefull: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+float(offset))-begin_time))
+                penal_times += 2
+                offset = float(self.time_penality)*float(penal_times) 
+                print "%.5f %.5f"%(offset, self.time_penality*penal_times)
+                time.sleep(0.2-(time.time()-t_temp))
                 t_temp = time.time()
-
-            while(t_temp < final_time+offset):# while current time is less that time_end+offset
+                count+=1
+            print t_temp, (final_time+float(offset))
+            while(t_temp <= (final_time+float(offset))):# while current time is less that time_end+offset
                 self.socket.send('U')
-                logger.info("[Satellite%s] Sended package with usefull data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+offset)-begin_time))
-                penal_times += 1
-                offset = self.time_penality*penal_times 
-                time.sleep(1-(time.time()-t_temp))
+                logger.info("[Satellite%s] Sended package with usefull data: StartTime: %f CurrentTime: %f ApproximatedFinalTime: %f" %(self.id,begin_time, t_temp-begin_time,(final_time+float(offset))-begin_time))
+                penal_times += 2
+                offset = float(self.time_penality)*float(penal_times)
+                time.sleep(0.2-(time.time()-t_temp))
+                print "%.5f %.5f"%(offset, self.time_penality*penal_times)
                 t_temp = time.time()
+                count+=1
+            print t_temp, (final_time+float(offset))
+            print count
+            print (t_temp+offset)-begin_time
             self.penalty_times += penal_times
             self.socket.shutdown(1)
             self.socket.close()
             local_desviation = t_temp-final_time
-            self.total_desviation += local_desviation
+            self.total_desviation += float(local_desviation)
             logger.info("[Satellite%s] Desviation of normal behaviour : %f TotalTime : %f" %(self.id,local_desviation,t_temp-begin_time)) #real final time minus the corresponding final_time
         except socket.error:
              logger.error("[Satellite%s] Ground Station %d unreachable!" %(self.id,gs))
