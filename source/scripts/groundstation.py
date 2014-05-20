@@ -77,7 +77,7 @@ class GroundStation():
     ###########Values############ 
     bits_rate = 160 #MBps
     acquisition_rate = 1395 #Mbps
-    compresion_rate = 14.1 
+    compresion_rate = 14.15
     img_size = 288 #MBytes
     ###Calculation of time penality
     t = time.time()
@@ -102,10 +102,8 @@ class GroundStation():
           
            
             self.port = self.create_socket(self.port)
-            
-
+	    #pdb.set_trace()
             update_ip = 'UPDATE GroundStations SET ip=\'%s\',port =\'%s\' WHERE idGroundStation=%s' %(self.host,self.port,self.id); #mysql sentence for update GroundStations table
-
             #update the data base with the current ip and host where the gs is running
             self.updateDB(update_ip)
 
@@ -199,23 +197,35 @@ class GroundStation():
             self.socket = sock
             signal.signal(signal.SIGINT, self.sonSighandler) #set the handler for SIGINT signal
             usefull_info = useless_info = 0
+            buff_naoi=buff_aoi= naoi=aoi =0
+	    reduction_rate=10
+            satellite=-1
             while True :
                 data = self.socket.recv(1024)
                 if data != "":
-                    logger.info("[GroundStation%s] Fork %s Receiving data from %s"%(self.id,os.getpid(),self.socket.getsockname()))                              
+                    satellite = data.split(":")[1]
+                    data=data.split(":")[0]
+                    logger.info("[GroundStation%s] Fork %s Receiving data from %s :%s"%(data,self.id,os.getpid(),self.socket.getsockname()))                              
                     if data == 'I': #not interesting data
-                        useless_info += float(self.bits_rate)
-                        logger.debug("[GroundStation%s] Received I packet",self.id)
+                        #useless_info += float(self.bits_rate)*reduction_rate
+                        buff_naoi+=(self.bits_rate - (float(self.acquisition_rate )/float(self.compresion_rate)))*reduction_rate
+                        naoi +=(float(self.acquisition_rate)/float(self.compresion_rate))*reduction_rate
+                        logger.info("[GroundStation%s] Received I packet",self.id)
                     elif data == 'B': #interesting data with interesting data adcquired before
-                        usefull_info += float(self.bits_rate)
-                        logger.debug("[GroundStation%s] Received B packet",self.id)
+                        buff_aoi +=(self.bits_rate - (float(self.acquisition_rate )/float(self.compresion_rate)))*reduction_rate
+                        aoi += (float(self.acquisition_rate)/float(self.compresion_rate))*reduction_rate
+                        #usefull_info += float(self.bits_rate)*reduction_rate
+                        logger.info("[GroundStation%s] Received B packet",self.id)
                     elif data =='U': #interesting data
-                        useless_info += self.bits_rate - (float(self.acquisition_rate )/float(self.compresion_rate))
-                        usefull_info += float(self.acquisition_rate)/float(self.compresion_rate)
+                        buff_naoi+=(self.bits_rate - (float(self.acquisition_rate )/float(self.compresion_rate)))*reduction_rate
+                        aoi+=(float(self.acquisition_rate)/float(self.compresion_rate))*reduction_rate
+                        #useless_info += (self.bits_rate - (float(self.acquisition_rate )/float(self.compresion_rate)))*reduction_rate
+                        #usefull_info += (float(self.acquisition_rate)/float(self.compresion_rate))*reduction_rate
                         logger.debug("[GroundStation%s] Received U packet",self.id)
                 else:
-                    logger.info("[GroundStation%s] Useless info = %d Usefull info = %d"%(self.id,useless_info/5.0,usefull_info/5.0))
-                    self.createFile((int(useless_info/5.0)/(self.img_size*8)), int((usefull_info/5.0)/(self.img_size*8)))
+                    logger.info("[GroundStation%s_Sat%s] Total info = %d Mbits"%(self.id,satellite, buff_naoi/5.0 + naoi/5.0 + buff_aoi/5.0 + aoi/5.0))
+                    #self.createFile((int(useless_info/5.0)/(self.img_size*8)), int((usefull_info/5.0)/(self.img_size*8)))
+                    self.createFile(satellite,(int(buff_naoi/5.0)/(self.img_size*8))+(int(naoi/5.0)/(self.img_size*8)), int((buff_aoi/5.0)/(self.img_size*8))+  int((aoi/5.0)/(self.img_size*8)))
                     break
            
         except socket.error as e:
@@ -227,17 +237,17 @@ class GroundStation():
             self.socket.close()
             exit(0)
 
-    def createFile(self, useless_images, usefull_images):
+    def createFile(self,satellite, useless_images, usefull_images):
         for _ in xrange(useless_images):
             nano = str(time.time()).split('.')[1]
-            name = "W_GS%d_%d_USELESS_%s" %(int(self.id),int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
+            name = "W_GS%d_SAT%s_%d_USELESS_%s" %(int(self.id),satellite,int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
             os.system("cp /tmp/original.bin /tmp/"+name+".bin")
             logger.info("[GroundStation%s] ImageUseless %s created!"%(self.id,name))
             time.sleep(0.2)
 
         for _ in xrange(usefull_images):
             nano = str(time.time()).split('.')[1]
-            name = "W_GS%d_%d_USEFULL_%s" %(int(self.id),int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
+            name = "W_GS%d_SAT%s_%d_USEFULL_%s" %(int(self.id),satellite,int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
             os.system("cp /tmp/original.bin /tmp/"+name+".bin")
             logger.info("[GroundStation%s] ImageUseful %s created!"%(self.id,name))
             time.sleep(0.2)

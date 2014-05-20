@@ -28,7 +28,7 @@ scenario=$1
 ip_db=$2
 level=$3
 
-for num in {0..16};
+for num in {1..17};
 do
 	python satellite.py $num $scenario $ip_db &
 	sleep 1

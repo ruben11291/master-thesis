@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rspec generated="2014-05-20T08:24:15.758+02:00" generated_by="Experimental jFed Rspec Editor" type="request" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd" xmlns="http://www.geni.net/resources/rspec/3" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:delay="http://www.protogeni.net/resources/rspec/ext/delay/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <node client_id="SS1" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="239.0" y="82.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="SS1:if0"/>
+        <interface client_id="SS1:if2"/>
+        <interface client_id="SS1:if3"/>
+        <interface client_id="SS1:if4"/>
+    </node>
+    <node client_id="SS2" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="805.0" y="65.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="SS2:if0"/>
+        <interface client_id="SS2:if1"/>
+        <interface client_id="SS2:if2"/>
+        <interface client_id="SS2:if3"/>
+    </node>
+    <node client_id="SS3" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="1271.0" y="72.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="SS3:if0"/>
+        <interface client_id="SS3:if1"/>
+        <interface client_id="SS3:if2"/>
+        <interface client_id="SS3:if3"/>
+    </node>
+    <node client_id="GS1" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="3.0" y="240.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node3:if0"/>
+    </node>
+    <node client_id="GS2" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="449.0" y="235.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node4:if0"/>
+    </node>
+    <node client_id="GS3" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="47.0" y="463.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node5:if0"/>
+    </node>
+    <node client_id="GS4" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="374.0" y="462.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node6:if0"/>
+    </node>
+    <node client_id="GS5" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="621.0" y="219.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node7:if0"/>
+    </node>
+    <node client_id="GS6" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="1011.0" y="203.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node8:if0"/>
+    </node>
+    <node client_id="GS7" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="630.0" y="461.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node9:if0"/>
+    </node>
+    <node client_id="GS8" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="992.0" y="474.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node10:if0"/>
+    </node>
+    <node client_id="GS9" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="1168.0" y="168.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node11:if0"/>
+    </node>
+    <node client_id="GS10" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="1397.0" y="162.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node12:if0"/>
+    </node>
+    <node client_id="GS11" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="1214.0" y="457.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node13:if0"/>
+    </node>
+    <node client_id="GS12" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute shell="sh" command="sudo route del default gw 10.2.47.254"/>
+            <execute shell="sh" command="sudo route add default gw 10.2.47.253"/>
+            <execute shell="sh" command="sudo apt-get update"/>
+            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYmJuY1NvRUJ6dGc -O /users/jbecedas/satellite.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcy1jVG4tX1duRjg -O /users/jbecedas/groundstation.py"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
+            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
+            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 212.121.322.23"/>
+        </services>
+        <jFed:location x="1452.0" y="449.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node14:if0"/>
+    </node>
+    <link client_id="link7">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS1:if0"/>
+        <interface_ref client_id="node3:if0"/>
+    </link>
+    <link client_id="link9">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS1:if2"/>
+        <interface_ref client_id="node5:if0"/>
+    </link>
+    <link client_id="link8">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS1:if3"/>
+        <interface_ref client_id="node4:if0"/>
+    </link>
+    <link client_id="link10">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS1:if4"/>
+        <interface_ref client_id="node6:if0"/>
+    </link>
+    <link client_id="link11">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="node7:if0"/>
+        <interface_ref client_id="SS2:if0"/>
+    </link>
+    <link client_id="link12">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS2:if1"/>
+        <interface_ref client_id="node8:if0"/>
+    </link>
+    <link client_id="link13">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS2:if2"/>
+        <interface_ref client_id="node9:if0"/>
+    </link>
+    <link client_id="link14">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS2:if3"/>
+        <interface_ref client_id="node10:if0"/>
+    </link>
+    <link client_id="link15">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="node11:if0"/>
+        <interface_ref client_id="SS3:if0"/>
+    </link>
+    <link client_id="link16">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS3:if1"/>
+        <interface_ref client_id="node13:if0"/>
+    </link>
+    <link client_id="link17">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="node12:if0"/>
+        <interface_ref client_id="SS3:if2"/>
+    </link>
+    <link client_id="link18">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS3:if3"/>
+        <interface_ref client_id="node14:if0"/>
+    </link>
+</rspec>
