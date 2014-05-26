@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<orchestrator>
+	<ftp>
+		<user>deimos</user>
+		<passwd>deimos</passwd>
+	</ftp>
+	<address>
+		<geoserver_path>path</geoserver_path>
+		<database>ipdatabase</database>
+		<pp_service>ipservicePP</pp_service>
+	</address>
+</orchestrator>
