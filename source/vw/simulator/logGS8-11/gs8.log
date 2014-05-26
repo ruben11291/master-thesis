@@ -1,0 +1,20 @@
+2014-05-09 11:43:27,772 - INFO - Start modifing the file /etc/hosts
+2014-05-09 11:43:27,792 - INFO - File /etc/hosts modified
+2014-05-09 11:43:27,793 - INFO - Starting the initialitation
+2014-05-09 11:43:27,794 - INFO - [GroundStation8] Socket created in port 5000
+2014-05-09 11:43:27,794 - INFO - [GroundStation8] Connecting with the data base
+2014-05-09 11:43:27,817 - INFO - [GroundStation8] Fetching records of database
+2014-05-09 11:43:27,820 - INFO - [GroundStation8] The ground station has started!
+2014-05-09 11:44:25,162 - INFO - [GroundStation8] New connection from ('172.27.1.61', 51987)!
+2014-05-09 11:44:25,175 - INFO - [GroundStation8] Fork 2373 Receiving data from ('172.27.1.61', 5000)
+2014-05-09 11:44:26,157 - INFO - [GroundStation8] New connection from ('172.27.1.61', 51988)!
+2014-05-09 11:44:26,164 - INFO - [GroundStation8] Fork 2373 Receiving data from ('172.27.1.61', 5000)
+2014-05-09 11:44:26,162 - INFO - [GroundStation8] Fork 2374 Receiving data from ('172.27.1.61', 5000)
+2014-05-09 11:44:27,161 - INFO - [GroundStation8] Fork 2374 Receiving data from ('172.27.1.61', 5000)
+2014-05-09 11:44:27,166 - INFO - [GroundStation8] Fork 2373 Receiving data from ('172.27.1.61', 5000)
+2014-05-09 11:44:28,163 - INFO - [GroundStation8] Useless info = 320 Usefull info = 0
+2014-05-09 11:44:28,166 - INFO - [GroundStation8] ImageUseless W_GS8_1_USELESS_11:44:28:16_09-05-14 created!
+2014-05-09 11:44:28,170 - INFO - [GroundStation8] Useless info = 183 Usefull info = 296
+2014-05-09 11:44:28,177 - INFO - [GroundStation8] ImageUseful W_GS8_1_USEFULL_11:44:28:17_09-05-14 created!
+2014-05-09 11:44:28,366 - INFO - [GroundStation8] Socket ('172.27.1.61', 5000) closed
+2014-05-09 11:44:28,381 - INFO - [GroundStation8] Socket ('172.27.1.61', 5000) closed

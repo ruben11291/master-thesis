@@ -1,0 +1,11 @@
+2014-05-09 11:40:48,111 - INFO - [Satellite12] Initializing!
+2014-05-09 11:40:48,143 - INFO - [Satellite12] Scheduling the tasks!
+2014-05-09 11:40:48,143 - INFO - [Satellite12] Init time 1399628448.14!
+2014-05-09 11:40:48,143 - INFO - [Satellite12] Starting the simulation!!
+2014-05-09 11:40:59,519 - ERROR - [Satellite12] Ground Station 8 unreachable!
+2014-05-09 11:40:59,519 - INFO - [Satellite12] Between visibility cones :Start: 11.365480 TimeEnd: 0.310000 ActualPenality: 0.000000 
+2014-05-09 11:40:59,519 - INFO - [Satellite12] Getting images : StartTime: 1399628459.519583 CurrentTime: 0.000000 ApproximatedFinalTime: 0.310000
+2014-05-09 11:41:00,520 - INFO - [Satellite12] Desviation of normal behaviour : 0.691337 TotalTime : 1.001337
+2014-05-09 11:41:00,521 - ERROR - [Satellite12] Ground Station 9 unreachable!
+2014-05-09 11:41:00,521 - INFO - [Satellite('12', 12.378435134887695)] End time 
+2014-05-09 11:41:00,521 - INFO - [Satellite12] Total Desviation: 0.691337 Total Penalty: 0.000001

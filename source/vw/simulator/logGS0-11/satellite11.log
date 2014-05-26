@@ -1,0 +1,11 @@
+2014-05-09 11:47:15,104 - INFO - [Satellite11] Initializing!
+2014-05-09 11:47:15,121 - INFO - [Satellite11] Scheduling the tasks!
+2014-05-09 11:47:15,121 - INFO - [Satellite11] Init time 1399628835.12!
+2014-05-09 11:47:15,121 - INFO - [Satellite11] Starting the simulation!!
+2014-05-09 11:47:26,497 - INFO - [Satellite11] In interesting zone : GroundStation: 8:('172.27.1.61', 5008) Start: 11.363800 TimeEnd: 2.340000 ActualPenality: 0.000000 
+2014-05-09 11:47:26,497 - INFO - [Satellite11] Sended package with usefull data: StartTime: 1399628846.497259 CurrentTime: 0.000000 ApproximatedFinalTime: 2.340000
+2014-05-09 11:47:27,497 - INFO - [Satellite11] Sended package with usefull data: StartTime: 1399628846.497259 CurrentTime: 1.000217 ApproximatedFinalTime: 2.340000
+2014-05-09 11:47:28,499 - INFO - [Satellite11] Sended package with usefull data: StartTime: 1399628846.497259 CurrentTime: 2.002265 ApproximatedFinalTime: 2.340000
+2014-05-09 11:47:29,501 - INFO - [Satellite11] Desviation of normal behaviour : 0.664295 TotalTime : 3.004295
+2014-05-09 11:47:29,501 - INFO - [Satellite('11', 14.38021993637085)] End time 
+2014-05-09 11:47:29,501 - INFO - [Satellite11] Total Desviation: 0.664295 Total Penalty: 0.000000

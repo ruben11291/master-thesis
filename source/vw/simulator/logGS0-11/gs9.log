@@ -1,0 +1,18 @@
+2014-05-09 11:46:35,893 - INFO - Start modifing the file /etc/hosts
+2014-05-09 11:46:35,903 - INFO - File /etc/hosts modified
+2014-05-09 11:46:35,904 - INFO - Starting the initialitation
+2014-05-09 11:46:35,906 - INFO - [GroundStation9] Socket created in port 5009
+2014-05-09 11:46:35,906 - INFO - [GroundStation9] Connecting with the data base
+2014-05-09 11:46:35,927 - INFO - [GroundStation9] Fetching records of database
+2014-05-09 11:46:35,933 - INFO - [GroundStation9] The ground station has started!
+2014-05-09 11:47:28,489 - INFO - [GroundStation9] New connection from ('172.27.1.61', 39504)!
+2014-05-09 11:47:28,491 - INFO - [GroundStation9] Fork 2613 Receiving data from ('172.27.1.61', 5009)
+2014-05-09 11:47:29,492 - INFO - [GroundStation9] Fork 2613 Receiving data from ('172.27.1.61', 5009)
+2014-05-09 11:47:30,493 - INFO - [GroundStation9] Fork 2613 Receiving data from ('172.27.1.61', 5009)
+2014-05-09 11:47:30,497 - INFO - [GroundStation9] New connection from ('172.27.1.61', 39505)!
+2014-05-09 11:47:30,499 - INFO - [GroundStation9] Fork 2618 Receiving data from ('172.27.1.61', 5009)
+2014-05-09 11:47:31,498 - INFO - [GroundStation9] Useless info = 480 Usefull info = 0
+2014-05-09 11:47:31,502 - INFO - [GroundStation9] ImageUseless W_GS9_1_USELESS_11:47:31:5_09-05-14 created!
+2014-05-09 11:47:31,506 - INFO - [GroundStation9] Useless info = 160 Usefull info = 0
+2014-05-09 11:47:31,506 - INFO - [GroundStation9] Socket ('172.27.1.61', 5009) closed
+2014-05-09 11:47:31,703 - INFO - [GroundStation9] Socket ('172.27.1.61', 5009) closed
