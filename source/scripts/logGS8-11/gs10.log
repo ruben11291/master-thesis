@@ -1,7 +1,0 @@
-2014-05-09 11:43:29,752 - INFO - Start modifing the file /etc/hosts
-2014-05-09 11:43:29,765 - INFO - File /etc/hosts modified
-2014-05-09 11:43:29,765 - INFO - Starting the initialitation
-2014-05-09 11:43:29,766 - INFO - [GroundStation10] Socket created in port 5002
-2014-05-09 11:43:29,767 - INFO - [GroundStation10] Connecting with the data base
-2014-05-09 11:43:29,789 - INFO - [GroundStation10] Fetching records of database
-2014-05-09 11:43:29,792 - INFO - [GroundStation10] The ground station has started!

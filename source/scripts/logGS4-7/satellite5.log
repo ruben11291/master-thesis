@@ -1,7 +1,0 @@
-2014-05-09 11:40:41,121 - INFO - [Satellite5] Initializing!
-2014-05-09 11:40:41,147 - INFO - [Satellite5] Scheduling the tasks!
-2014-05-09 11:40:41,149 - INFO - [Satellite5] Init time 1399628441.15!
-2014-05-09 11:40:41,149 - INFO - [Satellite5] Starting the simulation!!
-2014-05-09 11:40:52,523 - ERROR - [Satellite5] Ground Station 11 unreachable!
-2014-05-09 11:40:52,524 - INFO - [Satellite('5', 11.375005006790161)] End time 
-2014-05-09 11:40:52,524 - INFO - [Satellite5] Total Desviation: 0.000000 Total Penalty: 0.000000
