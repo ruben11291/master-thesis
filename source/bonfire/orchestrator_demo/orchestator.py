@@ -1,10 +1,33 @@
  #!/usr/bin/env python
 
+
+#!/usr/bin/env python
+
+#
+#    Copyright (C) 2014 DEIMOS
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Ruben Perez <ruben.perez@deimos-space.com>
+
+
+
 import threading
 import pdb
 from processingChain import processingChainController
 from AyC import catalog
-import xml.dom.minidom
+import MySQLdb as mdb
 
 class Iorchestator:
     def setImage(self,img):
@@ -13,25 +36,23 @@ class Iorchestator:
 
 class orchestator(Iorchestator):
 
-    def __init__(self):
-        self._geoserver_path = ""
-        self._service_pp = ""
-        self._database_ip = ""
-        self.ftp_user=""
-        self.ftp_passwd=""
-        try:
-            get_info()
-        except IOError:
-            print "Error with xml config file!"
-            exit(0)
+    def __init__(self, service_ip):
+       
+        self._service_pp = service_ip
         print "[Orchestrator] Creating orchestrator!"
         controller = processingChainController.get()
         controller.setOrchestrator(self)
         
-        self.catalog = catalog.catalog("http://localhost:8080/geoserver/rest")
+        #self.catalog = catalog.catalog(self._geoserver_path)
         print "[Orchestrator] Initializing geoserver client"
         self.i = 0
         print "[Orchestrator] Initializing processing chaing controller!"
+
+    def getPP(self):
+        if self._service_pp is not None:
+            return self._service_pp
+        else:
+            print "Error with reference"
 
     def processRawData(self,img):
         print "[Orchestrator] Creating processing chain!"
@@ -40,8 +61,7 @@ class orchestator(Iorchestator):
         
     def processedRawData(self,fileOutput):
         #eviar a espacio compartido y donde tiene el working directory geoserver
-        None
-        #print "[Orchestrator] Processed raw data!"
+        print "[Orchestrator] Processed raw data!"
         #self.sendToCatalog(fileOutput)
 
     # def sendToCatalog(self, data):
@@ -61,14 +81,6 @@ class orchestator(Iorchestator):
     def sendToStore(self):
         None
         
-    def get_info(self, geoserver, pp, database):
         
-        file = xml.dom.minidom.parse("orchestrator.conf.xml")
-        nodes = file.childNodes
-        self.ftp_user = nodes[0].getElementsByTagName("ftp")[0].getElementsByTagName("user")[0].firstChild.toxml()
-        self.ftp_pass = nodes[0].getElementsByTagName("ftp")[0].getElementsByTagName("passwd")[0].firstChild.toxml()
-        self._geoserver_path = nodes[0].getElementsByTagName("address")[0].getElementsByTagName("geoserver_path")[0].firstChild.toxml()
-        self._database_ip = nodes[0].getElementsByTagName("address")[0].getElementsByTagName("database")[0].firstChild.toxml()
-        self._service_ip=nodes[0].getElementsByTagName("address")[0].getElementsByTagName("pp_service")[0].firstChild.toxml()
 
     

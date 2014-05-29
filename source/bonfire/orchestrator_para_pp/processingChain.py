@@ -3,7 +3,6 @@
 from jobOrder import jobOrder
 import threading
 from orchestator import *
-import paramiko
 
 class processingChainController:
     """ProcessingChainController Class.
@@ -29,8 +28,6 @@ class processingChainController:
     def __init__(self):
         self.actives = {}
         self.petitions = {}
-        self.files = {}
-        self.queue = []
         self.maxPetitions = 100
         if self._controller is not None:
             raise ValueError("[ProcessingChainController] An instantiation already exists")
@@ -39,30 +36,27 @@ class processingChainController:
         self.orchestrator = orchestrator
 
     def createProcessingChain(self,pathRawData):
-        pc = processingChain(pathRawData,self.orchestrator.getPP())
+        pc = processingChain(pathRawData)
         print "[ProcessingChainController] Creating processing chain!"
         pc.start()
         self.actives.update({pc.getIdent():pc})
-        self.petitions.update({pc.getIdent():pathRawData})
     
     def deleteProcessingChain(self,idThread):
         print "[ProcessingChainController] Deleting processing chain!"
         #self.actives.remove(idThread);
-        del self.petitions[idThread]
         del self.actives[idThread]
 
     def processed(self, idThread, fileOutput):
         print "[ProcessingChainController] Sending to orchestrator file data!"
-        self.orchestrator.processedRawData(self.petitions[idThread])
+        self.orchestrator.processedRawData(fileOutput)
         self.deleteProcessingChain(idThread)
 
 class processingChain(threading.Thread):
     
-    def __init__(self,pathRawData,PP_ip):
+    def __init__(self,pathRawData):
         threading.Thread.__init__(self)
         self.path = pathRawData
         self.defaultJobOrder = jobOrder(pathRawData)
-        self.PP_IP = PP_ip
         
     def getIdent(self):
         print self.ident
@@ -70,17 +64,17 @@ class processingChain(threading.Thread):
        
 
     def run(self):
-        # print "[Processing Chain] Starting processing chain!!"
-        # l0JobOrder = self.defaultJobOrder.setL0()
-        # #ejecutar PL0 y comprobar resultado
-        # l1AJobOrder = self.defaultJobOrder.setL1A()
-        # #ejecutar PL1A y comprobar resultado
-        # l1BJobOrder = self.defaultJobOrder.setL1B()
-        # #ejecutar PL1B y comprobar resultado
-        # l1CJobOrdre = self.defaultJobOrder.setL1C()
-        # #ejecutar PL1C y comprobar resultado
-        # #capturar excepciones 
-        os.system("ssh root@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
+        print "[Processing Chain] Starting processing chain!!"
+        l0JobOrder = self.defaultJobOrder.setL0()
+        #ejecutar PL0 y comprobar resultado
+        l1AJobOrder = self.defaultJobOrder.setL1A()
+        #ejecutar PL1A y comprobar resultado
+        l1BJobOrder = self.defaultJobOrder.setL1B()
+        #ejecutar PL1B y comprobar resultado
+        l1CJobOrdre = self.defaultJobOrder.setL1C()
+        #ejecutar PL1C y comprobar resultado
+        #capturar excepciones 
+        contr = processingChainController.get()
         #contr.processed(thread.get_ident(),l1CJobOrder.getOutput())#return thread identity 
         contr.processed(self.getIdent(),"/home/ruben/dataoutput")
     

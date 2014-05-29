@@ -6,7 +6,7 @@
 	</ftp>
 	<address>
 		<geoserver_path>path</geoserver_path>
-		<database>ipdatabase</database>
-		<pp_service>ipservicePP</pp_service>
+		<database>172.18.249.101</database>
+		<pp_service>172.18.240.209</pp_service>
 	</address>
 </orchestrator>

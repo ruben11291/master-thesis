@@ -5,13 +5,11 @@ import threading
 import pdb
 from datetime import *
 from time import *
+import MySQLdb as mdb
 
-
-# ftp = FTP('localhost')
-# ftp.login('deimos','deimos')
 
 lock = threading.Lock()
-
+tmp_path="/tmp/"
 
 # TODO: 
 # Hacer metodo para enviar a memoria compartida para la nube
@@ -29,6 +27,7 @@ send it to orchestrator"""
     downloading = []
     lastdata = {}
     
+
     def connect(self):
         self.counter = 0
         """Simply it connects listener to all ftp connections of ground stations"""
@@ -37,16 +36,18 @@ send it to orchestrator"""
            #ftpconex[i] = FTP(i[0],i[1])
             try:
                 ftp = FTP(self.gstations[i][0])
-                ftp.login('deimos','deimos')
+                ftp.login(self.ftp_user,self.ftp_passwd)
+                ftp.cwd(tmp_path)
+                print ftp.pwd()
                 self.ftpconex.append(ftp)
             except error_reply:
-                print "[Listener] error_reply"
+                print "[Listener] error_reply",e
             except error_temp:
-                print "[Listener] error_temp"
+                print "[Listener] error_temp",e
             except error_proto:
-                print "[Listener] error_proto"
+                print "[Listener] error_proto",e
             except all_errors:
-                print "[Listener] all_errors"
+                print "[Listener] all_errors",e
 
     def pooling(self):
         
@@ -86,11 +87,14 @@ send it to orchestrator"""
             sp = name.split('_')
             logic = False
 
-            if len(sp) == 4:
+            if len(sp) == 7:
                 readwrite = sp[0]
                 idGs = sp[1]
-                hour = sp[2]
-                date = sp[3]
+                sat = sp[2]
+                scenario=sp[3]
+                use = sp[4]
+                hour = sp[5]
+                date = sp[6]
                 
                 if readwrite == "W":
                     if host in self.lastdata:
@@ -127,7 +131,7 @@ send it to orchestrator"""
             """For each line of ftp.nlst looks if the file needs to download"""
             for line in lines:
                 #name = line.split(' ')[-1]
-                if(needDownload(line,host)):
+                if(needDownload(line[len(tmp_path):],host)):
                        self.data.append(line)
         try:
            # ftp.dir(proccesingLine)
@@ -135,7 +139,8 @@ send it to orchestrator"""
             try:
                 sleep(1)
        #         print ftp
-                names = ftp.nlst()
+                #pdb.set_trace()
+                names = ftp.nlst(tmp_path)
       #          print names
                 self.counter = self.counter + 1
             except Exception as e:
@@ -156,11 +161,17 @@ send it to orchestrator"""
 
   
 
-    def __init__(self, orchesta):
-        self.orchestator = orchesta;
+    def __init__(self, orchesta, ftp_user, ftp_passwd, ground_stations_address):
+        self.ftp_user = ftp_user
+        self.ftp_passwd = ftp_passwd
+        
+        pdb.set_trace()
+        self.orchestator = orchesta;     
+
         for i in range(12):
-            self.gstations.append(["localhost",2000+i])
-       
+            #self.gstations.append(["localhost",2000+i])
+            self.gstations.append(ground_stations_address[i])
+
         self.connect()
         print "[Listener] Listener ready!"
 
@@ -208,14 +219,15 @@ class downloadThread(threading.Thread):
 
     def downloadFile(self):
         try:
-            f = open("/home/deimos/test","wb")
+            f = open(tmp_path+self.filename,"wb")
             self.ftp.retrbinary('RETR '+self.filename, f.write)
             lock.acquire(True)
             self.ftpconex.append(self.ftp)
             self.downloading.remove(self.ftp)
             lock.release()
-            self.orchestrator.processRawData("/home/deimos/test")
+            self.orchestrator.processRawData(tmp_path+self.filename)
         except Exception as e:
+
             print "[Listener] Unexpected exception ",e
         
 

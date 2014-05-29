@@ -5,7 +5,6 @@ import threading
 import pdb
 from datetime import *
 from time import *
-import MySQLdb as mdb
 
 
 # ftp = FTP('localhost')

@@ -45,10 +45,10 @@ def modHostsFile():
     
         logger.info("Start modifing the file /etc/hosts")
         for line in ifconfig:
-            if line.find("eth0") != -1:
-                ip = ifconfig.next().split(":")[1].split(" ")[0]
-                logging.debug("Eth0 is encountered")
-                break
+            if line.find("eth0") != -1: 
+               ip = ifconfig.next().split(":")[1].split(" ")[0]
+               logging.debug("Eth0 is encountered")
+               break
             
             elif line.find("wlan0") != -1:
                 ip = ifconfig.next().split(":")[1].split(" ")[0]
@@ -96,13 +96,14 @@ class GroundStation():
             self.scenario = scenario
             self.hostdb = hostdb
             self.pids = [] # will get the pids of forks
-            self.host = socket.gethostbyname(socket.gethostname())
+            #self.host = socket.gethostbyname(socket.gethostname())
+            self.host = socket.gethostbyname_ex(socket.gethostname())[1][0]
             self.port = 5000 #port in which the server will be listenning for in connections. May can be changed.
             #pdb.set_trace()
           
            
             self.port = self.create_socket(self.port)
-	    #pdb.set_trace()
+	    pdb.set_trace()
             update_ip = 'UPDATE GroundStations SET ip=\'%s\',port =\'%s\' WHERE idGroundStation=%s' %(self.host,self.port,self.id); #mysql sentence for update GroundStations table
             #update the data base with the current ip and host where the gs is running
             self.updateDB(update_ip)

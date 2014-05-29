@@ -11,7 +11,7 @@ USE `Scenarios` ;
 CREATE  TABLE IF NOT EXISTS `Scenarios`.`GroundStations` (
   `idGroundStation` INT NOT NULL ,
   `name` VARCHAR(45) NULL ,
-  `ip` VARCHAR(100) NULL ,
+  `ip` VARCHAR(45) NULL ,
   `port` VARCHAR(45) NULL ,
   PRIMARY KEY (`idGroundStation`) )
 ENGINE = InnoDB;
