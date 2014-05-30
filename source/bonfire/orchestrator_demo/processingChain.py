@@ -70,7 +70,7 @@ class processingChain(threading.Thread):
        
 
     def run(self):
-        # print "[Processing Chain] Starting processing chain!!"
+        print "[Processing Chain] Starting processing chain!!"
         # l0JobOrder = self.defaultJobOrder.setL0()
         # #ejecutar PL0 y comprobar resultado
         # l1AJobOrder = self.defaultJobOrder.setL1A()

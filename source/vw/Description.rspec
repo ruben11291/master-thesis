@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<rspec generated="2014-05-28T15:25:38.454+02:00" generated_by="Experimental jFed Rspec Editor" type="request" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd" xmlns="http://www.geni.net/resources/rspec/3" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:delay="http://www.protogeni.net/resources/rspec/ext/delay/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?><rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:delay="http://www.protogeni.net/resources/rspec/ext/delay/1" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" generated="2014-05-30T08:27:53.219+02:00" generated_by="Experimental jFed Rspec Editor" type="request" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd">
     <node client_id="SS1" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>https://drive.google.com/file/d//edit?usp=sharing
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
         </services>
         <jFed:location x="239.0" y="82.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -23,15 +22,15 @@
     <node client_id="SS2" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
         </services>
         <jFed:location x="805.0" y="65.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -43,15 +42,15 @@
     <node client_id="SS3" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
         </services>
         <jFed:location x="1271.0" y="72.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -63,18 +62,19 @@
     <node client_id="GS1" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="3.0" y="240.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -83,18 +83,19 @@
     <node client_id="GS2" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="449.0" y="235.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -103,18 +104,19 @@
     <node client_id="GS3" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="47.0" y="463.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -123,18 +125,19 @@
     <node client_id="GS4" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="374.0" y="462.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -143,18 +146,19 @@
     <node client_id="GS5" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="621.0" y="219.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -163,18 +167,19 @@
     <node client_id="GS6" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-           <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1011.0" y="203.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -183,18 +188,19 @@
     <node client_id="GS7" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="630.0" y="461.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -203,18 +209,19 @@
     <node client_id="GS8" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="992.0" y="474.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -223,18 +230,19 @@
     <node client_id="GS9" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1168.0" y="168.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -243,18 +251,19 @@
     <node client_id="GS10" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1397.0" y="162.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -263,18 +272,19 @@
     <node client_id="GS11" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1214.0" y="457.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -283,18 +293,19 @@
     <node client_id="GS12" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true">
         <sliver_type name="raw-pc"/>
         <services>
-            <execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-            <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-            <execute shell="sh" command="sudo apt-get update"/>
-            <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkU1FEcjVIT2JWMjg -O /users/jbecedas/groundstation.py"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/add_wanBF.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-            <execute shell="sh" command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh"/>
-            <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1452.0" y="449.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>

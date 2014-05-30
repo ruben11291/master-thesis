@@ -103,7 +103,7 @@ class GroundStation():
           
            
             self.port = self.create_socket(self.port)
-	    pdb.set_trace()
+	    #pdb.set_trace()
             update_ip = 'UPDATE GroundStations SET ip=\'%s\',port =\'%s\' WHERE idGroundStation=%s' %(self.host,self.port,self.id); #mysql sentence for update GroundStations table
             #update the data base with the current ip and host where the gs is running
             self.updateDB(update_ip)

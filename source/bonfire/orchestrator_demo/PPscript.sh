@@ -21,7 +21,7 @@ l0r /mnt/disco/job_orders/${jobOrder}$L0R.$exten
 l1a /mnt/disco/job_orders/${jobOrder}$LBG.$exten
 
 scp /mnt/disco/imagefull.tif root@${IP_GEOSERVER}:$path
-ssh root@${IP_GEOSERVER} "python add_image.py $path"
+ssh root@${IP_GEOSERVER} "python catalog_pp.py $path"
 
 #rm -rf /mnt/disco/l1a/output/*_[^C555]*
 #l1br /mnt/disco/job\ orders/${jobOrder}$LBR.$exten

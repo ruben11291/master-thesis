@@ -219,7 +219,7 @@ class downloadThread(threading.Thread):
 
     def downloadFile(self):
         try:
-            f = open(tmp_path+self.filename,"wb")
+            f = open(self.filename,"wb")
             self.ftp.retrbinary('RETR '+self.filename, f.write)
             lock.acquire(True)
             self.ftpconex.append(self.ftp)
