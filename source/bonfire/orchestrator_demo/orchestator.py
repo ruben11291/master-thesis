@@ -26,7 +26,7 @@
 import threading
 import pdb
 from processingChain import processingChainController
-from AyC import catalog
+#from AyC import catalog
 import MySQLdb as mdb
 
 class Iorchestator:

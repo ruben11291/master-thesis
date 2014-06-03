@@ -11,7 +11,6 @@ L1CR=L1CR
 L1CT=L1CT
 outfile=$1
 
-path=/usr/share/tomcat7/apache-tomcat-7.0.53/webapps/geoserver/data/data/$1
 su - d2pp
 . ~/.bashrc
 l0 /mnt/disco/job_orders/${jobOrder}$L0.$exten
@@ -20,8 +19,8 @@ l0r /mnt/disco/job_orders/${jobOrder}$L0R.$exten
 #rm -rf /mnt/disco/l0r/output/*_[^7851]*
 l1a /mnt/disco/job_orders/${jobOrder}$LBG.$exten
 
-scp /mnt/disco/imagefull.tif root@${IP_GEOSERVER}:$path
-ssh root@${IP_GEOSERVER} "python catalog_pp.py $path"
+scp /mnt/disco/imagefull root@${IP_GEOSERVER}:/usr/share/tomcat7/apache-tomcat-7.0.53/webapps/geoserver/data/data/$1
+ssh root@${IP_GEOSERVER} "python add_image.py $1"
 
 #rm -rf /mnt/disco/l1a/output/*_[^C555]*
 #l1br /mnt/disco/job\ orders/${jobOrder}$LBR.$exten

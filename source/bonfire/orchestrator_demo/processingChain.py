@@ -2,6 +2,7 @@
 
 from jobOrder import jobOrder
 import threading
+import os
 from orchestator import *
 import paramiko
 
@@ -70,7 +71,7 @@ class processingChain(threading.Thread):
        
 
     def run(self):
-        print "[Processing Chain] Starting processing chain!!"
+        # print "[Processing Chain] Starting processing chain!!"
         # l0JobOrder = self.defaultJobOrder.setL0()
         # #ejecutar PL0 y comprobar resultado
         # l1AJobOrder = self.defaultJobOrder.setL1A()
@@ -80,7 +81,7 @@ class processingChain(threading.Thread):
         # l1CJobOrdre = self.defaultJobOrder.setL1C()
         # #ejecutar PL1C y comprobar resultado
         # #capturar excepciones 
-        os.system("ssh root@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
+        os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
         #contr.processed(thread.get_ident(),l1CJobOrder.getOutput())#return thread identity 
-        contr.processed(self.getIdent(),"/home/ruben/dataoutput")
+        self.orchestrator.processed(self.getIdent(),"/home/ruben/dataoutput")
     

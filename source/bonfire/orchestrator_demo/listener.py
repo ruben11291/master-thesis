@@ -6,7 +6,7 @@ import pdb
 from datetime import *
 from time import *
 import MySQLdb as mdb
-
+import os
 
 lock = threading.Lock()
 tmp_path="/tmp/"
@@ -32,21 +32,23 @@ send it to orchestrator"""
         self.counter = 0
         """Simply it connects listener to all ftp connections of ground stations"""
         for i in range(len(self.gstations)):
-        #    pdb.set_trace()
+            #pdb.set_trace()
            #ftpconex[i] = FTP(i[0],i[1])
             try:
+		print self.gstations[i][0]
+	#	print self.ftp_user,self.ftp_passwd
                 ftp = FTP(self.gstations[i][0])
                 ftp.login(self.ftp_user,self.ftp_passwd)
                 ftp.cwd(tmp_path)
-                print ftp.pwd()
-                self.ftpconex.append(ftp)
+		print ftp.pwd()
+		self.ftpconex.append(ftp)
             except error_reply:
-                print "[Listener] error_reply",e
+                print "[Listener] error_reply"
             except error_temp:
-                print "[Listener] error_temp",e
+                print "[Listener] error_temp"
             except error_proto:
-                print "[Listener] error_proto",e
-            except all_errors:
+                print "[Listener] error_proto"
+            except all_errors as e:
                 print "[Listener] all_errors",e
 
     def pooling(self):
@@ -54,8 +56,9 @@ send it to orchestrator"""
         while True:
             try:
                 for i in self.ftpconex:
+		    print i.nlst()
                     if(self.ifdata(i)):
-                        # #print "DATA"
+                        print "DATA"
                         # self.orchestator.processRawData("")
                         lock.acquire()
                         self.downloading.append(i)
@@ -84,9 +87,10 @@ send it to orchestrator"""
             needDownload
             Obtain if is necessary download raw data
             """
-            sp = name.split('_')
+	    sp = name.split('.')[0]
+            sp = sp.split('_')
             logic = False
-
+	    print sp
             if len(sp) == 7:
                 readwrite = sp[0]
                 idGs = sp[1]
@@ -97,7 +101,8 @@ send it to orchestrator"""
                 date = sp[6]
                 
                 if readwrite == "W":
-                    if host in self.lastdata:
+                    print "IMAGE"
+		    if host in self.lastdata:
                         if moreRecently(host,hour,date):
                             self.lastdata.update({host:[hour,date]})
                             logic = True
@@ -165,7 +170,7 @@ send it to orchestrator"""
         self.ftp_user = ftp_user
         self.ftp_passwd = ftp_passwd
         
-        pdb.set_trace()
+        #pdb.set_trace()
         self.orchestator = orchesta;     
 
         for i in range(12):
@@ -188,7 +193,7 @@ class downloadThread(threading.Thread):
         self.orchestrator = orchestra
         self.ftpconex = ftpconex
         self.downloading = downloading
-
+	print "Donwloading %s"%(filename)
     def run(self):
         print "[Listener] Creating download thread!"
         self.downloadFile()
@@ -219,13 +224,14 @@ class downloadThread(threading.Thread):
 
     def downloadFile(self):
         try:
+	    #pdb.set_trace()
             f = open(self.filename,"wb")
             self.ftp.retrbinary('RETR '+self.filename, f.write)
             lock.acquire(True)
             self.ftpconex.append(self.ftp)
             self.downloading.remove(self.ftp)
             lock.release()
-            self.orchestrator.processRawData(tmp_path+self.filename)
+            self.orchestrator.processRawData(self.filename)
         except Exception as e:
 
             print "[Listener] Unexpected exception ",e

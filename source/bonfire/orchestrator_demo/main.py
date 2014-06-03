@@ -24,7 +24,7 @@ import pdb
 
 
 def load_data():
-    pdb.set_trace()
+    #pdb.set_trace()
     file = xml.dom.minidom.parse("orchestrator.conf.xml")
     nodes=file.childNodes
     ftp_user = nodes[0].getElementsByTagName("ftp")[0].getElementsByTagName("user")[0].firstChild.toxml()
@@ -57,6 +57,6 @@ if __name__ == "__main__":
 
     service_ip,ftp_user,ftp_passwd,ground_stations_address = load_data()
     orch =  orchestator(service_ip)
-    pdb.set_trace()
+    #pdb.set_trace()
     lst = listener( orch , ftp_user,ftp_passwd, ground_stations_address)
     lst.pooling()
