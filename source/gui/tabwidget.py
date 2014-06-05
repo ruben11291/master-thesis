@@ -10,9 +10,10 @@ except AttributeError:
     _fromUtf8 = lambda s: s
 
 class Ui_TabWidget(object):
-    def setupUi(self, TabWidget):
+    def setupUi(self, TabWidget,width,height):
         TabWidget.setObjectName(_fromUtf8("TabWidget"))
-        TabWidget.resize(600, 600)
+        #TabWidget.resize(600, 600)
+        TabWidget.resize(width,height)
         self.tab_pp = QtGui.QWidget()
         self.tab_orch = QtGui.QWidget()
 
@@ -26,10 +27,13 @@ class Ui_TabWidget(object):
         self.scrollArea = QtGui.QScrollArea(self.tab_orch)
         self.scrollArea2 = QtGui.QScrollArea(self.tab_pp)
 
-        self.scrollArea.setGeometry(QtCore.QRect(10, 19, 501, 501))
+        #self.scrollArea.setGeometry(QtCore.QRect(10, 19, 501, 501))
+        self.scrollArea.setGeometry(QtCore.QRect(10, 19, width-100, height-10))
+
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
-        self.scrollArea2.setGeometry(QtCore.QRect(10, 19, 521, 501))
+       # self.scrollArea2.setGeometry(QtCore.QRect(10, 19, 521, 501))
+        self.scrollArea2.setGeometry(QtCore.QRect(10, 19, width-100, height-10))
         self.scrollArea2.setWidgetResizable(True)
         self.scrollArea2.setObjectName(_fromUtf8("scrollArea"))
 
