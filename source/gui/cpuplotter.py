@@ -39,23 +39,25 @@ class CpuStat:
     System = 2
     Idle = 3
     counter = 0
-    
+
     def __init__(self):
         self.procValues = self.__lookup()
-  
+
     def statistic(self):
         values = self.__lookup()
         userDelta = 0.0
         for i in [CpuStat.User, CpuStat.Nice]:
             userDelta += (values[i] - self.procValues[i])
+            userDelta +=values[i]
         systemDelta = values[CpuStat.System] - self.procValues[CpuStat.System]
         totalDelta = 0.0
         for i in range(len(self.procValues)):
             totalDelta += (values[i] - self.procValues[i])
+            #totalDelta += values[i]
         self.procValues = values
         return 100.0*userDelta/totalDelta, 100.0*systemDelta/totalDelta
-    
-    
+
+
     def nowTime(self):
         result = Qt.QTime(0, 0)
         return result
@@ -69,12 +71,12 @@ class CpuStat:
         return tmp
 
 class CpuPieMarker(Qwt.QwtPlotMarker):
-    
+
     def __init__(self, *args):
         Qwt.QwtPlotMarker.__init__(self, *args)
         self.setZ(1000.0)
         self.setRenderHint(Qwt.QwtPlotItem.RenderAntialiased, True)
-        
+
     def rtti(self):
         return Qwt.QwtPlotItem.Rtti_PlotUserItem
 
@@ -105,7 +107,7 @@ class TimeScaleDraw(Qwt.QwtScaleDraw):
         Qwt.QwtScaleDraw.__init__(self, *args)
         baseTime = baseTime.currentTime()
         self.baseTime = baseTime.addSecs(-59)
- 
+
 
     def label(self, value):
         nowTime = self.baseTime.addSecs(int(value))
@@ -148,7 +150,7 @@ class CpuCurve(Qwt.QwtPlotCurve):
         self.setBrush(c)
 
 
-    
+
 HISTORY = 60
 
 class CpuPlot(Qwt.QwtPlot):
@@ -164,20 +166,20 @@ class CpuPlot(Qwt.QwtPlot):
         self.setAutoReplot(False)
 
         self.plotLayout().setAlignCanvasToScales(True)
-        
+
         legend = Qwt.QwtLegend()
         legend.setItemMode(Qwt.QwtLegend.CheckableItem)
         self.insertLegend(legend, Qwt.QwtPlot.RightLegend)
-        
+
         self.setAxisScaleDraw(
-            Qwt.QwtPlot.xBottom, TimeScaleDraw(self.cpuStat.nowTime()))
+            Qwt.QwtPlot.xBottom, TimeScaleDraw(Qt.QTime(0, 0)))
         self.setAxisScale(Qwt.QwtPlot.xBottom, 0, HISTORY)
         self.setAxisLabelRotation(Qwt.QwtPlot.xBottom, -05.0)
         self.setAxisLabelAlignment(
             Qwt.QwtPlot.xBottom, Qt.Qt.AlignLeft | Qt.Qt.AlignBottom)
 
-        self.yLeft = Qwt.QwtText(QtGui.QApplication.translate("MainWindow","Usage [%]", 
-                            None, QtGui.QApplication.UnicodeUTF8))        
+        self.yLeft = Qwt.QwtText(QtGui.QApplication.translate("MainWindow","Usage [%]",
+                            None, QtGui.QApplication.UnicodeUTF8))
         self.setAxisTitle(Qwt.QwtPlot.yLeft, self.yLeft)
         self.setAxisScale(Qwt.QwtPlot.yLeft, 0, 100)
         self.setMinimumHeight(130)
@@ -187,7 +189,7 @@ class CpuPlot(Qwt.QwtPlot):
 
         pie = CpuPieMarker()
         pie.attach(self)
-        
+
         curve = CpuCurve('System')
         curve.setColor(Qt.Qt.green)
         curve.attach(self)
@@ -227,7 +229,7 @@ class CpuPlot(Qwt.QwtPlot):
                      self.showCurve)
         self.replot()
 
-    
+
     def timerEvent(self, e):
         for data in self.data.values():
             data[1:] = data[0:-1]
@@ -244,7 +246,7 @@ class CpuPlot(Qwt.QwtPlot):
 
         self.replot()
 
-    
+
     def showCurve(self, item, on):
         item.setVisible(on)
         widget = self.legend().find(item)
