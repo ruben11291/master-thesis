@@ -1,6 +1,6 @@
  #!/usr/bin/env python
 from orchestator import *
-from ftplib import FTP, error_reply,error_temp,error_proto,all_errors
+from ftplib import FTP, error_reply,error_temp,error_proto,all_errors,error_perm
 import threading
 import pdb
 from datetime import *
@@ -56,7 +56,7 @@ send it to orchestrator"""
         while True:
             try:
                 for i in self.ftpconex:
-		    print i.nlst()
+		    #print i.nlst()
                     if(self.ifdata(i)):
                         print "DATA"
                         # self.orchestator.processRawData("")
@@ -226,12 +226,17 @@ class downloadThread(threading.Thread):
         try:
 	    #pdb.set_trace()
             f = open(self.filename,"wb")
+            print self.filename
             self.ftp.retrbinary('RETR '+self.filename, f.write)
+            
+            self.ftp.delete(self.filename)#the image is deleted after downlading
             lock.acquire(True)
             self.ftpconex.append(self.ftp)
             self.downloading.remove(self.ftp)
             lock.release()
             self.orchestrator.processRawData(self.filename)
+        except error_perm as e:
+            print "[Listener] Permission error!",e
         except Exception as e:
 
             print "[Listener] Unexpected exception ",e

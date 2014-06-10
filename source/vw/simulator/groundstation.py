@@ -243,6 +243,8 @@ class GroundStation():
             nano = str(time.time()).split('.')[1]
             name = "W_GS%d_SAT%s_%d_USELESS_%s" %(int(self.id),satellite,int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
             os.system("cp /tmp/original.bin /tmp/"+name+".bin")
+	    os.system("sudo chmod 777  /tmp/"+name+".bin")
+            os.system("sudo chown deimos:ftp  /tmp/"+name+".bin")
             logger.info("[GroundStation%s] ImageUseless %s created!"%(self.id,name))
             time.sleep(0.2)
 
@@ -250,6 +252,8 @@ class GroundStation():
             nano = str(time.time()).split('.')[1]
             name = "W_GS%d_SAT%s_%d_USEFULL_%s" %(int(self.id),satellite,int(self.scenario),datetime.datetime.now().strftime("%H:%M:%S:"+nano+"_%d-%m-%y"))
             os.system("cp /tmp/original.bin /tmp/"+name+".bin")
+	    os.system("sudo chmod 777  /tmp/"+name+".bin")
+            os.system("sudo chown deimos:ftp  /tmp/"+name+".bin")
             logger.info("[GroundStation%s] ImageUseful %s created!"%(self.id,name))
             time.sleep(0.2)
 

@@ -81,6 +81,7 @@ class processingChain(threading.Thread):
         # l1CJobOrdre = self.defaultJobOrder.setL1C()
         # #ejecutar PL1C y comprobar resultado
         # #capturar excepciones 
+        #var = os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
         os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
         #contr.processed(thread.get_ident(),l1CJobOrder.getOutput())#return thread identity 
         self.orchestrator.processed(self.getIdent(),"/home/ruben/dataoutput")

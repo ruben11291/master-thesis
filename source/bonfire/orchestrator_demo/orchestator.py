@@ -28,6 +28,8 @@ import pdb
 from processingChain import processingChainController
 #from AyC import catalog
 import MySQLdb as mdb
+import threading
+from collections import deque
 
 class Iorchestator:
     def setImage(self,img):
@@ -42,7 +44,9 @@ class orchestator(Iorchestator):
         print "[Orchestrator] Creating orchestrator!"
         controller = processingChainController.get()
         controller.setOrchestrator(self)
-        
+        self.ocupated = False
+        self.sem = threading.Lock()
+        self.images_to_process=deque()
         #self.catalog = catalog.catalog(self._geoserver_path)
         print "[Orchestrator] Initializing geoserver client"
         self.i = 0
@@ -55,13 +59,30 @@ class orchestator(Iorchestator):
             print "Error with reference"
 
     def processRawData(self,img):
-        print "[Orchestrator] Creating processing chain!"
-        controller = processingChainController.get()
-        controller.createProcessingChain(img)
+        self.sem.acquire()
+        if not self.ocupated:
+            self.ocupated=True
+            self.images_to_process.append(img)
+            print "[Orchestrator] Creating processing chain!"
+            controller = processingChainController.get()
+            controller.createProcessingChain(self.images_to_process[0])
+        else:
+            self.images_to_process.append(img)
+        self.sem.release()
         
     def processedRawData(self,fileOutput):
         #eviar a espacio compartido y donde tiene el working directory geoserver
-        print "[Orchestrator] Processed raw data!"
+        print "[Orchestrator] Processed raw data! ",fileOutput
+        self.sem.acquire()
+        self.images_to_process.popleft()
+        if len(self.images_to_process) == 0:
+            self.ocupated =False
+        else:
+            print "[Orchestrator] Creating processing chain!"
+            controller = processingChainController.get()
+            controller.createProcessingChain(self.images_to_process[0])
+        self.sem.release()
+        
         #self.sendToCatalog(fileOutput)
 
     # def sendToCatalog(self, data):
