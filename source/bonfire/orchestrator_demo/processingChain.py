@@ -33,6 +33,7 @@ class processingChainController:
         self.files = {}
         self.queue = []
         self.maxPetitions = 100
+        self.sem = threading.Lock()
         if self._controller is not None:
             raise ValueError("[ProcessingChainController] An instantiation already exists")
 
@@ -40,7 +41,7 @@ class processingChainController:
         self.orchestrator = orchestrator
 
     def createProcessingChain(self,pathRawData):
-        pc = processingChain(pathRawData,self.orchestrator.getPP())
+        pc = processingChain(pathRawData,self.orchestrator.getPP(),self.sem)
         print "[ProcessingChainController] Creating processing chain!"
         pc.start()
         self.actives.update({pc.getIdent():pc})
@@ -59,11 +60,12 @@ class processingChainController:
 
 class processingChain(threading.Thread):
     
-    def __init__(self,pathRawData,PP_ip):
+    def __init__(self,pathRawData,PP_ip,sem):
         threading.Thread.__init__(self)
         self.path = pathRawData
         self.defaultJobOrder = jobOrder(pathRawData)
         self.PP_IP = PP_ip
+        self.sem = sem
         
     def getIdent(self):
         print self.ident
@@ -84,5 +86,7 @@ class processingChain(threading.Thread):
         #var = os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
         os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
         #contr.processed(thread.get_ident(),l1CJobOrder.getOutput())#return thread identity 
-        self.orchestrator.processed(self.getIdent(),"/home/ruben/dataoutput")
-    
+        self.sem.acquire()
+        controller = processingChainController.get()
+        controller.processed(self.getIdent(),self.path)
+        self.sem.release()

@@ -21,6 +21,7 @@
 
 import os
 import threading
+import subprocess
 
 class Loads():
 
@@ -48,7 +49,10 @@ class Loads():
         # self.timer = threading.Timer(self.time,self.get_load,[self.host])
         # self.start()
         # print self.host
-        out = os.system("python getload.py")
+        devnull = open(os.devnull, 'wb')
+        out = ""
+        subprocess.call('python getload.py')
+        #out = os.system("python getload.py")
         return out
         #out =os.system("ssh -A -o StrictHostKeyChecking=no -i /home/deimos/.ssh/id_rsa jbecedas@%s"%(self.host)+" -oPort=22 -oProxyCommand='ssh -o StrictHostKeyChecking=no -e none -i /home/deimos/Descargas/emulabcert.pem -oPort=22 jbecedas@bastion.test.iminds.be nc -w 5 %h %p' "+self.order)
         # self.threadLock.acquire()
