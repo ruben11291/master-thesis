@@ -49,7 +49,7 @@ class CpuStat:
         userDelta = 0.0
         for i in [CpuStat.User, CpuStat.Nice]:
             userDelta += (values[i] - self.procValues[i])
-            userDelta +=values[i]
+            #userDelta +=values[i]
         systemDelta = values[CpuStat.System] - self.procValues[CpuStat.System]
         totalDelta = 0.0
         for i in range(len(self.procValues)):
@@ -66,7 +66,7 @@ class CpuStat:
     def __lookup(self):
         mycputimes=psutil.cpu_times(percpu=False)
         #mycputimes = self.load.get_load()[1:-1].split(',')
-        
+
         if os.name == "nt":
             tmp = [mycputimes.user,0.0,mycputimes.system,mycputimes.idle,0.0,0.0,0.0]
         else:
