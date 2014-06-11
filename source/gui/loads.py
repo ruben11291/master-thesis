@@ -20,49 +20,23 @@
 # Author: Ruben Perez <ruben.perez@deimos-space.com>
 
 import os
-import threading
+#import threading
 import subprocess
+import shlex
 
 class Loads():
 
-    def __init__(self,host,experimentController,time,threadLock):
+    def __init__(self,host):
         self.host = host
-        # self.experimentController = experimentController;
-        # self.time=time
-        # self.threadLock=threadLock
-        # self.timer = threading.Timer(self.time,self.get_load,[self.host])
 
-    # def start(self):
-    #     if self.timer:
-    #         self.timer.start()
-
-    # def stop(self):
-    #     if self.timer:
-    #         try:
-    #             self.timer.cancel()
-    #         except Exception as e:
-    #             print "Exception in load timer"
-
-
-    def get_load(self,host):
-        # print "JEsus es tonto"
-        # self.timer = threading.Timer(self.time,self.get_load,[self.host])
-        # self.start()
-        # print self.host
-        devnull = open(os.devnull, 'wb')
-        out = ""
-        subprocess.call('python getload.py')
-        #out = os.system("python getload.py")
+    def get_load(self):
+        b=shlex.split("ssh -A -o StrictHostKeyChecking=no -i /home/deimos/.ssh/id_rsa root@%s"%(self.host)+" -oPort=22 -oProxyCommand='ssh -o StrictHostKeyChecking=no  -oPort=22 geo-user@ssh.fr-inria.bonfire-project.eu nc -w 5 %h %p' "+"python getload.py")
+        #print b
+        out = subprocess.check_output(b)
         return out
-        #out =os.system("ssh -A -o StrictHostKeyChecking=no -i /home/deimos/.ssh/id_rsa jbecedas@%s"%(self.host)+" -oPort=22 -oProxyCommand='ssh -o StrictHostKeyChecking=no -e none -i /home/deimos/Descargas/emulabcert.pem -oPort=22 jbecedas@bastion.test.iminds.be nc -w 5 %h %p' "+self.order)
-        # self.threadLock.acquire()
-        # self.experimentController.log(str(self.msg) +" "+str(self.id)+ " ha acabado su ejecucion")
-        # self.threadLock.release()
-        # print "Out ",out
-        # if out != 0:
-        #     self.experimentController.error(self)
+       
 
 if __name__=="__main__":
-    a = Loads(None,None,1,None)
-    out = a.get_load(None)
+    a = Loads("172.18.240.209")
+    out = a.get_load()
     print out

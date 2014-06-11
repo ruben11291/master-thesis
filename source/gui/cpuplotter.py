@@ -24,7 +24,7 @@ from PyQt4 import Qt,QtCore,QtGui
 import PyQt4.Qwt5 as Qwt
 from PyQt4.Qwt5.anynumpy import *
 from PyQt4.QtCore import QString
-
+from loads import Loads
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -41,6 +41,7 @@ class CpuStat:
     counter = 0
 
     def __init__(self):
+        self.load = Loads("172.18.240.209")
         self.procValues = self.__lookup()
 
     def statistic(self):
@@ -64,10 +65,13 @@ class CpuStat:
 
     def __lookup(self):
         mycputimes=psutil.cpu_times(percpu=False)
+        #mycputimes = self.load.get_load()[1:-1].split(',')
+        
         if os.name == "nt":
             tmp = [mycputimes.user,0.0,mycputimes.system,mycputimes.idle,0.0,0.0,0.0]
         else:
-            tmp = [mycputimes.user,mycputimes.nice,mycputimes.system,mycputimes.idle,mycputimes.iowait,mycputimes.irq,mycputimes.softirq]
+           # print mycputimes.user,mycputimes.nice,mycputimes.system,mycputimes.idle,mycputimes.iowait,mycputimes.irq,mycputimes.softirq
+            tmp = [mycputimes[0],mycputimes[1],mycputimes[2],mycputimes[3],mycputimes[4],mycputimes[5],mycputimes[6]]
         return tmp
 
 class CpuPieMarker(Qwt.QwtPlotMarker):
