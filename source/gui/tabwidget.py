@@ -10,7 +10,7 @@ except AttributeError:
     _fromUtf8 = lambda s: s
 
 class Ui_TabWidget(object):
-    def setupUi(self, TabWidget,width,height):
+    def setupUi(self, TabWidget,width,height,host_orch,host_pp):
         TabWidget.setObjectName(_fromUtf8("TabWidget"))
         #TabWidget.resize(600, 600)
         TabWidget.resize(width,height)
@@ -20,7 +20,9 @@ class Ui_TabWidget(object):
         self.plot_pp=Qwt.QwtPlot()
         self.plot_orch=Qwt.QwtPlot()
         self.plotter_pp = cpuplotter.CpuPlot(self.plot_pp)
+        self.plotter_pp.sethost(host_pp)
         self.plotter_orch = cpuplotter.CpuPlot(self.plot_orch)
+        self.plotter_orch.sethost(host_orch)
 
         self.tab_orch.setObjectName(_fromUtf8("tab_orch"))
         self.tab_pp.setObjectName(_fromUtf8("tab_pp"))

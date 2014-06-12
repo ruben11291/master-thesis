@@ -40,23 +40,27 @@ class CpuStat:
     Idle = 3
     counter = 0
 
-    def __init__(self):
-        self.load = Loads("172.18.240.209")
+    def __init__(self,host):
+        self.load =  Loads(host,'root','/home/deimos/.ssh/id_rsa.pub','ssh.fr-inria.bonfire-project.eu','geo-user',22,'/home/deimos/.ssh/id_rsa.pub')
         self.procValues = self.__lookup()
 
     def statistic(self):
         values = self.__lookup()
-        userDelta = 0.0
-        for i in [CpuStat.User, CpuStat.Nice]:
-            userDelta += (values[i] - self.procValues[i])
+        if values != self.procValues:
+            self.userDelta = 0.0
+            for i in [CpuStat.User, CpuStat.Nice]:
+                self.userDelta += (values[i] - self.procValues[i])
+                print "first ",values[i],self.procValues[i]
             #userDelta +=values[i]
-        systemDelta = values[CpuStat.System] - self.procValues[CpuStat.System]
-        totalDelta = 0.0
-        for i in range(len(self.procValues)):
-            totalDelta += (values[i] - self.procValues[i])
+            self.systemDelta = values[CpuStat.System] - self.procValues[CpuStat.System]
+            self.totalDelta = 0.0
+            for i in range(len(self.procValues)):
+                self.totalDelta += (values[i] - self.procValues[i])
+                print "second ",values[i],self.procValues[i]
+            print "out:" ,self.userDelta,self.systemDelta,self.totalDelta
             #totalDelta += values[i]
-        self.procValues = values
-        return 100.0*userDelta/totalDelta, 100.0*systemDelta/totalDelta
+            self.procValues = values
+        return 100.0*self.userDelta/self.totalDelta, 100.0*self.systemDelta/self.totalDelta
 
 
     def nowTime(self):
@@ -64,13 +68,13 @@ class CpuStat:
         return result
 
     def __lookup(self):
-        mycputimes=psutil.cpu_times(percpu=False)
-        #mycputimes = self.load.get_load()[1:-1].split(',')
+        #mycputimes=psutil.cpu_times(percpu=False)
+        mycputimes = self.load.get_load()
 
         if os.name == "nt":
             tmp = [mycputimes.user,0.0,mycputimes.system,mycputimes.idle,0.0,0.0,0.0]
         else:
-           # print mycputimes.user,mycputimes.nice,mycputimes.system,mycputimes.idle,mycputimes.iowait,mycputimes.irq,mycputimes.softirq
+            #print mycputimes.user,mycputimes.nice,mycputimes.system,mycputimes.idle,mycputimes.iowait,mycputimes.irq,mycputimes.softirq
             tmp = [mycputimes[0],mycputimes[1],mycputimes[2],mycputimes[3],mycputimes[4],mycputimes[5],mycputimes[6]]
         return tmp
 
@@ -165,7 +169,7 @@ class CpuPlot(Qwt.QwtPlot):
         self.curves = {}
         self.data = {}
         self.timeData = 1.0 * arange(HISTORY-1, -1, -1)
-        self.cpuStat = CpuStat()
+        #self.cpuStat = self.createStat()CpuStat(args[0])
 
         self.setAutoReplot(False)
 
@@ -185,7 +189,7 @@ class CpuPlot(Qwt.QwtPlot):
         self.yLeft = Qwt.QwtText(QtGui.QApplication.translate("MainWindow","Usage [%]",
                             None, QtGui.QApplication.UnicodeUTF8))
         self.setAxisTitle(Qwt.QwtPlot.yLeft, self.yLeft)
-        self.setAxisScale(Qwt.QwtPlot.yLeft, 0, 100)
+        self.setAxisScale(Qwt.QwtPlot.yLeft, -20, 100)
         self.setMinimumHeight(130)
 
         background = Background()
@@ -233,6 +237,8 @@ class CpuPlot(Qwt.QwtPlot):
                      self.showCurve)
         self.replot()
 
+    def sethost(self,host):
+        self.cpuStat = CpuStat(host)
 
     def timerEvent(self, e):
         for data in self.data.values():

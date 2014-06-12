@@ -1,3 +1,23 @@
+#!/usr/bin/env python
+
+#
+#    Copyright (C) 2014 DEIMOS
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Ruben Perez <ruben.perez@deimos-space.com>
+
 from PyQt4 import QtGui, QtCore
 from PyQt4.phonon import Phonon
 from dialog import Ui_Dialog
@@ -5,9 +25,11 @@ from tabwidget import Ui_TabWidget
 from columnbutton import Ui_column
 from video_widget import Ui_Video
 from scrollarea import Ui_ScrollArea
+from experimentController import ExperimentController
+
 import pdb
 class Window(QtGui.QWidget):
-    def __init__(self,width,height):
+    def __init__(self,width,height,host_orch,host_pp):
        # pdb.set_trace()
         QtGui.QWidget.__init__(self)
         #Dialog component
@@ -18,7 +40,7 @@ class Window(QtGui.QWidget):
         #Tab widget
         self.tabWidget=QtGui.QTabWidget()
         self.tab= Ui_TabWidget()
-        self.tab.setupUi(self.tabWidget,width/2,height/2)
+        self.tab.setupUi(self.tabWidget,width/2,height/2,host_orch,host_pp)
         
         #Column widget
         self.column = QtGui.QWidget()
@@ -65,14 +87,31 @@ class Window(QtGui.QWidget):
     #             self.media.play()
     #     self.dialog.show()
     def __start_scenario(self):
+        try:
+            scenario = self.column.getScenario()
+            print "Before",scenario
+            self.controller.setScenario(scenario)
+            self.controller.start_ground()
+            print "After"
+        except Exception as e:
+            self.__show_exception(e)
+
         self.video.start_reproduction("/home/Data/Demo_Scenario1_2D_T_World.wmv")
+
     def __stop_scenario(self):
-        None
+        self.controller.stop_ground()
+        self.controller.stop_satellites()
+        
     def __clean_logs(self):
         None
     def __show_about_handle(self):
         self.dialog.show()
+    
+    def __show_exception(self,exception):
+        print "EXCEPTION ",exception
 
+    def setController(self,controller):
+        self.controller = controller
     # def __handleStateChanged(self, newstate, oldstate):
     #     if newstate == Phonon.PlayingState:
     #         self.button.setText('Stop')
@@ -92,11 +131,16 @@ class Window(QtGui.QWidget):
 if __name__ == '__main__':
 
     import sys
+    host_orch="172.18.240.210"
+    host_pp="172.18.240.209"
+    
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('GeoCloud GUI')
     screen_rect = app.desktop().screenGeometry()
     width, height = screen_rect.width(), screen_rect.height()
-    window = Window(width,height)
+    window = Window(width,height,host_orch,host_pp)
     window.resize(width,height)
+    controller = ExperimentController(window)
+    window.setController(controller)
     window.show()
     sys.exit(app.exec_())

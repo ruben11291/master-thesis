@@ -40,7 +40,7 @@ class ExperimentController():
         self.logs_sem = threading.Lock()
         self.loads_sem = threading.Lock()
 
-        self.init_timers(self.logs_sem, self.loads_sem)
+        #self.init_timers(self.logs_sem, self.loads_sem)
 
         #self.semaphore = threading.Semaphore(-len(self.satellites))
 
@@ -64,7 +64,8 @@ class ExperimentController():
 
          
     def logs_sem(self):
-        
+        None
+
     def start_satellites(self):
         self.sat_threads=[]
         num = 1

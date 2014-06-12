@@ -19,10 +19,13 @@
 #
 # Author: Ruben Perez <ruben.perez@deimos-space.com>
 
+#from PyQt4 import QtGui, QtCore
+import threading
+import os
 
-class SSH_order_thread(QtCore.QThread):
+class SSH_order_thread(threading.Thread):
 
-    __pyqtSignals__=("order_complete","error")
+    #__pyqtSignals__=("order_complete","error")
 
     def __init__(self,host,experimentController,msg,id,order,threadLock):
         threading.Thread.__init__(self)
@@ -47,7 +50,7 @@ class SSH_order_thread(QtCore.QThread):
 
     def run(self):
         print self.host
-        out =os.system("ssh -A -o StrictHostKeyChecking=no -i /home/deimos/.ssh/id_rsa jbecedas@%s"%(self.host)+" -oPort=22 -oProxyCommand='ssh -o StrictHostKeyChecking=no -e none -i /home/deimos/Descargas/emulabcert.pem -oPort=22 jbecedas@bastion.test.iminds.be nc -w 5 %h %p' "+self.order)
+        out =os.system("sshpass -f /home/deimos/Descargas/pass.txt ssh -A -o StrictHostKeyChecking=no -i /home/deimos/.ssh/id_rsa jbecedas@%s"%(self.host)+" -oPort=22 -oProxyCommand='ssh -o StrictHostKeyChecking=no -e none -i /home/deimos/Descargas/emulabcert.pem -oPort=22 jbecedas@bastion.test.iminds.be nc -w 5 %h %p' "+self.order)
         self.threadLock.acquire()
         self.experimentController.log(str(self.msg) +" "+str(self.id)+ " ha acabado su ejecucion")
         self.threadLock.release()

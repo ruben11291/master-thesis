@@ -72,8 +72,8 @@ class Ui_column(object):
     def set_handler_clean(self,handler):
         self.pushButton_3.clicked.connect(handler)
     
-    def get_scenario(self):
-        return 
+    def getScenario(self):
+        return  self.ComboBox.currentIndex()
 
 if __name__ == "__main__":
     import sys

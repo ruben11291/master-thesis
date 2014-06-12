@@ -13,13 +13,12 @@ class CpuStat:
 
 
     def lookup(self):
-        mycputimes=psutil.cpu_times(percpu=False)
+        mycputimes=psutil.cpu_times()
         if os.name == "nt":
             tmp = [mycputimes.user,0.0,mycputimes.system,mycputimes.idle,0.0,0.0,0.0]
         else:
-            tmp = [mycputimes.user,mycputimes.nice,mycputimes.system,mycputimes.idle,mycputimes.iowait,mycputimes.irq,mycputimes.softirq]
+	     tmp = [mycputimes.user,mycputimes.nice,mycputimes.system,mycputimes.idle/16,mycputimes.iowait/4,mycputimes.irq/4,mycputimes.softirq/4]
         return tmp
-
 if __name__=="__main__":
     a = CpuStat()
     print a.lookup()
