@@ -43,32 +43,30 @@ class ExperimentController():
         self.logs_sem = threading.Lock()
         self.loads_sem = threading.Lock()
 
-        
-        #self.init_timers(self.logs_sem, self.loads_sem)
-
-        #self.semaphore = threading.Semaphore(-len(self.satellites))
     def connect(self):
+        self.log("Connecting with VW machines ...")
         self.ground_stations_connections = []
         self.satellites_connections=[]
         ground_id = 0
         satellite_id=1
         for ground in self.groundstations:
             self.ground_stations_connections.append(VWConnection(ground_id,ground,'jbecedas','/home/deimos/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/deimos/Descargas/emulabcert.pem'))
+            self.log("Ground station %s reached!"%(ground_id))
             ground_id +=1
         for sat in self.satellites:
             self.satellites_connections.append(VWConnection(satellite_id,sat,'jbecedas','/home/deimos/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/deimos/Descargas/emulabcert.pem'))
+            self.log("Satellite System Simulator %s reached!"%(satellite_id))
             satellite_id+=1
-                
+        self.clean_ground()
 
     def start_satellites(self):
         #self.sat_threads=[]
+        order=""
+        for i in range(1,18):
+            order += "python satellite.py %s %s `cat ipdb` &;"%(i, self.getScenario())
         for sat in self.satellites_connections:
-            order = "python satellite.py %s %s `cat ipdb`"%(sat.getId(), self.getScenario())#TOCHANGE
+           
             sat.execute(order)
-            #t=SSH_order_thread(sat,self,"Satellite",num,order,self.threadLog)
-            #self.sat_threads.append(t)
-        # for sat in self.sat_threads:
-        #     sat.start()
             self.log("Satellite %d started!"%(sat.getId()))
        
         self.log("Satellites started!")
@@ -76,12 +74,8 @@ class ExperimentController():
     def start_ground(self):
        # pdb.set_trace()
         for gs in self.ground_stations_connections:
-            order = "python groundstation.py %s %s `cat ipdb` &"%(gs.getId(),self.getScenario())
+            order = "python groundstation.py %s %s `cat ipdb`"%(gs.getId(),self.getScenario())
             gs.execute(order)
-            #t=SSH_order_thread(gs,self,"Ground Station",num,order,self.threadLog)
-            #self.gs_threads.append(t)
-        # for gs in self.gs_threads:
-        #     gs.start()
             self.log("Ground Station %d started!"%(gs.getId()))
         self.log("Ground Stations started!")  
 
@@ -104,7 +98,7 @@ class ExperimentController():
     def clean_ground(self):
         # for sat in self.satellites:
         #     os.system("ssh -A -i /home/deimos/.ssh/id_rsa jbecedas@%s"%(sat) + " -oPort=22 -oProxyCommand='ssh -e none -i /home/deimos/Descargas/emulabcert.pem -oPort=22 jbecedas@bastion.test.iminds.be nc -w 5 %h %p' 'killall python'")
-        command="killall python"
+        command="killall python;sudo rm -rf /tmp/W*"
         for gs in self.ground_stations_connections:
             gs.execute(command)
         self.log("Cleaned Ground Stations")
@@ -129,7 +123,7 @@ class ExperimentController():
             raise DeployingException()
 
     def startScenario(self,scenario):
-        print "Starting scenario %d"%(int(scenario))
+        self.log("Starting scenario %d"%(int(scenario)))
         self.setScenario(scenario)
         self.start_ground()
         time.sleep(5.0)
@@ -138,6 +132,7 @@ class ExperimentController():
             self.widget.scenarioInitiated()
   
     def stopScenario(self):
+        self.log("Stopping scenario %d"%(int(self.getScenario())))
         self.clean_ground()
         self.clean_sat()
 

@@ -30,7 +30,7 @@ class Ui_ScrollArea(object):
         ScrollArea.setWindowTitle(QtGui.QApplication.translate("ScrollArea", "ScrollArea", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("ScrollArea", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setStyleSheet('color: darkblue')
-        self.label.setText("asssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\n\nº\n\nº\n\n\n\n\n\nº\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nº\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nº\n\n\n\n\n\n\n\n\n\n\n")
+        self.label.setText("")
     def append_text(self,text):
         self.label.setText(self.label.text()+"\n"+text)
     

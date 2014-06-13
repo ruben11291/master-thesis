@@ -44,8 +44,8 @@ class Ui_TabWidget(object):
         
         self.scrollArea2.setWidget(self.plotter_orch)
 
-        TabWidget.addTab(self.tab_pp, _fromUtf8("Procesor Out"))
-        TabWidget.addTab(self.tab_orch, _fromUtf8("Orchestrator Out"))
+        TabWidget.addTab(self.tab_pp, _fromUtf8("Orchestrator Workload"))
+        TabWidget.addTab(self.tab_orch, _fromUtf8("Processor Workload"))
 
         TabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(TabWidget)
