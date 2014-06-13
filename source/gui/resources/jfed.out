@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:delay="http://www.protogeni.net/resources/rspec/ext/delay/1" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expires="2014-06-12T09:51:44Z" generated="2014-06-12T09:50:38.455+02:00" generated_by="Experimental jFed Rspec Editor" type="manifest" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/manifest.xsd">
-    <node client_id="SS1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-19b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14982">
+<?xml version="1.0" encoding="UTF-8"?><rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:delay="http://www.protogeni.net/resources/rspec/ext/delay/1" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expires="2014-08-17T09:13:10Z" generated="2014-06-13T09:12:41.973+02:00" generated_by="Experimental jFed Rspec Editor" type="manifest" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/manifest.xsd">
+    <node client_id="SS1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-20a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15162">
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -11,26 +11,26 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n142-19b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+            <login authentication="ssh-keys" hostname="n142-20a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="239.0" y="82.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="SS1:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-19b:eth3" mac_address="003048de62a1" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14989">
+        <interface client_id="SS1:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-20a:eth3" mac_address="003048dd7f15" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15167">
             <ip address="192.168.1.1" type="ipv4"/>
         </interface>
-        <interface client_id="SS1:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-19b:eth5" mac_address="003048de62a3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14992">
+        <interface client_id="SS1:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-20a:eth5" mac_address="003048dd7f17" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15170">
             <ip address="192.168.2.1" type="ipv4"/>
         </interface>
-        <interface client_id="SS1:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-19b:eth2" mac_address="003048de62a0" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14995">
+        <interface client_id="SS1:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-20a:eth2" mac_address="003048dd7f14" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15173">
             <ip address="192.168.3.1" type="ipv4"/>
         </interface>
-        <interface client_id="SS1:if4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-19b:eth4" mac_address="003048de62a2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14998">
+        <interface client_id="SS1:if4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-20a:eth4" mac_address="003048dd7f16" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15176">
             <ip address="192.168.4.1" type="ipv4"/>
         </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n142-19b"/>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n142-20a"/>
         <host name="SS1.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
-    <node client_id="SS2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-16b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14983">
+    <node client_id="SS2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-09b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15160">
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -42,26 +42,26 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n144-16b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+            <login authentication="ssh-keys" hostname="n142-09b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="805.0" y="65.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="SS2:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-16b:eth4" mac_address="002590300ada" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15002">
+        <interface client_id="SS2:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth3" mac_address="003048dd7e1d" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15180">
             <ip address="192.168.5.2" type="ipv4"/>
         </interface>
-        <interface client_id="SS2:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-16b:eth3" mac_address="002590300ad9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15004">
+        <interface client_id="SS2:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth2" mac_address="003048dd7e1c" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15182">
             <ip address="192.168.6.1" type="ipv4"/>
         </interface>
-        <interface client_id="SS2:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-16b:eth2" mac_address="002590300ad8" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15007">
+        <interface client_id="SS2:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth4" mac_address="003048dd7e1e" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15185">
             <ip address="192.168.7.1" type="ipv4"/>
         </interface>
-        <interface client_id="SS2:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-16b:eth5" mac_address="002590300adb" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15010">
+        <interface client_id="SS2:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth5" mac_address="003048dd7e1f" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15188">
             <ip address="192.168.8.1" type="ipv4"/>
         </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-16b"/>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n142-09b"/>
         <host name="SS2.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
-    <node client_id="SS3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-21a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14981">
+    <node client_id="SS3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n143-07a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15150">
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -73,182 +73,26 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n144-21a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+            <login authentication="ssh-keys" hostname="n143-07a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="1271.0" y="72.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="SS3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-21a:eth4" mac_address="002590328eaa" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15014">
+        <interface client_id="SS3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-07a:eth4" mac_address="00259008cc16" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15192">
             <ip address="192.168.9.2" type="ipv4"/>
         </interface>
-        <interface client_id="SS3:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-21a:eth3" mac_address="002590328ea9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15016">
+        <interface client_id="SS3:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-07a:eth3" mac_address="00259008cc15" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15194">
             <ip address="192.168.10.1" type="ipv4"/>
         </interface>
-        <interface client_id="SS3:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-21a:eth2" mac_address="002590328ea8" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15020">
+        <interface client_id="SS3:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-07a:eth2" mac_address="00259008cc14" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15198">
             <ip address="192.168.11.2" type="ipv4"/>
         </interface>
-        <interface client_id="SS3:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-21a:eth5" mac_address="002590328eab" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15022">
+        <interface client_id="SS3:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-07a:eth5" mac_address="00259008cc17" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15200">
             <ip address="192.168.12.1" type="ipv4"/>
         </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-21a"/>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n143-07a"/>
         <host name="SS3.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
-    <node client_id="GS1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-08a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14984">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n142-08a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
-        <jFed:location x="3.0" y="240.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08a:eth3" mac_address="003048de62cd" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14990">
-            <ip address="192.168.1.2" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n142-08a"/>
-        <host name="GS1.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-01a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14977">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n144-01a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
-        <jFed:location x="449.0" y="235.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node4:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-01a:eth3" mac_address="002590301025" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14996">
-            <ip address="192.168.3.2" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-01a"/>
-        <host name="GS2.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-03a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14976">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n144-03a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
-        <jFed:location x="47.0" y="463.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node5:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-03a:eth3" mac_address="002590300b89" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14993">
-            <ip address="192.168.2.2" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-03a"/>
-        <host name="GS3.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n143-02b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14975">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n143-02b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
-        <jFed:location x="374.0" y="462.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node6:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-02b:eth3" mac_address="002590328e75" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14999">
-            <ip address="192.168.4.2" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n143-02b"/>
-        <host name="GS4.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS5" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-01b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14986">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n144-01b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
-        <jFed:location x="621.0" y="219.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node7:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-01b:eth3" mac_address="002590300bb5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15001">
-            <ip address="192.168.5.1" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-01b"/>
-        <host name="GS5.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS6" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-04b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14979">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n142-04b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
-        <jFed:location x="1011.0" y="203.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node8:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-04b:eth3" mac_address="003048dd7fb9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15005">
-            <ip address="192.168.6.2" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n142-04b"/>
-        <host name="GS6.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS7" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-08b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14973">
+    <node client_id="GS1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-08b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15152">
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -266,41 +110,15 @@
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
             <login authentication="ssh-keys" hostname="n142-08b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
-        <jFed:location x="630.0" y="461.0"/>
+        <jFed:location x="3.0" y="240.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node9:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08b:eth3" mac_address="003048dd7dd9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15008">
-            <ip address="192.168.7.2" type="ipv4"/>
+        <interface client_id="node3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08b:eth3" mac_address="003048dd7dd9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15168">
+            <ip address="192.168.1.2" type="ipv4"/>
         </interface>
         <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n142-08b"/>
-        <host name="GS7.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+        <host name="GS1.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
-    <node client_id="GS8" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-05a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14972">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n144-05a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
-        <jFed:location x="992.0" y="474.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node10:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-05a:eth3" mac_address="00259030104d" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15011">
-            <ip address="192.168.8.2" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-05a"/>
-        <host name="GS8.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS9" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-01a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14980">
+    <node client_id="GS2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-01a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15163">
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -318,15 +136,249 @@
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
             <login authentication="ssh-keys" hostname="n142-01a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
-        <jFed:location x="1168.0" y="168.0"/>
+        <jFed:location x="449.0" y="235.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node11:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-01a:eth3" mac_address="003048de6249" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15013">
-            <ip address="192.168.9.1" type="ipv4"/>
+        <interface client_id="node4:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-01a:eth3" mac_address="003048de6249" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15174">
+            <ip address="192.168.3.2" type="ipv4"/>
         </interface>
         <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n142-01a"/>
+        <host name="GS2.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-07b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15157">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n142-07b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="47.0" y="463.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node5:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-07b:eth3" mac_address="003048de62b1" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15171">
+            <ip address="192.168.2.2" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n142-07b"/>
+        <host name="GS3.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-08a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15159">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n144-08a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="374.0" y="462.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node6:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-08a:eth3" mac_address="002590301041" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15177">
+            <ip address="192.168.4.2" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-08a"/>
+        <host name="GS4.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS5" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-15b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15161">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n144-15b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="621.0" y="219.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node7:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-15b:eth4" mac_address="002590300aca" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15179">
+            <ip address="192.168.5.1" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-15b"/>
+        <host name="GS5.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS6" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-05a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15151">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n144-05a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1011.0" y="203.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node8:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-05a:eth3" mac_address="00259030104d" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15183">
+            <ip address="192.168.6.2" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-05a"/>
+        <host name="GS6.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS7" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n143-02b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15154">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n143-02b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="630.0" y="461.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node9:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-02b:eth3" mac_address="002590328e75" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15186">
+            <ip address="192.168.7.2" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n143-02b"/>
+        <host name="GS7.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS8" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-05b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15153">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n144-05b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="992.0" y="474.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node10:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-05b:eth3" mac_address="002590300da5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15189">
+            <ip address="192.168.8.2" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-05b"/>
+        <host name="GS8.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS9" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n143-04b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15155">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n143-04b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1168.0" y="168.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node11:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-04b:eth3" mac_address="002590328ed1" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15191">
+            <ip address="192.168.9.1" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n143-04b"/>
         <host name="GS9.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
-    <node client_id="GS10" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-02b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14985">
+    <node client_id="GS10" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-07b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15158">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n144-07b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1397.0" y="162.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node12:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-07b:eth3" mac_address="002590301051" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15197">
+            <ip address="192.168.11.1" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-07b"/>
+        <host name="GS10.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS11" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n143-03a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15156">
+        <sliver_type name="raw-pc"/>
+        <services>
+            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
+            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
+            <execute command="sudo apt-get update" shell="sh"/>
+            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
+            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+            <login authentication="ssh-keys" hostname="n143-03a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1214.0" y="457.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node13:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-03a:eth3" mac_address="002590328e25" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15195">
+            <ip address="192.168.10.2" type="ipv4"/>
+        </interface>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n143-03a"/>
+        <host name="GS11.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS12" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-02b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15164">
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -344,137 +396,85 @@
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
             <login authentication="ssh-keys" hostname="n144-02b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
-        <jFed:location x="1397.0" y="162.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node12:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-02b:eth3" mac_address="002590300ad5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15019">
-            <ip address="192.168.11.1" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-02b"/>
-        <host name="GS10.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS11" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-04a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14978">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n144-04a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
-        <jFed:location x="1214.0" y="457.0"/>
-        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node13:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-04a:eth3" mac_address="002590300bd1" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15017">
-            <ip address="192.168.10.2" type="ipv4"/>
-        </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-04a"/>
-        <host name="GS11.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
-    </node>
-    <node client_id="GS12" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-07a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14974">
-        <sliver_type name="raw-pc"/>
-        <services>
-            <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
-            <execute command="sudo route add default gw 10.2.15.253" shell="sh"/>
-            <execute command="sudo apt-get update" shell="sh"/>
-            <execute command="sudo apt-get install python python-mysqldb -y" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkZ0RXNm1KcEs0ZW8 -O /users/jbecedas/satellite.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkcVpzbll3eTk5djg -O /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkMVVoWWJ6b3FtNG8 -O /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
-            <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
-            <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n144-07a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
-        </services>
         <jFed:location x="1452.0" y="449.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
-        <interface client_id="node14:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-07a:eth3" mac_address="002590300b5d" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15023">
+        <interface client_id="node14:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-02b:eth3" mac_address="002590300ad5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15201">
             <ip address="192.168.12.2" type="ipv4"/>
         </interface>
-        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-07a"/>
+        <rs:vnode xmlns:rs="http://www.protogeni.net/resources/rspec/ext/emulab/1" name="n144-02b"/>
         <host name="GS12.SSS.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
-    <link client_id="link7" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14988" vlantag="103">
+    <link client_id="link7" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15166" vlantag="114">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS1:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-19b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14989"/>
-        <interface_ref client_id="node3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14990"/>
+        <interface_ref client_id="SS1:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-20a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15167"/>
+        <interface_ref client_id="node3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15168"/>
     </link>
-    <link client_id="link9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14991" vlantag="116">
+    <link client_id="link9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15169" vlantag="120">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS1:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-19b:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14992"/>
-        <interface_ref client_id="node5:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-03a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14993"/>
+        <interface_ref client_id="SS1:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-20a:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15170"/>
+        <interface_ref client_id="node5:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-07b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15171"/>
     </link>
-    <link client_id="link8" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14994" vlantag="120">
+    <link client_id="link8" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15172" vlantag="117">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS1:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-19b:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14995"/>
-        <interface_ref client_id="node4:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-01a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14996"/>
+        <interface_ref client_id="SS1:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-20a:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15173"/>
+        <interface_ref client_id="node4:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-01a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15174"/>
     </link>
-    <link client_id="link10" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14997" vlantag="100">
+    <link client_id="link10" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15175" vlantag="100">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS1:if4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-19b:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14998"/>
-        <interface_ref client_id="node6:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-02b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+14999"/>
+        <interface_ref client_id="SS1:if4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-20a:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15176"/>
+        <interface_ref client_id="node6:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-08a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15177"/>
     </link>
-    <link client_id="link11" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15000" vlantag="104">
+    <link client_id="link11" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15178" vlantag="115">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="node7:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-01b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15001"/>
-        <interface_ref client_id="SS2:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-16b:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15002"/>
+        <interface_ref client_id="node7:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-15b:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15179"/>
+        <interface_ref client_id="SS2:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15180"/>
     </link>
-    <link client_id="link12" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15003" vlantag="108">
+    <link client_id="link12" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15181" vlantag="103">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS2:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-16b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15004"/>
-        <interface_ref client_id="node8:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-04b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15005"/>
+        <interface_ref client_id="SS2:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15182"/>
+        <interface_ref client_id="node8:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-05a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15183"/>
     </link>
-    <link client_id="link13" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15006" vlantag="119">
+    <link client_id="link13" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15184" vlantag="116">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS2:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-16b:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15007"/>
-        <interface_ref client_id="node9:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15008"/>
+        <interface_ref client_id="SS2:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15185"/>
+        <interface_ref client_id="node9:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-02b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15186"/>
     </link>
-    <link client_id="link14" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15009" vlantag="113">
+    <link client_id="link14" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15187" vlantag="108">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS2:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-16b:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15010"/>
-        <interface_ref client_id="node10:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-05a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15011"/>
+        <interface_ref client_id="SS2:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15188"/>
+        <interface_ref client_id="node10:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-05b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15189"/>
     </link>
-    <link client_id="link15" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15012" vlantag="114">
+    <link client_id="link15" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15190" vlantag="119">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="node11:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-01a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15013"/>
-        <interface_ref client_id="SS3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-21a:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15014"/>
+        <interface_ref client_id="node11:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-04b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15191"/>
+        <interface_ref client_id="SS3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-07a:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15192"/>
     </link>
-    <link client_id="link16" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15015" vlantag="115">
+    <link client_id="link16" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15193" vlantag="104">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS3:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-21a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15016"/>
-        <interface_ref client_id="node13:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-04a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15017"/>
+        <interface_ref client_id="SS3:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-07a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15194"/>
+        <interface_ref client_id="node13:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-03a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15195"/>
     </link>
-    <link client_id="link17" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15018" vlantag="109">
+    <link client_id="link17" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15196" vlantag="109">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="node12:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-02b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15019"/>
-        <interface_ref client_id="SS3:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-21a:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15020"/>
+        <interface_ref client_id="node12:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-07b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15197"/>
+        <interface_ref client_id="SS3:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-07a:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15198"/>
     </link>
-    <link client_id="link18" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15021" vlantag="117">
+    <link client_id="link18" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15199" vlantag="113">
         <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
         <link_type name="lan"/>
-        <interface_ref client_id="SS3:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-21a:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15022"/>
-        <interface_ref client_id="node14:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-07a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15023"/>
+        <interface_ref client_id="SS3:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-07a:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15200"/>
+        <interface_ref client_id="node14:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-02b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+15201"/>
     </link>
 </rspec>
 

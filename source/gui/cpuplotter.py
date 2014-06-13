@@ -50,15 +50,10 @@ class CpuStat:
             self.userDelta = 0.0
             for i in [CpuStat.User, CpuStat.Nice]:
                 self.userDelta += (values[i] - self.procValues[i])
-                print "first ",values[i],self.procValues[i]
-            #userDelta +=values[i]
             self.systemDelta = values[CpuStat.System] - self.procValues[CpuStat.System]
             self.totalDelta = 0.0
             for i in range(len(self.procValues)):
                 self.totalDelta += (values[i] - self.procValues[i])
-                print "second ",values[i],self.procValues[i]
-            print "out:" ,self.userDelta,self.systemDelta,self.totalDelta
-            #totalDelta += values[i]
             self.procValues = values
         return 100.0*self.userDelta/self.totalDelta, 100.0*self.systemDelta/self.totalDelta
 

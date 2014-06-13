@@ -32,9 +32,9 @@ class Ui_ScrollArea(object):
         self.label.setStyleSheet('color: darkblue')
         self.label.setText("asssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\n\nº\n\nº\n\n\n\n\n\nº\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nº\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nº\n\n\n\n\n\n\n\n\n\n\n")
     def append_text(self,text):
-        self.label.setText(self.label.text()+text)
+        self.label.setText(self.label.text()+"\n"+text)
     
-    def clean_text(self,text):
+    def clean_text(self):
         self.label.clear()
 
 if __name__ == "__main__":

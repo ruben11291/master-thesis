@@ -50,10 +50,10 @@ class SSH_order_thread(threading.Thread):
 
     def run(self):
         print self.host
-        out =os.system("sshpass -f /home/deimos/Descargas/pass.txt ssh -A -o StrictHostKeyChecking=no -i /home/deimos/.ssh/id_rsa jbecedas@%s"%(self.host)+" -oPort=22 -oProxyCommand='ssh -o StrictHostKeyChecking=no -e none -i /home/deimos/Descargas/emulabcert.pem -oPort=22 jbecedas@bastion.test.iminds.be nc -w 5 %h %p' "+self.order)
-        self.threadLock.acquire()
+        out =os.system("ssh -A  -i /home/deimos/.ssh/id_rsa jbecedas@%s"%(self.host)+" -oPort=22 -oProxyCommand='ssh  -e none -i /home/deimos/.ssh/certificate.pem -oPort=22 jbecedas@bastion.test.iminds.be nc -w 5 %h %p' "+self.order)
+        #self.threadLock.acquire()
         self.experimentController.log(str(self.msg) +" "+str(self.id)+ " ha acabado su ejecucion")
-        self.threadLock.release()
+        #self.threadLock.release()
         print "Out ",out
         if out != 0:
             self.experimentController.error(self)

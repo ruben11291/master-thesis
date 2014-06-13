@@ -26,6 +26,8 @@ from columnbutton import Ui_column
 from video_widget import Ui_Video
 from scrollarea import Ui_ScrollArea
 from experimentController import ExperimentController
+import paramiko
+import socket
 
 import pdb
 class Window(QtGui.QWidget):
@@ -88,27 +90,29 @@ class Window(QtGui.QWidget):
     #     self.dialog.show()
     def __start_scenario(self):
         try:
-            scenario = self.column.getScenario()
-            print "Before",scenario
-            self.controller.setScenario(scenario)
-            self.controller.start_ground()
-            print "After"
+            self.__clean_logs()
+            scenario = self.col.getScenario()
+            self.controller.startScenario(scenario+1)
         except Exception as e:
             self.__show_exception(e)
 
         self.video.start_reproduction("/home/Data/Demo_Scenario1_2D_T_World.wmv")
 
     def __stop_scenario(self):
-        self.controller.stop_ground()
-        self.controller.stop_satellites()
+        self.controller.stopScenario()
         
     def __clean_logs(self):
-        None
+        self.scroll.clean_text()
+        
     def __show_about_handle(self):
         self.dialog.show()
     
     def __show_exception(self,exception):
         print "EXCEPTION ",exception
+        #TODO
+    
+    def scenarioInitiated(self):
+        print "SHOW WINDOW SCENARIO INITIATED"
 
     def setController(self,controller):
         self.controller = controller
@@ -126,6 +130,12 @@ class Window(QtGui.QWidget):
     # def add_new_hit(self,hit):
     #     self.list.addItems(hit)
 
+    def log(self,msg):
+        self.scroll.append_text(msg)
+
+    def stop(self):
+        None
+        #TODO
 
 
 if __name__ == '__main__':
@@ -141,6 +151,14 @@ if __name__ == '__main__':
     window = Window(width,height,host_orch,host_pp)
     window.resize(width,height)
     controller = ExperimentController(window)
+    try:
+        print "Connecting..."
+        controller.connect()
+        print "Connected!"
+    except (paramiko.SSHException, socket.error) as se:
+        window.__show_exeption(se)
+        window.stop()
+        exit(-1)
     window.setController(controller)
     window.show()
     sys.exit(app.exec_())

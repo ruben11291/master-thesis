@@ -54,11 +54,11 @@ class Ui_column(object):
         self.pushButton_4.setText(QtGui.QApplication.translate("column", "About GeoCloud", None, QtGui.QApplication.UnicodeUTF8))
         ##Adding scenarios
         #self.ComboBox.insertItem(0,"")
-        self.ComboBox.insertItem(1,"Scenario1 \'Emergencies Lorca Earthquake\'")
-        self.ComboBox.insertItem(2,"Scenario2 \'Infrastructure monitoring\'")
-        self.ComboBox.insertItem(3,"Scenario3 \'South West England\'")
-        self.ComboBox.insertItem(4,"Scenario4 \'Precision Agriculture Argentina\'")
-        self.ComboBox.insertItem(5,"Scenario5 \'Basemap Worlwide\'")
+        self.ComboBox.insertItem(0,"Scenario1 \'Emergencies Lorca Earthquake\'")
+        self.ComboBox.insertItem(1,"Scenario2 \'Infrastructure monitoring\'")
+        self.ComboBox.insertItem(2,"Scenario3 \'South West England\'")
+        self.ComboBox.insertItem(3,"Scenario4 \'Precision Agriculture Argentina\'")
+        self.ComboBox.insertItem(4,"Scenario5 \'Basemap Worlwide\'")
 
     def set_handler_about(self,handler):
         self.pushButton_4.clicked.connect(handler)
