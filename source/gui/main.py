@@ -22,7 +22,8 @@ from PyQt4 import QtGui, QtCore
 from PyQt4.phonon import Phonon
 from dialog import Ui_Dialog
 from tabwidget import Ui_TabWidget
-from columnbutton import Ui_column
+#from columnbutton import Ui_column
+from columnbutton2 import Ui_column
 from video_widget import Ui_Video
 from scrollarea import Ui_ScrollArea
 from experimentController import ExperimentController
@@ -96,7 +97,7 @@ class Window(QtGui.QWidget):
         except Exception as e:
             self.__show_exception(e)
 
-        self.video.start_reproduction("/home/Data/Demo_Scenario1_2D_T_World.wmv")
+        self.video.start_reproduction("/home/Data/Videos/Demo_Scenario2_3D_T.wmv")
 
     def __stop_scenario(self):
         self.controller.stopScenario()
@@ -141,7 +142,7 @@ class Window(QtGui.QWidget):
 if __name__ == '__main__':
 
     import sys
-    host_orch="172.18.240.210"
+    host_orch="172.18.240.45"
     host_pp="172.18.240.209"
     
     app = QtGui.QApplication(sys.argv)

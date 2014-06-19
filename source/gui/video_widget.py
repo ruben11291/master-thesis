@@ -17,7 +17,8 @@ class Ui_Video(object):
         self.video = Phonon.VideoWidget(Widget)
         self.video.setMaximumSize(width, height)
         self.video.setMinimumSize(width, height)
-        self.audio = Phonon.AudioOutput(Phonon.VideoCategory, Widget)
+        self.video.setAspectRatio(Phonon.VideoWidget.AspectRatioWidget)
+	self.audio = Phonon.AudioOutput(Phonon.VideoCategory, Widget)
         Phonon.createPath(self.media, self.audio)
         Phonon.createPath(self.media, self.video)
     

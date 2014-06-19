@@ -1,5 +1,3 @@
-#Bash script for processing chain. Must be executed as d2pp user.
-
 #!/bin/bash
 
 jobOrder=job_order_DCM_
@@ -17,15 +15,25 @@ export IP_GEOSERVER=172.18.249.22
 path=/usr/share/tomcat7/apache-tomcat-7.0.53/webapps/geoserver/data/data
 #su - d2pp
 . ~/.bashrc
-l0 /mnt/disco/job_orders/${jobOrder}$L0.$exten 2>&1 | tee l0.output
+l0 /mnt/disco/job_orders/${jobOrder}$L0.$exten &> l0.output #2>&1 | tee l0.output
 #rm -rf /mnt/disco/l0/output/*_[^C4DC]*
-l0r /mnt/disco/job_orders/${jobOrder}$L0R.$exten
+echo "L0 processed!"
+l0r /mnt/disco/job_orders/${jobOrder}$L0R.$exten &> lor.output
+echo "L0R processed!"
 #rm -rf /mnt/disco/l0r/output/*_[^7851]*
-l1a /mnt/disco/job_orders/${jobOrder}$L1A.$exten
+l1a /mnt/disco/job_orders/${jobOrder}$L1A.$exten  &> l1a.output
+echo "L1A processed!"
+order=python" "/root/catalog_pp.py 
+image=$path/LC81990332014075LGN00_RGB.tif #
+scenario=Scenario1
+scenario=$2 
+execute=$order" "$image" "$scenario" "${outfile}
 #set +x
+#echo $execute
+echo "Sending to catalog module ..."
 #l1a/output/DE2_L1A_000000_20130711T100120_20130711T100123_DE2_269_B4D4/DE2_MS1_L1A__1_20140602T165057.tif
-scp /mnt/disco/l1a/output/DE2_L1A_000000_20130711T100120_20130711T100123_DE2_269_B4D4/DE2_MS1_L1A__1_20140602T165057.ti$
-ssh root@${IP_GEOSERVER} "python /root/catalog_pp.py $path/DE2_MS1_L1A__1_20140602T165057.tif"
+scp /mnt/disco/LC81990332014075LGN00_RGB.tif root@${IP_GEOSERVER}:$path
+ssh root@${IP_GEOSERVER} $execute
 
 #rm -rf /mnt/disco/l1a/output/*_[^C555]*
 #l1br /mnt/disco/job\ orders/${jobOrder}$LBR.$exten

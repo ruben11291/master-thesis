@@ -81,8 +81,8 @@ class Command(threading.Thread):
     def run(self):
         print "Starting command"
         stdin,stdout,stderr=self.client.exec_command(self.command)
-        print stderr.readlines()
-        print stdout.readlines()
+        #print stderr.readlines()
+        #print stdout.readlines()
         
 if __name__=="__main__":
     a = VWConnection(1,"n144-07b.wall1.ilabt.iminds.be",'jbecedas','/home/deimos/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/deimos/Descargas/emulabcert.pem')

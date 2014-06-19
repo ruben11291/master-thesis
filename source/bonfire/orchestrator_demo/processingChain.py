@@ -42,19 +42,19 @@ class processingChainController:
 
     def createProcessingChain(self,pathRawData):
         pc = processingChain(pathRawData,self.orchestrator.getPP(),self.sem)
-        print "[ProcessingChainController] Creating processing chain!"
+        print "[ProcessingChainController] Creating processing chain %s!"%(str(pc.getIdent()))
         pc.start()
         self.actives.update({pc.getIdent():pc})
         self.petitions.update({pc.getIdent():pathRawData})
     
     def deleteProcessingChain(self,idThread):
-        print "[ProcessingChainController] Deleting processing chain!"
+        print "[ProcessingChainController] Deleting processing chain %s!"%(str(idThread))
         #self.actives.remove(idThread);
         del self.petitions[idThread]
         del self.actives[idThread]
 
     def processed(self, idThread, fileOutput):
-        print "[ProcessingChainController] Sending to orchestrator file data!"
+        print "[ProcessingChainController] Processed and sending to orchestrator file data: %s!"%(fileOutput)
         self.orchestrator.processedRawData(self.petitions[idThread])
         self.deleteProcessingChain(idThread)
 
@@ -68,12 +68,15 @@ class processingChain(threading.Thread):
         self.sem = sem
         
     def getIdent(self):
-        print self.ident
         return self.ident
        
 
     def run(self):
-        # print "[Processing Chain] Starting processing chain!!"
+        
+	reduce=self.path.split('.')[0].split("/tmp/")[1]
+	print reduce
+	scenario="Scenario"+reduce.split('USE')[0][:-1][::-1].split('_')[0]
+	print "[Processing Chain] Starting processing chain %s:%s!!"%(str(self.ident),reduce)
         # l0JobOrder = self.defaultJobOrder.setL0()
         # #ejecutar PL0 y comprobar resultado
         # l1AJobOrder = self.defaultJobOrder.setL1A()
@@ -84,7 +87,7 @@ class processingChain(threading.Thread):
         # #ejecutar PL1C y comprobar resultado
         # #capturar excepciones 
         #var = os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
-        os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
+        os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"time bash /mnt/disco/PPscript.sh %s %s\""%(self.PP_IP,reduce,scenario))
         #contr.processed(thread.get_ident(),l1CJobOrder.getOutput())#return thread identity 
         self.sem.acquire()
         controller = processingChainController.get()

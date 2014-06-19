@@ -1,4 +1,8 @@
  #!/usr/bin/env python
+import warnings
+with warnings.catch_warnings():
+	warnings.simplefilter("ignore")
+
 from orchestator import *
 from ftplib import FTP, error_reply,error_temp,error_proto,all_errors,error_perm
 import threading
@@ -8,6 +12,7 @@ from time import *
 import MySQLdb as mdb
 import os
 
+	
 lock = threading.Lock()
 tmp_path="/tmp/"
 
@@ -40,7 +45,7 @@ send it to orchestrator"""
                 ftp = FTP(self.gstations[i][0])
                 ftp.login(self.ftp_user,self.ftp_passwd)
                 ftp.cwd(tmp_path)
-		print ftp.pwd()
+		#print ftp.pwd()
 		self.ftpconex.append(ftp)
             except error_reply:
                 print "[Listener] error_reply"
@@ -58,7 +63,7 @@ send it to orchestrator"""
                 for i in self.ftpconex:
 		    #print i.nlst()
                     if(self.ifdata(i)):
-                        print "DATA"
+                        #print "DATA"
                         # self.orchestator.processRawData("")
                         lock.acquire()
                         self.downloading.append(i)
@@ -90,7 +95,7 @@ send it to orchestrator"""
 	    sp = name.split('.')[0]
             sp = sp.split('_')
             logic = False
-	    print sp
+	    #print sp
             if len(sp) == 7:
                 readwrite = sp[0]
                 idGs = sp[1]
@@ -101,7 +106,7 @@ send it to orchestrator"""
                 date = sp[6]
                 
                 if readwrite == "W":
-                    print "IMAGE"
+                    #print "IMAGE"
 		    if host in self.lastdata:
                         if moreRecently(host,hour,date):
                             self.lastdata.update({host:[hour,date]})
@@ -226,7 +231,7 @@ class downloadThread(threading.Thread):
         try:
 	    #pdb.set_trace()
             f = open(self.filename,"wb")
-            print self.filename
+            #print self.filename
             self.ftp.retrbinary('RETR '+self.filename, f.write)
             
             self.ftp.delete(self.filename)#the image is deleted after downlading

@@ -49,13 +49,13 @@ def sendToCatalog(catalog, path):
 #sendToCatalog(catalog,sys.argv[1])
 
 if __name__ == "__main__":
-	if (len(sys.argv) != 3):
-		print "Error with arguments. Must enter almost two"
+	if (len(sys.argv) != 4):
+		print "Error with arguments. Must enter almost three"
 		sys.exit(-1)
 	print sys.argv[1]
 	name_file=sys.argv[1].split("/")[-1]
 	scenario=sys.argv[2]
-
+	nameStore=sys.argv[3]
 	cat = Catalog(geoserver_path)
 	#pdb.set_trace()
 		
@@ -66,16 +66,18 @@ if __name__ == "__main__":
 			vk=cat.create_workspace(scenario,scenario)
 		vk.enabled=True
 		try:
-			cv = cat.create_coveragestore("test",sys.argv[1],vk)
+			cv = cat.create_coveragestore(nameStore,sys.argv[1],vk)
 			inf=CoverageStore(cat,vk,scenario)
 			inf.fetch()
 			cat.save(inf)
-			f.write("Processed")
+			f.write("Processed %s"%(name_file))
 		except Exception:
-			print "Catalogued!"
-		comman ='curl -i --data "name=%s&imageurl=ftp://131.254.204.143:21/../../usr/share/tomcat7/apache-tomcat-7.0.53/webapps/geoserver/data/data/%s/%s/%s.geotiff" http://172.18.250.13:8043/IDV'%(name_file,scenario,"test","test")
+			print "Catalogued %s!"%(name_file)
+		print nameStore,name_file,scenario
+		comman ='curl -i --data "layerName=%s&coverageStore=%s&imageurl=ftp://131.254.204.143:21/../../usr/share/tomcat7/apache-tomcat-7.0.53/webapps/geoserver/data/data/%s/%s/%s.geotiff" http://172.18.242.41:8043/IDV'%(name_file,nameStore,scenario,nameStore,nameStore)
 		print comman
-		os.system(comman)
+		print "Sending to IDV module!"
+		#os.system(comman)
 
 	except ConflictingDataError as e:
 		print "Exception ",e

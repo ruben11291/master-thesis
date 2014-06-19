@@ -4,7 +4,7 @@ class jobOrder:
 
     def __init__(self,pathRawData):
         self.raw = pathRawData
-        print "[JobOrder] Creando jobOrder!"
+        #print "[JobOrder] Creando jobOrder!"
 
     def setL0(self):
         print "[JobOrder] Creando jobOrderL0!"

@@ -42,6 +42,7 @@ class ExperimentController():
         self.condition_satellite=threading.Lock()
         self.logs_sem = threading.Lock()
         self.loads_sem = threading.Lock()
+        self.scenario = None
 
     def connect(self):
         self.log("Connecting with VW machines ...")
@@ -132,7 +133,8 @@ class ExperimentController():
             self.widget.scenarioInitiated()
   
     def stopScenario(self):
-        self.log("Stopping scenario %d"%(int(self.getScenario())))
+        if self.getScenario() is not None:
+            self.log("Stopping scenario %d"%(int(self.getScenario())))
         self.clean_ground()
         self.clean_sat()
 
