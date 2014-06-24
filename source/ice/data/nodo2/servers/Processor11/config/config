@@ -1,0 +1,13 @@
+# Configuration file (06/24/14 17:53:23.962)
+
+# Server configuration
+Ice.Admin.ServerId=Processor11
+Ice.Admin.Endpoints=tcp -h 127.0.0.1
+Ice.ProgramName=Processor11
+# Object adapter ProcessorAdapter
+ProcessorAdapter.Endpoints=tcp
+ProcessorAdapter.AdapterId=Processor11.ProcessorAdapter
+# Server descriptor properties
+Ice.StdOut=/tmp/Processor11.out
+Ice.StdErr=/tmp/errProcessor11.out
+Ice.Default.Locator=IceGrid/Locator:tcp -h localhost -p 4061
