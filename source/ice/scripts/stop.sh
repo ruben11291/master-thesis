@@ -1,6 +1,6 @@
 #!/bin/bash
 
-icegridadmin --Ice.Config=../config/locator.cfg -e "application remove CannonApp"
+icegridadmin --Ice.Config=../config/locator.cfg -e "application remove GeoCloudApp"
 
 sleep 1
 echo "Shutting down the nodes..."

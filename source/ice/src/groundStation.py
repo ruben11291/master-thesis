@@ -7,7 +7,7 @@ status = 0
 ic = None
 try:
     ic = Ice.initialize(sys.argv)
-    orch_str = ic.stringToProxy('Orchestrator:tcp -h localhost -p 10001')
+    orch_str = ic.stringToProxy('Orchestrator')
     orchestrator = geocloud.OrchestratorPrx.checkedCast(orch_str)
 
     if not orchestrator:

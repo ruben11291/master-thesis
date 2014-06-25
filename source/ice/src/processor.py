@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys, traceback, Ice
 import time
 
@@ -16,27 +17,22 @@ class ProcessorI(geocloud.Processor):
 	print "Processing l1a..."
 
 
+class Processor(Ice.Application):
+    def run(self,args):
+        com = self.communicator()
+        servant = ProcessorI()
+        if not com:
+            raise RuntimeError("Not communicator")
 
-status = 0
-ic = None
-try:
-    ic = Ice.initialize(sys.argv)
-    adapter = ic.createObjectAdapterWithEndpoints('ProcessorAdapter', 'tcp -h * -p 10001')
-    object = ProcessorI()
-    adapter.add(object, ic.stringToIdentity("Broker"))
-    adapter.activate()
-    ic.waitForShutdown()
-except:
-    traceback.print_exc()
-    status = 1
+        else:
+            adapter = com.createObjectAdapter('ProcessorAdapter')
+            adapter.add(servant, com.stringToIdentity('Processor'))
+            print "Processor ready!"
+            adapter.activate()
+            self.shutdownOnInterrupt()
+            com.waitForShutdown()
+            
 
-if ic:
-    # Clean up
-    try:
-        ic.destroy()
-    except:
-        traceback.print_exc()
-        status = 1
-
-sys.exit(status)
-
+if __name__=="__main__":
+    app = Processor()
+    sys.exit(app.main(sys.argv))

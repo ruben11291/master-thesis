@@ -1,43 +1,49 @@
-import sys, traceback, Ice
+import sys, traceback, Ice,IceGrid
 Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
 import geocloud
 import sys
 
-status = 0
-ic = None
-try:
-    ic = Ice.initialize(sys.argv)
-    base = ic.stringToProxy('Broker:tcp -h localhost -p 10001')
-    #orch_str = ic.stringToProxy('Orchestrator:tcp -h localhost -p 10001')
-    broker = geocloud.BrokerPrx.checkedCast(base)
-    #orch = geocloud.OrchestratorPrx.checkedCast(orch_str)
-    if not broker:
-        raise RuntimeError("Invalid proxy")
+
+class Client(Ice.Application):
+    def run(self,args):
+        com = self.communicator()
+        if not com:
+            raise RuntimeError("Not communicator")
+
+        else:
+            query = com.stringToProxy('IceGrid/Query')
+            q = IceGrid.QueryPrx.checkedCast(query)
+            try:
+                broker=q.findAllObjectsByType("::GeoCloud::Broker")
+                orch = q.findAllObjectsByType("::GeoCloud::Orchestrator")
+            except Exception as e:
+                print e
+                sys.exit(-1)
+            
+            
+           
+            print broker
+            print orch[0]
+           # start=broker.begin_startScenario("Scenario1",1)
+            #print "Applying for"
+            #start.waitForCompleted()
+#base = com.stringToProxy('orchestrator1')
+            #orchestrator = geocloud.OrchestratorPrx.checkedCast(orch[0])
+            # if not orchestrator:
+            #     raise RuntimeError("Invalid proxy")
     #if not orch:
 	#raise RuntimeError("Invalid proxy")
-    r = broker.begin_cleanOrchestrator()
-    print "Despues de la primera invocacion remota"
-    a = broker.begin_cleanOrchestrator()
+            # r = orchestrator.begin_downladedImage("aa")
+            # print "Despues de la primera invocacion remota"
+            # a = orchestrator.begin_cleanQueue()
+            
+            # print r.isCompleted()
+            # print a.isCompleted()
+            # r.waitForCompleted()
+            # a.waitForCompleted()
+            # print r.isCompleted()
+            # print a.isCompleted()
 
-    print r.isCompleted()
-    print a.isCompleted()
-    r.waitForCompleted()
-    a.waitForCompleted()
-    print r.isCompleted()
-    print a.isCompleted()
-
-    
-	
-except:
-    traceback.print_exc()
-    status = 1
-
-if ic:
-    # Clean up
-    try:
-        ic.destroy()
-    except:
-        traceback.print_exc()
-        status = 1
-
-sys.exit(status)
+if __name__=="__main__":
+    c = Client()
+    sys.exit(c.main(sys.argv))

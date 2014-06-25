@@ -101,12 +101,12 @@
                <property name="Ice.StdErr" value="/tmp/errProcessor${id}.out"/>
             </properties>
             <adapter name="ProcessorAdapter" endpoints="tcp" id="${server}.ProcessorAdapter">
-               <object identity="Processor${id}" type="::GeoCloud::Processor"/>
+               <object identity="Processor${id}" type="Processor"/>
             </adapter>
          </server>
       </server-template>
       <node name="Nodo1">
-         <server-instance template="IcePatch2" directory="/tmp/geocloud_ice/bin"/>
+         <server-instance template="IcePatch2" directory="/home/deimos/git/geo-cloud_pfc/source/ice/src"/>
          <server-instance template="ProcessorTemplate" id="0"/>
          <server-instance template="ProcessorTemplate" id="1"/>
          <server-instance template="ProcessorTemplate" id="2"/>
@@ -116,13 +116,14 @@
          <server-instance template="ProcessorTemplate" id="6"/>
       </node>
       <node name="Nodo2">
-         <server id="Orchestrator" activation="always" exe="./orchestrator.py" pwd="${application.distrib}">
+         <server id="Orchestrator" activation="on-demand" exe="./orchestrator.py" pwd="${application.distrib}">
             <properties>
-               <property name="Ice.StdOut" value="/tmp/orchestrator_sdout.txt"/>
-               <property name="Ice.StdErr" value="/tmp/orchestrator_stderr.txt"/>
+               <property name="OrchestratorAdapter.PublishedEndpoints" value="default"/>
+               <property name="Ice.StdOut" value="${application.distrib}/orchestrator_sdout.txt"/>
+               <property name="Ice.StdErr" value="${application.distrib}/orchestrator_stderr.txt"/>
             </properties>
-            <adapter name="OrchestratorAdapter" endpoints="tcp" id="${server}.OrchestratorAdapter">
-               <object identity="Orchestrator" type="::GeoCloud::Orchestrator"/>
+            <adapter name="OrchestratorAdapter" endpoints="default" id="${server}.OrchestratorAdapter">
+               <object identity="orchestrator" type="::GeoCloud::Orchestrator"/>
             </adapter>
          </server>
          <server-instance template="ProcessorTemplate" id="10"/>
@@ -138,9 +139,13 @@
       <node name="Nodo3">
          <server id="Broker" activation="manual" exe="./broker.py" pwd="${application.distrib}">
             <properties>
+               <property name="BrokerAdapter.PublishedEndpoints" value="default"/>
                <property name="Ice.StdOut" value="/tmp/broker_stdout.txt"/>
                <property name="Ice.StdErr" value="/tmp/broker_stderr.txt"/>
             </properties>
+            <adapter name="BrokerAdapter" endpoints="default" id="${server}.BrokerAdapter">
+               <object identity="broker" type="::GeoCloud::Broker"/>
+            </adapter>
          </server>
       </node>
    </application>

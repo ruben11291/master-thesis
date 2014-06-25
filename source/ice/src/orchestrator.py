@@ -1,7 +1,9 @@
+#!/usr/bin/env python
 import sys, traceback, Ice
 import time
 
-Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
+#Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
+Ice.loadSlice('-I'+Ice.getSliceDir()+' Geocloud.ice')
 import geocloud
 
 class OrchestratorI(geocloud.Orchestrator):
@@ -18,27 +20,22 @@ class OrchestratorI(geocloud.Orchestrator):
     def cleanQueue(self,current=None):
 	print "Clean orchestrator"
 
+class Orchestrator(Ice.Application):
+    def run(self,args):
+        com = self.communicator()
+        servant = OrchestratorI()
+        if not com:
+            raise RuntimeError("Not communicator")
 
-status = 0
-ic = None
-try:
-    ic = Ice.initialize(sys.argv)
-    adapter = ic.createObjectAdapterWithEndpoints('OrchestratorAdapter', 'tcp -h * -p 10001')
-    object = OrchestratorI()
-    adapter.add(object, ic.stringToIdentity("Orchestrator"))
-    adapter.activate()
-    ic.waitForShutdown()
-except:
-    traceback.print_exc()
-    status = 1
-
-if ic:
-    # Clean up
-    try:
-        ic.destroy()
-    except:
-        traceback.print_exc()
-        status = 1
-
-sys.exit(status)
+        else:
+            adapter = com.createObjectAdapter('OrchestratorAdapter')
+            adapter.add(servant, com.stringToIdentity('orchestrator1'))
+            print "Orchestrator ready!"
+            adapter.activate()
+            self.shutdownOnInterrupt()
+            com.waitForShutdown()
+	
+if __name__=="__main__":
+    app = Orchestrator()
+    sys.exit(app.main(sys.argv))
 
