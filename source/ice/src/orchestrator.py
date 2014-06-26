@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, traceback, Ice
+import sys, traceback, Ice,IceGrid
 import time
 
 #Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
@@ -7,16 +7,16 @@ Ice.loadSlice('-I'+Ice.getSliceDir()+' Geocloud.ice')
 import geocloud
 
 class OrchestratorI(geocloud.Orchestrator):
-    self.proxies_pp=[]
-    self.busy_proxies_pp=dict()
-    self.stages_pp = dict()
-    self.pending = []
+    proxies_pp=[]
+    busy_proxies_pp=dict()
+    stages_pp = dict()
+    pending = []
     def __init__(self,com):
         if not com:
             raise RuntimeError("Not communicator")
         q = com.stringToProxy('IceGrid/Query')
         self.query = IceGrid.QueryPrx.checkedCast(q)
-        if not query:
+        if not self.query:
             raise RuntimeError("Invalid proxy")
         self.proxies_pp = self.query.findAllObjectsByType("::GeoCloud::Processor")
         if not self.proxies_pp:
@@ -26,7 +26,7 @@ class OrchestratorI(geocloud.Orchestrator):
         #lock
 	print "Path %s %s"%(path,current)
         for proxy in self.proxies_pp:
-            if proxy is not in self.busy_proxies_pp:
+            if proxy  not in self.busy_proxies_pp:
                 self.busy_proxies_pp[proxy]=path
                 self.stages_pp[proxy] = "L0"
                 included = True
@@ -37,10 +37,10 @@ class OrchestratorI(geocloud.Orchestrator):
 
     def levelProcessed(self,prxPP,path,level,current=None):
         #lock
-        if prxPP is not in self.busy_proxies_pp:
+        if prxPP  not in self.busy_proxies_pp:
             print "PRX not included"
         if level ==6:
-            self.
+            None
 	print scenario
         #unlock
 
@@ -54,24 +54,30 @@ class OrchestratorI(geocloud.Orchestrator):
 	print "Clean orchestrator"
         #unlock
 
+    def stopPP(self,current=None):
+        #lock
+        #clean the data structures
+        #send the stop order for each chain processing
+        #unlock
+
 class Orchestrator(Ice.Application):
     def run(self,args):
         try:
             com = self.communicator()
             servant = OrchestratorI(com)
+            adapter = com.createObjectAdapter('OrchestratorOA')
+            prx = adapter.add(servant, com.stringToIdentity('orchestrator'))
+            print prx
+            print "Orchestrator ready!"
+            adapter.activate()
+            self.shutdownOnInterrupt()
+            com.waitForShutdown()
         except RuntimeError as e:
             print "RuntimeException %s"%(e)
-        except Exception:
-            print "Unrecognized exception has occurred!"
+        except Exception as e:
+            print "Unrecognized exception has occurred!",e
 
-        
-        adapter = com.createObjectAdapter('OrchestratorOA')
-        prx = adapter.add(servant, com.stringToIdentity('orchestrator'))
-        print prx
-        print "Orchestrator ready!"
-        adapter.activate()
-        self.shutdownOnInterrupt()
-        com.waitForShutdown()
+      
 	
 if __name__=="__main__":
     app = Orchestrator()

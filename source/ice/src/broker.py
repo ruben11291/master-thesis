@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, traceback, Ice
+import sys, traceback, Ice,IceGrid
 import time
 
 Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
@@ -13,12 +13,27 @@ class BrokerI(geocloud.Broker):
             raise RuntimeError("Not communicator")
         q = com.stringToProxy('IceGrid/Query')
         self.query = IceGrid.QueryPrx.checkedCast(q)
-        if not query:
+        if not self.query:
             raise RuntimeError("Invalid proxy")
+        self.clean = False
+        self.file=open("broker.log","w")
 
     def appendLog(self,newLog,current=None):
 	print "Log %s"%(newLog)
+        #lock
+        self.file.write(newLog)
+        self.lastlogs.append(newLog)
+        #unlock
 	#self.log.append(newLog)
+    
+    def getLastLogs(self,current=None):
+        #lock
+        tmp =list(self.lastlogs)
+        #unlock
+        ret=""
+        for part in tmp:
+            ret+=str(part)
+        return ret
 
     def startScenario(self,scenario,scen,current=None):
 	print "Starting ",scenario
@@ -42,7 +57,7 @@ class BrokerI(geocloud.Broker):
             print e
             sys.exit(-1)
 
-		
+            		
     def stopScenario(self,scen,current=None):
 	print "Stop Scenario"
         try:
@@ -71,18 +86,19 @@ class Broker(Ice.Application):
         try:
             com = self.communicator()
             servant = BrokerI(com)
+            adapter = com.createObjectAdapter('BrokerOA')
+            adapter.add(servant, com.stringToIdentity('broker'))
+            print "Broker ready!"
+            adapter.activate()
+            self.shutdownOnInterrupt()
+            com.waitForShutdown()
         except RuntimeError as e:
             print "RuntimeException %s"%(e)
-        except Exception:
-            print "Unrecognized exception has occurred!"
+        except Exception as e:
+            print "Unrecognized exception has occurred!",e
 
             
-        adapter = com.createObjectAdapter('BrokerOA')
-        adapter.add(servant, com.stringToIdentity('broker'))
-        print "Broker ready!"
-        adapter.activate()
-        self.shutdownOnInterrupt()
-        com.waitForShutdown()
+     
 
 
 if __name__=="__main__":

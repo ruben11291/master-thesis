@@ -42,6 +42,17 @@
             <dbenv name="${service}"/>
          </service>
       </service-template>
+      <server-template id="ChainProcessingTemplate">
+         <parameter name="id"/>
+         <server id="ChainProcessing${id}" activation="manual" exe="./processor.py" pwd="${application.distrib}">
+            <option>${id}</option>
+            <properties>
+            </properties>
+            <adapter name="ChainProcessingOA" endpoints="default" id="${server}.ChainProcessingOA" replica-group="ProcessingChainReplica">
+               <object identity="ProcessingChain${id}" type="::GeoCloud::Processor"/>
+            </adapter>
+         </server>
+      </server-template>
       <server-template id="Glacier2">
          <parameter name="instance-name" default="${application}.Glacier2"/>
          <parameter name="client-endpoints"/>
@@ -92,8 +103,12 @@
             <service-instance template="IceStorm-HA" instance-name="${instance-name}" node-id="${node-id}" topic-manager-endpoints="${topic-manager-endpoints}" publish-endpoints="${publish-endpoints}" node-endpoints="${node-endpoints}" flush-timeout="${flush-timeout}" publish-replica-group="${publish-replica-group}" topic-manager-replica-group="${topic-manager-replica-group}"/>
          </icebox>
       </server-template>
+      <replica-group id="ProcessingChainReplica">
+         <load-balancing type="adaptive" load-sample="1" n-replicas="1"/>
+         <object identity="ReplicaProcessingChain"/>
+      </replica-group>
       <node name="nodo1">
-         <server-instance template="IcePatch2" directory="/tmp/testbed/src">
+         <server-instance template="IcePatch2" directory="/home/deimos/git/geo-cloud_pfc/source/ice/src">
             <properties>
                <property name="Ice.ServerIdleTime" value="5"/>
             </properties>
@@ -108,6 +123,12 @@
                <object identity="orchestrator"/>
             </adapter>
          </server>
+      </node>
+      <node name="nodo2">
+         <description>Processor node</description>
+         <server-instance template="ChainProcessingTemplate" id="0"/>
+         <server-instance template="ChainProcessingTemplate" id="1"/>
+         <server-instance template="ChainProcessingTemplate" id="2"/>
       </node>
       <node name="nodo3">
          <server id="Broker" activation="always" exe="./broker.py" pwd="${application.distrib}">

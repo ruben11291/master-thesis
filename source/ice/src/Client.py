@@ -3,7 +3,6 @@ Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
 import geocloud
 import sys
 
-
 class Client(Ice.Application):
     def run(self,args):
         com = self.communicator()
@@ -14,9 +13,9 @@ class Client(Ice.Application):
             query = com.stringToProxy('IceGrid/Query')
             q = IceGrid.QueryPrx.checkedCast(query)
             try:
-                broker=q.findAllObjectsByType("::GeoCloud::Broker")
-                orch = q.findAllObjectsByType("::GeoCloud::Orchestrator")
-                print orch[0].ice_getIdentity()
+                broker = q.findObjectById(com.stringToIdentity('broker'))
+                brokerPrx = geocloud.BrokerPrx.checkedCast(broker)
+                print brokerPrx
                 #orchestrator = geocloud.OrchestratorPrx.checkedCast(orch[0])
             except Exception as e:
                 print e
@@ -24,11 +23,10 @@ class Client(Ice.Application):
             
             
            
-            print broker
-            print orch[0]
-           # start=broker.begin_startScenario("Scenario1",1)
+           
+            start=brokerPrx.begin_startScenario("Scenario1",1)
             #print "Applying for"
-            #start.waitForCompleted()
+            start.waitForCompleted()
 #base = com.stringToProxy('orchestrator1')
             #orchestrator = geocloud.OrchestratorPrx.checkedCast(orch[0])
             # if not orchestrator:

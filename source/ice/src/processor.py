@@ -25,7 +25,7 @@ class Processor(Ice.Application):
             raise RuntimeError("Not communicator")
 
         else:
-            adapter = com.createObjectAdapter('ProcessorAdapter')
+            adapter = com.createObjectAdapter('ChainProcessingOA')
             adapter.add(servant, com.stringToIdentity('Processor%s'%(sys.argv[1])))
             print "Processor%s ready!"%(sys.argv[1])
             adapter.activate()
