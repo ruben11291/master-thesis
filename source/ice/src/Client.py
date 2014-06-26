@@ -16,6 +16,8 @@ class Client(Ice.Application):
             try:
                 broker=q.findAllObjectsByType("::GeoCloud::Broker")
                 orch = q.findAllObjectsByType("::GeoCloud::Orchestrator")
+                print orch[0].ice_getIdentity()
+                #orchestrator = geocloud.OrchestratorPrx.checkedCast(orch[0])
             except Exception as e:
                 print e
                 sys.exit(-1)

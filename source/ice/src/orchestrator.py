@@ -22,14 +22,16 @@ class OrchestratorI(geocloud.Orchestrator):
 
 class Orchestrator(Ice.Application):
     def run(self,args):
+	print "Ready"
         com = self.communicator()
         servant = OrchestratorI()
         if not com:
             raise RuntimeError("Not communicator")
 
         else:
-            adapter = com.createObjectAdapter('OrchestratorAdapter')
-            adapter.add(servant, com.stringToIdentity('orchestrator1'))
+            adapter = com.createObjectAdapter('OrchestratorOA')
+            prx = adapter.add(servant, com.stringToIdentity('orchestrator'))
+	    print prx
             print "Orchestrator ready!"
             adapter.activate()
             self.shutdownOnInterrupt()

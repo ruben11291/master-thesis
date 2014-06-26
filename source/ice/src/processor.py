@@ -26,8 +26,8 @@ class Processor(Ice.Application):
 
         else:
             adapter = com.createObjectAdapter('ProcessorAdapter')
-            adapter.add(servant, com.stringToIdentity('Processor'))
-            print "Processor ready!"
+            adapter.add(servant, com.stringToIdentity('Processor%s'%(sys.argv[1])))
+            print "Processor%s ready!"%(sys.argv[1])
             adapter.activate()
             self.shutdownOnInterrupt()
             com.waitForShutdown()

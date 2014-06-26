@@ -52,8 +52,8 @@ class Broker(Ice.Application):
             raise RuntimeError("Not communicator")
 
         else:
-            adapter = com.createObjectAdapter('BrokerAdapter')
-            adapter.add(servant, com.stringToIdentity('Broker'))
+            adapter = com.createObjectAdapter('BrokerOA')
+            adapter.add(servant, com.stringToIdentity('broker'))
             print "Broker ready!"
             adapter.activate()
             self.shutdownOnInterrupt()
