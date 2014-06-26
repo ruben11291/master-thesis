@@ -8,9 +8,6 @@ module geocloud {
 	void appendLog(string newLog);
 	void startScenario(string scenario, int scen);
 	void stopScenario(int scen);
-	void cleanOrchestrator();
-	void stopProcessors();
-	
     };
 
     interface Processor{
@@ -18,10 +15,13 @@ module geocloud {
         int l0(string path);
 	int l0r(string path);
 	int l1a(string path);
+	int l1c(string path);
+	int l1cr(string path);
+	int l1bg(string path);
+	int l1br(string path);
     };
 
     interface Orchestrator{
-	//int init( Broker * log);
 	int downloadedImage(string path);//the ground station calls this operation passing the path
 	int levelProcessed(string path, string level);
 	int imageProcessed(string path);
