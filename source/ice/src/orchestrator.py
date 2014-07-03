@@ -55,7 +55,8 @@ class OrchestratorI(geocloud.Orchestrator):
         #unlock
 
     def stopPP(self,current=None):
-        #lock
+        print "StopPP"
+	#lock
         #clean the data structures
         #send the stop order for each chain processing
         #unlock

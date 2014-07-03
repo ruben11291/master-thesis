@@ -1,6 +1,8 @@
 \documentclass{arco-pfc}
 \usepackage{custom}
+%\usepackage[english]{babel}
 
+\selectlanguage{english}
 \input{metadata.tex}
 
 
@@ -14,28 +16,30 @@
 
 \jury
 
-\input{resumen.tex}
+\input{abstract.tex}
 \tableofcontents
 \listoftables
 \listoffigures
 \lstlistoflistings
 \input{acro.tex}
 \input{thanks.tex}
-\dedication{A alguien muy querido y/o respetado}
+\dedication{A mi familia, a Carlos que confió en mí y a mis compañeros de Deimos
+  Castilla-La Mancha, especialmente a mis compañeros espartanos.}
 
 
 \mainmatter
-
+\input{abstract.tex}
 \input{intro.tex}
 \input{antecedentes.tex}
 \input{objetivos.tex}
-%\input{metodo.tex}
-%\input{resultados.tex}
-%\input{conclusiones.tex}
+\input{metodo.tex}
+\input{arquitectura.tex}
+\input{evolucion_y_costes.tex}
+\input{conclusiones.tex}
 
 \appendix
 \appendixtitle
-\input{apendice1.tex}
+\input{manualUsuario.tex}
 %{\scriptsize \input{GFDL.tex}}
 
 
@@ -44,3 +48,57 @@
 \cleardoublepage
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

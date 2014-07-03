@@ -1,14 +1,60 @@
-\chapter{Objetivos}
+\chapter{Objectives}
 \label{chap:objetivos}
+In this chapter the objectives carryied out in this project are included.
+
+\section{General Aim}
+
+The Geo-Cloud project main objetive can be defined as the modeling and
+implementation of a (antes -> experiment) close to real world Earth Observation System in Fed4FIRE to validate the Fed4FIRE infrastructure.
+
+\section{Specifical Objectives}
+
+The main objective of this project is defined regarding a serie of functional
+requirements as follows:
+\begin{itemize}
+  
+\item {\textbf{A Cloud Infrastructure in BonFIRE Testbed}: This
+  infrastructure for EO provides the ingestion of raw data, on demand processing the raw
+  data to obtain images, and later storing and cataloging transparently,
+  dinamically and automatically. For this purpouse this components are nedeed:
+}
+\begin{itemize}
+
+\item{\textbf{Cloud Orchestrator}: It manages the
+  processing of images obtained from satellites and controls all the stages
+  (ingestion of images, processing, storing and cataloging). The images
+  processors are provided by Elecnor Deimos company, so their implementation is propietary and they are treated as a black box.}
+\item {\textbf{Archive and Catalogue Subsystem}: The
+  results obtained from the processing have to be available in the cloud
+  infrastructure for end users.}
+\item{\textbf{Processors Module}: It process the raw data sended from
+  the Orchestrator component obtaining processed images from the Earth.}  
+\end{itemize}
+\item {\textbf{A profiling tool\emph{ (-Sub-Experiment better no?)} in PlanetLab}: for obtaining the real measures of
+  parameters and metrics involved in the communications of all components as
+  clients, ground stations, cloud and satellite constellation.}
 
 
-\section{Objetivo general}
+\item {\textbf{Software in Virtuall Wall}: This sofware simulates the satellite
+  constellation getting images and downloading into the ground stations, ground
+  stations receiving the raw data sended by the satellites and end users
+  accessing the resources in cloud through web services. Also, the connections
+  between the ground stations and the cloud infrastructure have a set of
+  impairments. This values of these impairments are obtained with the profiling tool in
+  PlanetLab in order to build a  realistic experiment.}
 
+\item {\textbf{Creation of the experiment}: By combining and integrating
+  the developed in the three testbeds mentioned before.}
 
-\section{Objetivos específicos}
+\item {\textbf{Creation of a Graphical User Interface}: This GUI provides
+  the deploy,execution and stop automatically. \emph{Necessary?}} 
 
-\subsection{Objetivo 1}
+\item {\textbf{System Validation}: Simulation of a scenario to validate the
+  system. \emph{Explicar?}}
 
-\subsection{Objetivo 2}
+\item \textbf{Si diera tiempo... To validate if future internet cloud computing
+  and networks provide viable solutions for conventional Earth Observation
+  Systems to establish the basis for the implmentation of EO infrastructrures in
+  cloud.}
 
-\subsection{Objetivo 3}
+\end{itemize}

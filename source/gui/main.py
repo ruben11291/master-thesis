@@ -95,7 +95,8 @@ class Window(QtGui.QWidget):
             scenario = self.col.getScenario()
             self.controller.startScenario(scenario+1)
         except Exception as e:
-            self.__show_exception(e)
+	    print e
+            self.show_exception(e)
 
         self.video.start_reproduction("/home/Data/Videos/Demo_Scenario2_3D_T.wmv")
 
@@ -108,7 +109,7 @@ class Window(QtGui.QWidget):
     def __show_about_handle(self):
         self.dialog.show()
     
-    def __show_exception(self,exception):
+    def show_exception(self,exception):
         print "EXCEPTION ",exception
         #TODO
     
@@ -142,8 +143,8 @@ class Window(QtGui.QWidget):
 if __name__ == '__main__':
 
     import sys
-    host_orch="172.18.240.45"
-    host_pp="172.18.240.209"
+    host_orch="172.18.240.176"
+    host_pp="172.18.240.216"
     
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('GeoCloud GUI')
@@ -157,7 +158,7 @@ if __name__ == '__main__':
         controller.connect()
         print "Connected!"
     except (paramiko.SSHException, socket.error) as se:
-        window.__show_exeption(se)
+        window.show_exception(se)
         window.stop()
         exit(-1)
     window.setController(controller)
