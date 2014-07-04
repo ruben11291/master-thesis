@@ -1,41 +1,7 @@
 \chapter{Architecture}
 
-The GEO-Cloud experiment is separated into two experiments: i) an experiment that represents a complete Earth Observation system, including the space system communicated with a cloud base data center for the ingestion, processing, storage and distribution of satellite imagery through high added value web services (Virtual Wall and BonFIRE are the testbeds used); ii) an experiment to measure and model the network that links the space system with the cloud as realistically as possible. The results of this experiment carried out in PlanetLab are used to link the simulators implemented in Virtual Wall with the cloud in BonFIRE to simulate a real network with realistic characteristics.
+\drop{T}{he} GEO-Cloud experiment is separated into two experiments: i) an experiment that represents a complete Earth Observation system, including the space system communicated with a cloud base data center for the ingestion, processing, storage and distribution of satellite imagery through high added value web services (Virtual Wall and BonFIRE are the testbeds used); ii) an experiment to measure and model the network that links the space system with the cloud as realistically as possible. The results of this experiment carried out in PlanetLab are used to link the simulators implemented in Virtual Wall with the cloud in BonFIRE to simulate a real network with realistic characteristics.
 
-\section{Profilling Tool in PlanetLab}
+\input{planetlab.tex}
 
-In this section, the motivation for the use of PlanetLab is explained together
-with the design of the real system. Then, the platform and tools used are
-described with their roles in the experiment. In addition, the network and
-experiment design are broadly discussed. The execution of the experiment is also
-presented. Finally, conclusions of this implementation are included.
-
-
-\subsection{Definitions}
-\begin{itemize}
-\item\emph{Effective bandwidth (Mbps)} is the actual bandwidth at which the data can be transmitted on a link. The nominal bandwidth cannot be reached due to network congestion, the distance between nodes, delays, etc. Effective bandwidth is higher when nodes are closer, the congestion is scarce and the delays in the transmission are not long.
-\item\emph{Bandwidth of the network(Mbps)}, which is the nominal ``width'' of the channel used, if the bandwidth increases, more data can simultaneously be sent, reducing the necessary time to transfer a packet of data. It is usually confused with the signal velocity, which affects the time the data takes to travel to the receiver (latency) but bandwidth cannot reduce this time.
-\item\emph{Loss rate} is the fraction of data lost in the communication with respect
-to all the data sent. It is a value between 0 and 1. It can also be provided in
-percentage.
-
-\item\emph{Latency (ms)} is the time it takes a signal to travel from its source, trough the communication channel, until it reaches the receiver. It is related with the distance between the nodes, the network congestion and the propagation velocity (a fraction of the light speed) among other parameters. 
-\end{itemize}
-
-\subsection{PlanetLab Experiment}
-
-The objective of the GEO-Cloud experiment is to simulate as realistically as possible the behaviour of a complete Earth Observation system. With this aim, the communication links in the real system have to be modelled to connect the simulators implemented in Virtual Wall and BonFIRE with the values obtained from the experiment in PlanetLab. The experiment then consists of communicating 12 real nodes representing the ground stations (the nearest PlanetLab node to the real ground station was selected) and the end users distributed around the world (we selected 31 nodes from different 31 countries) with a node representing the cloud (located in INRIA) to measure the real impairments of the networks and to implement a realistic model of the communications. The impairments to be measured and used to model the network are the effective bandwidth, the latency and the loss rate.
-An equivalence scheme is shown in Figure 1 with the correlation between the parameters obtained from the experiment and the inputs to model the links between Virtual Wall and BonFIRE.  There are two networks in the system: 
-i)	The dedicated network connecting the ground stations and the cloud: it is represented by the bandwidth, the latency and the loss rate. 
-a.	The bandwidth will be computed as a control variable.
-b.	The latency will be extracted from the latency measured in the PlanetLab experiment.
-c.	The loss rate will be extracted from the loss rate measured in the PlanetLab experiment.
- 
-ii)	The Internet network connecting the end users and the cloud: it is represented by the bandwidth, the latency, the loss rate and the background traffic.
-a.	The bandwidth will be computed as a control variable.
-b.	The latency will be extracted from the latency measured in the PlanetLab experiment.
-c.	The loss rate will be extracted from the loss rate measured in the PlanetLab experiment.
-d.	The background traffic is affected by the following parameters:
-i.	Throughput: the effective bandwidth measured with the PlanetLab experiment will be computed as the throughput parameter in Virtual Wall.
-ii.	Packet size: 1500 bytes.
-iii.	Protocol: the protocol used is TCP.
+\input{spacesystemsimulator.tex}

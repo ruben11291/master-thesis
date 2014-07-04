@@ -1,0 +1,88 @@
+\section{Space System Simulator}
+
+This section presents the \sss that emulates the real behaviour of a satellite constellation of 17 satellites that download images to a network of 12 ground stations connected with the \bonfire cloud. The simulator is implemented in \vw.
+
+The \sss is constituted of three components:
+\begin{itemize}
+\item \satss: It simulates the dynamics and communications of the constellation of 17 Earth observation satellites.
+\item \gsss: It simulates the dynamics and communications of the network of 12 ground stations distributed around the World.
+\item \emph{Distributed Database:} It contains all the required information and parameters to initialize the simulators and make them run in every specific simulator.
+While the \satss and the \gsss are implemented in \vw, the distributed database
+is computed in the \bonfire cloud to allow the access of the two simulators.
+\end{itemize}
+
+To adapt the performance of the \sss to the Fed4FIRE testbeds, some located scenarios were designed in order to reduce the amount of data to process, store and distribute during the simulations. Thus the simulation is shortened to a specific time required to acquire and download certain areas of interest \emph{(AOI)}.
+
+The detailed design of the \sss and its implementation in \vw are presented.
+
+\subsection{Image Acquisition}
+
+The first step is to implement the acquisition of images by the satellites of
+the six predefined scenarios (for an extended description on the scenarios see
+GEO-Cloud-D10.8-Detailed design report-2014-01-31) with the satellite
+constellation: 
+\begin{enumerate}[label=\bfseries Scenario \arabic*:]
+\item Emergencies – Lorca Earthquake (Spain)
+\item  Infrastructure monitoring. Affection in railway infrastructures by sand movement in desert areas (Spain)
+\item Land Management – South West of England
+\item Precision Agriculture – Argentina
+\item Basemaps – Worldwide
+\item Online Catalogue / Ordering – Worldwide
+\end{enumerate}
+
+In each scenario, an Area of Interest \emph{(AOI)} is defined for the satellites to acquire it during the simulation. In orbit satellites are nadir pointing in order to acquire images of the sub satellite point over the Earth surface as shown in Figure 1.
+
+Strip imaging
+
+In the next subsection the assumptions that were made to simulate the system as realistically as possible are described for the scenarios. Note that scenarios 5 and 6 have the same \emph{AOI}, which is the whole land mass on Earth. This involves that because of the huge amount of data that has to be recorded, specific assumptions to the scenarios 5 and 6 were made according to the Fed4FIRE testbeds’ limitations.
+
+\subsection{Assumptions in satellite image acquisition}
+
+The \emph{AOI} in each scenario can be acquired by one or more satellites depending on
+the size of the \emph{AOI} relatively to the scene size (note that the GEO-Cloud
+satellites have a swath of 160km, thus we divide the acquisition into scenes of
+160km x 160km). 
+In each scenario we call \emph{main satellites} to the satellites with the task
+of acquiring the \emph{AOI} (note that all satellites are \emph{main satellites} in the
+model for the scenarios 5 and 6). 
+Along the duration of the scenario other satellites acquire images of the areas of the Earth surface they are passing over. Those images are not in the area of interest. During the experiments in \bonfire, they will be processed but not stored into the system, since the focus of the mission in every scenario has to be in the defined area of interest. Those non \emph{AOI} images allow us to emulate a real system, since we take into account all the possible inputs to the system (note that in the scenarios 5 and 6 all the images created are \emph{AOI}).
+
+images acquisition diagram
+
+Thus, those Non \emph{AOI} images, during the simulation will be acquired,
+downloaded to the ground stations, transferred to the cloud and processed, but
+not stored, neither catalogued. In addition, it has to be taken into account
+that the main satellites can also acquire some images out of the \emph{AOI}
+during the duration of each scenario. Those acquired images are also considered
+Non \emph{AOI} images. 
+
+In every scenario the time is set to 0 when the simulation starts in the Fed4FIRE environment.
+
+These assumptions are summarized as follows:
+\begin{enumerate}
+\item Only the scenes acquired by a satellite that include the \emph{AOI} are considered to carry out the complete simulation.
+\item Images taken by the satellites that are out of the \emph{AOI} are processed but
+  not stored into the system to adjust the experiment execution to the resources
+  provided by \bonfire.
+\end{enumerate}
+
+\subsection{Types of acquisition of the AOI by a single satellite}
+
+Depending on the relative sizes of both the \emph{AOI} and the scenes, three different
+situations can occur when a single satellite is acquiring images:
+\begin{enumerate}
+\item Simple acquisition: the \emph{AOI} (at least the part to be imaged by the
+  satellite) fits into just one scene.
+imagen
+
+\item Multiple consecutive acquisitions: the \emph{AOI} to be acquired by a satellite
+fits in a strip with several scenes.
+imagen
+
+\item Multiple non-consecutive acquisitions: the \emph{AOI} to be acquired by a
+  satellite fits in a strip but there are some scenes between the acquisitions
+  that have to be acquired in order to complete the general mission (world map
+  daily) but it is not necessary for the scenario.
+imagen
+
+\end{enumerate}
