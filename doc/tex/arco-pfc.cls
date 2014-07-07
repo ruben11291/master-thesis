@@ -531,7 +531,7 @@ use that may be made of the information contained herein.
   \thispagestyle{empty}%
   \vspace*{5cm}%
   \begin{center}%
-    \sffamily\scshape\Large\scalebox{3}{ANEXOS}%
+    \sffamily\scshape\Large\scalebox{3}{APPENDIX}%
   \end{center}%
 }%
 
@@ -547,7 +547,6 @@ use that may be made of the information contained herein.
     by using the \textbf{arco-pfc} template whose is available in the following address:\\
     \url{https://bitbucket.org/arco_group/arco-pfc}
     \bigskip
-    {\scriptsize [Respeta esta atribución al autor]}
   \end{center}
   \end{singlespacing}
   \cleardoublepage

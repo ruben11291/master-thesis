@@ -28,7 +28,7 @@ An equivalence scheme is shown in Figure 1 with the correlation between the
 parameters obtained from the experiment and the inputs to model the links
 between \vw and \bonfire.  There are two networks in the system: 
 \begin{enumerate}
-\item	The dedicated network connecting the ground stations and the cloud: it
+\item The dedicated network connecting the ground stations and the cloud: it
   is represented by the bandwidth, the latency and the loss rate. 
 \begin{enumerate}
 \item The bandwidth will be computed as a control variable.
@@ -51,17 +51,48 @@ experiment will be computed as the throughput parameter in \vw.
 \item Protocol: the protocol used is TCP.
 \end{enumerate}
 
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=5.22037in,height=3.85406in]{planetlab/modelled-links.png}
+\caption{PlanetLab and Modelled Links Equivalences}
+\label{fig:ple-modelled-links}
+\end{center}
+\end{figure}
+
+
 \subsection{System Modeling}
 
 The real system is modeled into three main components: i) a network of ground stations acquiring imagery data from a constellation of optical satellites, ii) a cloud infrastructure that ingests the data from the ground stations, processes it, stores it and distributes it through web services and iii) end users around the world accessing to the web services offered. The system can be divided into two layers: 
 
 \begin{enumerate}
 
-\item Layer 1 is constituted by 12 ground stations connecting with a cloud infrastructure. The ground stations and their location are depicted in Table 1. Their locations and footprints are depicted in Figure 2. The footprints represent the area in which the satellites can establish the communication with the ground stations.
+\item Layer 1 is constituted by 12 ground stations connecting with a cloud
+  infrastructure. The ground stations and their location are depicted in Table \ref{table:ple-groundstations-location}. Their locations and footprints are depicted in Figure \ref{fig:ple-footprints}. The footprints represent the area in which the satellites can establish the communication with the ground stations.
 
-tabla ground stations location
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/gsnodes.tex}
+  }
+  \caption{Ground Station Location}
+  \label{table:ple-groundstations-location}
+\end{table}
 
-figura footprints
+%\bigskip
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=5.37767in,height=2.68448in]{planetlab/footprints.png}
+
+\caption{Footprints of the ground stations}
+\label{fig:ple-footprints}
+\end{center}
+\end{figure}
+% {\centering 
+% \includegraphics[width=5.37767in,height=2.68448in]{footprints.png} \par}
+
+% {\centering\bfseries
+% Figure\ 2\ Footprints of the ground stations.
+% \par}
 
 \item Layer 2 is constituted by the end users accessing the web services
   implemented in cloud. These users are distributed around the world and can be
@@ -71,18 +102,29 @@ figura footprints
 From the previous layers two networks can be identified: the network between the
 ground stations and the cloud and the network between the end users and the
 cloud. The system and the interconnections between components are depicted in
-Figure 3. The connections between the ground stations and end users with the
+Figure \ref{fig:ple-system-description}. The connections between the ground stations and end users with the
 cloud are represented as arrows with different line types to represent that
 every connection can have different characteristics and impairments. All the
 connections are TCP.
 
-System Description
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=3.35852in,height=2.41008in]{planetlab/system-description.png}
 
+\caption{System Description}
+\label{fig:ple-system-description}
+\end{center}
+\end{figure}
 
 We define the network in function of the following representative impairments: effective bandwidth, latency and loss rate. Thus, every link is represented in function of the previous impairments: effective bandwidth, latency, loss rate.
-This system is implemented in Virtual Wall and BonFIRE as depicted in Figure 4. The experiment in PlanetLab will be used to update the network parameters connecting Virtual Wall and BonFIRE.
-
-scheme of implementation geocloud
+This system is implemented in Virtual Wall and BonFIRE as depicted in Figure \ref{fig:ple-scheme-system}. The experiment in PlanetLab will be used to update the network parameters connecting Virtual Wall and BonFIRE.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=5.48738in,height=2.73818in]{planetlab/schemeSystem.png}
+\caption{Scheme of the system implemented in Geo-Cloud}
+\label{fig:ple-scheme-system}
+\end{center}
+\end{figure}
 
 
 \subsection{Network Design in PlanetLab}
@@ -102,22 +144,42 @@ cloud servers for similarity with the real system:
   constellation of satellites from the ground stations in which the data is
   downloaded to the cloud. The network topology implemented is peer-to-peer,
   i.e. each node representing the ground stations is directly connected with the
-  central node. In Table 2 the PlanetLab selected nodes for layer 1 and for the
+  central node. In Table \ref{fig:ple-tablelayer1-nodes} the PlanetLab selected nodes for layer 1 and for the
   cloud central node are shown. The nodes are numbered in ascending order in
   function of the distance to the central node, i.e. the closest node is the
   number 0 and the furthest the 37. 
 
-nodos layer 1
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=6.20079in,height=1.79134in]{planetlab/ple-layer1-nodes.png}
 
+\caption{Ground Segment Nodes}
+\label{fig:ple-tablelayer1-nodes}
+\end{center}
+\end{figure}
 
-\item \textbf{Layer 2:} it represents the connection between the central node representing the cloud servers and the end users. 31 different nodes were selected in PlanetLab Europe and PlanetLab central in 31 different countries around the world. This allows us to have a representative sample of global users accessing the web services. In this case, the network topology is also peer-to-peer. In Table 3 the nodes selected for layer 2 are listed. We tried to increase the number of nodes in different countries, but during the execution of the experiment we did not find available PlanetLab nodes in the following countries: Austria, Cyprus, Denmark, Egypt, Ecuador, Iceland, India, Jordan, Mexico, Pakistan, Puerto Rico, Romania, Slovenia, Sri Lanka, Tunisia, Turkey, Venezuela, Uruguay and Taiwan. 
+\item \textbf{Layer 2:} it represents the connection between the central node representing the cloud servers and the end users. 31 different nodes were selected in PlanetLab Europe and PlanetLab central in 31 different countries around the world. This allows us to have a representative sample of global users accessing the web services. In this case, the network topology is also peer-to-peer. In Table Table \ref{ple:ple-tablelayer2-nodes} the nodes selected for layer 2 are listed. We tried to increase the number of nodes in different countries, but during the execution of the experiment we did not find available PlanetLab nodes in the following countries: Austria, Cyprus, Denmark, Egypt, Ecuador, Iceland, India, Jordan, Mexico, Pakistan, Puerto Rico, Romania, Slovenia, Sri Lanka, Tunisia, Turkey, Venezuela, Uruguay and Taiwan. 
 \end{itemize}
-nodos layer 2
 
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=6.1375in,height=2.1375in]{planetlab/ple-layer2-nodes.png}
+
+\caption{User Nodes}
+\label{fig:ple-layer2-nodes}
+\end{center}
+\end{figure}
 Figure 4 shows a scheme representing the network created in PlanetLab. The
 connections between the nodes are TCP.
 
-Network scheme
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=4.01423in,height=2.11349in]{planetlab/ple-layer2-nodes.png}
+
+\caption{PlanetLab Network Scheme}
+\label{fig:network-scheme}
+\end{center}
+\end{figure}
 
 \subsection{Experiment Design and Execution}
 
@@ -290,8 +352,43 @@ nodes. When it is executed it carries out the next tasks:
 \item Tasks 2 to 9 of the latencyGS.py script.
 \end{enumerate}
 
-The flow diagram of the latency measurements in the end users nodes is depicted in Figure 7 b.
+The flow diagram of the latency measurements in the end users nodes is depicted
+in Figure 7 b.
 
-Hacer dos columnas e incluir imagenes
+\begin{multicols}{2}
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.2\textwidth]{planetlab/modelled-links.png}
+\caption{(a)}
+\label{fig:ple-modelled-links}
+\end{center}
+\end{figure}
+\columnbreak
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.2\textwidth]{planetlab/modelled-links.png}
+\caption{(b)}
+\label{fig:ple-modelled-links}
+\end{center}
+\end{figure}
+\end{multicols}
+
+\begin{multicols}{2}
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.2\textwidth]{planetlab/modelled-links.png}
+\caption{(a)}
+\label{fig:ple-modelled-links}
+\end{center}
+\end{figure}
+\columnbreak
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.2\textwidth]{planetlab/modelled-links.png}
+\caption{(b)}
+\label{fig:ple-modelled-links}
+\end{center}
+\end{figure}
+\end{multicols}
 
 \input{planetlabResults.tex}
