@@ -22,7 +22,7 @@ The detailed design of the \sss and its implementation in \vw are presented.
 The first step is to implement the acquisition of images by the satellites of
 the six predefined scenarios <<(for an extended description on the scenarios see
 GEO-Cloud-D10.8-Detailed design report-2014-01-31)>> with the satellite
-constellation: 
+constellation:
 %\begin{enumerate}[label=\bfseries Scenario \arabic*:]
 
 \begin{enumerate}
@@ -51,16 +51,22 @@ In the next subsection the assumptions that were made to simulate the system as 
 The \emph{AOI} in each scenario can be acquired by one or more satellites depending on
 the size of the \emph{AOI} relatively to the scene size (note that the GEO-Cloud
 satellites have a swath of $160km$, thus we divide the acquisition into scenes of
-$160km x 160km$). 
+$160km x 160km$).
 In each scenario we call \emph{main satellites} to the satellites with the task
 of acquiring the \emph{AOI} (note that all satellites are \emph{main satellites} in the
-model for the scenarios 5 and 6). 
-Along the duration of the scenario other satellites acquire images of the areas of the Earth surface they are passing over. Those images are not in the area of interest. During the experiments in \bonfire, they will be processed but not stored into the system, since the focus of the mission in every scenario has to be in the defined area of interest. Those non \emph{AOI} images allow us to emulate a real system, since we take into account all the possible inputs to the system (note that in the scenarios 5 and 6 all the images created are \emph{AOI}).
+model for the scenarios 5 and 6).
+
+Along the duration of the scenario other satellites acquire images of the areas
+of the Earth surface they are passing over. Those images are not in the area of
+interest.
+
+During the experiments in \bonfire, they will be processed but not stored into the system, since the focus of the mission in every scenario has to be in the defined area of interest. Those non \emph{AOI} images allow us to emulate a real system, since we take into account all the possible inputs to the system (note that in the scenarios 5 and 6 all the images created are \emph{AOI}).
+
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{spaceSystemSimulator/strip-imaging.png}
-\caption{Example of strip imaging}
+\includegraphics[width=0.6\textwidth]{spaceSystemSimulator/images-adquisition-diagram.png}
+\caption{Diagram of images adquisition}
 \label{fig:sss-acquisition-diagram}
 \end{center}
 \end{figure}
@@ -70,7 +76,7 @@ downloaded to the ground stations, transferred to the cloud and processed, but
 not stored, neither catalogued. In addition, it has to be taken into account
 that the main satellites can also acquire some images out of the \emph{AOI}
 during the duration of each scenario. Those acquired images are also considered
-Non \emph{AOI} images. 
+Non \emph{AOI} images.
 
 In every scenario the time is set to 0 when the simulation starts in the Fed4FIRE environment.
 
@@ -93,7 +99,7 @@ situations can occur when a single satellite is acquiring images:
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{spaceSystemSimulator/simple-acquisition.png}
+\includegraphics[width=0.3\textwidth]{spaceSystemSimulator/simple-acquisition.png}
 \caption{Simple acquisition}
 \label{fig:sss-simple-acquisition}
 \end{center}
@@ -102,7 +108,7 @@ situations can occur when a single satellite is acquiring images:
 fits in a strip with several scenes.
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{spaceSystemSimulator/multiple-consecutive-acquisitions.png}
+\includegraphics[width=0.3\textwidth]{spaceSystemSimulator/multiple-consecutive-acquisitions.png}
 \caption{Multiple consecutive acquisitions}
 \label{fig:sss-multiple-acquisition-diagram}
 \end{center}
@@ -115,7 +121,7 @@ fits in a strip with several scenes.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{spaceSystemSimulator/non-consecutive-acquisitions.png}
+\includegraphics[width=0.3\textwidth]{spaceSystemSimulator/non-consecutive-acquisitions.png}
 \caption{Multiple non-consecutive acquisitions}
 \label{fig:sss-non-consecutive-acquisition}
 \end{center}
@@ -128,7 +134,7 @@ fits in a strip with several scenes.
 \label{subsubsec:parameters-required}
 For each scenario, the following parameters and assumptions are considered:
 \begin{enumerate}
-\item \emph{S: Scenario number.} It indicates the scenario that is being simulated (from 1 to 6). 
+\item \emph{S: Scenario number.} It indicates the scenario that is being simulated (from 1 to 6).
 \item \emph{Main satellites:} The main satellites are those that acquire images of the AOI in each scenario. Notice that all the satellites are numbered from 1 to 17.
 \item \emph{ADR:} Acquisition Data Rate. Rate at which the images are acquired
   by the satellite.
@@ -140,7 +146,7 @@ ADR=1395Mbps
 \item \emph{CR:} Compression Rate. Rate at which the images are compressed in
   the satellite for their download.
 \begin{equation}\label{eq:CR}
-CR=14.1	
+CR=14.1
 \end{equation}
 \item \emph{$Bandwidth_{sat}$:} Download rate between the satellites and the
   ground stations.
@@ -173,8 +179,8 @@ compression rate. And $Bandwidth_{mem}$ can be obtained as follows:
 
 \item \emph{$T_0$:} Start time. It is the start time of the scenario. The scenario starts when the first main satellite begins the acquisition of the first portion of \emph{AOI}.
 \item \emph{$T_f$:} End time. It is the time when the last main satellite finishes the downloading of the \emph{AOI} taken images.
-\item \emph{$[T_{AOI}]_{0i}$:} Time a main satellite starts acquiring the \emph{AOI}. i stands for the number of the main satellite. 
-\item \emph{$[T_{AOI}]_{fi}$:} This is the time a main satellite finishes acquiring a piece of \emph{AOI}. 
+\item \emph{$[T_{AOI}]_{0i}$:} Time a main satellite starts acquiring the \emph{AOI}. i stands for the number of the main satellite.
+\item \emph{$[T_{AOI}]_{fi}$:} This is the time a main satellite finishes acquiring a piece of \emph{AOI}.
 \item \emph{$[\Delta T_{AOI}]_i$:} This is the difference
   $[T_{AOI}]_{fi}-[T_{AOI}]_{0i}$. Note: Some satellites (all of them in the
   model for scenarios 5) and 6) can require more than one orbit to acquire the
@@ -187,7 +193,7 @@ compression rate. And $Bandwidth_{mem}$ can be obtained as follows:
 	T_{scene}=L_{scene}/v_{Gsat}
 \end{equation}
 
-$[\Delta T_{AOI}]_i$  can be calculated as follows: 
+$[\Delta T_{AOI}]_i$  can be calculated as follows:
 \begin{equation}\label{eq:deltataoi}
 [\Delta T_{AOI}]_i=n L_{scene}/v_{Gsat} =nT_{scene}=[T_{AOI}]_{fi}-[T_{AOI}]_{0i}
 \end{equation}
@@ -197,10 +203,10 @@ where $n$ is the number of scenes, $L_{scene}$  is the length of the scene (in t
 \item \emph{$[T_{GS}]_{fij}$:} Time a main satellite $i$ leaves the visibility cone of a Ground Station  $j$.
 \item \emph{$[\Delta T_{GS}]_{ij}$:} This is the difference $[T_{GS}]_{fij}-[T_{GS}]_{0ij}.$
 \item \emph{$T_{start}$:} This is the start time of the simulation. We chose to be $5$ seconds in order to synchronize all the satellites.
-		
+
 \end{enumerate}
 
-As an example, the following data was obtained from ``Scenario 2: Infrastructure monitoring affection in railway infrastructures by sand movement in desert areas'':
+As an example, the Table~\ref{table:sss-acquisitions-scenario2} shows the data was obtained from ``Scenario 2: Infrastructure monitoring affection in railway infrastructures by sand movement in desert areas'':
 
 \begin{table}[hp]
   \centering
@@ -241,7 +247,7 @@ downloading task (see section \ref{subsubsec:parameters-required} for a wider ex
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{spaceSystemSimulator/multiplexed-downloading.png}
+\includegraphics[width=0.5\textwidth]{spaceSystemSimulator/multiplexed-downloading.png}
 \caption{Multiplexed images downloading}
 \label{fig:sss-multiplexed-downloading}
 \end{center}
@@ -249,7 +255,7 @@ downloading task (see section \ref{subsubsec:parameters-required} for a wider ex
 
 
 
-It is possible that the duration of the accesses and the time to download an image are not multiples of $T_{scene}=23.4s$. In this case, an image would be partially downloaded at the end of the access but it would be supposed that this image is completely downloaded in the following access in other ground station. 
+It is possible that the duration of the accesses and the time to download an image are not multiples of $T_{scene}=23.4s$. In this case, an image would be partially downloaded at the end of the access but it would be supposed that this image is completely downloaded in the following access in other ground station.
 
 For the memory management, a \emph{LIFO} (last in, first out) procedure is
 applied. This implies that the latest acquired images will be downloaded as soon
@@ -281,7 +287,7 @@ Next, a summary of the assumptions made for the image downloading from the
 satellites to the ground stations are described:
 \begin{enumerate}
 \item Time to process the images on board before downloading is considered to be instantaneous. Then, the simultaneous acquisition and download of the \emph{AOI} inside the visibility cone is done without latency.
-\item The ground stations network was designed to guarantee the download of a complete world map in a daily basis. With this assumption into account, the management of the memory on board of each satellite does not require an additional design. This involves that we do not know in which ground station all the areas acquired out of a visibility cone are downloaded. 
+\item The ground stations network was designed to guarantee the download of a complete world map in a daily basis. With this assumption into account, the management of the memory on board of each satellite does not require an additional design. This involves that we do not know in which ground station all the areas acquired out of a visibility cone are downloaded.
 \item Because of the small gap between the satellites, which are in the same orbit, more than one antenna in each ground station is required to be available. This provides the possibility of having simultaneous contacts with all the satellites inside the visibility cone.
 \end{enumerate}
 
@@ -289,7 +295,7 @@ satellites to the ground stations are described:
 \label{subsec:getting-satellite-data}
 
 The steps to obtain and simulate the realistic behaviour of the satellites are
-next described. 
+next described.
 
 
 \subsubsection{Extraction of the real behaviour of the satellite constellation
@@ -314,7 +320,7 @@ The next steps were followed to obtain the values of the parameters required for
 \setcounter{enumi}{\theenumTemp}
 \item Identification of the main satellites.
 \item Extraction of the times each satellite is acquiring the AOI: $[T_{AOI}]_{0i}$ and $[T_{AOI}]_{fi}$.
-\item Calculation of the number of scenes acquired: n.
+\item Calculation of the number of scenes acquired: $n$.
 \item Extraction of the access duration of each satellite with the ground stations it communicates within the scenario duration: $[T_{GS}]_{0ij}$ and $[T_{GS}]_{fij}$.
 \item Start time of the scenario: $T_0$.
 \item End time of the scenario: $T_f$.
@@ -323,7 +329,7 @@ The next steps were followed to obtain the values of the parameters required for
 
 \subsubsection{Exportation of data to the simulator}
 
-Once obtained the previous data, it is exported to different ``CSV'' format files: 
+Once obtained the previous data, it is exported to different ``CSV'' format files:
 
 \begin{itemize}
 \item 	The \emph{Scenario\_<NUM>\_<SCENE>.csv} files: it contains the information
@@ -431,7 +437,7 @@ To execute \emph{setDatabase.py} the arguments depicted in Table~\ref{table:sss-
 
 An example of the execution of the programme is the following:
 \begin{itemize}
-\item python~setDatabase.py~192.168.0.2~All\_scenarios\_file.csv~Scenario\_1\_Example1.csv~Scenario\_2\_Example2.csv~Scenario\_3\_Example3.csv
+\item[>] python~setDatabase.py~192.168.0.2~All\_scenarios\_file.csv~Scenario\_1\_Example1.csv~Scenario\_2\_Example2.csv~Scenario\_3\_Example3.csv
 \end{itemize}
 
 
@@ -452,7 +458,8 @@ constellation.
 On the other hand the \gsss is also executed. As in the case of the \satss, the
 \gsss is constituted of 12 \emph{Ground Station Simulators} of individual ground
 stations reproducing the behaviour of every single ground station of the
-designed network. 
+designed network.
+
 The diagram in Figure \ref{fig:sss-architecture} depicts a scheme
 representing the \sss.
 
@@ -470,18 +477,18 @@ execution:
 
 \item First, \emph{setDatabase.py} is executed. The script fills the database fields with the information of every scenario.
 \item Second, the \gsss is executed. The \gsss can execute all the \emph{Ground Station Simulators} or some of them individually to simulate faults in the ground stations as it can occur in reality. Thus, when a satellite needs to download data into a ground station that is offline, it will receive an exception so the downloading of images does not start.
-\item Third, the \satss is executed. As in the previous case, the \satss can execute all the \emph{Satellites Simulators} or some of them individually for the same reason. 
+\item Third, the \satss is executed. As in the previous case, the \satss can execute all the \emph{Satellites Simulators} or some of them individually for the same reason.
 \item Finally, when the scenario finishes, the simulation is stopped.
 \end{itemize}
 The \emph{Database}, the \satss and the \gsss are thoroughly described in the
-next subsections. 
+next subsections.
 
 \subsubsection{Database}
 
 A database containing all the required data for the simulations was
 implemented. The selected database management system \emph{(DBMS)} is
 \emph{MySQL}. It was selected because it is friendly usable, works in multiple
-platforms, provides transactional and nontransactional storage engines and the server is a separate program for use in a \emph{client/server} networked environment. 
+platforms, provides transactional and nontransactional storage engines and the server is a separate program for use in a \emph{client/server} networked environment.
 
 The design of the database architecture is shown in Figure~\ref{fig:sss-database-architecture}.
 
@@ -525,13 +532,13 @@ actions:
   information contained in the \emph{Scenario\_<NUM>\_<SCENE>.csv} with file
   \emph{All\_Scenarios.csv}. This means that for each Scenario the $[T_{GS}]_{0ij}$,
   $[T_{GS}]_{fij}$,  $[T_{AOI}]_{0i}$ and $[T_{AOI}]_{fi}$ representative of the simulated
-  scenario are taken. That information is inserted into the database as follows: 
+  scenario are taken. That information is inserted into the database as follows:
 \begin{itemize}
-\item For each scenario the information regarding the accesses of the satellites to the ground stations are selected, $[T_{GS}]_{0ij}$ and $[T_{GS}]_{fij}$. 
-\item Those accesses are merged with the \emph{All\_scenarios.csv} file in order to obtain the accesses of the satellites in which there are \emph{AOI} images. 
-\item Then if the satellite acquired an \emph{AOI} in the current scenario, the information of the \emph{AOI} is also included in the database. 
+\item For each scenario the information regarding the accesses of the satellites to the ground stations are selected, $[T_{GS}]_{0ij}$ and $[T_{GS}]_{fij}$.
+\item Those accesses are merged with the \emph{All\_scenarios.csv} file in order to obtain the accesses of the satellites in which there are \emph{AOI} images.
+\item Then if the satellite acquired an \emph{AOI} in the current scenario, the information of the \emph{AOI} is also included in the database.
 \item Otherwise the fields with the information regarding the \emph{AOI} are filled
-  with $-1$ value. 
+  with $-1$ value.
 \end{itemize}
 \end{enumerate}
 
@@ -548,7 +555,7 @@ ground station has an \emph{IP adress} and a \emph{port} associated, the \emph{S
 
 \subsection{Satellite System Simulator}
 
-The \satss reproduces the behaviour of the 17 satellites constellation by executing 17 individual \emph{Satellite Simulators} characterized by the specific behaviour of each satellite. 
+The \satss reproduces the behaviour of the 17 satellites constellation by executing 17 individual \emph{Satellite Simulators} characterized by the specific behaviour of each satellite.
 
 The \satss is a manager that executes 17 \emph{Satellite Simulators}. The
 \emph{Satellite System Simulator} requires the scenario number and the \emph{IP adress} of the database as an input and executes the \emph{Satellite Simulators} by providing them the specific identity of the satellite \emph{(idSatellite)}, number of the scenario \emph{(S)} and IP of the distributed database  \emph{(ipDatabase)}.
@@ -587,11 +594,11 @@ Figure \ref{fig:sss-sat-simulator-architecture} shows the relation between the p
 \label{par:satellite-workflow}~\\
 
 The \emph{Satellite Simulator} starts the execution following these steps:
-\begin{enumerate}  
+\begin{enumerate}
 \item The \emph{Initialization Module} obtains \emph{S}, \emph{idSatellite} and \emph{ipDatabase}.
 \item Then, the \emph{Initialization Module} makes queries on the database to obtain all the required satellite data for current scenario: $[T_{GS}]_{0ij}$, $[T_{GS}]_{fij}$,  $[T_{AOI}]_{0i}$ and $[T_{AOI}]_{fi}$. The queries made to the database contain the particle “order by timeInZone” column. This means that the database returns the $[T_{GS}]_{0ij}$ times in ascending order. Other query gets the \emph{ipGroundStations} and \emph{portGroundStations} of every \emph{Ground Station Simulator}.
-\item Schedule of data download: the \emph{Satellite Simulator} schedules the data download from the \emph{Satellite Simulator} to the \emph{Ground Station Simulators} (see Section~\ref{subpar:shedule-process}). 
-\item When all the communications between the \emph{Satellite Simulator} and the \emph{Ground Station Simulators} have been scheduled in time, the \emph{Satellite Simulator} starts \emph{Satellite Dynamics Module}. 
+\item Schedule of data download: the \emph{Satellite Simulator} schedules the data download from the \emph{Satellite Simulator} to the \emph{Ground Station Simulators} (see Section~\ref{subpar:shedule-process}).
+\item When all the communications between the \emph{Satellite Simulator} and the \emph{Ground Station Simulators} have been scheduled in time, the \emph{Satellite Simulator} starts \emph{Satellite Dynamics Module}.
 \item When the last scheduled task has been executed, the \emph{Satellite
     Simulator} finishes the execution.
 \end{enumerate}
@@ -618,10 +625,10 @@ byte size), which are sent between \vw nodes instead of real satellite
 imagery. The packets contain all the metadata of the images: \emph{AOI}, non \emph{AOI}, area
 between visibility cones.  These packets are the following:
 \begin{itemize}
-\item \emph{Packet ``U'':} The transmission of this packet means that the satellite sends \emph{AOI} images at $98.6 Mbps$ and \emph{non AOI} images at $64.1Mbps$. 
-\item \emph{Packet ``I'':} The transmission of this packet means that the satellite sends \emph{non AOI} images at $160 Mbps$. 
+\item \emph{Packet ``U'':} The transmission of this packet means that the satellite sends \emph{AOI} images at $98.6 Mbps$ and \emph{non AOI} images at $64.1Mbps$.
+\item \emph{Packet ``I'':} The transmission of this packet means that the satellite sends \emph{non AOI} images at $160 Mbps$.
 \item \emph{Packet ``B'':} The transmission of this packet means that the
-  satellite sends \emph{AOI} images at $160 Mbps$. 
+  satellite sends \emph{AOI} images at $160 Mbps$.
 \end{itemize}
 
 To schedule the data download process the following functions were defined:
@@ -636,7 +643,7 @@ To schedule the data download process the following functions were defined:
 \item \emph{t\_end:} end time in which the function is finished.
 \end{itemize}
 
-The function has implemented the following pseudo-code:
+The function has implemented the pseudo-code in Listing~\ref{code:sss-notinterestingzone}:
 
 \begin{listing}[
   float=h!,
@@ -644,7 +651,7 @@ The function has implemented the following pseudo-code:
   label    = code:sss-notinterestingzone,
 style=customc]
 function NotInterestingZone (t_ini,t_end,ipGroundStation):
-offset <-0 //deviation of the normal time 
+offset <-0 //deviation of the normal time
 socket <- connect(ipGroundStation) //connection with the GS
 current_t <- time() //get the current system time
 penal_times <-0 // times that time function is called
@@ -669,14 +676,14 @@ socket.close()
 \item \emph{t\_end:} end time in which the function is finished.
 \item \emph{offset\_time:} It is the difference $([T_{GS}]_{0ij}- [T_{AOI}]_{0i} )*CR$.
 \end{itemize}
-The function has implemented the following pseudo-code:
+The function has implemented the  pseudo-code in Listing~\ref{code:sss-interestingZone}:
 \begin{listing}[
   float=h!,
   caption  = {Pseudocode of \emph{InterestingZone} function},
   label    = code:sss-interestingZone,
   style=customc]
 function InterestingZone (t_ini,t_end,offset_time,ipGroundStation):
-offset <-0 //deviation of the normal time 
+offset <-0 //deviation of the normal time
 socket <- connect(ipGroundStation) //connection with the GS
 current_t <- time() //get the current system time
 penal_times <-0 // times that time function is called
@@ -707,7 +714,7 @@ socket.close()
 \item \emph{t\_ini:} start time in which the function is executed.
 \item \emph{t\_end:} end time in which the function is finished.
 \end{itemize}
-The function has implemented the following pseudo-code:
+The function has implemented the pseudo-code in Listing~\ref{code:sss-outofvisibility}:
 
 \begin{listing}[
   float=h!,
@@ -715,7 +722,7 @@ The function has implemented the following pseudo-code:
   label    = code:sss-outofvisibility,
 style=customc]
 function OutOfVisibility (t_ini,t_end):
-offset <-0 //deviation of the normal time 
+offset <-0 //deviation of the normal time
 socket <- connect(ipGroundStation) //connection with the GS
 current_t <- time() //get the current system time
 penal_times <-0 // times that time function is called
@@ -814,7 +821,7 @@ the STK software. In the data base, the stored times are implemented in
 seconds. However to simulate a scenario in real time is too long. It can be
 shortened by computing a relative time $(T_r)$:
 \begin{equation}\label{eq:TR}
-	T_r=T/n	
+	T_r=T/n
 \end{equation}
 
 where $T$ is the absolute time and $n$ a factor that scales the absolute time to reduce the execution time of the experiment. In preliminary simulations we used $n=10$, although during the experiment execution stage this will be evaluated and probably changed. The Table <<>>shows the absolute times and relative times for each scenario duration.
@@ -847,20 +854,20 @@ The \satss software is developed in a multiplatform language, but it is restrict
 The execution of the satellite software has to be done as \emph{super-user} in
 \emph{UNIX}. It is executed with the following command line:
 \begin{itemize}
-\item python~satellite.py~<IDSAT>~<SCENARIO>~<DBHOST>~[LOGLEVEL]
+\item[>] python~satellite.py~<IDSAT>~<SCENARIO>~<DBHOST>~[LOGLEVEL]
 \end{itemize}
 
 where:
 \begin{itemize}
-\item \emph{IDSAT} is the satellite identity. This value must be an integer. 
+\item \emph{IDSAT} is the satellite identity. This value must be an integer.
 \item \emph{SCENARIO} is the scenario number to simulate. Must be an integer.
 \item \emph{DBHOST} is the host where the data base is located. Must be a hostname or an \emph{IP address}.
-\item \emph{LOGLEVEL} is the level of log that the software will show. The values can be: INFO, DEBUG. This parameter is optative. By default its value is INFO. 
+\item \emph{LOGLEVEL} is the level of log that the software will show. The values can be: INFO, DEBUG. This parameter is optative. By default its value is INFO.
 \end{itemize}
 
 \subsection{Ground Station System Simulator}
 
-In this section, the implementation and the architecture of the \emph{Ground Station Simulator} is described. The \gsss reproduces the behaviour of the set of 12 ground stations by replicating 12 times a \emph{Ground Station Simulator} that renders individual ground stations behaviour. 
+In this section, the implementation and the architecture of the \emph{Ground Station Simulator} is described. The \gsss reproduces the behaviour of the set of 12 ground stations by replicating 12 times a \emph{Ground Station Simulator} that renders individual ground stations behaviour.
 
 The \gsss is a manager that executes 12 \emph{Ground Station Simulators}. The
 \gsss requires the scenario number and the \emph{IP address} of the database as
@@ -878,7 +885,7 @@ The functions of the ground stations are the following:
   download for processing and publishing in the \emph{Archive and Catalogue} subsystem.
 \end{itemize}
 
-The \emph{Ground Station Simulator} software is common for all the ground stations, but it is parameterized to define each of them, similarly to the \emph{Satellite Simulator}. 
+The \emph{Ground Station Simulator} software is common for all the ground stations, but it is parameterized to define each of them, similarly to the \emph{Satellite Simulator}.
 
 The \emph{Ground Station Simulator} is constituted by the following components:
 \begin{enumerate}
@@ -896,7 +903,7 @@ update the \emph{IP address} and port of the \emph{Ground Station Simulator} ser
 \item \emph{Ground Station Dynamics Module:} This module represents the dynamics and associated parameters of the ground station. It requires \emph{S}, \emph{ipDatabase} and \emph{idGroundStation}.
 \end{enumerate}
 Figure~\ref{fig:sss-ground-station-architecture} shows the relation between the previous modules.
- 
+
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{spaceSystemSimulator/ground-station-architecture.jpg}
@@ -908,7 +915,7 @@ Figure~\ref{fig:sss-ground-station-architecture} shows the relation between the 
 \subsubsection{Ground Station Simulator Workflow}
 
 The \emph{Ground Station Simulator} starts the execution following these steps:
-\begin{enumerate} 
+\begin{enumerate}
 \item The \emph{Initialization Module} obtains \emph{S}, \emph{idGroundStation} and \emph{ipDatabase}.
 \item Then, the \emph{Initialization Module} queries on the database for the
   name of the ground station and for updating the \emph{IP address} and
@@ -917,23 +924,23 @@ The \emph{Ground Station Simulator} starts the execution following these steps:
 \begin{itemize}
 \item A network socket\footnote{Network socket is an endpoint of an inter-process communication flow across a computer network. Most of the communications between computers is based on the Internet Protocol using network sockets.}  is created for listening input connections from \emph{Satellite Simulators}.
 \item Every time a satellite enters into the visibility cone of the ground station a connection between a \emph{Satellite Simulator} and the \emph{Ground Station Simulator} is created. Note that if several satellites are in the same visibility cone, the \emph{Ground Station Simulator} opens a connection for each \emph{Satellite Simulator}, and that the \emph{Ground Station Simulator} can listen to new connections if new satellites enter into the visibility cone.
-\item The \emph{Ground Station Simulator} creates a new process to keep the previous connection or connections (if there are more than one satellite in the visibility cone) open. 
+\item The \emph{Ground Station Simulator} creates a new process to keep the previous connection or connections (if there are more than one satellite in the visibility cone) open.
 \item The new process or processes receive the packets sent by the \emph{Satellite Simulators}.
 \item Once the transmission between the \emph{Satellite Simulators} and the \emph{Ground Station Simulator} finished the connections are closed.
 \item Then the received packets are counted and classified by type (see Section~\ref{subpar:shedule-process}):
 \begin{itemize}
-\item \emph{Packet ``U'':} $98.6Mb$ are added to the \emph{AOI} buffer and $64.1Mb$ are added to the \emph{non AOI} buffer in the \emph{Ground Station Simulator}. 
-\item \emph{Packet ``I'':} $160 Mb$ are added to the \emph{non AOI} buffer in the \emph{Ground Station Simulator}. 
+\item \emph{Packet ``U'':} $98.6Mb$ are added to the \emph{AOI} buffer and $64.1Mb$ are added to the \emph{non AOI} buffer in the \emph{Ground Station Simulator}.
+\item \emph{Packet ``I'':} $160 Mb$ are added to the \emph{non AOI} buffer in the \emph{Ground Station Simulator}.
 \item \emph{Packet ``B'':} $160 Mb$ are added to the \emph{AOI} buffer in the
   \emph{Ground   Station Simulator}.
 \end{itemize}
-After classifying the packets, the new processes finish. 
+After classifying the packets, the new processes finish.
 \item The \emph{AOI} images and \emph{non AOI} images are created in the \emph{Ground Station  Simulator}.
 \end{itemize}
-\item The \emph{Ground Station Simulator} server ends when it receives the \emph{SIGINT} signal. 
+\item The \emph{Ground Station Simulator} server ends when it receives the \emph{SIGINT} signal.
 \end{enumerate}
 
-Figure~\ref{fig:sss-ground-station-workflow} shows the process explained above. The diagram also shows the interactions with the other subsystems (see also Figure~\ref{fig:sss-ground-station-architecture}). Figure~\ref{fig:sss-ground-station-workflow} also shows the inputs for the \emph{Ground Station Simulator} and the outputs after its execution. These outputs are the Raw Images in time created and a log file that contains the information about the execution. In orange the inputs to the \emph{Ground Station Simulator} are represented, in green the transitions in the workflow and in blue the outputs.
+Figure~\ref{fig:sss-ground-station-workflow} shows the process explained above. The diagram also shows the interactions with the other subsystems (see also Figure~\ref{fig:sss-ground-station-architecture}). Figure~\ref{fig:sss-ground-station-workflow} also shows the inputs for the \emph{Ground Station Simulator} and the outputs after its execution. These outputs are the Raw Images in time created and a log file that contains the information about the execution.
 
 \begin{figure}[!h]
 \begin{center}
@@ -944,11 +951,11 @@ Figure~\ref{fig:sss-ground-station-workflow} shows the process explained above. 
 \end{figure}
 
 The activity diagram in UML format of the Ground Station Simulator is depicted
-in Figure~\ref{fig:sss-ground-station-activity}:
+in Figure~\ref{fig:sss-ground-station-activity}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.7\textwidth]{spaceSystemSimulator/ground-station-activity.jpg}
+\includegraphics[width=0.75\textwidth]{spaceSystemSimulator/ground-station-activity.jpg}
 \caption{Ground Station Simulator Activity Diagram}
 \label{fig:sss-ground-station-activity}
 \end{center}
@@ -979,7 +986,7 @@ required:
 \item Connectivity with the data base located in \bonfire through the network.
 \end{itemize}
 
-The \emph{Ground Station Simulator} is developed in a multiplatform language, but it is restricted to be executed in \emph{UNIX} operative systems because there are many dependencies with some packets and the file system. 
+The \emph{Ground Station Simulator} is developed in a multiplatform language, but it is restricted to be executed in \emph{UNIX} operative systems because there are many dependencies with some packets and the file system.
 
 The software also needs to know the \emph{IP addresses} assigned to its Ethernet interface. If this interface is not connected, the software looks for the WLAN0 interface. This information is accomplished from the \emph{UNIX} file ``/etc/hosts''.
 
@@ -990,8 +997,8 @@ The execution of the satellite software must be done as sudo user as follows:
 
 where:
 \begin{itemize}
-\item \emph{IDSAT} is the ground station identity. This value must be an integer. 
+\item \emph{IDSAT} is the ground station identity. This value must be an integer.
 \item \emph{SCENARIO} is the scenario to simulate. Must be an integer.
 \item \emph{DBHOST} is the host where the data base is located. Must be a hostname or an \emph{IP address}.
-\item \emph{LOGLEVEL} is the level of log that the software will show. The values can be: INFO, DEBUG. This parameter is optative. By default its value is INFO. 
+\item \emph{LOGLEVEL} is the level of log that the software will show. The values can be: INFO, DEBUG. This parameter is optative. By default its value is INFO.
 \end{itemize}
