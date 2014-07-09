@@ -21,6 +21,26 @@ percentage.
 \item\emph{Latency (ms)} is the time it takes a signal to travel from its source, trough the communication channel, until it reaches the receiver. It is related with the distance between the nodes, the network congestion and the propagation velocity (a fraction of the light speed) among other parameters. 
 \end{itemize}
 
+\subsection{Platforms and Tools description}
+
+The experiment presented in this report is completely carried out in \pl, although the results obtained will be used to implement a realistic model of the networks in the communications between the simulators and the cloud system of the GEO-Cloud experiment implemented in \vw and \bonfire respectively. 
+
+\pl is a global research network that supports the development of new network
+services (Europe, 2014). This testbed currently consists of 1188 nodes at 582
+sites, which allows researchers to develop new technologies for distributed
+storage, network mapping, peer-to-peer systems, distributed hash tables and
+query processing. Currently it is split into two platforms: \emph{PlanetLab
+  Europe} that contains the European nodes and \emph{PlanetLab Central} which
+contains the nodes located outside Europe. 
+For the experiment we use nodes from both of them. 
+
+To implement and execute the experiment we use the following tools: 
+\begin{itemize}
+\item \emph{NEPI} <<(INRIA, 2014)>>: It is a Python-based language library used to design and easily run network experiments on network evaluation platforms (e.g. PlanetLab, OMF wireless testbeds and network simulators among others). It facilitates the definition of the experiment workflow, the automatic deployment of the experiment, resource control and result collection; and has the functionalities of automatic provisioning of resources and automatic deployment of the experiment. In the experiment NEPI is used to provision the nodes and execute the whole experiment. 
+\item \emph{Iperf} <<(Iperf, 2014)>>: It is a tool used to measure the maximum \emph{TCP} bandwidth, allowing the tuning of various parameters and \emph{UDP} characteristics. \emph{Iperf} reports \emph{bandwidth}, \emph{delay jitter} and \emph{datagram loss}. This software allows any host to play the client and server roles. In the experiment, it is used to obtain the bandwidth with a step of one second when executed in \emph{TCP} mode and the loss rate when executed in \emph{UDP} mode. The nodes in Layer 1 and 2 are configured as clients and the cloud node as server. 
+\item \emph{Ping} <<(Pelsser, Cittadini, Vissicchio, Bush, 2013)>>: It is software used to test if a host on an Internet Protocol is reachable. It measures the roundtrip time for messages sent from the originating host to a destination host. In the experiment, it is used to measure the latency delivery of a package over the Internet between the nodes in Layer 1 and 2 and the central node.
+\end{itemize}
+
 \subsection{PlanetLab Experiment}
 
 The objective of the \emph{GEO-Cloud} experiment is to simulate as realistically as possible the behaviour of a complete Earth Observation system. With this aim, the communication links in the real system have to be modelled to connect the simulators implemented in \vw and \bonfire with the values obtained from the experiment in \pl. The experiment then consists of communicating 12 real nodes representing the ground stations (the nearest PlanetLab node to the real ground station was selected) and the end users distributed around the world (we selected 31 nodes from different 31 countries) with a node representing the cloud (located in \emph{INRIA}) to measure the real impairments of the networks and to implement a realistic model of the communications. The impairments to be measured and used to model the network are the effective bandwidth, the latency and the loss rate.
@@ -66,7 +86,7 @@ The real system is modeled into three main components: i) a network of ground st
 
 \begin{enumerate}
 
-\item Layer 1 is constituted by 12 ground stations connecting with a cloud
+\item \emph{Layer 1} is constituted by 12 ground stations connecting with a cloud
   infrastructure. The ground stations and their location are depicted in Table \ref{table:ple-groundstations-location}. Their locations and footprints are depicted in Figure \ref{fig:ple-footprints}. The footprints represent the area in which the satellites can establish the communication with the ground stations.
 
 \begin{table}[hp]
@@ -94,7 +114,7 @@ The real system is modeled into three main components: i) a network of ground st
 % Figure\ 2\ Footprints of the ground stations.
 % \par}
 
-\item Layer 2 is constituted by the end users accessing the web services
+\item \emph{Layer 2} is constituted by the end users accessing the web services
   implemented in cloud. These users are distributed around the world and can be
   governments, emergency services, media and individuals among others.
 \end{enumerate}
@@ -102,10 +122,10 @@ The real system is modeled into three main components: i) a network of ground st
 From the previous layers two networks can be identified: the network between the
 ground stations and the cloud and the network between the end users and the
 cloud. The system and the interconnections between components are depicted in
-Figure \ref{fig:ple-system-description}. The connections between the ground stations and end users with the
+Figure~\ref{fig:ple-system-description}. The connections between the ground stations and end users with the
 cloud are represented as arrows with different line types to represent that
 every connection can have different characteristics and impairments. All the
-connections are TCP.
+connections are \emph{TCP}.
 
 \begin{figure}[!h]
 \begin{center}
@@ -116,8 +136,11 @@ connections are TCP.
 \end{center}
 \end{figure}
 
-We define the network in function of the following representative impairments: effective bandwidth, latency and loss rate. Thus, every link is represented in function of the previous impairments: effective bandwidth, latency, loss rate.
-This system is implemented in Virtual Wall and BonFIRE as depicted in Figure \ref{fig:ple-scheme-system}. The experiment in PlanetLab will be used to update the network parameters connecting Virtual Wall and BonFIRE.
+We define the network in function of the following representative impairments: \emph{effective bandwidth, latency and loss rate}. Thus, every link is represented in function of the previous impairments: effective bandwidth, latency, loss rate.
+This system is implemented in \vw and \bonfire as depicted in Figure
+\ref{fig:ple-scheme-system}. The experiment in \pl will be used to update the
+network parameters connecting \vw and \bonfire.
+
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=5.48738in,height=2.73818in]{planetlab/schemeSystem.png}
@@ -137,47 +160,56 @@ cloud servers for similarity with the real system:
 
 \item \textbf{Layer 1:} it represents the connections between 12 nodes
   representing the ground stations and a central node representing the cloud
-  servers. In PlanetLab Europe and PlanetLab Central, the nearest nodes to the
+  servers. In \emph{PlanetLab Europe} and \emph{PlanetLab Central}, the nearest nodes to the
   real location of the ground stations were selected. For the central node, a
-  node in INRIA was chosen, since the BonFIRE cloud has servers in the same
+  node in \emph{INRIA} was chosen, since the \bonfire cloud has servers in the same
   location. This layer then represents the transfer of geodata acquired by the
   constellation of satellites from the ground stations in which the data is
   downloaded to the cloud. The network topology implemented is peer-to-peer,
   i.e. each node representing the ground stations is directly connected with the
-  central node. In Table \ref{fig:ple-tablelayer1-nodes} the PlanetLab selected nodes for layer 1 and for the
+  central node. In Table~\ref{tab:ple-tablelayer1-nodes} the \pl selected nodes for layer 1 and for the
   cloud central node are shown. The nodes are numbered in ascending order in
   function of the distance to the central node, i.e. the closest node is the
   number 0 and the furthest the 37. 
 
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=6.20079in,height=1.79134in]{planetlab/ple-layer1-nodes.png}
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/ple-ground-nodes.tex}
+  }
+  \caption{Ground Segment Nodes}
+  \label{tab:ple-tablelayer1-nodes}
+\end{table}
 
-\caption{Ground Segment Nodes}
-\label{fig:ple-tablelayer1-nodes}
-\end{center}
-\end{figure}
 
-\item \textbf{Layer 2:} it represents the connection between the central node representing the cloud servers and the end users. 31 different nodes were selected in PlanetLab Europe and PlanetLab central in 31 different countries around the world. This allows us to have a representative sample of global users accessing the web services. In this case, the network topology is also peer-to-peer. In Table Table \ref{ple:ple-tablelayer2-nodes} the nodes selected for layer 2 are listed. We tried to increase the number of nodes in different countries, but during the execution of the experiment we did not find available PlanetLab nodes in the following countries: Austria, Cyprus, Denmark, Egypt, Ecuador, Iceland, India, Jordan, Mexico, Pakistan, Puerto Rico, Romania, Slovenia, Sri Lanka, Tunisia, Turkey, Venezuela, Uruguay and Taiwan. 
+\item \textbf{Layer 2:} it represents the connection between the central node
+  representing the cloud servers and the end users. 31 different nodes were
+  selected in PlanetLab Europe and PlanetLab central in 31 different countries
+  around the world. This allows us to have a representative sample of global
+  users accessing the web service
+s. In this case, the network topology is also peer-to-peer. In Table Table~\ref{tab:ple-tablelayer2-nodes} the nodes selected for layer 2 are listed. We tried to increase the number of nodes in different countries, but during the execution of the experiment we did not find available PlanetLab nodes in the following countries: Austria, Cyprus, Denmark, Egypt, Ecuador, Iceland, India, Jordan, Mexico, Pakistan, Puerto Rico, Romania, Slovenia, Sri Lanka, Tunisia, Turkey, Venezuela, Uruguay and Taiwan. 
 \end{itemize}
 
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=6.1375in,height=2.1375in]{planetlab/ple-layer2-nodes.png}
 
-\caption{User Nodes}
-\label{fig:ple-layer2-nodes}
-\end{center}
-\end{figure}
-Figure 4 shows a scheme representing the network created in PlanetLab. The
-connections between the nodes are TCP.
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/ple-user-nodes.tex}
+  }
+  \caption{User Nodes}
+  \label{tab:ple-tablelayer2-nodes}
+\end{table}
+
+
+Figure~\ref{fig:ple-network-scheme} shows a scheme representing the network created in \pl. The
+connections between the nodes are \emph{TCP}.
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=4.01423in,height=2.11349in]{planetlab/ple-layer2-nodes.png}
 
 \caption{PlanetLab Network Scheme}
-\label{fig:network-scheme}
+\label{fig:ple-network-scheme}
 \end{center}
 \end{figure}
 
@@ -360,7 +392,7 @@ in Figure 7 b.
 \begin{center}
 \includegraphics[width=0.2\textwidth]{planetlab/modelled-links.png}
 \caption{(a)}
-\label{fig:ple-modelled-links}
+\label{fig:ple-workflow-bandwidth}
 \end{center}
 \end{figure}
 \columnbreak
@@ -368,7 +400,7 @@ in Figure 7 b.
 \begin{center}
 \includegraphics[width=0.2\textwidth]{planetlab/modelled-links.png}
 \caption{(b)}
-\label{fig:ple-modelled-links}
+\label{fig:ple-workflow-loss-rate}
 \end{center}
 \end{figure}
 \end{multicols}
@@ -378,7 +410,7 @@ in Figure 7 b.
 \begin{center}
 \includegraphics[width=0.2\textwidth]{planetlab/modelled-links.png}
 \caption{(a)}
-\label{fig:ple-modelled-links}
+\label{fig:ple-workflow-latency-user}
 \end{center}
 \end{figure}
 \columnbreak
@@ -386,7 +418,7 @@ in Figure 7 b.
 \begin{center}
 \includegraphics[width=0.2\textwidth]{planetlab/modelled-links.png}
 \caption{(b)}
-\label{fig:ple-modelled-links}
+\label{fig:ple-workflow-latency-gs}
 \end{center}
 \end{figure}
 \end{multicols}
