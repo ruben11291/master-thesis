@@ -2,12 +2,12 @@
 \label{chap:antecedentes}
 
 
-This chapter resumes the main subjects acquired during the accomplishment of the GEO-Cloud project.  The novel architecture proposed in this project for EO processing carries the absence of this kind of platforms to compare with. In this way, the study of the state of the art will be done focalising in some aspects of cloud computing platforms, federated testbeds, networking, satellite systems, and so on. As consequence, this section depicts the different thematic areas . 
-The conceptual map showed in Figure~\ref{fig:intr-conceptual-map} presents the sections and subsections of this chapter. Thereby in Earth Observation Satellites area, the different concepts for creating and modelling a satellite for earth imaging, its data management and orbital definitions is studied. In high-level languages, some scripting languages are compared. In Networking section, different network impairments and several tools for acquiring these are depicted. In Federated Infrastructre section, the testbeds that Fed4FIRE platform is composed by are explained. 
+This chapter resumes the main subjects acquired during the accomplishment of the GEO-Cloud project.  The novel architecture proposed in this project for EO processing carries the absence of this kind of platforms to compare with. In this way, the study of the state of the art will be done focalising in some aspects of cloud computing platforms, federated testbeds, networking, satellite systems, and so on. As consequence, this section depicts the different thematic areas .
+The conceptual map showed in Figure~\ref{fig:intr-conceptual-map} presents the sections and subsections of this chapter. Thereby in Earth Observation Satellites area, the different concepts for creating and modelling a satellite for earth imaging, its data management and orbital definitions is studied. In high-level languages, some scripting languages are compared. In Networking section, different network impairments and several tools for acquiring these are depicted. In Federated Infrastructre section, the testbeds that Fed4FIRE platform is composed by are explained.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{statement/background-geocloud.png}
+\includegraphics[width=1\textwidth]{statement/background-geocloud.png}
 \caption{Conceptual Map of this chapter.}
 \label{fig:intr-conceptual-map}
 \end{center}
@@ -22,11 +22,48 @@ Finally, in the Software Design section discusses the requirements for building 
 
 \section{Earth Observation Satellites}
 
-In this section, the orbital parameters used for customizing the satellite
-dynamics 
+In this section, different areas of aeronautics are involved. The orbital
+mechanics which defines and calculates the satellite orbits for rounding around
+the world; the Satellite Dynamics whose aim consist of defining the main
+features of the satellite and payloads to carry out a concrete mission; and
+finally, the data management whose mission consist of storing and sending the
+usefull information from satellite to Ground Segment.
+
+\subsection{Orbital Mechanics}
+
+\subsection{Satellite Dynamics}
+
+\subsection{Data Management}
+
 
 \section{High-level languages}
 
+For the development of the project, \acs{XML}, Python and Bash languages has
+been used. The first, XML, has been used for building the configuration file of
+the Orchestrator component and to obtain the selected nodes by JFed
+application. The rest of them are scripting languages. The source of the
+components of the cloud has been developed using Python and the interconnections
+between modules and others secundary funcionalities, in Bash script.
+
+\subsection{XML}
+\acs{XML} is a markup language that defines a set of rules for encoding
+documents in a format that is both human-readable and machine-readable. Most of
+actual software use it for configuring or for updating its configuration on fly.
+
+\subsection{Python}
+Python is a object oriented language, although permits imperative and functional
+programming. It does not need to compile the source because it is
+interpreted. It permits a flexible development because it is dynamic type and in
+this project, the most important feature why this language has been used,
+consist of it is multiplatform. With this feature, the software is able to be
+executed in any platform. The current version is 2.7.4 and it offers several
+useful and multipourpose libraries as matlib, pthread, mysqllib, pdb and so on.
+
+\subsection{Bash Script}
+
+It consists of several sentences that the operative system is able to read and
+translate in order to play a determined action. All the currents Linux
+distributions contains a Bash interpret
 \section{Networking}
 \section{Federated Infrastructures}
 \section{Graphical User Interfaces}
