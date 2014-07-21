@@ -41,151 +41,15 @@ order to implement realistic impairments in \vw, real networks will be
 tested in \pl.  The technologies for imagery distribution and \acs{EO}
 service delivery using cloud technologies and Internet protocols will be tested.
 
-\section{The Geo-Cloud Experiment}
-
-The GEO-Cloud experiment consists of the emulation of a realistic and complete Earth Observation System that provides services using cloud technology. For that purpose a constellation of satellites, ground stations, a cloud architecture, use cases and end users' models are designed.
-
-The \acs{EO} system will be computed and emulated in \emph{Fed4FIRE}: A constellation of satellites record images of the Earth in a daily basis. The images are transferred to ground stations that ingest the data into a cloud computing infrastructure. The data is processed and distributed to end users.
-
-The GEO-Cloud experiment is tested in three testbeds: \vw,\bonfire and
-\pl. GEO-Cloud is divided into two sub-experiments:
-\begin{itemize}
-\item One experiment in a system integrated in \vw and \bonfire.
-\item One experiment in \pl.
-\end{itemize}
-
-The experiment in \vw and \bonfire emulates the whole \acs{EO} system. In \vw:
-constellation of satellites, the ground stations and the end users' models. In
-\bonfire the cloud architecture, the processing chain of the data and its
-distribution. Both \vw and \bonfire are interconnected to transfer information from one testbed to the other and viceversa.
-
-The experiment in \pl consists of the emulation of the networks that constitute
-the links between the ground stations to the cloud and from the cloud to the end
-users. There, the network performance, features, bandwidth and impairments are
-monitored and measured. Those parameters once measured are used to update the
-models implemented in \vw, i.e, bandwidth, latency and loss rate.
-
-In the next sections, the detailed design of the GEO-Cloud experiment is introduced.
-
-\subsection{Satellite System Design}
-\label{subsec:system-design}
-\subsubsection{Design of the flight and ground segments}
-\label{subsubsec:design-flight-ground}
-In this subsection, the main characteristics of the system are presented. Objectives, constraints, previous estimations and possible modifications and their effects in the system are exposed.
-
-In a wide vision, it is an \acs{EO} system consisting of a constellation of satellites equally spaced in a \acs{LEO} orbit with the aim of achieving daily coverage of the entire Earth surface. These conditions imply a very sophisticated handle of a huge quantity of data.
-
-The following requirements have been fulfilled to design the system:
-\begin{itemize}
-\item Swath: $160km$ (based on state of the art cameras).
-\item Resolution: $6.7m$ (based on state of the art cameras).
-\item Low Earth Orbits.
-\item Sun Synchronous orbits.
-\item Download data rate: $160 Mbps$ (based on Deimos-2 satellite characteristics).
-\item Optical Bands: 5 Multispectral (based on state of the art cameras).
-\end{itemize}
-
-\paragraph{Global Daily Coverage}~\\
-The objective of this system is the acquisition of images of the total Earth surface in a daily basis. Global coverage is considered to include the land surface that is shown in Figure~\ref{fig:intr-land-surface}.
+\subsection{Cloud Computing}
 
 
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.6\textwidth]{detaildesign/surface-daily.png}
-\caption{Land surface to be acquired in a daily basis}
-\label{fig:intr-land-surface}
-\end{center}
-\end{figure}
+\subsection{The Geo-Cloud Experiment Overview}
 
 
-\paragraph{Flight Segment}~\\
-The satellites are selected according to the current state of the art. However,
-some enhancements can be assumed as a way to adjust the analysis to the short
-term future.
+\subsubsection{Experiment Description}
 
-
-\subparagraph{Satellite performances}~\\
-As a first iteration for the system, small platforms of less of $500kg$ are supposed according to the size and payload bay characteristics of representative platforms in this category. This study is based on the bus platforms currently offered by Surrey Satellite Technology Ltd, Satrec Initiative, Sierra Nevada Corporation, etcetera.
-
-To reduce the amount of satellites orbiting the Earth, a design with two payloads has been assumed. Thus, the swath (the width of the field of view of each satellite in the surface of the Earth) can be duplicated without decreasing the resolution.
-
-The satellites shall be pointing to nadir, acquiring images without maneuvering because of the acquisition plan for cover the Earth daily. Simultaneously, when a satellite gets into the field of view of a Ground Station, the download starts and at the same time the satellite continues imaging.
-
-The main specifications of the satellites in the constellation are shown in Table~\ref{table:intro-satellite-performances}. The values of each parameter have been selected according to the state of the art and the desired quality of the images in the mission.
-
-\begin{table}[hp]
-  \centering
-  {\small
-  \input{tables/sat-performances.tex}
-  }
-  \caption{Main Performances of the Satellites}
-  \label{table:intro-satellite-performances}
-\end{table}
-
-
-\subparagraph{Orbit definition}~\\
-It is common in \acs{EO} satellite missions the use of \emph{sun-synchronous} orbits. These orbits guarantee that the lighting conditions of the imaged places are the same during the mission, which is a very desirable characteristic.
-
-\acs{LTAN} is also a desired condition of the orbit very related to the lighting and weather conditions of those places that the satellite overflies (\acs{LTAN} is selected according to the desired local time of the overflown places and the cloud formation during the day); it is common the use of \emph{LTAN 10:30h} for Earth Observation.
-
-Other of the main parameters of an orbit is the altitude. Altitude has effects in the resolution and the swath of the satellites, which has impact in the number of satellites required to achieve the coverage objective. According to the value of those parameters in the payloads included in the satellites, the reference altitude for the system was found to be \emph{646km}. \acs{SSO} condition implies a relation between the altitude and the inclination of the orbit of \emph{97.97deg} in this case.
-
-\subparagraph{Number of satellites in the constellation}~\\
-The number of satellites shall be calculated using the altitude ($646 km$), the
-inclination ($97.97 deg$) and a swath in
-Table~\ref{table:intro-satellite-performances}. As a result, 17 satellites are
-required to carry out this mission. In Figure~\ref{fig:intr-constellation-global} the whole constellation is
-shown.
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.6\textwidth]{detaildesign/constellation-global.png}
-\caption{Constellation of 17 satellites in a SSO orbit at 646km}
-\label{fig:intr-constellation-global}
-\end{center}
-\end{figure}
-
-\paragraph{Ground Stations design}~\\
-When the satellite acquires the data, it has to be downloaded to the Ground
-Stations and then it has to be distributed to the customers. Due to the huge
-quantity of data and the limitations the download data rate sets, several
-stations distributed over the surface of the Earth are required. They will allow
-the satellite to communicate with them and download the images. Due the
-accumulated duration of the accesses to all the ground stations per day and the
-frequency of accesses per day (it varies with the latitude of the station), the
-Figure~\ref{fig:intr-footprints} shows how the Ground Stations and its
-footprints (area in which the satellites can communicate with the Ground
-Station) is distributed.
-
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{detaildesign/footprints.png}
-\caption{Footprints of the selected Ground Stations}
-\label{fig:intr-footprints}
-\end{center}
-\end{figure}
-
-\subsubsection{Generated Data Volume}
-
-Specifically, $135,698,500 km^2$ of ground surface are daily acquired. With the following expression can estimate the data volume generated:
-
-\begin{equation}
-Acquired~Data~Volume= \frac{Acquired~Surface}{GSD^2} * Nº bands * Digitalization
-\end{equation}
-
-Before downloading the images they are compressed. The ancillary data is
-included in the process (auxiliary information useful for the geolocation of the
-images, protocol \ldots). In this case, the ancillary data is estimated to be
-12\% of the acquired data (based on Deimos 2 satellite measurements), which is
-added and then compressed. With the values depicted in
-Table~\ref{table:intro-satellite-performances}, the ancillary and the daily ground
-surface adquired, the data on ground can be estimated. As result including ancillary data before compression, \emph{11.55TBytes} shall be downloaded daily.
-
-
-\subsection{Experiment Description}
-
-The experiment consists of virtualizing a conventional \EO system to offer on
+The experiment consists of virtualizing a conventional \acs{EO} system to offer on
 demand services to clients with the objective of validating its viability, find
 the strengths and weaknesses of using cloud computing technology and establish
 possible solutions for a future implementation in the market. There are three
@@ -198,7 +62,7 @@ components:
 \end{enumerate}
 
 
-\subsection{Experiment Design}
+\subsubsection{Experiment Design}
 
 
 The GEO-Cloud experiment requires emulating a complete realistic Earth Observation Mission to provide high added value services such as crisis management. To this complex situation, the system has to response by processing on demand massive and variable amounts of stored and on line transferred data.
@@ -247,41 +111,79 @@ Thus, the whole EO system is completely implemented in Fed4FIRE, see Figure 3.
 \end{figure}
 
 
+
+
 \subsection{Impact}
+\subsubsection{Impact in Fed4FIRE}
+The experiment will contribute to several objectives of the Fed4FIRE project:
+increase trustworthiness of its facilities and support their
+sustainability. GEO-Cloud will test Fed4FIRE tools for its use in the industry
+driven experiments close to market, specifically complex and real time services
+for Earth Observation industry when critical situations occur. 
+GEO-Cloud will validate the tools for monitoring and control of cloud computing
+and networking in EO services for emergencies and will test the limits of the
+infrastructure for processing, storing and traffic of massive on-demand
+data. GEO-Cloud will provide feedback to improve the infrastructure during and
+after the experiment is carried out, sharing our knowledge in traditional
+infrastructures for \acs{EO} applications, monitoring, processing and
+distribution of geospatial data.
 
-\subsection{Socio-Economical Impact Analysis}
+\subsubsection{Scientific and Technological Impact}
 
-The Geo-Cloud project is used as a framework to offer services from EO
+GEO-Cloud will contribute to provide a worldwide service in the Earth
+Observation Industry. It will answer if Future Internet technologies can provide
+viable solutions for the complex \acs{EO} market and to find the limitations of
+the current cloud computing technology for its application in \acs{EO} market.
+ 
+GEO-Cloud will test the viability and ease of use of those facilities for
+industry driven experiments close to the market.
+
+\subsection{Socio-Economical Impact}
+
+The Geo-Cloud project is used as a framework to offer services from \acs{EO}
 users. The benchmark developed in the experiment allows to establish the
-frontiers of viable and not viable cloud solutions in EO depending on
+frontiers of viable and not viable cloud solutions in \acs{EO} depending on the
+type of demand and service offered. This will establish the basis to satisfy the
+growing demand of added value \acs{EO} services.
 
-In the last decade, a large cantity of companies have started
+The reduction of the processing, sotrage, communications and distribution costs
+of {EO} services will facilitate the access to the remote sensing techonology of
+common end users, but also of a more general public. GEO-Cloud will contribute
+defining the basis to advance in the use of geospatial information of the nine
+``Societal Benefit Areas'' defined in GEO: disasters, health, energy, climate,
+water, weather, ecosystems, agriculture and biodiversity; by demonstrating
+whether or not cloud computing offers technologically and economically viable
+solutions to offer highly demanding services.
 
+The results obtained in the experiment will be used by our company to offer new
+services to th general public, current end users and future potential users. The
+rest of the \acs{EO} industry will be beneficiated since we will define a
+benchmark that relates the demand with the technology to offer quality
+services. The users will be beneficiated since we will define the framework to
+offer higher quality services.
 
-\section{Scope of this end-career project}
-Objetivos no???Por lo tanto esta seccion no es necesaria
 
 
 
 \section{Document Structure}
 
-Pueden incluirse aquí una sección con algunos consejos para la lectura del
-documento dependiendo de la motivación o conocimientos del lector.  También
-puede ser útil incluir una lista con el nombre y finalidad de cada uno de los
-capítulos restantes.
+This document has been carried out as the end of carrier project rules from the Escuela
+Superior de Informática of the Universidad de Castilla La Mancha. It contains
+the following sections:
 
 
 \begin{definitionlist}
-\item[Capítulo \ref{chap:antecedentes}: \nameref{chap:antecedentes}] Explica herramientas
-  y aspectos básicos de edición con \LaTeX.
-\item[Chapter \ref{chap:antecedentes}: \nameref{chap:objetivos}] In this
-  chapter, the state of the art is showed and the differents studied tools and
-  plattforms will be explained.
-\item[Chapter \ref{chap:objetivos}: \nameref{chap:antecedentes}] Explica herramientas
-  y aspectos básicos de edición con \LaTeX.
-\item[Capítulo \ref{chap:objetivos}: \nameref{chap:objetivos}] Finalidad y justificación
-  (con todo detalle) del presente documento.
-\item[Capítulo \ref{chap:antecedentes}: \nameref{chap:antecedentes}] Explica herramientas
+\item[Chapter \ref{chap:antecedentes}: \nameref{chap:antecedentes}] in this
+  chapter an overview of the necessary knowledge areas is made to study for the
+  development of GEO-Cloud, like cloud computing, distributed middlewares,
+  processing premises for \acs{EO} and several testbeds in Fed4FIRE.
+\item[Chapter \ref{chap:objetivos}: \nameref{chap:objetivos}] in this
+  chapter, the main objectives are depicted and explained for GEO-Cloud.
+\item[Chapter \ref{chap:method}: \nameref{chap:method}] in this chapter the
+  selected metodology is explained and justified. Also, the uses resources such
+  Fed4FIRE's testbeds, hardware and software are depicted.
+\item[Chapter \ref{chap:arquitectura}: \nameref{chap:arquitectura}] TODO
+\item[Chapter \ref{chap:antecedentes}: \nameref{chap:antecedentes}] Explica herramientas
   y aspectos básicos de edición con \LaTeX.
 \item[Capítulo \ref{chap:objetivos}: \nameref{chap:objetivos}] Finalidad y justificación
   (con todo detalle) del presente documento.
