@@ -83,34 +83,73 @@ surveillance commonly require multispectral imagers with visible bands.
 
 \subsection{Data Management}
 
-4 parameters
-multiplexing
-pre-processing on board for downloading
-ancillary data
-store and forward sytem for downloading
+Each satellite of the constellation acquires images which have five spectral
+bands into the visible spectrum. When this spectral data is
+obtained by telescopes, it is necesary to convert from analogical to digital
+data. This proces is carried out using 12 bits per pixel for codifying the
+intensity signal level with a digital value. Then, the digital data is stored and pre-processed on
+board. During the pre-processing activity, some meta-data that is well known as ancillary
+data, is added. The ancillary data enriches the acquired sector of image by adding
+some geolocated information and transmission auxiliary meta-data for communication
+protocols. All the above pre-processed data is agregated in the
+internal storage for downloading when the satellite comes into a visibility zone
+of a ground station. At the moment the satellite enters in a footprint of a
+ground station, the acquired images at real time and the stored images are
+downloaded into ground station. Sending data is made multiplexing the
+communication channel within two ways. The first part of the total bandwidth
+is used for downloading the acquired images at real time and the other part of
+the rest of bandwidth performs the download of the stored images into the
+internal storages.
 
+\subsection{Ground Segment}
 
+The Ground Segment is composed by the antennas, the control center and the
+infrastructures for processing and distributing images named processing
+data center. 
 
+The current industries of EO imaging perform the processing, distributing, and
+selling on premises. The steps are the following:
+\begin{enumerate}
+\item First, the antenas recieves all the data from satellites and store it.
+\item Once the data is into the antenna, the processing data center obtains the
+  images from the ground stations.
+\item The data center starts to process available images.
+\item When a image has been processed is sent for archiving and
+  cataloguing. 
+\item Finally, the image is available for end-users.
+\end{enumerate}
 
+The arquitecture on-cloud proposed in this project, reduces the delivery
+end-user time making shorter the cataloguing and archiving times.
 
-
-
-
+The control center manages the satellites, schedule mission plannings and
+collects telemetry but not interferes in downloading nor processing images.
 
 
 \section{High-level languages}
 
-For the development of the project, \ac{XML}, Python and Bash languages has
-been used. The first, XML, has been used for building the configuration file of
-the Orchestrator component and to obtain the selected nodes by JFed
-application. The rest of them are scripting languages. The source of the
-components of the cloud has been developed using Python and the interconnections
-between modules and others secundary funcionalities, in Bash script.
+For the development of the project, \ac{XML}, \emph{JSon},\emph{Python} and \emph{Bash} languages has
+been used. The first, \ac{XML}, has been used for building the configuration file of
+the Orchestrator component and to obtain the selected nodes by \emph{JFed}
+application. Then \emph{JSon} has been used to create the experiment descriptor for
+\bonfire platform. The rest of them are scripting languages. The source of the
+components of the cloud has been developed using \emph{Python} and the interconnections
+between modules and others secundary funcionalities, in \emph{Bash script}.
 
 \subsection{XML}
 \ac{XML} is a markup language that defines a set of rules for encoding
 documents in a format that is both human-readable and machine-readable. Most of
 actual software use it for configuring or for updating its configuration on fly.
+
+\subsection{JSon}
+
+JSon is a lightweight language for data interchage between applications. The
+simplicity of JSon results very simple and human-readable way to transmit data
+objects consisting of attribute-value pairs. Web applications are using this
+language substituting XML because parsing and generating JSon is more efficient
+and quick. The BonFIRE interface uses it for creating experiment descriptors
+ought to the resources provided by the platform can be translated into objects
+and its features.
 
 \subsection{Scripting languages}
 
@@ -123,26 +162,26 @@ target platform.
 
 
 \subsection{Python}
-Python is a object oriented language, although permits imperative and functional
+\emph{Python} is a object oriented language, although permits imperative and functional
 programming. It does not need to compile the source because it is
 interpreted. It permits a flexible development because it is dynamic type and in
 this project, the most important feature why this language has been used,
 consist of it is multiplatform. With this feature, the software is able to be
 executed in any platform. The current version is 2.7.4 and it offers several
-useful and multipourpose libraries as matlib, pthread, mysqllib, pdb and so on.
+useful and multipourpose libraries as \emph{matlib, pthread, mysqllib, pdb} and so on.
 
 \subsection{Bash Script}
 
-Really, Bash is not a language, is a command language interpreter for the GNU
-operative system. Bash is fully compatible with other command language
-interpreters like \emph{sh} or \emph{ksh}, so the source developed by Bash, normally, is
+Really, \emph{Bash} is not a language, is a command language interpreter for the GNU
+operative system. \emph{Bash} is fully compatible with other command language
+interpreters like \emph{sh} or \emph{ksh}, so the source developed by \emph{Bash}, normally, is
 portable. 
-However, the Bash language is also known as Bash. The Bash scripts contains
+However, the \emph{Bash} language is also known as \emph{Bash}. The Bash scripts contains
 commands for being executed by the interpreter. This way provides a direct line
 to communicate with the operative system and to make some funcionalities ad-hoc.
-The Bash language consists of several sentences that the operative system is
+The \emph{Bash} language consists of several sentences that the operative system is
 able to read and translate in order to play a specific action. All the currents
-Linux distributions contains a Bash interpret. 
+\emph{Linux} distributions contains a Bash interpret. 
 
 
 \section{Networking}
@@ -217,7 +256,7 @@ For measuring the throughput, bandwidth and loss-rate the following tools are in
 \item \emph{NetPerf~{http://www.netperf.org/netperf/}:} Is a benchmark that can be used to measure the performance of many different types of networking. It provides tests for both unidirectional throughput, and end-to-end latency.
 \end{itemize}
 
-For measuring the Delay time the following tools are depicted:
+For measuring the delay time the following tools are depicted:
 \begin{itemize}
 \item \emph{Ping:} It is the most used tool for testing the reachability of a host on an
   Internet Protocol network and for measurig the round-trip-time for packets sent
@@ -239,7 +278,7 @@ A federated infrastructure is a set of unified and autonomous platforms which
 are joined in order to provide interoperability and coordinated
 information sharing among individual components. 
 
-The federated architecture pattern was first used by the US Federal CIO in
+The federated architecture pattern was first used by the \emph{US Federal CIO} in
 1990s. Then other organizations adopted this paradigm for its infrastructure
 technologies. Nowadays, this topology is growing up in business where the
 tecnological infrastructure has to be distributed and they must share critical
@@ -258,8 +297,8 @@ There are several federated infrastructures for experimenting. These are known
 as ``Federated testbeds'' and the most important among others are the following:
 
 \emph{GENI}~{http://ac.els-cdn.com/S1389128613004507/1-s2.0-S1389128613004507-main.pdf?\_tid=320d2494-118e-11e4-9e39-00000aacb35e\&acdnat=1406026495\_7cd6d5a33b3ddfeaf3aad7216039f876}:
-The Global Environment for Networking Innovation, is a distributed virtual
-laboratory for the future internet sponsored by the U.S. National Science Foundation for
+The \emph{Global Environment for Networking Innovation}, is a distributed virtual
+laboratory for the future internet sponsored by the \emph{U.S. National Science Foundation} for
 experimentating. In this platform may be carry out developments like protocol
 design and evaluation, distributed services, content management and experiments
 that needs wide areas\footnote{For more information, see
@@ -267,29 +306,27 @@ that needs wide areas\footnote{For more information, see
 
 \emph{Open
   Cirrus:}~{http://www.cs.cmu.edu/afs/cs/usr/droh/www/papers/opencirrus-ieeecomputer.pdf}
-The Open Cirrus testbed provides a federation in cloud computing for
+The \emph{Open Cirrus} testbed provides a federation in cloud computing for
 experimenting. To support these experiments, global services has been added for
 providing distributed common services. The experiments that can be carried out
 in this testbed are large-scale clustering experiments, machine learning,
-scientific computing among others. Open Cirrus is composed by 10 sites in North
+scientific computing among others. \emph{Open Cirrus} is composed by 10 sites in North
 America, Europe and Asia and the platform has been developed by the
-U.S. National Science Foundation, the University of Illinois, the Karlsruhe
-Institute of Technology, the Infocomm Development Authority of Singapore, the
-Russian Academy of Sciences, the Electronics and Telecommunications Research
-Institute of South Korea, the malaysian Institute of Microelectronic Systems and
-Carnegie Mellon University. This project is sponsored by Hewlett-Packard, Intel
+\emph{U.S. National Science Foundation}, \emph{the University of
+  Illinois},\emph{ the Karlsruhe Institute of Technology}, \emph{the Infocomm Development Authority of Singapore},\emph{ the
+Russian Academy of Sciences}, \emph{the Electronics and Telecommunications Research
+Institute of South Korea}, \emph{the malaysian Institute of Microelectronic
+  Systems} and \emph{Carnegie Mellon University}. This project is sponsored by Hewlett-Packard, Intel
 and Yahoo!~\footnote{For more information, see \url{http://opencirrus.org}}.
 
-\emph{Fed4FIRE:} The Fed4FIRE is an Integrating Project under the European
+\emph{Fed4FIRE:} The \emph{Fed4FIRE} is an Integrating Project under the European
 Union's \ac{FP7} addressing the work programme topic Future Internet Research
 and Experimentation. The project is performed by a consortium of 29 partners
-organisations from 8 countries. The Fed4FIRE  proposal consists of to create a
+organisations from 8 countries. The \emph{Fed4FIRE}  proposal consists of to create a
 heterogeneous and federated platform with different kinds of services and applications such
 cloud computing, grid computing, smart cities, wireless networking and
 large-scale experiments. The federation is composed by the following testbeds:
 
-
-¿COMO PONGO LAS REFERENCIAS HEREEEEE?????
 \begin{enumerate}
 \item \emph{Virtual Wall:}For creating network topologies. 
 \item \emph{PlanetLab Europe:} For experimenting with nodes around the world.
@@ -322,14 +359,14 @@ In GEO-Cloud project, the testbeds used for implementing are \vw,\pl and
 
 \subsection{Fed4FIRE Testbeds}
 
-In the section above the Fed4FIRE's testbeds has been numerated. Now, the
+In the section above the \emph{Fed4FIRE's testbeds} are numerated. Now, the
 facilities that are employed in GEO-Cloud are detailed.
 
 \subsection{Virtual Wall}
 
 \vw is an emulation environment for
 experimenting with advances networks, distributed software and service
-evaluation carryied out by the University of Ghent. It offers the posibility for experimenters to create any type of
+evaluation carryied out by the \emph{University of Ghent}. It offers the posibility for experimenters to create any type of
 network topology, e.g. emulating a large multi-hop topology, client-server
 topologies among others and to check algorithms or protocols for subsequent
 marketing. 
@@ -344,15 +381,15 @@ impairments as bandwidth, loss-rate and delay are configurable.
 
 \subsection{PlanetLab Europe}
 
-PlanetLab Europe is part of the PlanetLab global system, the world's largest
+\pl \emph{Europe} is part of the \pl global system, the world's largest
 research networking facility, which gives experimenters access to
-Internet-connected Linux virtual machines. About 1000 servers conform PlanetLab
+Internet-connected Linux virtual machines. About 1000 servers conform \pl
 platform located in United States, Europe, Asia and elsewhere as Figure~\ref{fig:intr-planetlab-europe} depicts. 
 This platform can be used by experimenters in order to develop and to check
 distributed systems, network protocols, peer-to-peer systems, network security
 and network measurements among others applications.
 
-Through Fed4FIRE, the experimenters are able to reserve and deploy some
+Through \emph{Fed4FIRE}, the experimenters are able to reserve and deploy some
 PlanetLab Europe resources and to experiment with them.
 
 \begin{figure}[!h]
@@ -365,12 +402,11 @@ PlanetLab Europe resources and to experiment with them.
 
 \subsection{BonFIRE}
 
-BonFIRE is a multi-cloud testbed based on an Infrastructure as a Service
+\emph{BonFIRE} is a multi-cloud testbed based on an Infrastructure as a Service
 delivery model with guidelines, policies and best practices for
-experimenting. Currently, BonFIRE is composed by 7 geographically distributed
+experimenting. Currently, \bonfire is composed by 7 geographically distributed
 testbeds, which offer heterogeneous cloud services, compute resources and
-storage resources.These testbeds are EPCC, INRIA, Wellness, HLRS, iMinds and
-PSNC. The Figure~\ref{fig:intr-bonfire-testbeds} shows these testbeds and its interconnections.
+storage resources.These testbeds are \emph{EPCC},\emph{ INRIA},\emph{Wellness},\emph{ HLRS}, \emph{iMinds} and \emph{PSNC}. The Figure~\ref{fig:intr-bonfire-testbeds} shows these testbeds and its interconnections.
 
 \begin{figure}[!h]
 \begin{center}
@@ -380,7 +416,7 @@ PSNC. The Figure~\ref{fig:intr-bonfire-testbeds} shows these testbeds and its in
 \end{center}
 \end{figure}
 
-The compute resources that BonFIRE offers are summarized in Table~\ref{table:intro-instance-types}.
+The compute resources that \bonfire offers are summarized in Table~\ref{table:intro-instance-types}.
 
 \begin{table}[hp]
   \centering
@@ -391,23 +427,217 @@ The compute resources that BonFIRE offers are summarized in Table~\ref{table:int
   \label{table:intro-instance-types}
 \end{table}
 
+The setup of compute resource can be done using contextualization variables in
+order to provide important information for software applications in the virtual
+machines. 
+This testbed also offers elasticity resources, that are dinamically created,
+updated and destroyed according to execution environment.
 
-   
 
 \subsection{Federated Tools}
 
-The tools for deploying, controlling and monitoring the experiments over
-Fed4FIRE are:
+In the breast of \emph{Fed4FIRE} project, some tools for deploying, controlling and
+monitoring the experiments have been developed. 
+Some of these tools are used only for developers to deploy, to provision, to
+make reservations and to discover resources. These tools are \emph{Flack, Omni
+  and SFI} which they have a common interface named \emph{SFA}.
 
-
-
+The experimenters utilize the tools for controlling the experiments. These tools
+are described as follows:
+\begin{itemize}
+\item \emph{NEPI:}The Network Experimentation Programming Interface, is a
+  life-cycle management tool for network experiments. It is developed in Python
+  and it provides a high-level interface to describe experiments, to provision
+  resources, to control experiments and to collect all the results of the
+  experiment. To highlight that this implementation provides a important way to
+  manage and to make a workflow for an experiment.
+\item \emph{OMF6:} is a generic framework that allows the definition and
+  orchestration of the experiments. It can be used for control the experiment
+  through a distributed infrastructure based on XMPP and an Aggregate Manager
+  that manages all the information flows. It can be integrated with OML for
+  provisioning, to control and to collect all information about the experimet.
+\item \emph{OML:} this tool provides a powerful way to take input from any
+  sensor or device with a software interface. This tool also defines and
+  implements a reporting protocol and a collection server. On the client side,
+  any application can be implemented using the OML API for collecting any
+  information about the status of the devices concerning the experiment. 
+\end{itemize}
 
 
 \section{Graphical User Interfaces}
 
+A \ac{GUI} is a software that facilitates the human-machine interaction
+visually using images and graphics items. Normaly the interactions are produced
+by user actions directly and these actions corresponds to events. The GUI events
+are normaly produced by the mouse, touchpad, keyboard or nowadays,a
+touchscreen. When a event is located, a determinate action is performed
+changing the interface itself, or creating, updating or deleting data or to
+accomplish a specific proceeding. 
+
+
+\subsection{Frameworks}
+
+There are lots of graphical user interface engines or frameworks avialable for
+Python. As the project is developed in Python, the user interface has to be
+developed in Python also. In addition, the searched engines have to be
+multiplatform. Finally, considering these above criteria, some frameworks and
+libraries  as \emph{PyGUI, PyGtk, PyGame, PyQt, PyKDE and WxPython} have been studied:
+
+\begin{itemize}
+\item \emph {PyGUI:} It is a API that provides to make graphical user interface
+  easily, lightweight development and it can be used in any platform or
+  operative system. The PyGUI API offers that programmer does
+  not need read any documentation because it is written in Python. It use
+  PyOpenGL libraries also. It is distributed under GPL v3.
+\item \emph{PyGtk:} It is a library set of Python with which the programmer can
+  develop  programs with a graphical user interface easily. It is multiplatform
+  is distributed under LGPL licence with few restrictions.
+\item \emph{PyGame:} Is a set of Python modules that allows to create games and
+  multimedia software as graphical user interfaces. Pygame is fully portable and
+  runs on nearly every platform and operative system. This engine evolves
+  funcionality of SDL library, OpenGL and provides Blender integration. It is
+  distributed under GPL v3.
+\item \emph{PyQt:} is a Python binding for Qt development. Qt is a
+  cross-platform  and UI framework for  developing graphical user interfaces. Qt
+  is distributed under GPL v3 and LGPL license. It is developed by Nokia and it
+  permits to develop software for mobile, embedded platforms, desktop platforms
+  and any operative system.
+\item \emph{WxPython:} is a GUI toolkit for Python that allows to create
+  robust,highly functional graphical user interfaces esily and simply. It is
+  implemented in Python and distributed under GPL v3 license.
+\end{itemize}
+
+
+\section{Cloud Computing}
+
+
+
+
 \section{Database}
+%http://196.29.172.66:8080/jspui/bitstream/123456789/1834/1/E174.pdf
+Since computer manage the users information, humans had tried to sort these data
+and to collect from machines effectivelly. For this purpose, the databases were
+created. The databases are conceptual models to store the information
+orderly. Another step forward was the creation of the \ac{DBMS}. The \ac{DBMS}
+is a software to manage the information contained into database to concentrate,
+to arrange and to provide lots of mechanisms to manage the information contained
+into database repository.
+
+\subsection{DBMS}
+
+In order to simulate the constellation of satellites for GEO-Cloud project, some
+free \ac{DBMS} were studied. The most interesting for the purpose of this project are
+as follows:
+\begin{itemize}
+%http://www.mysql.com/
+\item \textbf{MySQL:}Open Source relational database management system developed by
+  \emph{MySQL AB}. It is the most used database system in web applications and
+  second in the world. MySQL provides triggers, cursors, sub-selects, stored
+  procedures, a embeded database library and works with distributed systems
+  efficiently among others. This \ac{DBMS} is multiplatform and it works in any
+  operative system. 
+%https://www.monetdb.org/Home
+\item \textbf{MonetDB:} Open Source column-oriented database management system
+  developed by \emph{Centrum Wiskunde \& Informatica} in Netherlands. It offers
+  high performance on complex queries in large databases combining tables with
+  lots of columns and multi-million rows. This \ac{DBMS} is performed in data
+  mining, geographic information systems and others like that.
+%http://www.postgresql.org.es/
+\item \textbf{PostgreSQL:} PostgreSQL is a object-oriented relational
+  distributed database management system developed by \emph{PostgreSQL Global
+    Development Team}. It is distributed under BSD license. This database use a
+  client-server model based in multi-processing for garanting system stability.
+\end{itemize} 
+
+\emph{MySQL} was selected for developing because there are quite documentation and the
+sintax is similar to \emph{SQL}.
 
 \section{Distributed Systems}
+%http://dl.acm.org/citation.cfm?id=1202502
+%http://etheldcofie.wordpress.com/2008/08/28/distributed-computing-paradigms-traditional-client-server-or-mobile-agents/
+Nowadays, almost of applications need to obtain information from other sources
+or communicating with another hadware either other computers or devices. As a
+result, some programming paradigms like client-server, remote procedure call and
+remote object invocation were born.
+
+\paragraph{Client-Server paradigm}~\\
+This architecture is composed by two parts: the first one is the Server
+component and the second one is the Client. The server is listening request from
+Client and when a application comes, the server decodes and processed it and
+sents back the reply to the Client.
+
+\paragraph{Remote Procedure Call}~\\
+Remote Procedure Call uses the same principle as Client-Server but in much
+complex way. Basically in remote procedure call paradigm, a client calls a
+function as if it were a local function on the client machine but this called
+function are located in another host that it may use to perform a function.
+
+\paragraph{Remote Object Invocation}~\\
+This paradigm was born when the object-oriented programming paradigm was
+developed. It is based on there are distributed objects and these objects not
+necessary are fixed in a host. When a distributed-object is created, it is
+binded to a set of machines as slave, so when a client application recovers that
+object using a distributed-object registry or another one like that, the
+provided operations by the distributed object can be remotely performed as if
+it was a  operation call in applicant machine.
+
+\subsection{Middlewares}
+
+For client-server paradigm there are not any middleware for developing
+applications. Normally this kind applications are developing using the standard
+oriented socket libraries.
+For Remote Procedure Call development, there are several implementations as
+SOAP, CORBA, UNIX RPC and Pyro among others.
+
+For Remote Object Invocation paradigm, novels middlewares are. The most used are
+Hadoop and ZeroC ICE and its features are as follows:
+
+\paragraph{Hadoop}~\\
+%http://hadoop.apache.org/
+Hadoop is a framework for developing  reliable and scalable
+distributed applications. It is based on
+the architecture used by \emph{Google} named ``MapReduce'' and other componets
+like \emph{Google File System}. 
+Some of its componets among others are:
+\begin{itemize}
+\item \emph{Hadoop Common:} The common utilities for other Hadoop modules.
+\item \emph{Hadoop Distributed File System:} Distributed file system that
+  provides high-throughput access.
+\item \emph{Hadoop YARN:}A framework for job scheduling and resource management.
+\item \emph{Hadoop MapReduce:} A YARN-based system for parallel processing of
+  large data sets.
+\end{itemize}
+It is designed for scaling up thousands of machines. It
+is maintained and distributed by \emph{Apache Software Foundation} under GPL license.
+ 
+\paragraph{ZeroC ICE}~\\
+%http://www.zeroc.com/
+ZeroC ICE, the internet communications engine, is a modern distributed computing
+platform with support lots languages as C++,Python, Java and Ruby among others.
+Permits to developers creates new powerful, efficient and simple applications
+with minimal effort.
+The main features of this middleware are:
+\begin{itemize}
+\item It is a general-purpose distributed computing platform.
+\item Uses a modern and flexible specification language.
+\item Dinamic invocation and dispatch.
+\item Request Forwarding.
+\item Asynchronous and synchronous invocation and dispatch.
+\item Oneway, datagram and batched invocation.
+\item Fully thread-safe.
+\item Several transport protocols can be used as TCP,SSL,UDP and also IPv4 and
+  IPv6 are supported.
+\end{itemize}
+
+ICE provides the following services:
+\begin{itemize}
+\item \emph{IceGrid:} A service for large-scale grid computing applications. 
+\item \emph{IceStorm:} A sophisticated event distribution service.
+\item \emph{Freeze:} Provides object persistence and the posibility to migrate
+  these objects to a database.
+\item \emph{Glacier2:} A firewall service.
+\item \emph{IcePatch2:} A software and files distribution service.
+\end{itemize} 
 
 \section{Software Design}
 
