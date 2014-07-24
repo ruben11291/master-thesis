@@ -161,7 +161,8 @@ are multiplatform because is not necessary to compile the source for running in
 target platform. 
 
 
-\subsection{Python}
+\subsubsection{Python}
+https://www.python.org/
 \emph{Python} is a object oriented language, although permits imperative and functional
 programming. It does not need to compile the source because it is
 interpreted. It permits a flexible development because it is dynamic type and in
@@ -170,7 +171,7 @@ consist of it is multiplatform. With this feature, the software is able to be
 executed in any platform. The current version is 2.7.4 and it offers several
 useful and multipourpose libraries as \emph{matlib, pthread, mysqllib, pdb} and so on.
 
-\subsection{Bash Script}
+\subsubsection{Bash Script}
 
 Really, \emph{Bash} is not a language, is a command language interpreter for the GNU
 operative system. \emph{Bash} is fully compatible with other command language
@@ -182,6 +183,22 @@ to communicate with the operative system and to make some funcionalities ad-hoc.
 The \emph{Bash} language consists of several sentences that the operative system is
 able to read and translate in order to play a specific action. All the currents
 \emph{Linux} distributions contains a Bash interpret. 
+
+\subsubsection{Ruby}
+https://www.ruby-lang.org/en/
+\emph{Ruby} is a object-oriented, cross-platform, general-purpose and dynamic
+programming language. It was designed and developed by \emph{Yukihiro
+  Matsumoto}. This language has a dynamic type influenced by Groovy, Falcon and
+other ones. It permits a easy, flexible and agile development. 
+
+
+\subsubsection{Lua}
+http://www.lua.org/
+\emph{Lua} is a lightweight,cross-platform, prototype-based, object-oriented programming
+language. It was designed and developed by \emph{Roberto Lerusalimschy}. This
+language is influenced by C++, Modula and Scheme among others. It provides
+native data structures as tables, records and associative arrays which this
+structure perform hight throughput.
 
 
 \section{Networking}
@@ -327,7 +344,7 @@ heterogeneous and federated platform with different kinds of services and applic
 cloud computing, grid computing, smart cities, wireless networking and
 large-scale experiments. The federation is composed by the following testbeds:
 
-\begin{enumerate}
+\begin{itemize}
 \item \emph{Virtual Wall:}For creating network topologies. 
 \item \emph{PlanetLab Europe:} For experimenting with nodes around the world.
 \item \emph{Norbit:} For experimenting with Wi-Fi resources.
@@ -352,7 +369,7 @@ large-scale experiments. The federation is composed by the following testbeds:
 \item \emph{UltraAccess:} It provides several Optical network protocols and
   resources to experiment with QoS features, traffic engineering, virtual LANs
   and so on.
-\end{enumerate}
+\end{itemize}
 
 In GEO-Cloud project, the testbeds used for implementing are \vw,\pl and
 \bonfire. These facilities are explained in the next sections.
@@ -362,7 +379,7 @@ In GEO-Cloud project, the testbeds used for implementing are \vw,\pl and
 In the section above the \emph{Fed4FIRE's testbeds} are numerated. Now, the
 facilities that are employed in GEO-Cloud are detailed.
 
-\subsection{Virtual Wall}
+\subsubsection{Virtual Wall}
 
 \vw is an emulation environment for
 experimenting with advances networks, distributed software and service
@@ -379,7 +396,7 @@ impairments as bandwidth, loss-rate and delay can be configured. Also there are 
 customising the resources as the experimenter wants. As last, the network
 impairments as bandwidth, loss-rate and delay are configurable.  
 
-\subsection{PlanetLab Europe}
+\subsubsection{PlanetLab Europe}
 
 \pl \emph{Europe} is part of the \pl global system, the world's largest
 research networking facility, which gives experimenters access to
@@ -400,7 +417,7 @@ PlanetLab Europe resources and to experiment with them.
 \end{center}
 \end{figure}
 
-\subsection{BonFIRE}
+\subsubsection{BonFIRE}
 
 \emph{BonFIRE} is a multi-cloud testbed based on an Infrastructure as a Service
 delivery model with guidelines, policies and best practices for
@@ -508,11 +525,6 @@ libraries  as \emph{PyGUI, PyGtk, PyGame, PyQt, PyKDE and WxPython} have been st
 \end{itemize}
 
 
-\section{Cloud Computing}
-
-
-
-
 \section{Database}
 %http://196.29.172.66:8080/jspui/bitstream/123456789/1834/1/E174.pdf
 Since computer manage the users information, humans had tried to sort these data
@@ -559,20 +571,20 @@ Nowadays, almost of applications need to obtain information from other sources
 or communicating with another hadware either other computers or devices. As a
 result, some programming paradigms like client-server, remote procedure call and
 remote object invocation were born.
-
-\paragraph{Client-Server paradigm}~\\
+\begin{itemize}
+\item \textbf{Client-Server paradigm}~\\
 This architecture is composed by two parts: the first one is the Server
 component and the second one is the Client. The server is listening request from
 Client and when a application comes, the server decodes and processed it and
 sents back the reply to the Client.
 
-\paragraph{Remote Procedure Call}~\\
+\textbf{Remote Procedure Call}~\\
 Remote Procedure Call uses the same principle as Client-Server but in much
 complex way. Basically in remote procedure call paradigm, a client calls a
 function as if it were a local function on the client machine but this called
 function are located in another host that it may use to perform a function.
 
-\paragraph{Remote Object Invocation}~\\
+\textbf{Remote Object Invocation}~\\
 This paradigm was born when the object-oriented programming paradigm was
 developed. It is based on there are distributed objects and these objects not
 necessary are fixed in a host. When a distributed-object is created, it is
@@ -580,7 +592,7 @@ binded to a set of machines as slave, so when a client application recovers that
 object using a distributed-object registry or another one like that, the
 provided operations by the distributed object can be remotely performed as if
 it was a  operation call in applicant machine.
-
+\end{itemize}
 \subsection{Middlewares}
 
 For client-server paradigm there are not any middleware for developing
@@ -592,7 +604,7 @@ SOAP, CORBA, UNIX RPC and Pyro among others.
 For Remote Object Invocation paradigm, novels middlewares are. The most used are
 Hadoop and ZeroC ICE and its features are as follows:
 
-\paragraph{Hadoop}~\\
+\subsubsection{Hadoop}
 %http://hadoop.apache.org/
 Hadoop is a framework for developing  reliable and scalable
 distributed applications. It is based on
@@ -610,7 +622,7 @@ Some of its componets among others are:
 It is designed for scaling up thousands of machines. It
 is maintained and distributed by \emph{Apache Software Foundation} under GPL license.
  
-\paragraph{ZeroC ICE}~\\
+\subsubsection{ZeroC ICE}
 %http://www.zeroc.com/
 ZeroC ICE, the internet communications engine, is a modern distributed computing
 platform with support lots languages as C++,Python, Java and Ruby among others.
@@ -641,7 +653,72 @@ ICE provides the following services:
 
 \section{Software Design}
 
+In this section, the software engineering knowledges as design patters and
+software portability recquired by this project was studied. These areas are
+described in the following subsections.
 
+\subsection{Multiplatform source}
+
+One of the main objectives of GEO-Cloud consists of the software portability. As
+this project is an experiment, it has to be checked in any platform with any
+operative system, so the   
+
+The developed source was written in Python. Among the huge variety of Python
+interpreters, the used version for developing this project source is Python 2.7.
+
+GNU/Linux was the platform in which the development of all project files were
+carried out. Besides the libraries distributed within Python, \emph{Paramiko}
+Python library was used. This library implements \ac{SSH} protocol operations
+for managing and controlling machines remotely. This library is distributed
+under GPL v3.
+http://www.lag.net/paramiko/  
+
+\subsection{Software Development Life Cycles}
+
+Several methodologies for software development are. Historically, the software
+was developed without any methodology, so there were lots of bugs in the
+code. As a result, programs did not work correctly or they were inefficient or
+inclusive, they stoped unexpectedly. Then the savior programmer tried to solve
+the trouble wasting lot of time. Thus, the software development is very
+expensive. 
+At present, the software development is guided by life cycles. In this cycles,
+stages as planning, designing, implementation, testing, documenting, deployment
+and maintenance are basics for software development. Depending on how these
+stages are done, several life cicles are. Among others, the most important and
+more used are:
+\begin{itemize}
+\item \emph{Waterfall model:} strict model in which developers have to follow these
+  stages in order: analisys,design, implementation, testing, deployment and maintenance.
+\item \emph{Spiral model:} this life cicle combines the waterfall model and rapid
+  prototyping.
+\item \emph{Iterative and incremental cicle:} it bases on the development of small but
+  ever-larger portions of a software. During software development, several
+  iterations may be in progress at the same time. Using this cycle, the
+  end-users can check the no-ended product for updating requirements or to give feedback
+  to end-user.
+\item \emph{Agile development:} This model is very used nowadays, and its principles
+  are the iterative development, to incorporate continuous feedback and
+  stages iterations. 
+\end{itemize}
+
+\subsection{Design Patterns}
+
+The software programming patterns that were studied for developing GEO-Cloud
+are:
+\begin{itemize}
+\item Singleton: only a single instance of a class can exist.
+\item Composite: a tree structure of simple and composite objects.
+\item Proxy: an object that represents another one.
+\end{itemize}
+
+\subsection{Testing}
+
+At the same time the development of GEO-Cloud software, the testing process was
+done also. The testing was made by two ways: hand testing and test-case oriented
+testing. In case of the second one, sundry testing frameworks were studied.
+The selected framework for testing in Python was \emph{UnitTest} and its
+extension \emph{Nose}. It is included in Python standard library, is easy to use
+and it has lots of plugins.
 
 
 \section{Páginas}

@@ -1,0 +1,19 @@
+\section{Earth Observation platform on-cloud}
+
+In this section, the whole \ac{EO} system integrated in \vw and \bonfire is
+detailed. This system is constituted by:
+\begin{itemize}
+\item A \sss including models of satellite constellation and a ground stations
+  network.
+\item A cloud computing system that implements a novel architecture that
+  integrates an Orchestrator, an archive and catalogue module, an IaaS system
+  with image processors to transform the raw data acquired by the satellites and
+  transform it into orthorectified images, and finally an archive and catalogue
+  module for storing, cataloging and allocating images.
+\end{itemize}
+
+The \sss and the entire cloud system are depicted in the following sections.
+
+\input{spacesystemsimulator.tex}
+
+\input{cloud-components.tex}

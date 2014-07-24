@@ -1,7 +1,20 @@
 \chapter{Architecture}
 
-\drop{T}{he} GEO-Cloud experiment is separated into two experiments: i) an experiment that represents a complete Earth Observation system, including the space system communicated with a cloud base data center for the ingestion, processing, storage and distribution of satellite imagery through high added value web services (Virtual Wall and BonFIRE are the testbeds used); ii) an experiment to measure and model the network that links the space system with the cloud as realistically as possible. The results of this experiment carried out in PlanetLab are used to link the simulators implemented in Virtual Wall with the cloud in BonFIRE to simulate a real network with realistic characteristics.
+\drop{T}{he} GEO-Cloud experiment is separated into two parts: i) an
+implementation of the experiment
+that represents a complete Earth Observation system, including the space system
+communicated with a cloud base data center for the ingestion, processing,
+storage and distribution of satellite imagery through high added value web
+services (\vw and \bonfire are the testbeds used); ii) a profiling tool in \pl for
+measuring and modeling the network that links the space system with the cloud as
+realistically as possible. The results of this experiment carried out in \pl are
+used to link the simulators implemented in \vw with the cloud in \bonfire to
+simulate a real network with realistic characteristics. 
+First, the \pl profiling tool are depicted. Then the implementation of the
+entire Earth Observation platform on-cloud with the simulation of the
+constelation, the cloud components development and its implementation in the
+\bonfire cloud are fully described.
 
 \input{planetlab.tex}
+\input{platform-on-cloud.tex}
 
-\input{spacesystemsimulator.tex}

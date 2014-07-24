@@ -1,13 +1,9 @@
 
 \section{Implementation in Virtual Wall and BonFIRE}
 
-
-
-
 In this chapter, the implementation is introduced indicating the testbeds involved in it and the required steps for the implementation.
 
-Fistly, the implementation of the\ Space System
-Simulator in \vw is depicted. The designed topology and the new
+Fistly, the implementation of the \sss in \vw is depicted. The designed topology and the new
 modified topology (different to the designed one) are depicted because of the handicaps of
 the hardware during the implementation. Then, nodes reservation is
 explained and detailed. Finally, the scripts included in each type of
@@ -37,12 +33,12 @@ following modules:
 \begin{itemize}
 \item The \emph{Satellite System Simulator}
 \item The \emph{Ground Station System Simulator}
-
+\end{itemize}
 The topology network designed is depicted in Figure~\ref{fig:impl-topology-vw}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{implementationVWBF/gs-sat.png}
+\includegraphics[width=0.7\textwidth]{implementationVWBF/gs-sat.png}
 
 \caption{Topology Network in \vw}
 \label{fig:impl-topology-vw}
@@ -63,7 +59,7 @@ The \sss implemented in \vw is depicted in Figure~\ref{fig:impl-nodes-vw}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{implementationVWBF/nodes-vw.png}
+\includegraphics[width=1\textwidth]{implementationVWBF/nodes-vw.png}
 
 \caption{Topology Network in \vw}
 \label{fig:impl-nodes-vw}
@@ -85,7 +81,7 @@ bash commands or instructions that will execute after reservation automatically.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{implementationVWBF/creating-node-jfed.png}
+\includegraphics[width=0.9\textwidth]{implementationVWBF/creating-node-jfed.png}
 
 \caption{Configuration of \vw nodes}
 \label{fig:creating-node-jfed}
@@ -98,7 +94,7 @@ bash commands or instructions that will execute after reservation automatically.
 The configuration of the nodes is done by using \emph{JFed RSPEC Experiment}. The
 setup steps are the following:
 \begin{itemize}
-\item To configurate a gateway to obtain connectivity with Internet for installing the
+\item To configurate a gateway for obtaining Internet connectivity and installing the
   needed libraries.
 \item To update the system.
 \item Once the update is finished, dependencies can be installed.
@@ -128,11 +124,11 @@ The script that perform the above is showed in Listing~\emph{code:impl-rspec-sat
 \end{listing}
 
 
-Where <<google_drive_host_address>> is the address of the Google Drive URI in which the scripts are located.
+Where <<google\_drive\_host\_address>> is the address of the Google Drive URI in which the scripts are located.
 
 The \emph{Database} is located in \bonfire and it has an \emph{IP address} that can change. In order to
 obtain that \emph{IP address} and include it in the \emph{Satellite Simulator}, a simple script to
-acquire the \emph{IP address} of the database was developed ``push_dbIP.sh''.
+acquire the \emph{IP address} of the database was developed \emph{push\_dbIP.sh}.
 Listing~\ref{code:impl-script-ipdb} contains the script.
 
 \begin{listing}[
@@ -149,10 +145,10 @@ touch /users/jbecedas/ipdb
 echo $ip > /users/jbecedas/ipdb
 \end{listing}
 
-The execution of the push_dbIP.sh script acquires the IP of the database and includes it in the file ipdb, created by “push_dbIP.sh”:
+The execution of the \emph{push\_dbIP.sh} script acquires the \emph{IP address} of the database and includes it in the file \emph{ipdb}, created by \emph{push\_dbIP.sh}:
 
 
-Now, the node is perfectly configured to proceed with the installation of the Satellite Simulator. The software of the simulator has been archived too in Google Drive. With the following command the software is acquired:
+Now, the node is perfectly configured to proceed with the installation of the \emph{Satellite Simulator}. The software of the simulator has been archived too in \emph{Google Drive}. With the following command the software is acquired:
 
 It can now be executed in the node.
 
@@ -160,22 +156,45 @@ It can now be executed in the node.
 \subsubsection{Ground Station Simulator Nodes Setup}
 
 
-The \emph{Ground Station Simulators} software is developed under Python. To install the libraries the nodes need connectivity with the Internet. For that purpose a gateway has to be configured:
+The \emph{Ground Station Simulators} software is developed under Python. The steps of
+setup are the following:
+\begin{itemize}
+\item To configurate a gateway for obtaining Internet connectivity and installing the
+  needed libraries.
+\item To update the system.
+\item Once the update is finished, dependencies can be installed.As occurred with the SS nodes, the update and the installation of Python and MySQL are required.
+\item As the simulators require a connection with a database, the \emph{MySQL} library is
+  also required. 
+\item Source is downloaded from Google Drive where is located.
+\item The database IP address is added to \emph{ipdb} file.
+\item  The raw data is located in Google Drive too.  
+\item The GS nodes are required to open an \emph{FTP} to be accessed from the
+\emph{Orchestrator} in \bonfire. The \emph{FTP} is configured by executing the
+\emph{install\_ftp.sh} file. This file content is in Listing~\ref{code:impl-ftp-installation}.  
+\end{itemize}
+
+The script that perform the above is showed in Listing~\emph{code:impl-rspec-gs-sim}.
+
+\begin{listing}[
+  float=h!,
+  caption  = {RSPEC specification for \emph{Ground Stations Simulators}},
+  label    = code:impl-rspec-gs-sim,
+  style=customc]
 
 <execute shell="sh" command="sudo route del default gw 10.2.15.254"/> <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-As occurred with the SS nodes, the update and the installation of Python and MySQL are required:
-
 <execute shell="sh" command="sudo apt-get update"/>  <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-
-The \emph{IP address} of the database has to be included in the node:
-
 <execute shell="sh" command="sudo wget --no-check-certificate google_drive_host_address -O /users/jbecedas/push_dbIP.sh"/> <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
+<execute shell="sh" command="sudo wget --no-check-certificate google_drive_host_address
+-O /users/jbecedas/groundstation.py"/>
+<execute shell="sh" command="sudo wget --no-check-certificate google_drive_host_address -O
+/tmp/original.bin "/> 
+\end{listing}
 
-The software of the \emph{Ground Stations Simulator} is also located in Google Drive:
-
-<execute shell="sh" command="sudo wget --no-check-certificate google_drive_host_address  -O /users/jbecedas/groundstation.py"/>
-
-The GS nodes are required to open an \emph{FTP} to be accessed from the \emph{Orchestrator} in \bonfire. The \emph{FTP} is configured by executing the “install_ftp.sh” file. This file has the following code:
+\begin{listing}[
+  float=h!,
+  caption  = {FTP server installation},
+  label    = code:impl-ftp-installation,
+  style=customc]
 
 #!/bin/bash
 
@@ -200,15 +219,9 @@ sudo su
 echo "deimos:deimos"|chpasswd
 echo "deimos" >> /etc/vsftpd.chroot_list
 sudo service vsftpd restart
+\end{listing}
 
-It is executed as follows:
-
-<execute shell="sh" command="sudo bash /users/jbecedas/install_ftp.sh"/>
-
-Through the FTP connection the raw data will be transferred from the GS nodes to the BonFIRE cloud. The raw data is located in Google Drive too.
-
-<execute shell="sh" command="sudo wget --no-check-certificate google_drive_host_address -O /tmp/original.bin "/> 
-
+Through the FTP connection the raw data will be transferred from the GS nodes to the BonFIRE cloud. 
 
 The execution of the Satellite Simulators and the Ground Station Simulators is described
 in Section~\ref{par:sat-simulator-execution} and Section~\ref{par:sss-ground-execution}. 
