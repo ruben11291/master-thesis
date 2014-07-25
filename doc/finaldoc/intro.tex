@@ -45,10 +45,87 @@ service delivery using cloud technologies and Internet protocols will be tested.
 
 
 \section{Cloud Computing}
+%http://faculty.winthrop.edu/domanm/csci411/Handouts/NIST.pdf
+
+Traditional business applications have always been too complicated and
+expensive. The number and variety of necessary hardware and software to run them
+is overwhelming. A team of experts that can install, configure, test, run,
+secure, and update is needed.  Thanks to Cloud Computing approach, these
+complications do not exist because it is not necessary to manage the hardware
+and software: it is the responsibility of an experienced cloud provider. The
+shared infrastructure makes it work like a utility: You only pay for what you
+need, upgrades are automatic and the enlargement or reduction of the service
+comprises a simple process.
+The NIST~\ref{NISTrefe} defines \emph{Cloud Computing} as ``Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared 
+pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that 
+can be rapidly provisioned and released with minimal management effort or
+service provider interaction``.
+
+Several cloud deployments are implemented at present. These are:
+\begin{itemize}
+\item \emph{Private Cloud:} Used by a single organization and it is operated by
+  the own organization. 
+\item \emph{Community Cloud:} Organizations that have shared subjects create
+  this kind of cloud in which the managed and support is carried out by the
+  organizations themselves.
+\item \emph{Public Cloud:} It is provisioned for the general public use it. The
+  management of the infrastructure is performed by a academic, business or
+  government organization.
+\item \emph{Hybrid Cloud:} Cloud composed by distinct infrastructures as public,
+  community or private in order to achieve some objectives.
+\item \emph{Federated Cloud:} Nowadays, this deployment is growing up
+  quickly. The federations architectures are a combination of community, public
+  and hybrid clouds in which each one of them offer features that the consumer can
+  be use transparently. In the section~\ref{subsec:federatedtools} are detailed.
+\end{itemize}
+
+The characteristics of cloud computing are summarized as follows:
+\begin{itemize}
+\item \emph{On-demand self-service:} A cloud computing user can provision,
+  deploy and release computing resources as needed automatically without human
+  interaction.
+\item \emph{Broad network access:} Cloud capabilities can be accessed by
+  standard mechanisms or client platforms.
+\item \emph{Resource pooling:} Different resources can be assigned as memory,
+  processing capability, network bandwidth among others, and these are
+  distributed geographicaly or into several cloud machines. 
+\item \emph{Rapid elasticity:} Resources can be elastically provisioned and
+  release automatically. This permits to scale rapidly resources.
+\item \emph{Measured Service:} Resources can be monitored, controlled and
+  reported in order to achive transparency for the cloud supporter and consumer.
+\end{itemize}
+
+The cloud computing infrastructure offers different kinds of services that are
+suumarized as:
+
+\begin{itemize}
+\item \emph{Software as a Service (SaaS):} The capacity provided to the consumer
+  to use   the provider's applications running on the cloud.
+\item \emph{Platform as a Service (PaaS):} The capacity provided to the consumer
+  consists of the consumer-created applications created by languages, libraries
+  and tools supported by the provider can be deployed on the cloud.
+\item \emph{Infrastructure as a Service(IaaS):} The capacity provided to the
+  consumer consists of to provision computing resources in order to the consumer
+  is able to deploy and run its developed software.
+\end{itemize} 
 
 
-\section{The Fed4FIRE European Project}
 
+\section{The Fed4FIRE European Project}%
+%http://www.fed4fire.eu/
+The \emph{Fed4FIRE} is an Integrating Project under the European Union's Seventh
+Framework Programme \ac{FP7} which it work programme topic is \emph{Future
+  Internet Research and Experimentation}. The project is performed by a
+consortium of 29 partner from different countries. The project is coordinated by
+the \emph{iMinds}, Belgium. 
+The \emph{Fed4FIRE} project establishes a common federation framework for
+experimenters. A large of number of facilities in Europe are integrated in the
+\emph{Fed4FIRE} federation. Such facilities focus on different  areas
+of networking. Example domains are wireless networking, cloud computing, smart
+cities and grid computing among others.
+Also, the \emph{Fed4FIRE} project has to validate its infrastructure to perform
+innovative experiments, so researches from different Future Internet areas
+are invited. As a result, projects like \emph{GEO-Cloud} are carried out.
 
 \section{The Geo-Cloud Experiment Overview}
 
@@ -110,7 +187,7 @@ Thus, the whole EO system is completely implemented in Fed4FIRE, see Figure 3.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{statement/testbeds-geocloud.png}
+\includegraphics[width=0.7\textwidth]{statement/testbeds-geocloud.png}
 \caption{Geo-Cloud implementation in Fed4FIRE}
 \label{fig:intr-testbeds-geocloud}
 \end{center}
@@ -178,18 +255,28 @@ the following sections:
 
 
 \begin{definitionlist}
-\item[Chapter \ref{chap:antecedentes}: \nameref{chap:antecedentes}] in this
+\item[Chapter \ref{chap:antecedentes}: \nameref{chap:antecedentes}] In this
   chapter an overview of the necessary knowledge areas is made to study for the
   development of GEO-Cloud, like cloud computing, distributed middlewares,
-  processing premises for \ac{EO} and several testbeds in Fed4FIRE.
-\item[Chapter \ref{chap:objetivos}: \nameref{chap:objetivos}] in this
-  chapter, the main objectives are depicted and explained for GEO-Cloud.
+  processing premises for \ac{EO} and several testbeds in \emph{Fed4FIRE}.
+\item[Chapter \ref{chap:objetivos}: \nameref{chap:objetivos}] In this
+  chapter, the main objectives for GEO-Cloud are depicted and explained.
 \item[Chapter \ref{chap:method}: \nameref{chap:method}] in this chapter the
   selected metodology is explained and justified. Also, the uses resources such
-  Fed4FIRE's testbeds, hardware and software are depicted.
-\item[Chapter \ref{chap:arquitectura}: \nameref{chap:arquitectura}] TODO
-\item[Chapter \ref{chap:antecedentes}: \nameref{chap:antecedentes}] Explica herramientas
-  y aspectos básicos de edición con \LaTeX.
-\item[Capítulo \ref{chap:objetivos}: \nameref{chap:objetivos}] Finalidad y justificación
-  (con todo detalle) del presente documento.
-\end{definitionlist}
+  \emph{Fed4FIRE's} testbeds, hardware and software are depicted.
+\item[Chapter \ref{chap:geocloud-experiment}: \nameref{chap:geocloud-experiment}] In this
+  chapter, the entire GEO-Cloud project is explained. The design and implementation of the
+  satellite constellation, the design and implementation of the satellites and
+  ground stations simulators over \vw, the design and implementation of the
+  cloud architecture for \ac{EO} and finally the \pl experiment for acquiring
+  network impaiments are detailed.
+\item[Chapter \ref{chap:evolution}: \nameref{chap:evolution}] In this chapter,
+  the project evolution during the development detailing the phases and
+  iterations besides the inconveniences and decisions to solve them are
+  described. Also, costs of project and schedule are shown.
+\item[Chapter \ref{chap:results}: \nameref{chap:results}] In this chapter, the
+  results of the development of the project are shown.
+\item[Chapter \ref{chap:conclusions}: \nameref{chap:conclusions}]In this
+  chapter, the development conclusion and the reached objectives are
+  summarized. Some future work and lines of research are suggested.
+ \end{definitionlist}
