@@ -245,8 +245,8 @@
   \frontchapterformat
   \renewcommand{\chaptermark}[1]{\markboth{\uppercase{##1}}{}}
 }
-
 \newcommand{\mainchapterformat}{
+
   \titleformat{\chapter}[display]
     {\normalfont\large\sffamily}
     {\chaptertitlename\ \thechapter}

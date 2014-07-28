@@ -13,7 +13,7 @@ The conceptual map showed in Figure~\ref{fig:intr-conceptual-map} presents the s
 \end{center}
 \end{figure}
 
-In the section explains the Graphical User Interfaces background, several
+In the section that explains the Graphical User Interfaces background, several
 frameworks for developing GUIs are depicted. In Database section, differents
 database management systems are compared. The distributed systems section
 explains and compares some middlewares as Hadoop or ZeroC Ice for developing
@@ -25,7 +25,7 @@ Finally, in the Software Design section discusses the requirements for building 
 In this section, different areas of aeronautics are involved. Orbital
 Mechanics which defines and calculates the satellite orbits for rounding around
 the world;  Spatial Telescopes which contributes with the payload parameters as
-GSD, Swath among others; finally, the data management which mission consist of processing on fly, storing
+\ac{GSD} and Swath among others; finally, the data management which mission consist of processing on fly, storing
 and sending the science and ancillary data from satellite to Ground Segment.
 
 \subsection{Orbital Mechanics}
@@ -88,14 +88,16 @@ bands into the visible spectrum. When this spectral data is
 obtained by telescopes, it is necesary to convert from analogical to digital
 data. This proces is carried out using 12 bits per pixel for codifying the
 intensity signal level with a digital value. Then, the digital data is stored and pre-processed on
-board. During the pre-processing activity, some meta-data that is well known as ancillary
+board. 
+
+During the pre-processing activity, some meta-data that is well known as ancillary
 data, is added. The ancillary data enriches the acquired sector of image by adding
 some geolocated information and transmission auxiliary meta-data for communication
-protocols. All the above pre-processed data is agregated in the
+protocols. \\All the above pre-processed data is agregated in the
 internal storage for downloading when the satellite comes into a visibility zone
 of a ground station. At the moment the satellite enters in a footprint of a
 ground station, the acquired images at real time and the stored images are
-downloaded into ground station. Sending data is made multiplexing the
+downloaded into ground station. \\Sending data is made multiplexing the
 communication channel within two ways. The first part of the total bandwidth
 is used for downloading the acquired images at real time and the other part of
 the rest of bandwidth performs the download of the stored images into the
@@ -107,7 +109,7 @@ The Ground Segment is composed by the antennas, the control center and the
 infrastructures for processing and distributing images named processing
 data center. 
 
-The current industries of EO imaging perform the processing, distributing, and
+The current industries of \ac{EO} imaging perform the processing, distributing, and
 selling on premises. The steps are the following:
 \begin{enumerate}
 \item First, the antenas recieves all the data from satellites and store it.
@@ -128,10 +130,10 @@ collects telemetry but not interferes in downloading nor processing images.
 
 \section{High-level languages}
 
-For the development of the project, \ac{XML}, \emph{JSon},\emph{Python} and \emph{Bash} languages has
+For the development of the project, \ac{XML}, \ac{JSON},\emph{Python} and \emph{Bash} languages has
 been used. The first, \ac{XML}, has been used for building the configuration file of
 the Orchestrator component and to obtain the selected nodes by \emph{JFed}
-application. Then \emph{JSon} has been used to create the experiment descriptor for
+application. Then \ac{JSON} has been used to create the experiment descriptor for
 \bonfire platform. The rest of them are scripting languages. The source of the
 components of the cloud has been developed using \emph{Python} and the interconnections
 between modules and others secundary funcionalities, in \emph{Bash script}.
@@ -141,13 +143,13 @@ between modules and others secundary funcionalities, in \emph{Bash script}.
 documents in a format that is both human-readable and machine-readable. Most of
 actual software use it for configuring or for updating its configuration on fly.
 
-\subsection{JSon}
+\subsection{JSON}
 
-JSon is a lightweight language for data interchage between applications. The
-simplicity of JSon results very simple and human-readable way to transmit data
+\ac{JSON} is a lightweight language for data interchage between applications. The
+simplicity of \ac{JSON} results very simple and human-readable way to transmit data
 objects consisting of attribute-value pairs. Web applications are using this
-language substituting XML because parsing and generating JSon is more efficient
-and quick. The BonFIRE interface uses it for creating experiment descriptors
+language substituting \ac{XML} because parsing and generating \ac{JSON} is more efficient
+and quick. The \bonfire interface uses it for creating experiment descriptors
 ought to the resources provided by the platform can be translated into objects
 and its features.
 
@@ -173,7 +175,7 @@ useful and multipourpose libraries as \emph{matlib, pthread, mysqllib, pdb} and 
 
 \subsubsection{Bash Script}
 
-Really, \emph{Bash} is not a language, is a command language interpreter for the GNU
+Really, \emph{Bash} is not a language, is a command language interpreter for the \ac{GNU}
 operative system. \emph{Bash} is fully compatible with other command language
 interpreters like \emph{sh} or \emph{ksh}, so the source developed by \emph{Bash}, normally, is
 portable. 
@@ -312,18 +314,17 @@ The benefits of this kind of network topology are enumerated as follows:
 
 There are several federated infrastructures for experimenting. These are known
 as ``Federated testbeds'' and the most important among others are the following:
-
-\emph{GENI}~{http://ac.els-cdn.com/S1389128613004507/1-s2.0-S1389128613004507-main.pdf?\_tid=320d2494-118e-11e4-9e39-00000aacb35e\&acdnat=1406026495\_7cd6d5a33b3ddfeaf3aad7216039f876}:
-The \emph{Global Environment for Networking Innovation}, is a distributed virtual
+\begin{itemize}
+%{http://ac.els-cdn.com/S1389128613004507/1-s2.0-S1389128613004507-main.pdf?\_tid=320d2494-118e-11e4-9e39-00000aacb35e\&acdnat=1406026495\_7cd6d5a33b3ddfeaf3aad7216039f876}
+\item \emph{GENI}: The \emph{Global Environment for Networking Innovation}, is a distributed virtual
 laboratory for the future internet sponsored by the \emph{U.S. National Science Foundation} for
 experimentating. In this platform may be carry out developments like protocol
 design and evaluation, distributed services, content management and experiments
 that needs wide areas\footnote{For more information, see
   \url{http://www.geni.net/}}.
-
-\emph{Open
-  Cirrus:}~{http://www.cs.cmu.edu/afs/cs/usr/droh/www/papers/opencirrus-ieeecomputer.pdf}
-The \emph{Open Cirrus} testbed provides a federation in cloud computing for
+%~{http://www.cs.cmu.edu/afs/cs/usr/droh/www/papers/opencirrus-ieeecomputer.pdf}
+\item \emph{Open
+  Cirrus:}The \emph{Open Cirrus} testbed provides a federation in cloud computing for
 experimenting. To support these experiments, global services has been added for
 providing distributed common services. The experiments that can be carried out
 in this testbed are large-scale clustering experiments, machine learning,
@@ -336,7 +337,7 @@ Institute of South Korea}, \emph{the malaysian Institute of Microelectronic
   Systems} and \emph{Carnegie Mellon University}. This project is sponsored by Hewlett-Packard, Intel
 and Yahoo!~\footnote{For more information, see \url{http://opencirrus.org}}.
 
-\emph{Fed4FIRE:} The \emph{Fed4FIRE} is an Integrating Project under the European
+\item \emph{Fed4FIRE:} The \emph{Fed4FIRE} is an Integrating Project under the European
 Union's \ac{FP7} addressing the work programme topic Future Internet Research
 and Experimentation. The project is performed by a consortium of 29 partners
 organisations from 8 countries. The \emph{Fed4FIRE}  proposal consists of to create a
@@ -367,8 +368,9 @@ large-scale experiments. The federation is composed by the following testbeds:
 \item \emph{Community-Lab:} It is a distributed infrastructure for researchers
   to experiment with community networks for creating digital and social environments.
 \item \emph{UltraAccess:} It provides several Optical network protocols and
-  resources to experiment with QoS features, traffic engineering, virtual LANs
+  resources to experiment with \ac{QoS} features, traffic engineering, virtual LANs
   and so on.
+\end{itemize}
 \end{itemize}
 
 In GEO-Cloud project, the testbeds used for implementing are \vw,\pl and
@@ -419,7 +421,7 @@ PlanetLab Europe resources and to experiment with them.
 
 \subsubsection{BonFIRE}
 
-\emph{BonFIRE} is a multi-cloud testbed based on an Infrastructure as a Service
+\emph{BonFIRE} is a multi-cloud testbed based on an \ac{IaaS}
 delivery model with guidelines, policies and best practices for
 experimenting. Currently, \bonfire is composed by 7 geographically distributed
 testbeds, which offer heterogeneous cloud services, compute resources and
@@ -443,6 +445,7 @@ The compute resources that \bonfire offers are summarized in Table~\ref{table:in
   \caption{Instance types of BonFIRE}
   \label{table:intro-instance-types}
 \end{table}
+
 
 The setup of compute resource can be done using contextualization variables in
 order to provide important information for software applications in the virtual
@@ -468,15 +471,15 @@ are described as follows:
   resources, to control experiments and to collect all the results of the
   experiment. To highlight that this implementation provides a important way to
   manage and to make a workflow for an experiment.
-\item \emph{OMF6:} is a generic framework that allows the definition and
+\item \emph{\ac{OMF6}:} is a generic framework that allows the definition and
   orchestration of the experiments. It can be used for control the experiment
-  through a distributed infrastructure based on XMPP and an Aggregate Manager
-  that manages all the information flows. It can be integrated with OML for
+  through a distributed infrastructure based on \ac{XMPP} and an Aggregate Manager
+  that manages all the information flows. It can be integrated with \ac{OML} for
   provisioning, to control and to collect all information about the experimet.
-\item \emph{OML:} this tool provides a powerful way to take input from any
+\item \emph{\ac{OML}:} this tool provides a powerful way to take input from any
   sensor or device with a software interface. This tool also defines and
   implements a reporting protocol and a collection server. On the client side,
-  any application can be implemented using the OML API for collecting any
+  any application can be implemented using the \ac{OML} \ac{API} for collecting any
   information about the status of the devices concerning the experiment. 
 \end{itemize}
 
@@ -485,7 +488,7 @@ are described as follows:
 
 A \ac{GUI} is a software that facilitates the human-machine interaction
 visually using images and graphics items. Normaly the interactions are produced
-by user actions directly and these actions corresponds to events. The GUI events
+by user actions directly and these actions corresponds to events. The \ac{GUI} events
 are normaly produced by the mouse, touchpad, keyboard or nowadays,a
 touchscreen. When a event is located, a determinate action is performed
 changing the interface itself, or creating, updating or deleting data or to
@@ -501,27 +504,27 @@ multiplatform. Finally, considering these above criteria, some frameworks and
 libraries  as \emph{PyGUI, PyGtk, PyGame, PyQt, PyKDE and WxPython} have been studied:
 
 \begin{itemize}
-\item \emph {PyGUI:} It is a API that provides to make graphical user interface
+\item \emph {PyGUI:} It is a \ac{API} that provides to make graphical user interface
   easily, lightweight development and it can be used in any platform or
-  operative system. The PyGUI API offers that programmer does
+  operative system. The PyGUI \ac{API} offers that programmer does
   not need read any documentation because it is written in Python. It use
-  PyOpenGL libraries also. It is distributed under GPL v3.
+  PyOpenGL libraries also. It is distributed under \ac{GPL} v3.
 \item \emph{PyGtk:} It is a library set of Python with which the programmer can
   develop  programs with a graphical user interface easily. It is multiplatform
-  is distributed under LGPL licence with few restrictions.
+  is distributed under \ac{LGPL} licence with few restrictions.
 \item \emph{PyGame:} Is a set of Python modules that allows to create games and
   multimedia software as graphical user interfaces. Pygame is fully portable and
   runs on nearly every platform and operative system. This engine evolves
-  funcionality of SDL library, OpenGL and provides Blender integration. It is
-  distributed under GPL v3.
+  funcionality of \ac{SDL} library, OpenGL and provides Blender integration. It is
+  distributed under \ac{GPL} v3.
 \item \emph{PyQt:} is a Python binding for Qt development. Qt is a
-  cross-platform  and UI framework for  developing graphical user interfaces. Qt
-  is distributed under GPL v3 and LGPL license. It is developed by Nokia and it
+  cross-platform  and \ac{GUI} framework for  developing graphical user interfaces. Qt
+  is distributed under \ac{GPL} v3 and \ac{LGPL} license. It is developed by Nokia and it
   permits to develop software for mobile, embedded platforms, desktop platforms
   and any operative system.
-\item \emph{WxPython:} is a GUI toolkit for Python that allows to create
+\item \emph{WxPython:} is a \ac{GUI} toolkit for Python that allows to create
   robust,highly functional graphical user interfaces esily and simply. It is
-  implemented in Python and distributed under GPL v3 license.
+  implemented in Python and distributed under \ac{GPL} v3 license.
 \end{itemize}
 
 
@@ -544,7 +547,7 @@ as follows:
 %http://www.mysql.com/
 \item \textbf{MySQL:}Open Source relational database management system developed by
   \emph{MySQL AB}. It is the most used database system in web applications and
-  second in the world. MySQL provides triggers, cursors, sub-selects, stored
+  second in the world. \emph{MySQL} provides triggers, cursors, sub-selects, stored
   procedures, a embeded database library and works with distributed systems
   efficiently among others. This \ac{DBMS} is multiplatform and it works in any
   operative system. 
@@ -555,14 +558,14 @@ as follows:
   lots of columns and multi-million rows. This \ac{DBMS} is performed in data
   mining, geographic information systems and others like that.
 %http://www.postgresql.org.es/
-\item \textbf{PostgreSQL:} PostgreSQL is a object-oriented relational
+\item \textbf{PostgreSQL:} \emph{PostgreSQL} is a object-oriented relational
   distributed database management system developed by \emph{PostgreSQL Global
-    Development Team}. It is distributed under BSD license. This database use a
+    Development Team}. It is distributed under \ac{BSD} license. This database use a
   client-server model based in multi-processing for garanting system stability.
 \end{itemize} 
 
 \emph{MySQL} was selected for developing because there are quite documentation and the
-sintax is similar to \emph{SQL}.
+sintax is similar to \ac{SQL}.
 
 \section{Distributed Systems}
 %http://dl.acm.org/citation.cfm?id=1202502
@@ -598,11 +601,11 @@ it was a  operation call in applicant machine.
 For client-server paradigm there are not any middleware for developing
 applications. Normally this kind applications are developing using the standard
 oriented socket libraries.
-For Remote Procedure Call development, there are several implementations as
-SOAP, CORBA, UNIX RPC and Pyro among others.
+For \ac{RPC} development, there are several implementations as
+\ac{SOAP}, \ac{CORBA}, UNIX \ac{RPC} and Pyro among others.
 
 For Remote Object Invocation paradigm, novels middlewares are. The most used are
-Hadoop and ZeroC ICE and its features are as follows:
+Hadoop and ZeroC \ac{ICE} and its features are as follows:
 
 \subsubsection{Hadoop}
 %http://hadoop.apache.org/
@@ -624,7 +627,7 @@ is maintained and distributed by \emph{Apache Software Foundation} under GPL lic
  
 \subsubsection{ZeroC ICE}
 %http://www.zeroc.com/
-ZeroC ICE, the internet communications engine, is a modern distributed computing
+\emph{ZeroC \ac{ICE}}, the internet communications engine, is a modern distributed computing
 platform with support lots languages as C++,Python, Java and Ruby among others.
 Permits to developers creates new powerful, efficient and simple applications
 with minimal effort.
@@ -637,11 +640,11 @@ The main features of this middleware are:
 \item Asynchronous and synchronous invocation and dispatch.
 \item Oneway, datagram and batched invocation.
 \item Fully thread-safe.
-\item Several transport protocols can be used as TCP,SSL,UDP and also IPv4 and
-  IPv6 are supported.
+\item Several transport protocols can be used as \ac{TCP},\ac{SSL},\ac{UDP} and also \ac{IP}v4 and
+  \ac{IP}v6 are supported.
 \end{itemize}
 
-ICE provides the following services:
+\ac{ICE} provides the following services:
 \begin{itemize}
 \item \emph{IceGrid:} A service for large-scale grid computing applications. 
 \item \emph{IceStorm:} A sophisticated event distribution service.
@@ -666,11 +669,11 @@ operative system, so the
 The developed source was written in Python. Among the huge variety of Python
 interpreters, the used version for developing this project source is Python 2.7.
 
-GNU/Linux was the platform in which the development of all project files were
+\emph{GNU/Linux} was the platform in which the development of all project files were
 carried out. Besides the libraries distributed within Python, \emph{Paramiko}
 Python library was used. This library implements \ac{SSH} protocol operations
 for managing and controlling machines remotely. This library is distributed
-under GPL v3.
+under \ac{GPL} v3.
 http://www.lag.net/paramiko/  
 
 \subsection{Software Development Life Cycles}
@@ -718,25 +721,7 @@ done also. The testing was made by two ways: hand testing and test-case oriented
 testing. In case of the second one, sundry testing frameworks were studied.
 The selected framework for testing in Python was \emph{UnitTest} and its
 extension \emph{Nose}. It is included in Python standard library, is easy to use
-and it has lots of plugins.
+and it has lots of plugins. 
 
-
-\section{Páginas}
-\label{sec:paginas}
-
-La normativa dice que el documento debería ser impreso a una cara, pero si el
-número de páginas es alto puede imprimirse a dos caras. Como eso es bastante
-subjetivo, mi consejo es que ronde las 100 \textbf{hojas}. Es decir, si el
-documento tiene más de 200 páginas imprímelo a doble cara, si tiene menos
-imprímelo a una.
-
-Por defecto, \arcopfc{} imprime a una cara (oneside), si quieres imprimir a doble cara,
-escribe en el preámbulo:
-
-\begin{listing}
-  \documentclass[twoside]{arco-pfc}
-\end{listing}
-
-Esto es importante porque a doble cara los márgenes son simétricos y a una cara
-no. Si llevas el PFC a la copistería y pides que te lo impriman de modo
-diferente al generado, quedará mal ¡Cuidado!
+The developed test-cases were black-box essentialy. Some white box test-cases
+were developed but the code coverage was not thorough. 

@@ -1,10 +1,10 @@
-\documentclass{arco-pfc}
+\documentclass[twoside]{arco-pfc}
 \usepackage{custom}
 %\usepackage[english]{babel}
 \usepackage{multicol}
 \usepackage{enumitem}
 \usepackage{multirow}
-
+\usepackage{subfig}
 \newcommand{\bonfire}{\emph{BonFIRE }}
 \newcommand{\vw}{\emph{Virtual~Wall }}
 \newcommand{\pl}{\emph{PlanetLab }}
@@ -22,7 +22,13 @@
 
 \selectlanguage{english}
 \input{metadata.tex}
-
+\titleformat{\chapter}[display]
+  {\normalsize \huge  \color{black}}%
+  {\flushright\normalsize \color{RoyalRed}%
+   \MakeUppercase{\chaptertitlename}\hspace{1ex}%
+   {\fontfamily{mdugm}\fontsize{60}{60}\selectfont\thechapter}}%
+  {10 pt}%
+  {\bfseries\huge}%
 
 \begin{document}
 
