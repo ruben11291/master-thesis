@@ -54,7 +54,7 @@ The outputs are the following:
 
 \subsubsection{The L1A Processor}
 
-This section describes the functionality of the processors included in the Level 1A of the Automatic Processing Chain. The goal of Level 1A is to calibrate the scenes. The resulting images are given in units of radiances. 
+This section describes the functionality of the processors included in the Level 1A of the Automatic Processing Chain. The goal of Level 1A is to calibrate the scenes. The resulting images are given in units of radiances.
 
 The L1A component works on the scenes that compound the L0 product, performing different transformations over pixel values to generate radiances.
 
@@ -109,7 +109,7 @@ The output is the following:
 
 The \emph{Archive and Catalogue} is a shared space of memory between the \emph{Orchestrator}, the product processors and the distribution of data. It has a data acquisition component.
 
-\emph{Data Acquisition component:} This component manages the input data arriving to the \emph{Archive and Catalog}. The ingestion of data is automatic. 
+\emph{Data Acquisition component:} This component manages the input data arriving to the \emph{Archive and Catalog}. The ingestion of data is automatic.
 
 In the \emph{Archive and Catalog} module the processed images are stored and catalogued for their distribution.
 
@@ -121,12 +121,12 @@ The \emph{Archive and Catalog} basically consists of:
 
 \item For the added value services the catalog will be accessed by a \emph{Web Service}.
 
-\item \ac{CSW} is a module with the \ac{CSW} standard for the catalogue (based on \ac{OGC} standard). For more information on \ac{CSW}, please refer to \ac{OGC} \emph{OpenGIS Implementation Specification 07-006r1} and the \ac{OGC} tutorial on \ac{CSW}. Through this standard the distribution of data is done. 
+\item \ac{CSW} is a module with the \ac{CSW} standard for the catalogue (based on \ac{OGC} standard). For more information on \ac{CSW}, please refer to \ac{OGC} \emph{OpenGIS Implementation Specification 07-006r1} and the \ac{OGC} tutorial on \ac{CSW}. Through this standard the distribution of data is done.
 \end{itemize}
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.2\textwidth]{detaildesign/scheme-archive-catalogue.png}
+\includegraphics[width=0.6\textwidth]{detaildesign/scheme-archive-catalogue.png}
 \caption{Scheme of the Archive and Catalogue module.}
 \label{fig:archive-catalogue-scheme}
 \end{center}
@@ -198,9 +198,9 @@ The \emph{Orchestrator} works by following the next sequence of steps:
 \item The \emph{Orchestrator} gets the \emph{ProcessorChainController} object (this object was made regarding \emph{Singleton pattern}).
 \item The \emph{Orchestrator} instructs the \emph{ProcessorChainController} object to create a new processing chain by sending the \emph{JobOrders} created in step 4.
 \item The \emph{ProcessorChain Controller} object creates a new \emph{Processing Chain} to process the data.
-\item The \emph{Processing Chain} sequentially executes the L0, L1A, L1B, L1C processors. 
+\item The \emph{Processing Chain} sequentially executes the L0, L1A, L1B, L1C processors.
 \item When the \emph{ProcessingChain} has finished, this notifies the \emph{ProcessorChainController} object that the processing ended.
 \item The \emph{ProcessingChainController} alerts the \emph{Orchestrator} that the \emph{Processing Chain} has finished.
 \item The \emph{Orchestrator} takes the created image and puts it into the \emph{Archive}.
-Figure 2 depicts the workflow of the \emph{Orchestrator}. 
+Figure 2 depicts the workflow of the \emph{Orchestrator}.
 \end{enumerate}
