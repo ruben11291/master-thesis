@@ -12,10 +12,17 @@ The GEO-Cloud experiment is tested in three testbeds: \vw,\bonfire and
 \item One experiment in \pl.
 \end{itemize}
 
-The experiment in \vw and \bonfire emulates the whole \ac{EO} system. In \vw:
-constellation of satellites, the ground stations and the end users' models. In
-\bonfire the cloud architecture, the processing chain of the data and its
-distribution. Both \vw and \bonfire are interconnected to transfer information from one testbed to the other and viceversa.
+The experiment in \vw and \bonfire emulates the whole \ac{EO} system. The system is constituted by:
+
+\begin{itemize}
+\item A \sss including models of satellite constellation and a ground stations
+  network.
+\item A cloud computing system that implements a novel architecture that
+  integrates an Orchestrator, an archive and catalogue module, an IaaS system
+  with image processors to transform the raw data acquired by the satellites and
+  transform it into orthorectified images, and finally an archive and catalogue
+  module for storing, cataloging and allocating images.
+\end{itemize}
 
 The experiment in \pl consists of the emulation of the networks that constitute
 the links between the ground stations to the cloud and from the cloud to the end
@@ -23,10 +30,18 @@ users. There, the network performance, features, bandwidth and impairments are
 monitored and measured. Those parameters once measured are used to update the
 models implemented in \vw, i.e, bandwidth, latency and loss rate.
 
-In the next sections, the detailed design of the GEO-Cloud experiment is introduced.
+In the next sections, the detailed design of the GEO-Cloud experiment is fully described.
 
 \input{sat-system-design.tex}
 
-\input{platform-on-cloud.tex}
+\input{spacesystemsimulator.tex}
+
+\input{implementationVW.tex}
+
+\input{cloud-components.tex}
+
+\input{implementationBF.tex}
+
+\input{integrationVWBF.tex}
 
 \input{planetlab.tex}

@@ -21,7 +21,7 @@ percentage.
 \item\emph{Latency (ms)} is the time it takes a signal to travel from its source, trough the communication channel, until it reaches the receiver. It is related with the distance between the nodes, the network congestion and the propagation velocity (a fraction of the light speed) among other parameters. 
 \end{itemize}
 
-\subsection{Platforms and Tools description}
+\subsection{Platform description}
 
 The experiment presented in this report is completely carried out in \pl, although the results obtained will be used to implement a realistic model of the networks in the communications between the simulators and the cloud system of the GEO-Cloud experiment implemented in \vw and \bonfire respectively. 
 
@@ -33,6 +33,8 @@ query processing. Currently it is split into two platforms: \emph{PlanetLab
   Europe} that contains the European nodes and \emph{PlanetLab Central} which
 contains the nodes located outside Europe. 
 For the experiment we use nodes from both of them. 
+
+\subsection{Tools description}
 
 To implement and execute the experiment we use the following tools: 
 \begin{itemize}
@@ -80,7 +82,7 @@ experiment will be computed as the throughput parameter in \vw.
 \end{figure}
 
 
-\subsection{System Modeling}
+\subsubsection{System Modeling}
 
 The real system is modeled into three main components: i) a network of ground stations acquiring imagery data from a constellation of optical satellites, ii) a cloud infrastructure that ingests the data from the ground stations, processes it, stores it and distributes it through web services and iii) end users around the world accessing to the web services offered. The system can be divided into two layers: 
 
@@ -150,7 +152,7 @@ network parameters connecting \vw and \bonfire.
 \end{figure}
 
 
-\subsection{Network Design in PlanetLab}
+\subsubsection{Network Design}
 
 The model of the ground stations network, the cloud and the end users accessing
 the web services provided was simplified to a set of interconnected nodes. The
@@ -184,7 +186,7 @@ cloud servers for similarity with the real system:
 
 \item \textbf{Layer 2:} it represents the connection between the central node
   representing the cloud servers and the end users. 31 different nodes were
-  selected in PlanetLab Europe and PlanetLab central in 31 different countries
+  selected in \emph{PlanetLab Europe} and \emph{PlanetLab} Central in 31 different countries
   around the world. This allows us to have a representative sample of global
   users accessing the web service
 s. In this case, the network topology is also peer-to-peer. In Table Table~\ref{tab:ple-tablelayer2-nodes} the nodes selected for layer 2 are listed. We tried to increase the number of nodes in different countries, but during the execution of the experiment we did not find available PlanetLab nodes in the following countries: Austria, Cyprus, Denmark, Egypt, Ecuador, Iceland, India, Jordan, Mexico, Pakistan, Puerto Rico, Romania, Slovenia, Sri Lanka, Tunisia, Turkey, Venezuela, Uruguay and Taiwan. 
@@ -206,16 +208,16 @@ connections between the nodes are \emph{TCP}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=4.01423in,height=2.11349in]{planetlab/ple-layer2-nodes.png}
+\includegraphics[width=4.01423in,height=2.11349in]{planetlab/network-scheme.png}
 
 \caption{PlanetLab Network Scheme}
 \label{fig:ple-network-scheme}
 \end{center}
 \end{figure}
 
-\subsection{Experiment Design and Execution}
+\subsubsection{Experiment Design and Execution}
 
-The experiment is designed to measure the impairments of the network. Those impairments are required parameters in Virtual Wall to deploy a topology network in such a testbed. Then, in this experiment we measured latency, loss-rate and effective bandwidth. The deployment of the experiment was done with \nepi, in which Iperf and Ping were implemented to measure the impairments. The experiment consists of establishing communications between any node in layer 1 or layer 2 with the central node and measuring the previously described impairments. 21600 trials will be done during 6 hours of the experiment execution in steps of one second for each pair of nodes, i.e. a node from layer 1 or 2 and the central node.
+The experiment is designed to measure the impairments of the network. Those impairments are required parameters in \vw to deploy a topology network in such a testbed. Then, in this experiment we measured latency, loss-rate and effective bandwidth. The deployment of the experiment was done with \nepi, in which \emph{Iperf} and \emph{Ping} were implemented to measure the impairments. The experiment consists of establishing communications between any node in layer 1 or layer 2 with the central node and measuring the previously described impairments. 21600 trials will be done during 6 hours of the experiment execution in steps of one second for each pair of nodes, i.e. a node from layer 1 or 2 and the central node.
 
 The software developed to measure the impairments is constituted of 6 scripts:
 \begin{itemize}
@@ -233,7 +235,7 @@ The pair of scripts that measure the same impairment are differentiated one from
 
 The previous six scripts are individually executed in a local host and they start their workflow.
 
-\subsubsection{The bandwidthGS.py script}
+\paragraph{The bandwidthGS.py script}~\\
 
 The bandwidthGS.py  script measures the effective bandwidth in the ground
 stations nodes. When it is executed it carries out the next tasks:
@@ -279,7 +281,7 @@ By default Iperf is executed in TCP mode.
 
 The flow diagram of the effective bandwidth measurements in the ground station nodes is depicted in Figure 6 a.
 
-\subsubsection{The bandwidthEndUser.py script}
+\paragraph{The bandwidthEndUser.py script}~\\
 
 The \emph{bandwidthEndUser.py} script measures the effective bandwidth in the
 end users nodes. When it is executed it carries out the next tasks:
@@ -290,7 +292,7 @@ end users nodes. When it is executed it carries out the next tasks:
 
 The flow diagram of the effective bandwidth measurements in the end users nodes is depicted in Figure 6 b.
 
-\subsubsection{The lossRateGS.py script}
+\paragraph{The lossRateGS.py script}~\\
 
 The lossRateGS.py  script measures the loss rate in the ground stations
 nodes. When it is executed it carries out the next tasks:
@@ -340,7 +342,7 @@ By default Iperf is executed in TCP mode.
 The flow diagram of the loss rate measurements in the ground station nodes is
 depicted in Figure 6 a.
 
-\subsubsection{The lossRateEndUser.py script}
+\paragraph{The lossRateEndUser.py script}~\\
 
 The lossRateEndUser.py  script measures the loss rate in the end users
 nodes. When it is executed it carries out the next tasks:
@@ -351,7 +353,7 @@ nodes. When it is executed it carries out the next tasks:
 The flow diagram of the loss rate measurements in the end users nodes is
 depicted in Figure 6 b.
 
-\subsubsection{The latencyGS.py script}
+\paragraph{The latencyGS.py script}~\\
 
 The latencyGS.py  script measures the latency  in the ground stations
 nodes. When it is executed it carries out the next tasks:
@@ -375,7 +377,7 @@ nodes. When it is executed it carries out the next tasks:
 
 The flow diagram of the latency measurements in the ground station nodes is depicted in Figure 7 a.
  
-\subsubsection{The latencyEndUser.py script}
+\paragraph{The latencyEndUser.py script}~\\
 
 The latencyEndUser.py  script measures the loss rate in the end users
 nodes. When it is executed it carries out the next tasks:
