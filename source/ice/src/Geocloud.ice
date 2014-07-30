@@ -10,24 +10,20 @@ module geocloud {
 	void stopScenario(int scen);
     };
 
-    interface Processor{
+ 
+ interface Processor{
 	//int init( Broker * log);
-        int l0(string path);
-	int l0r(string path);
-	int l1a(string path);
-	int l1c(string path);
-	int l1cr(string path);
-	int l1bg(string path);
-	int l1br(string path);
-    };
+       	void processImage(string path);
+    };	
 
     interface Orchestrator{
 	int downloadedImage(string path);//the ground station calls this operation passing the path
-	int levelProcessed(string path, string level);
-	int imageProcessed(string path);
+	int levelProcessed(string path, Processor* pp, string level);
+	int imageProcessed(string path, Processor* pp );
 	void cleanQueue();
+	void stop();
 	
-    };	
+    };
 	
     interface ArchiveAndCataloge{
 	//int init( Broker * log);

@@ -1,41 +1,39 @@
-import sys, traceback, Ice
+import sys, traceback, Ice,IceGrid
 Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
 import geocloud
 import sys
+import time
+class GroundStation(Ice.Application):
+    def run(self,args):
+        com = self.communicator()
+        if not com:
+            raise RuntimeError("Not communicator")
 
-status = 0
-ic = None
-try:
-    ic = Ice.initialize(sys.argv)
-    orch_str = ic.stringToProxy('Orchestrator')
-    orchestrator = geocloud.OrchestratorPrx.checkedCast(orch_str)
+        else:
+            print "ID:",args[0]
+            query = com.stringToProxy('IceGrid/Query')
+            q = IceGrid.QueryPrx.checkedCast(query)
+            if not q:
+                raise RuntimeError("Invalid proxy")
+            try:
+                broker = q.findObjectById(com.stringToIdentity('broker'))
+                brokerPrx = geocloud.BrokerPrx.checkedCast(broker)
+                print brokerPrx
 
-    if not orchestrator:
-        raise RuntimeError("Invalid proxy")
+                orch = q.findObjectById(com.stringToIdentity('orchestrator'))
+                orchestratorPrx = geocloud.OrchestratorPrx.checkedCast(orch)
+                print orchestratorPrx
+            except Exception as e:
+                print e
+                sys.exit(-1)
+            
+            for i in range(1,30):
+                orchestratorPrx.downloadedImage("imagen"+str(i))
+                print "Downloaded..."
+                time.sleep(1.0);
+            
+           
 
-    r = orchestrator.begin_downloadedImage("Imagen")
-    print "Despues de la primera invocacion remota"
-    a = orchestrator.begin_downloadedImage("Imagen")
-
-    print r.isCompleted()
-    print a.isCompleted()
-    r.waitForCompleted()
-    a.waitForCompleted()
-    print r.isCompleted()
-    print a.isCompleted()
-
-    
-	
-except:
-    traceback.print_exc()
-    status = 1
-
-if ic:
-    # Clean up
-    try:
-        ic.destroy()
-    except:
-        traceback.print_exc()
-        status = 1
-
-sys.exit(status)
+if __name__=="__main__":
+    c = GroundStation(1)
+    sys.exit(c.main(sys.argv))
