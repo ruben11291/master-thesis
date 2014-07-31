@@ -27,6 +27,28 @@
 
 \makeatletter
 
+
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                       \if@mainmatter
+                         \refstepcounter{chapter}%
+                         \typeout{\@chapapp\space\thechapter.}%
+                         \addcontentsline{toc}{chapter}%
+                                   {\protect\numberline{\thechapter}#1}%
+                       \else
+                         \addcontentsline{toc}{chapter}{#1}%
+                       \fi
+                    \else
+                      \addcontentsline{toc}{chapter}{#1}%
+                    \fi
+                    \chaptermark{#1}%
+                    \if@twocolumn
+                      \@topnewpage[\@makechapterhead{#2}]%
+                    \else
+                      \@makechapterhead{#2}%
+                      \@afterheading
+                    \fi}
+
+
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,english]{babel}
@@ -245,8 +267,8 @@
   \frontchapterformat
   \renewcommand{\chaptermark}[1]{\markboth{\uppercase{##1}}{}}
 }
-\newcommand{\mainchapterformat}{
 
+\newcommand{\mainchapterformat}{
   \titleformat{\chapter}[display]
     {\normalfont\large\sffamily}
     {\chaptertitlename\ \thechapter}
@@ -304,6 +326,8 @@
 \renewcommand{\chaptermark}[1]{%
   \markboth{\thechapter.\ \textsc{#1}}{}%
 }
+
+
 
 \newlength{\myoffset}
 \myoffset=16pt
@@ -584,4 +608,8 @@ use that may be made of the information contained herein.
 \newcommand{\FIXME}[1]{\noindent\textcolor{red}{\textbf{FIXME:} #1}}
 \newcommand{\FIXED}[1]{\noindent\textcolor{green}{\textbf{FIXED:} #1}}
 
-%\makeatother
+
+
+
+
+\makeatother
