@@ -328,6 +328,11 @@
 \newcommand{\advisor}[2]{%
   \renewcommand{\@advisor}{#1}
   \renewcommand{\@advisortitle}{#2}}
+\newcommand{\@tutor}{}
+\newcommand{\@tutortitle}{}
+\newcommand{\tutor}[2]{%
+  \renewcommand{\@tutor}{#1}
+  \renewcommand{\@tutortitle}{#2}}
 
 \newcommand{\@address}{}
 \newcommand{\address}[1]{\renewcommand{\@address}{#1}}
@@ -362,25 +367,26 @@
 \newcommand{\@license}{%
   \begin{minipage}{1.1\textwidth}
     \begin{singlespace}
-	The code is in this document is granted to copy, distribute and/or modify under the terms of the GNU Free Documentation License, 
+	The code is in this document is granted to copy, distribute and/or modify under the terms of the GNU Free Documentation License,
 Version 1.3 or any later version published by the Free Software
       Foundation. A copy of the license is included in
       the section entitled \hyperlink{chap:GFDL}{"GNU Free
         Documentation License"}.
 
-	This work was carried out with the support of the Fed4FIRE-project (“Federation for FIRE"), 
-an Integrated project receiving funding from the European Union’s Seventh Framework Programme 
-for research, technological development and demonstration under grant agreement no 318389. 
-It does not necessarily reflect the views of the European Commission. The European Commission is not liable for any 
+	This work was carried out with the support of the Fed4FIRE-project (“Federation for FIRE"),
+an Integrated project receiving funding from the European Union’s Seventh Framework Programme
+for research, technological development and demonstration under grant agreement no 318389.
+It does not necessarily reflect the views of the European Commission. The European Commission is not liable for any
 use that may be made of the information contained herein.
       \smallskip
 
     \smallskip
-    Muchos de los nombres usados por las compañías para diferenciar
-    sus productos y servicios son reclamados como marcas
-    registradas. Allí donde estos nombres aparezcan en este documento,
-    y cuando el autor haya sido informado de esas marcas registradas,
-    los nombres estarán escritos en mayúsculas o como nombres propios.
+    Many of the names used by companies to distinguish
+     its products and services are claimed as registered trademarks.
+     Where those names appear in this document,
+     and when the author has been informed of these trademarks,
+     names will be written in uppercase or proper names.
+
   \end{singlespace}
   \end{minipage}
 }
@@ -458,6 +464,7 @@ use that may be made of the information contained herein.
   \begin{flushleft}
     {\large Autor:\hspace{5mm} \@authortitle\,\@author}\\
     {\large Director: \@advisortitle\,\@advisor}\\
+    {\large Tutor: \@tutortitle\,\@tutor}\\
   \end{flushleft}
   \end{onehalfspace}
 
@@ -490,8 +497,8 @@ use that may be made of the information contained herein.
     \begin{tabbing}
       \hspace*{1.7cm} \= \\
       \ifthenelse{\NOT \isundefined{\@email}}    {\emph{E-mail:}   \> \@email \\}{}
-      \ifthenelse{\NOT \isundefined{\@phone}}    {\emph{Teléfono:} \> \@phone \\}{}
-      \ifthenelse{\NOT \isundefined{\@homepage}} {\emph{Web site:} \> \url{\@homepage} \\}{}
+      % \ifthenelse{\NOT \isundefined{\@phone}}    {\emph{Teléfono:} \> \@phone \\}{}
+      \ifthenelse{\NOT \isundefined{\@homepage}} {\emph{Web site:} \>\url{\@homepage} \\}{}
     \end{tabbing}
     \vspace{-1cm}
     \noindent
