@@ -44,11 +44,13 @@
       </service-template>
       <server-template id="ChainProcessingTemplate">
          <parameter name="id"/>
-         <server id="ChainProcessing${id}" activation="manual" exe="./processor.py" pwd="${application.distrib}">
+         <server id="ChainProcessing${id}" activation="on-demand" exe="./processor.py" pwd="${application.distrib}">
             <option>${id}</option>
             <properties>
+               <property name="Ice.StdOut" value="/tmp/ChainProcessing${id}.out"/>
+               <property name="Ice.StdErr" value="/tmp/ChainProcessing${id}.err"/>
             </properties>
-            <adapter name="ChainProcessingOA" endpoints="default" id="${server}.ChainProcessingOA" replica-group="ProcessingChainReplica">
+            <adapter name="ChainProcessingOA" endpoints="default" id="${server}.ChainProcessingOA">
                <object identity="ProcessingChain${id}" type="::GeoCloud::Processor"/>
             </adapter>
          </server>
@@ -116,8 +118,8 @@
          <server-instance template="IceStorm"/>
          <server id="Orchestrator" activation="always" exe="./orchestrator.py" pwd="${application.distrib}">
             <properties>
-               <property name="Ice.StdOut" value="/tmp/server1.out"/>
-               <property name="Ice.StdErr" value="/tmp/server1.err"/>
+               <property name="Ice.StdOut" value="/tmp/orchestrator.out"/>
+               <property name="Ice.StdErr" value="/tmp/orchestrator.err"/>
             </properties>
             <adapter name="OrchestratorOA" endpoints="default" id="${server}.OrchestratorOA">
                <object identity="orchestrator"/>
@@ -134,8 +136,8 @@
          <server id="Broker" activation="always" exe="./broker.py" pwd="${application.distrib}">
             <description>						</description>
             <properties>
-               <property name="Ice.StdOut" value="/tmp/server2.out"/>
-               <property name="Ice.StdErr" value="/tmp/server2.err"/>
+               <property name="Ice.StdOut" value="/tmp/broker.out"/>
+               <property name="Ice.StdErr" value="/tmp/broker.err"/>
             </properties>
             <adapter name="BrokerOA" endpoints="default" id="${server}.BrokerOA">
                <object identity="broker"/>
