@@ -2,38 +2,47 @@
 \label{chap:antecedentes}
 
 
-This chapter resumes the main subjects acquired during the accomplishment of the GEO-Cloud project.  The novel architecture proposed in this project for EO processing carries the absence of this kind of platforms to compare with. In this way, the study of the state of the art will be done focalising in some aspects of cloud computing platforms, federated testbeds, networking, satellite systems, and so on. As consequence, this section depicts the different thematic areas .
-The conceptual map showed in Figure~\ref{fig:intr-conceptual-map} presents the sections and subsections of this chapter. Thereby in Earth Observation Satellites area, the different concepts for creating and modelling a satellite for earth imaging, its data management and orbital definitions is studied. In high-level languages, some scripting languages are compared. In Networking section, different network impairments and several tools for acquiring these are depicted. In Federated Infrastructure section, the testbeds that Fed4FIRE platform is composed by are explained.
+\drop{T}{his} chapter summarized teh background required to accomplish the
+GEO-Cloud project. Thus, the study of the state of the art will be done by
+focusing in some aspects of cloud computing platforms, federated testbeds,
+networking and satellite systems. As a consequence, this section describes the different thematic areas.
+The conceptual map showed in Figure~\ref{fig:intr-conceptual-map} shows the
+sections and subsections of this chapter. Thereby in the Earth Observation
+satellites area, the different concepts for creating and modelling a satellite
+for remote sensing are studied together with its data management and orbital
+definitions. In high-level languages, some scripting languages are required. In
+Networking,the different existing network impairments and the tools required to
+measurement are explained. In Federated Infrastructures, the testbeds that
+constitute the Fed4FIRE insfrastructure are studied. In Graphical User Interfaces, the several
+frameworks for developing \acp{GUI} are described. In Databases, the database
+management systems are detailed. In distributed systems, the middlewares such as Hadoop or
+ZeroC Ice for developing distributed applications are related. And finally, in
+the Software Design, the requirements for building multiplatform code and other
+ancillary libraries required by the detailed objectives of GEO-Cloud are explained.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=1\textwidth]{statement/background-geocloud.png}
-\caption{Conceptual Map of this chapter.}
+\includegraphics[width=1.1\textwidth]{statement/background-geocloud.png}
+\caption{Conceptual map of this chapter.}
 \label{fig:intr-conceptual-map}
 \end{center}
 \end{figure}
 
-In the section that explains the Graphical User Interfaces background, several
-frameworks for developing GUIs are depicted. In Database section, different
-database management systems are compared. The distributed systems section
-explains and compares some middleware as Hadoop or ZeroC Ice for developing
-distributed applications.
-Finally, in the Software Design section discusses the requirements for building multiplatform code, and other ancillary libraries required by the detailed objectives of GEO-Cloud.
 
 \section{Earth Observation Satellites}
 
-In this section, different areas of aeronautics are involved. Orbital
-Mechanics which defines and calculates the satellite orbits for rounding around
-the world;  Spatial Telescopes which contributes with the payload parameters as
-\ac{GSD} and Swath among others; finally, the data management which mission consist of processing on fly, storing
-and sending the science and ancillary data from satellite to Ground Segment.
+In this section, different areas of aeronautics are involved: Orbital
+Mechanics defines and calculates the satellite orbits for rounding around
+the world;  Spatial Telescopes  contribute with the payload parameters and the
+data management processes on the fly, stores and sends the science and ancillary
+data from satellites to the Ground Segment.
 
 \subsection{Orbital Mechanics}
 
-This science~\cite{http://en.wikipedia.org/wiki/Orbital_mechanics} studies the motion of the satellite considered as a point with no
-mass in space which is affected by \emph{Newton's Laws of Motion}and \emph{Newton's Law of
+This field~\cite{Braeunig2013} studies the motion of the satellite considered as a point with no
+mass in space affected by \emph{Newton's Laws of Motion} and \emph{Newton's Law of
 Universal Gravitation}.
-\emph{The Newton's Law of Universal Gravitation} says that \emph{any two bodies in the
+\emph{The Newton's Law of Universal Gravitation} dictates that \emph{any two bodies in the
 universe attract each other with a force that is directly proportional to the
 product of their masses and inversely proportional to the square of the distance
 between them.}
@@ -43,16 +52,16 @@ between them.}
 F = G* {\frac {m_1*m_2}{r^2}}
 \end{equation}
 where $F$ is the force between the masses, $G$ is the gravitational constant
-($6.67x10^{-11}$), $m_1$ and $m_2$ are the first and second mass respectively
-and $r$ is the distance between the centres of the masses.
+($6.67x10^{-11} \frac{Nm^2}{kg^2}$), $m_1$ and $m_2$ are the first and second
+mass in kilograms respectively
+and $r$ is the distance in meters between the centres of the masses.
 
 Orbital Mechanics focuses on the trajectories of the
-spacecrafts, manoeuvres for orbital acquisition, orbit maintenance, end of life
-disposal, etcetera.
+spacecrafts, manoeuvres for orbital acquisition, orbit maintenance and end of life
+disposal.
 
-Spacecrafts motion  is governed by the \emph{Kepler's Laws of Planetary Motion}
-%~\cite{http://en.wikipedia.org/wiki/Kepler\%27s_laws_of_planetary_motion}
-which can be derived from \emph{Newton's Laws}. These laws are the following:
+Spacecrafts motion  is governed by the \emph{Kepler's Laws of Planetary
+  Motion}~\cite{Stern2014} which can be derived from \emph{Newton's Laws}. These laws are the following:
 \begin{enumerate}
 \item The orbit of a planet is an ellipse with the Sun at one of the two foci.
 \item A line segment joining a planet and the Sun sweeps out equal areas during
@@ -65,106 +74,101 @@ which can be derived from \emph{Newton's Laws}. These laws are the following:
 \subsection{Spatial Telescopes }
 
 The \ac{EO} satellites carry on board telescopes pointing to the Earth in order
-to acquire images of the surface. The information can be obtained in several
+to acquire images of its surface. The information can be obtained in several
 kinds of spectral bands as visible, near infra-red, thermal, etcetera. This
-mission employs visible multispectral telescopes distributed in a constellation of satellites
-to obtain daily a global map. For selecting the telescopes, the Swath and \ac{GSD}
-have been analysed. The number of satellites is dependent on the width of the
+mission uses visible multispectral telescopes distributed in a constellation of satellites
+to obtain a global map in a daily basis. For selecting the telescopes~\cite{Ball2013}, the swath
+and the \ac{GSD}
+have been analysed. The number of satellites is depends on the width of the
 swath and the telescope resolution is required to achieve quality
 images for the mission.
 
-Depending on the spectral bands employed for imaging, the applications are
-different. Scientific applications as soil categorization, vegetation analysis,
-oceanography use hyperspectral imagers which offers information about hundreds
-of bands. 
-
-Other applications as traffic monitoring, urban development,
-surveillance commonly require multispectral imagers with visible bands.
+Depending on the spectral bands used for imaging, the applications may be
+different. For example, scientific applications such as soil categorization,
+vegetation analysis oroceanography use hyperspectral imagers, which offers
+information about hundreds of bands. Other applications such as traffic monitoring,
+urban development and surveillance commonly require multispectral imagers with visible bands.
 
 \subsection{Data Management}
 
 Each satellite of the constellation acquires images which have five spectral
 bands into the visible spectrum. When this spectral data is
 obtained by telescopes, it is necessary to convert from analogical to digital
-data. This process is carried out using 12 bits per pixel for codifying the
+data. This process is carried out using 12 bits per pixel to codify the
 intensity signal level with a digital value. Then, the digital data is stored and pre-processed on
 board. 
 
-During the pre-processing activity, some meta-data that is well known as ancillary
+During the pre-processing activity, some meta-data also known as ancillary
 data, is added. The ancillary data enriches the acquired sector of image by adding
 some geolocated information and transmission auxiliary meta-data for communication
-protocols. \\All the above pre-processed data is aggregated in the
+protocols. 
+
+All the pre-processed data is aggregated in the
 internal storage for downloading when the satellite comes into a visibility zone
-of a ground station. At the moment the satellite enters in a footprint of a
-ground station, the acquired images at real time and the stored images are
-downloaded into ground station. \\Sending data is made multiplexing the
-communication channel within two ways. The first part of the total bandwidth
-is used for downloading the acquired images at real time and the other part of
-the rest of bandwidth performs the download of the stored images into the
-internal storages.
+of a ground station. In the very moment that the satellite enters into the footprint of a
+ground station, the acquired images are downloaded. 
+
+The data download is done by multiplexing the
+communication channel within two ways. A section of total bandwidth
+is used for downloading the images that are being acquired in real time and the
+rest of the bandwidth performs the download of the stored images located in
+internal storage units.
 
 \subsection{Ground Segment}
 
 The Ground Segment is composed by the antennas, the control centre and the
-infrastructures for processing and distributing images named processing
+infrastructures for processing and distribution of images namely processing
 data centre. 
 
-The current industries of \ac{EO} imaging perform the processing, distributing, and
-selling on premises. The steps are the following:
+The current industries of \ac{EO} imaging perform the processing, storage and distribution on premises. The steps are the following:
 \begin{enumerate}
-\item First, the antennas receives all the data from satellites and store it.
-\item Once the data is into the antenna, the processing data centre obtains the
-  images from the ground stations.
+\item First, the antennas receive all the data from the satellites and it is stored.
+\item Then, the data centre obtains the images from the ground stations.
 \item The data centre starts to process available images.
-\item When a image has been processed is sent for archiving and
-  cataloguing. 
-\item Finally, the image is available for end-users.
+\item When an image has been processed it is archived and catalogued. 
+\item Finally, the image can be distributed to end users.
 \end{enumerate}
 
-The architecture on-cloud proposed in this project, reduces the delivery
-end-user time making shorter the cataloguing and archiving times.
-
-The control centre manages the satellites, schedule mission planning and
-collects telemetry but not interferes in downloading nor processing images.
+The proposed architecture on-cloud  in this project, reduces the delivery time making shorter the cataloguing and archiving times.
 
 In order to implement the archive and catalogue module in cloud, several
 platforms for sharing geospatial data were studied. These software servers are
-\emph{GeoServer} and \emph{GeoNetwork} among others.
+\emph{GeoServer}\cite{Geoserver2014} and \emph{GeoNetwork}~\cite{Community2014} among others.
 \begin{itemize}
 %http://geoserver.org/about/
-\item \emph{GeoServer:} is a Java-based software server for cataloguing and
+\item \emph{GeoServer:} It is a Java-based software server for cataloguing and
   archiving geospatial images among others functions, that uses \ac{OGC}
   standards and allows users to view geospatial images. By default it offers
   \ac{WFS} services and \ac{WPS}. In GeoCloud, the Archive and Catalogue module
   has been implemented using \emph{GeoServer} in assembly with its \ac{CSW}
   extension, because it is flexible, simply,
-  multiplatform, open source and it can receive data from other sources. Also,
-  it can be integrated with \emph{GeoNetwork}.
+  multiplatform, open source and it can receive data from other sources. It can
+  also be integrated with \emph{GeoNetwork}.
 %http://geonetwork-opensource.org/
-\item \emph{GeoNetwork:} is a Java-based and platform independent catalogue application to manage
-  geospatial images. It uses \ac{OGC} standards as \ac{CSW}, \ac{WMS} and \ac
-  {WCS} among others interchanges protocols. It catalogues data from sources but
-  it not maintains its data. This is the reason for \emph{GeoServer} was selected.
+\item \emph{GeoNetwork:} It is a Java-based and platform independent catalogue application to manage
+  geospatial images. It uses \ac{OGC} standards such as \ac{CSW}, \ac{WMS} and \ac
+  {WCS} among other interchanges protocols. It catalogues data from sources but
+  it does not maintains its data. For this reason \emph{GeoServer} was selected.
 \end{itemize}
 
 \section{High-level languages}
 \label{sec:high-level-languages}
-For the development of the project, \ac{XML}, \ac{JSON},\emph{Python} and \emph{Bash} languages has
+For the development of the project, \ac{XML}, \ac{JSON}, \emph{Python} and \emph{Bash} languages has
 been used. The first, \ac{XML}, has been used for building the configuration file of
 the Orchestrator component and to obtain the selected nodes by \emph{JFed}
-application. Then \ac{JSON} has been used to create the experiment descriptor for
-\bonfire platform. The rest of them are scripting languages. The source of the
+application. \ac{JSON} was used to create the experiment descriptor for the
+\bonfire platform. The source of the
 components of the cloud has been developed using \emph{Python} and the interconnections
 between modules and others secondary functionalities, in \emph{Bash script}.
 
 \subsection{XML}
-\ac{XML} is a mark-up language that defines a set of rules for encoding
+\ac{XML}~\cite{St.Laurent1998} is a mark-up language that defines a set of rules for encoding
 documents in a format that is both human-readable and machine-readable. Most of
 actual software use it for configuring or for updating its configuration on fly.
 
 \subsection{JSON}
 
-\ac{JSON} is a lightweight language for data interchange between applications. The
+\ac{JSON}~\cite{Organization} is a lightweight language for data interchange between applications. The
 simplicity of \ac{JSON} results very simple and human-readable way to transmit data
 objects consisting of attribute-value pairs. Web applications are using this
 language substituting \ac{XML} because parsing and generating \ac{JSON} is more efficient
@@ -174,40 +178,37 @@ and its features.
 
 \subsection{Scripting languages}
 
-The Scripting technics consist of use a interpreted programming language in
-order to provide advanced mechanisms for specifying functionalities of an
-application. The most important features of a scripting language are that is not
-compiled and it permits effortless development. Also, some interpreted languages
-are multiplatform because is not necessary to compile the source for running in
-target platform. 
+The Scripting technics consist of using an interpreted programming language in
+order to provide advanced mechanisms to specify the functionalities of an
+application. The most important features of a scripting language are that it is not
+compiled and it permits effortless development. Furthermore, some interpreted languages
+are multiplatform because they do not require the compilation of the source for
+running the application in a target platform. 
 
 
 \subsubsection{Python}
-https://www.python.org/
-\emph{Python} is a object oriented language, although permits imperative and functional
+%https://www.python.org/
+\emph{Python}~\cite{Foundation2014} is an object oriented language, although permits imperative and functional
 programming. It does not need to compile the source because it is
-interpreted. It permits a flexible development because it is dynamic type and in
-this project, the most important feature why this language has been used,
-consist of it is multiplatform. With this feature, the software is able to be
+interpreted. It permits a flexible development because it is dynamically typed
+and multiplatform. With this feature, the software can be
 executed in any platform. The current version is 2.7.4 and it offers several
-useful and multipourpose libraries as \emph{matlib, pthread, mysqllib, pdb} and so on.
+useful and multipourpose libraries such as \emph{matlib, pthread, mysqllib and pdb}.
 
 \subsubsection{Bash Script}
 
-Really, \emph{Bash} is not a language, is a command language interpreter for the \ac{GNU}
+\emph{Bash}~\cite{Cooper2014} is a command language interpreter for the \ac{GNU}
 operative system. \emph{Bash} is fully compatible with other command language
-interpreters like \emph{sh} or \emph{ksh}, so the source developed by \emph{Bash}, normally, is
-portable. 
-However, the \emph{Bash} language is also known as \emph{Bash}. The Bash scripts contains
-commands for being executed by the interpreter. This way provides a direct line
-to communicate with the operative system and to make some functionalities ad-hoc.
-The \emph{Bash} language consists of several sentences that the operative system is
-able to read and translate in order to play a specific action. All the currents
-\emph{Linux} distributions contains a Bash interpret. 
+interpreters like \emph{sh} or \emph{ksh}, so the source developed by
+\emph{Bash} is portable. The Bash scripts contain
+commands  to be executed by the interpreter. It provides a direct line
+to communicate with the operative system and makes some functionalities ad-hoc.
+The \emph{Bash} language consists of several sentences that the operative system
+can to read and translate to play a specific action. All current \emph{Linux} distributions contain a Bash interpreter. 
 
 \subsubsection{Ruby}
-https://www.ruby-lang.org/en/
-\emph{Ruby} is an object-oriented, cross-platform, general-purpose and dynamic
+%https://www.ruby-lang.org/en/
+\emph{Ruby}~\cite{Community} is an object-oriented, cross-platform, general-purpose and dynamic
 programming language. It was designed and developed by \emph{Yukihiro
   Matsumoto}. This language has a dynamic type influenced by Groovy, Falcon and
 other ones. It permits an easy, flexible and agile development. 
@@ -440,7 +441,7 @@ PlanetLab Europe resources and to experiment with them.
 
 \subsubsection{BonFIRE}
 
-\emph{BonFIRE} is a multi-cloud testbed based on an \ac{IaaS}
+\emph{BonFIRE} is a multi-cloud testbed based on an \ac{$IaaS$}
 delivery model with guidelines, policies and best practices for
 experimenting. Currently, \bonfire is composed by 7 geographically distributed
 testbeds, which offer heterogeneous cloud services, compute resources and
