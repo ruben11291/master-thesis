@@ -391,14 +391,14 @@
 \newcommand{\@license}{%
   \begin{minipage}{1.1\textwidth}
     \begin{singlespace}
-	The code is in this document is granted to copy, distribute and/or modify under the terms of the GNU Free Documentation License,
+	The code included in this document is granted to copy, distribute and/or modify under the terms of the GNU Free Documentation License,
 Version 1.3 or any later version published by the Free Software
       Foundation. A copy of the license is included in
       the section entitled \hyperlink{chap:GFDL}{"GNU Free
         Documentation License"}.
 
 	This work was carried out with the support of the Fed4FIRE-project (“Federation for FIRE"),
-an Integrated project receiving funding from the European Union’s Seventh Framework Programme
+an Integrated Project receiving funding from the European Union’s Seventh Framework Programme
 for research, technological development and demonstration under grant agreement no 318389.
 It does not necessarily reflect the views of the European Commission. The European Commission is not liable for any
 use that may be made of the information contained herein.

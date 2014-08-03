@@ -96,17 +96,17 @@ bands into the visible spectrum. When this spectral data is
 obtained by telescopes, it is necessary to convert from analogical to digital
 data. This process is carried out using 12 bits per pixel to codify the
 intensity signal level with a digital value. Then, the digital data is stored and pre-processed on
-board. 
+board.
 
 During the pre-processing activity, some meta-data also known as ancillary
 data, is added. The ancillary data enriches the acquired sector of image by adding
 some geolocated information and transmission auxiliary meta-data for communication
-protocols. 
+protocols.
 
 All the pre-processed data is aggregated in the
 internal storage for downloading when the satellite comes into a visibility zone
 of a ground station. In the very moment that the satellite enters into the footprint of a
-ground station, the acquired images are downloaded. 
+ground station, the acquired images are downloaded.
 
 The data download is done by multiplexing the
 communication channel within two ways. A section of total bandwidth
@@ -118,14 +118,14 @@ internal storage units.
 
 The Ground Segment is composed by the antennas, the control centre and the
 infrastructures for processing and distribution of images namely processing
-data centre. 
+data centre.
 
 The current industries of \ac{EO} imaging perform the processing, storage and distribution on premises. The steps are the following:
 \begin{enumerate}
 \item First, the antennas receive all the data from the satellites and it is stored.
 \item Then, the data centre obtains the images from the ground stations.
 \item The data centre starts to process available images.
-\item When an image has been processed it is archived and catalogued. 
+\item When an image has been processed it is archived and catalogued.
 \item Finally, the image can be distributed to end users.
 \end{enumerate}
 
@@ -183,7 +183,7 @@ order to provide advanced mechanisms to specify the functionalities of an
 application. The most important features of a scripting language are that it is not
 compiled and it permits effortless development. Furthermore, some interpreted languages
 are multiplatform because they do not require the compilation of the source for
-running the application in a target platform. 
+running the application in a target platform.
 
 
 \subsubsection{Python}
@@ -204,19 +204,19 @@ interpreters like \emph{sh} or \emph{ksh}, so the source developed by
 commands  to be executed by the interpreter. It provides a direct line
 to communicate with the operative system and makes some functionalities ad-hoc.
 The \emph{Bash} language consists of several sentences that the operative system
-can to read and translate to play a specific action. All current \emph{Linux} distributions contain a Bash interpreter. 
+can to read and translate to play a specific action. All current \emph{Linux} distributions contain a Bash interpreter.
 
 \subsubsection{Ruby}
 %https://www.ruby-lang.org/en/
 \emph{Ruby}~\cite{Community} is an object-oriented, cross-platform, general-purpose and dynamic
 programming language. It was designed and developed by \emph{Yukihiro
   Matsumoto}. This language has a dynamic type influenced by Groovy, Falcon and
-other ones. It permits an easy, flexible and agile development. 
+other ones. It permits an easy, flexible and agile development.
 
 
 \subsubsection{Lua}
 http://www.lua.org/
-\emph{Lua} is a lightweight,cross-platform, prototype-based, object-oriented programming
+\emph{Lua} is a lightweight, cross-platform, prototype-based, object-oriented programming
 language. It was designed and developed by \emph{Roberto Lerusalimschy}. This
 language is influenced by C++, Modula and Scheme among others. It provides
 native data structures as tables, records and associative arrays which this
@@ -225,130 +225,130 @@ structure perform high throughput.
 
 \section{Networking}
 
-For simulating an environment as real as possible in GEO-Cloud, the impairments  of the networks between both Ground Stations and Cloud Platform
-and between both Cloud Platform and end-users had to be acquired. Also, features
-like bandwidth is obtained in order to stablish the maximum throughput of
+For simulating an environment as realisticallyl as possible in GEO-Cloud, the impairments  of the networks between both Ground Stations and Cloud Platform
+and between both Cloud Platform and end-users had to be acquired. In addition, features
+like the bandwidth is obtained in order to stablish the maximum throughput of
 channel over \vw.
 
 There are several simulators that
 calculates the value of these network features roughly but the obtained results
 may be wrong. Therefore, a sub-experiment explained in
-Section~\ref{sec:planetlab} for acquiring these values is implemented. 
+Section~\ref{sec:planetlab} for acquiring these values was implemented.
 
 \subsection{Impairments}
 
-The communication though the Internet is not perfect because there are many
+The communication through the Internet is not perfect because there are many
 sources or random events that affect traffic packets that are traversing a
-network differently at any given moment. This is a main
-subject to take into account when a network is being modelling. The main
+different network  at any given moment. This is a main issue to take into
+account when modelling a network. The main
 impairments
 %~\cite{http://iwl.com/white-papers/network-impairments/causes-and-correlation}
  of a network are the following:
 
 \begin{itemize}
-\item \emph{Packet Loss:} This is simply the disappearance of a packet that was
-  transmitted or ought to have been transmitted.
-\item \emph{Packet Delay:} Also known as ``Latency'' is the amount of time that elapses between the time a
-  packet is transmitted to physical environment until the packet is received by
-  target. This delay is composed by three types of delay times: Propagation
-  delay which is the time that the packet waste arriving destination;
-  Routing/Switching delay that is the time that the routers or
-  switches waste in processing the packet; finally the Queuing delays that is
-  the time that the packet is queued in any intermediate hardware of the entire network.
-\item \emph{Jitter:} Jitter is a measure of the variation in the packet delay
-  experienced by a number of packets. 
-\item \emph{Packet Duplication:} May occurs when one packet become two or more
+\item \emph{Packet Loss:} this is the disappearance of a packet that was
+  transmitted.
+\item \emph{Packet Delay:} also known as ``Latency'' is the amount of time that elapses between the time a
+  packet is transmitted to a physical environment until the packet is received by
+  the target. This delay is composed by three types of delay times: Propagation
+  delay, which is the time in which the packet arrives its destination;
+  Routing/Switching delay, which is the time in which the routers or
+  switches  process the packet; and finally the Queuing delays, which are
+  the time the packet is queued in any intermediate hardware of the entire network.
+\item \emph{Jitter:} jitter is a measure of the variation in the packet delay
+  experienced by a number of packets.
+\item \emph{Packet Duplication:} may occurs when one packet becomes two or more
   identical packets.
-\item \emph{Packet Corruption:} It occurs when the payload of the packet (even a bit)
+\item \emph{Packet Corruption:} it occurs when the payload of the packet (even a bit)
   is damaged but the packet continues to flow towards the destination instead of
   being discarded.
 \end{itemize}
 
-For GEO-Cloud project, the impairments to be acquired are \emph{Packet Loss} and
-\emph{Packet Delay} that permit modelling a simulated and close to reality network.
+In the GEO-Cloud project, the impairments considered are \emph{Packet Loss} and
+\emph{Packet Delay}, which permit modelling a simulated and close to reality network.
 
 
 \subsection{Networking Software}
 
-In the networking subject, there are lots of tools that permit to obtain the
-features values for the metrics defined above in a network. 
-For measuring the throughput, bandwidth and loss-rate the following tools are interesting:
+In the networking subject, there are lots of tools that facilitate the obtantion
+of the
+features values for the metrics defined in a network~\cite{libroredes}.
+For measuring the throughput, the bandwidth and the loss-rate the following
+tools can be used:
 
 \begin{itemize}
-\item \emph{Microsoft's NTttcp~{http://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769}:} Test tool is effectively iperf on steroids and
-  optimized for Windows environments. NTttcp does one better in correlating in
-  CPU usage for a network task as well as allowing mapping to CPUs for systems
-  with multiple processor capability. 
-\item \emph{NetCPS:} Is an oldie but a goodie, and between iperf and NTttcp,
-  most basic network testing can be performed to give a good baseline of network
-  performance.
-\item \emph{Iperf~{https://iperf.fr/}:} the most popular tool to measure maximum TCP bandwidth, allowing the
-  tuning of various parameters and UDP characteristics. Iperf reports
+\item \emph{Microsoft's
+    NTttcp~\cite{http://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769}:}
+  this tool is optimized for Windows environments and it similar to
+  \emph{Iperf}. Testing impariments in networks can be done using this tool.
+\item \emph{NetCPS:} The most basick network testing can be performed to give a
+  good baseline of network performance. This tool is optimized for Windows
+  enviroments.
+\item \emph{Iperf~\cite{https://iperf.fr/}:} the most popular tool to measure maximum TCP bandwidth, allowing the
+  tuning of various parameters and UDP characteristics. \emph{Iperf} reports
   bandwidth, delay, jitter and datagram loss. JPerf is a Java-extension for
   providing a graphical user interface.
-\item \emph{Uperf~{http://www.uperf.org/manual.html}:}Is a network
-  performance measurement tool that supports execution of workload profiles. It
+\item \emph{Uperf~\cite{http://www.uperf.org/manual.html}:} is a network
+  performance measurement tool that supports the execution of workload profiles. It
   is more complex and complete than Iperf or NetPerf allowing the user to model
   an application using a very high level language and running this over the
-  network. It allows to use multiple protocols, varying message sizes, to
-  collect statistics among others.
-\item \emph{NetPerf~{http://www.netperf.org/netperf/}:} Is a benchmark that can be used to measure the performance of many different types of networking. It provides tests for both unidirectional throughput, and end-to-end latency.
+  network. It allows the experimenter to use multiple protocols, by varying message sizes to
+  collect statistics.
+\item \emph{NetPerf~\cite{http://www.netperf.org/netperf/}:} is a benchmark that can be used to measure the performance of many different types of networking. It provides tests for both unidirectional throughput, and end-to-end latency.
 \end{itemize}
 
 For measuring the delay time the following tools are depicted:
 \begin{itemize}
-\item \emph{Ping:} It is the most used tool for testing the reachability of a host on an
+\item \emph{Ping:} it is the most used tool for testing the reachability of a host on an
   Internet Protocol network and for measuring the round-trip-time for packets sent
-  from a source host to a target host. The sent packets are \ac{ICMP} protocol.
-\item \emph{Traceroute:} Is a networking tool for displaying the path and
+  from a source host to a target host. \ac{ICMP} protocol is used for it.
+\item \emph{Traceroute:} is a networking tool for displaying the path and
   measuring transit delays of packets across a network over the Internet
   Protocol. This command is available on a number of modern operative systems. By
-  default it works in layer 3 sending \ac{UDP} packets but it can be customized
+  default it works in network layer of the \acs{OSI} model, sending \ac{UDP} packets but it can be customized
   for sending \ac{ICMP} packets.
 \end{itemize}
 
 \section{Federated Infrastructures}
 
-In this section, some federated infrastructures are depicted. This
+In this section, some federated infrastructures are described. This
 infrastructures are used by experimenters for creating new network topologies,
-new distributed applications, new network protocols, among others.
+ distributed applications and new network protocols.
 
 A federated infrastructure is a set of unified and autonomous platforms which
 are joined in order to provide interoperability and coordinated
-information sharing among individual components. 
+information sharing among individual components.
 
 The federated architecture pattern was first used by the \emph{US Federal CIO} in
 1990s. Then other organizations adopted this paradigm for its infrastructure
 technologies. Nowadays, this topology is growing up in business where the
-technological infrastructure has to be distributed and they must share critical
-information around the world.
+technological infrastructure has to be distributed, and using critical information around the world.
 
-The benefits of this kind of network topology are enumerated as follows:
+The benefits of using this kind of network topology are enumerated as follows:
 \begin{itemize}
 \item Independence: the components of the federation has its own rules,
-  protocols, subcomponents, and so on. All of them provides an interface for
-  communicating among others federation components.
+  protocols and subcomponents. All of them provide an interface for
+  communication between others federation components.
 \item For the end-users the federated cloud provides an easily way to host apps
   and the automatically selection of resources from different federated components.
 \end{itemize}
 
-There are several federated infrastructures for experimenting. These are known
-as ``Federated testbeds'' and the most important among others are the following:
+There are several federated infrastructures for experimentation. These are known
+as ``Federated testbeds''. The most important ones are the following:
 \begin{itemize}
 %{http://ac.els-cdn.com/S1389128613004507/1-s2.0-S1389128613004507-main.pdf?\_tid=320d2494-118e-11e4-9e39-00000aacb35e\&acdnat=1406026495\_7cd6d5a33b3ddfeaf3aad7216039f876}
-\item \emph{GENI}: The \emph{Global Environment for Networking Innovation}, is a distributed virtual
+\item \emph{GENI\footnote{For more information, see
+  \url{http://www.geni.net/}}}: The \emph{Global Environment for Networking Innovation}, is a distributed virtual
 laboratory for the future internet sponsored by the \emph{U.S. National Science Foundation} for
-experimenting. In this platform may be carry out developments like protocol
-design and evaluation, distributed services, content management and experiments
-that needs wide areas\footnote{For more information, see
-  \url{http://www.geni.net/}}.
+experimenting. In this platform developments such as protocol
+design and evaluation, distributed services or content management may be carried
+out~\cite{arriba}.
 %~{http://www.cs.cmu.edu/afs/cs/usr/droh/www/papers/opencirrus-ieeecomputer.pdf}
 \item \emph{Open
-  Cirrus:}The \emph{Open Cirrus} testbed provides a federation in cloud computing for
-experimenting. To support these experiments, global services has been added for
+  Cirrus:} The \emph{Open Cirrus} testbed provides a federation in cloud computing for
+experimentation. In order to support these experiments, global services were added by
 providing distributed common services. The experiments that can be carried out
-in this testbed are large-scale clustering experiments, machine learning,
-scientific computing among others. \emph{Open Cirrus} is composed by 10 sites in North
+in this testbed are large-scale clustering experiments, machine learning and scientific computing. \emph{Open Cirrus} is composed by 10 sites in North
 America, Europe and Asia and the platform has been developed by the
 \emph{U.S. National Science Foundation}, \emph{the University of
   Illinois},\emph{ the Karlsruhe Institute of Technology}, \emph{the Infocomm Development Authority of Singapore},\emph{ the
@@ -360,46 +360,46 @@ and Yahoo!~\footnote{For more information, see \url{http://opencirrus.org}}.
 \item \emph{Fed4FIRE:} The \emph{Fed4FIRE} is an Integrating Project under the European
 Union's \ac{FP7} addressing the work programme topic Future Internet Research
 and Experimentation. The project is performed by a consortium of 29 partners
-organisations from 8 countries. The \emph{Fed4FIRE}  proposal consists of to create a
-heterogeneous and federated platform with different kinds of services and applications such
-cloud computing, grid computing, smart cities, wireless networking and
+organisations from 8 countries. The \emph{Fed4FIRE}  proposal consists of the
+creation of heterogeneous and federated platform with different kinds of services and applications such
+as cloud computing, grid computing, smart cities, wireless networking and
 large-scale experiments. The federation is composed by the following testbeds:
 
 \begin{itemize}
-\item \emph{Virtual Wall:}For creating network topologies. 
-\item \emph{PlanetLab Europe:} For experimenting with nodes around the world.
-\item \emph{Norbit:} For experimenting with Wi-Fi resources.
-\item \emph{w-iLab.t:} This testbed is intended for Wi-Fi and sensor networking experimentation.
-\item \emph{NETMODE:} It consists of Wi-Fi nodes connected with some processors
+\item \emph{Virtual Wall:} for creating network topologies.
+\item \emph{PlanetLab Europe:} for experimenting with nodes around the world.
+\item \emph{Norbit:} for experimenting with Wi-Fi resources.
+\item \emph{w-iLab.t:} this testbed is intended for Wi-Fi and sensor networking experimentation.
+\item \emph{NETMODE:} it consists of Wi-Fi nodes connected with some processors
   for networking experimenting.
-\item \emph{NITOS:} Is a testbed offered by NITLab and consists of wireless
-  nodes bases on open-source software. 
-\item \emph{Smart Santander:} This is a large scale smart city deployment in
-  Santander city of Spain to experiment Internet of Things. 
-\item \emph{FuSeCo:} This testbed provides resources to experiment with 2G,3G
+\item \emph{NITOS:} it is a testbed offered by NITLab and consists of wireless
+  nodes base on open-source software.
+\item \emph{Smart Santander:} this is a large scale smart city deployment in
+  Santander city of Spain to experiment Internet of Things.
+\item \emph{FuSeCo:} this testbed provides resources to experiment with 2G, 3G
   and 4G technologies.
-\item \emph{OFELIA:} For testing and validating research aligned
+\item \emph{OFELIA:} for testing and validating research aligned
   with Future Internet Technologies.
-\item \emph{KOREN:} It provides programmable virtual network resources with
-  necessary bandwith connecting 6 large cities at the speed of 10 Gbps to 20 Gbps. 
-\item \emph{BonFIRE:} It is a multicloud tesbed for experimenting.
-\item \emph{performLTE:} Is a realistic environment for creating experiments
-  using the LTE technology.
-\item \emph{Community-Lab:} It is a distributed infrastructure for researchers
+\item \emph{KOREN:} it provides programmable virtual network resources with
+  necessary bandwith connecting 6 large cities at the speed of 10 Gbps to 20 Gbps.
+\item \emph{BonFIRE:} it is a multicloud tesbed for experimenting.
+\item \emph{performLTE:} it is a realistic environment for creating experiments
+  using the \ac{LTE} technology.
+\item \emph{Community-Lab:} it is a distributed infrastructure for researchers
   to experiment with community networks for creating digital and social environments.
-\item \emph{UltraAccess:} It provides several Optical network protocols and
-  resources to experiment with \ac{QoS} features, traffic engineering, virtual LANs
-  and so on.
+\item \emph{UltraAccess:} it provides several Optical network protocols and
+  resources to experiment with \ac{QoS} features, traffic engineering and virtual \acp{LAN}.
 \end{itemize}
 \end{itemize}
 
-In GEO-Cloud project, the testbeds used for implementing are \vw,\pl and
-\bonfire. These facilities are explained in the next sections.
+
+In GEO-Cloud project, the testbeds used for implementing are \emph{Virtual
+  Wall}, \emph{PlanetLab} and \emph{BonFIRE}. These facilities are explained in the next sections.
 
 \subsection{Fed4FIRE Testbeds}
 
-In the section above the \emph{Fed4FIRE's testbeds} are numerated. Now, the
-facilities that are employed in GEO-Cloud are detailed.
+In the previous section the \emph{Fed4FIRE's testbeds} were numerated. Next, the
+facilities used in GEO-Cloud are detailed~\cite{referenciaFED4FIRE}.
 
 \subsubsection{Virtual Wall}
 
@@ -408,32 +408,32 @@ experimenting with advances networks, distributed software and service
 evaluation carried out by the \emph{University of Ghent}. It offers the possibility for experimenters to create any type of
 network topology, e.g. emulating a large multi-hop topology, client-server
 topologies among others and to check algorithms or protocols for subsequent
-marketing. 
-Two \vw are available: \vw 1 contains 200 servers: 100
-quad-cores and 100 eight-cores; \vw 2 contains 100 dodeca-cores. 
+marketing.
+Two \vw testbeds are available: \vw 1 contains 200 servers: 100
+quad-cores and 100 eight-cores; \vw 2 contains 100 dodeca-cores.
 
 All servers have a management interface and five Gigabit Ethernet connections
-interconnected all of them by switches. On each of these links,the network
-impairments as bandwidth, loss-rate and delay can be configured. Also there are some virtual machines for
-customising the resources as the experimenter wants. As last, the network
-impairments as bandwidth, loss-rate and delay are configurable.  
+interconnected all of them by switches. On each of these links, the network
+impairments can be configured. There are also some virtual machines for
+customising the resources. Finally, the network
+impairments are configurable~\cite{VIRTUALWALL}.
 
 \subsubsection{PlanetLab Europe}
 
 \pl \emph{Europe} is part of the \pl global system, the world's largest
 research networking facility, which gives experimenters access to
 Internet-connected Linux virtual machines. About 1000 servers conform \pl
-platform located in United States, Europe, Asia and elsewhere as Figure~\ref{fig:intr-planetlab-europe} depicts. 
+platform located in United States, Europe, Asia and elsewhere as Figure~\ref{fig:intr-planetlab-europe} depicts.
 This platform can be used by experimenters in order to develop and to check
 distributed systems, network protocols, peer-to-peer systems, network security
-and network measurements among others applications.
+and network measurements among others applications~\cite{PLANETLAB}.
 
-Through \emph{Fed4FIRE}, the experimenters are able to reserve and deploy some
+Through \emph{Fed4FIRE}, the experimenters can reserve and deploy some
 PlanetLab Europe resources and to experiment with them.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{statement/planetlab-europe.jpg}
+\includegraphics[width=0.65\textwidth]{statement/planetlab-europe.jpg}
 \caption{Geographical distribution of PlanetLab Europe.}
 \label{fig:intr-planetlab-europe}
 \end{center}
@@ -441,29 +441,29 @@ PlanetLab Europe resources and to experiment with them.
 
 \subsubsection{BonFIRE}
 
-\emph{BonFIRE} is a multi-cloud testbed based on an \ac{$IaaS$}
+\emph{BonFIRE} is a multi-cloud testbed based on an \ac{IaaS}
 delivery model with guidelines, policies and best practices for
 experimenting. Currently, \bonfire is composed by 7 geographically distributed
 testbeds, which offer heterogeneous cloud services, compute resources and
-storage resources.These testbeds are \emph{EPCC},\emph{ INRIA},\emph{Wellness},\emph{ HLRS}, \emph{iMinds} and \emph{PSNC}. The Figure~\ref{fig:intr-bonfire-testbeds} shows these testbeds and its interconnections.
+storage resources. These testbeds are \emph{EPCC},\emph{
+  INRIA},\emph{Wellness},\emph{ HLRS}, \emph{iMinds} and \emph{PSNC}. The
+Figure~\ref{fig:intr-bonfire-testbeds} shows these testbeds and its
+interconnections. The compute resources that \bonfire offers are summarized in Table~\ref{table:intro-instance-types}.
+
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.7\textwidth]{statement/bonfire-testbeds.png}
+\includegraphics[width=0.85\textwidth]{statement/bonfire-testbeds.png}
 \caption{BonFIRE testbeds.}
 \label{fig:intr-bonfire-testbeds}
 \end{center}
 \end{figure}
 
-The compute resources that \bonfire offers are summarized in Table~\ref{table:intro-instance-types}.
-
-
-
-The setup of compute resource can be done using contextualization variables in
+The setup of the compute resources can be done by using contextualization variables in
 order to provide important information for software applications in the virtual
-machines. 
+machines.
 This testbed also offers elasticity resources, that are dynamically created,
-updated and destroyed according to execution environment.
+updated and destroyed according to the execution environment.
 
 \begin{table}[H]
   \centering
@@ -477,258 +477,253 @@ updated and destroyed according to execution environment.
 
 \subsection{Federated Tools}
 \label{subsec:federatedtools}
-In the breast of \emph{Fed4FIRE} project, some tools for deploying, controlling and
-monitoring the experiments have been developed. 
-Some of these tools are used only for developers to deploy, to provision, to
-make reservations and to discover resources. These tools are \emph{Flack, Omni
-  and SFI} which they have a common interface named \emph{SFA}.
+In the \emph{Fed4FIRE} project, some tools for deploying, controlling and
+monitoring the experiments have been developed.
+Some of these tools are used only by developers to deploy, to provision, to
+make reservations and to discover resources~\cite{FED4FIRETOOLS}. These tools are \emph{Flack, Omni
+  and SFI}, which have a common interface named \emph{SFA}.
 
 The experimenters utilize the tools for controlling the experiments. These tools
 are described as follows:
 \begin{itemize}
-\item \emph{NEPI:}The Network Experimentation Programming Interface, is a
+\item \emph{NEPI:} the Network Experimentation Programming Interface, is a
   life-cycle management tool for network experiments. It is developed in Python
   and it provides a high-level interface to describe experiments, to provision
   resources, to control experiments and to collect all the results of the
   experiment. To highlight that this implementation provides an important way to
-  manage and to make a workflow for an experiment.
-\item \emph{\ac{OMF6}:} is a generic framework that allows the definition and
-  orchestration of the experiments. It can be used for control the experiment
+  manage and to make a workflow for an experiment~\cite{NEPI}.
+\item \emph{\ac{OMF6}:} is a generic framework that facilitates the definition and
+  orchestration of the experiments. It can be used for controling the experiment
   through a distributed infrastructure based on \ac{XMPP} and an Aggregate Manager
-  that manages all the information flows. It can be integrated with \ac{OML} for
-  provisioning, to control and to collect all information about the experiment.
-\item \emph{\ac{OML}:} this tool provides a powerful way to take input from any
-  sensor or device with a software interface. This tool also defines and
-  implements a reporting protocol and a collection server. On the client side,
+  that manages all the information flows. It can be integrated with \acs{OML} for
+  provisioning, control and collection of all the information about the experiment.
+\item \emph{\acf{OML}:} this tool provides an \ac{API} to collect
+  the status of any sensor or device. It implements a reporting protocol
+  composed by a client and a collection server. On the client side,
   any application can be implemented using the \ac{OML} \ac{API} for collecting any
-  information about the status of the devices concerning the experiment. 
+  information about the status of the devices concerning the experiment.
 \end{itemize}
 
 
 \section{Graphical User Interfaces}
 
-A \ac{GUI} is a software that facilitates the human-machine interaction
-visually using images and graphics items. Normally the interactions are produced
+A \ac{GUI} is a software that facilitates the human-machine interaction using images and graphic items. Normally, the interactions are produced
 by user actions directly and these actions corresponds to events. The \ac{GUI} events
-are normally produced by the mouse, touchpad, keyboard or nowadays,a
-touchscreen. When an event is located, a determinate action is performed
+are usually produced by the mouse, touchpad, keyboard or nowadays, a
+touchscreen. When an event is located, a specific action is performed
 changing the interface itself, or creating, updating or deleting data or to
-accomplish a specific proceeding. 
+accomplish a specific proceeding.
 
 
 \subsection{Frameworks}
 
 There are lots of graphical user interface engines or frameworks available for
-Python. As the project is developed in Python, the user interface has to be
-developed in Python also. In addition, the searched engines have to be
-multiplatform. Finally, considering these above criteria, some frameworks and
-libraries  as \emph{PyGUI, PyGtk, PyGame, PyQt, PyKDE and WxPython} have been studied:
+Python. Because the project is developed in Python, the user interface was also
+developed in Python. In addition, the searched engines are multiplatform. Finally, considering these criteria, some frameworks and
+libraries  such as \emph{PyGUI, PyGtk, PyGame, PyQt, PyKDE and WxPython} were studied:
 
 \begin{itemize}
-\item \emph {PyGUI:} It is a \ac{API} that provides to make graphical user interface
-  easily, lightweight development and it can be used in any platform or
-  operative system. The PyGUI \ac{API} offers that programmer does
-  not need read any documentation because it is written in Python. It use
-  PyOpenGL libraries also. It is distributed under \ac{GPL} v3.
+\item \emph {PyGUI:} it is an \ac{API} for building graphical user interfaces
+  easily. It can be used in any platform or
+  operative system. Furthermore, it use  PyOpenGL libraries and it is distributed under \ac{GPL} v3.
 \item \emph{PyGtk:} It is a library set of Python with which the programmer can
   develop  programs with a graphical user interface easily. It is multiplatform
-  is distributed under \ac{LGPL} licence with few restrictions.
-\item \emph{PyGame:} Is a set of Python modules that allows to create games and
-  multimedia software as graphical user interfaces. Pygame is fully portable and
+  and it is distributed under \ac{LGPL} licence with few restrictions.
+\item \emph{PyGame:} is a set of Python modules facilitates the creation of games and
+  multimedia software such as graphical user interfaces. Pygame is fully portable and
   runs on nearly every platform and operative system. This engine evolves
   funcionality of \ac{SDL} library, OpenGL and provides Blender integration. It is
   distributed under \ac{GPL} v3.
 \item \emph{PyQt:} is a Python binding for Qt development. Qt is a
   cross-platform  and \ac{GUI} framework for  developing graphical user interfaces. Qt
   is distributed under \ac{GPL} v3 and \ac{LGPL} license. It is developed by Nokia and it
-  permits to develop software for mobile, embedded platforms, desktop platforms
+  permits the development of software for mobile, embedded platforms, desktop platforms
   and any operative system.
-\item \emph{WxPython:} is a \ac{GUI} toolkit for Python that allows to create
-  robust,highly functional graphical user interfaces easily and simply. It is
-  implemented in Python and distributed under \ac{GPL} v3 license.
+\item \emph{WxPython:} is a \ac{GUI} toolkit for Python that allows us to create
+  robust, highly functional graphical user interfaces easily and simply. It is
+  implemented in Python and it is distributed under \ac{GPL} v3 license.
 \end{itemize}
 
 
 \section{Database}
 %http://196.29.172.66:8080/jspui/bitstream/123456789/1834/1/E174.pdf
 Since computer manage the users information, humans had tried to sort these data
-and to collect from machines effectively. For this purpose, the databases were
-created. The databases are conceptual models to store the information
-orderly. Another step forward was the creation of the \ac{DBMS}. The \ac{DBMS}
+and collect it from machines effectively. For this purpose, the databases were
+created. The databases are conceptual models to orderly store the information. Another step forward was the creation of the \ac{DBMS}. The \ac{DBMS}
 is a software to manage the information contained into database to concentrate,
 to arrange and to provide lots of mechanisms to manage the information contained
-into database repository.
+into database repository~\cite{Database}.
 
 \subsection{DBMS}
 
 In order to simulate the constellation of satellites for GEO-Cloud project, some
-free \ac{DBMS} were studied. The most interesting for the purpose of this project are
-as follows:
+free \ac{DBMS} were studied. The most interesting are the following:
 \begin{itemize}
 %http://www.mysql.com/
-\item \textbf{MySQL:}Open Source relational database management system developed by
-  \emph{MySQL AB}. It is the most used database system in web applications and
-  second in the world. \emph{MySQL} provides triggers, cursors, sub-selects, stored
-  procedures, a embedded database library and works with distributed systems
-  efficiently among others. This \ac{DBMS} is multiplatform and it works in any
-  operative system. 
+\item \textbf{MySQL:} open source relational database management system developed by
+  \emph{MySQL AB}. It is the most used database system in web applications. \emph{MySQL} provides triggers, cursors, sub-selects, stored
+  procedures, an embedded database library and efficiently works with distributed systems. This \ac{DBMS} is multiplatform and it works in any
+  operative system~\cite{MySQL}.
 %https://www.monetdb.org/Home
-\item \textbf{MonetDB:} Open Source column-oriented database management system
+\item \textbf{MonetDB:} open source column-oriented database management system
   developed by \emph{Centrum Wiskunde \& Informatica} in Netherlands. It offers
   high performance on complex queries in large databases combining tables with
   lots of columns and multi-million rows. This \ac{DBMS} is performed in data
-  mining, geographic information systems and others like that.
+  mining and geographic information systems~\cite{MonetDB}.
 %http://www.postgresql.org.es/
-\item \textbf{PostgreSQL:} \emph{PostgreSQL} is a object-oriented relational
+\item \textbf{PostgreSQL:} \emph{PostgreSQL} is an object-oriented relational
   distributed database management system developed by \emph{PostgreSQL Global
-    Development Team}. It is distributed under \ac{BSD} license. This database use a
-  client-server model based in multi-processing for granting system stability.
-\end{itemize} 
+    Development Team}. It is distributed under \ac{BSD} license. This database uses a
+  client-server model based on multi-processing for granting system stability~\cite{PostgreSQL}.
+\end{itemize}
 
-\emph{MySQL} was selected for developing because there are quite documentation and the
+\emph{MySQL} was selected in the project development because there are quite documentation and the
 syntax is similar to \ac{SQL}.
 
 \section{Distributed Systems}
 %http://dl.acm.org/citation.cfm?id=1202502
 %http://etheldcofie.wordpress.com/2008/08/28/distributed-computing-paradigms-traditional-client-server-or-mobile-agents/
-Nowadays, almost of applications need to obtain information from other sources
-or communicating with another hardware either other computers or devices. As a
+Nowadays, most of applications need to obtain information from other sources
+or to communicate with another hardware either other computers or
+devices~\cite{UNADEELLAS}. As a
 result, some programming paradigms like client-server, remote procedure call and
-remote object invocation were born.
+remote object invocation were born~\cite{LAOTRA}.
 \begin{itemize}
 \item \textbf{Client-Server paradigm}~\\
-This architecture is composed by two parts: the first one is the Server
-component and the second one is the Client. The server is listening request from
-Client and when a application comes, the server decodes and processed it and
-sends back the reply to the Client.
+This architecture is composed by two parts: the first one is the server
+component and the second one is the client. The server is listening request from
+clients and when an application comes the server decodes, processes it and
+sends back the reply to the client.
 
 \textbf{Remote Procedure Call}~\\
-Remote Procedure Call uses the same principle as Client-Server but in much
-complex way. Basically in remote procedure call paradigm, a client calls a
-function as if it were a local function on the client machine but this called
-function are located in another host that it may use to perform a function.
+Remote Procedure Call uses the same principle as Client-Server but in a more
+complex way. Basically, in remote procedure call paradigm, a client calls a
+function as if it were a local function on the client machine, but this called
+function is located in another machine which performs the function and returns
+the results.
 
 \textbf{Remote Object Invocation}~\\
 This paradigm was born when the object-oriented programming paradigm was
-developed. It is based on there are distributed objects and these objects not
-necessary are fixed in a host. When a distributed-object is created, it is
+developed. There are distributed objects and these objects are not
+necessary fixed in a host. When a distributed-object is created, it is
 bound to a set of machines as slave, so when a client application recovers that
 object using a distributed-object registry or another one like that, the
 provided operations by the distributed object can be remotely performed as if
 it was a  operation call in applicant machine.
 \end{itemize}
+
 \subsection{Middleware}
 
 For client-server paradigm there are not any middleware for developing
-applications. Normally these kind applications are developing using the standard
+applications. Normally these applications are developed using the standard
 oriented socket libraries.
-For \ac{RPC} development, there are several implementations as
-\ac{SOAP}, \ac{CORBA}, UNIX \ac{RPC} and Pyro among others.
+For \ac{RPC} development, there are several implementations such as
+\ac{SOAP}, \ac{CORBA}, UNIX \ac{RPC} and Pyro.
 
-For Remote Object Invocation paradigm, novel middleware are. The most used are
+For Remote Object Invocation paradigm, there are several novel middlewares. The most used are
 Hadoop and ZeroC \ac{ICE} and its features are as follows:
 
 \subsubsection{Hadoop}
 %http://hadoop.apache.org/
-Hadoop is a framework for developing  reliable and scalable
+\emph{Hadoop}~\cite{HADOOP} is a framework for developing  reliable and scalable
 distributed applications. It is based on
 the architecture used by \emph{Google} named ``MapReduce'' and other components
-like \emph{Google File System}. 
-Some of its components among others are:
+like \emph{Google File System}.
+Some of its components are the following:
 \begin{itemize}
-\item \emph{Hadoop Common:} The common utilities for other Hadoop modules.
-\item \emph{Hadoop Distributed File System:} Distributed file system that
+\item \emph{Hadoop Common:} the common utilities for other Hadoop modules.
+\item \emph{Hadoop Distributed File System:} distributed file system that
   provides high-throughput access.
-\item \emph{Hadoop YARN:}A framework for job scheduling and resource management.
-\item \emph{Hadoop MapReduce:} A YARN-based system for parallel processing of
+\item \emph{Hadoop YARN:} a framework for job scheduling and resource management.
+\item \emph{Hadoop MapReduce:} a YARN-based system for parallel processing of
   large data sets.
 \end{itemize}
 It is designed for scaling up thousands of machines. It
-is maintained and distributed by \emph{Apache Software Foundation} under GPL license.
- 
+is maintained and distributed by \emph{Apache Software Foundation} under \ac{GPL} v.3
+license.
+
 \subsubsection{ZeroC ICE}
 %http://www.zeroc.com/
 \emph{ZeroC \ac{ICE}}, the internet communications engine, is a modern distributed computing
-platform with support lots languages as C++,Python, Java and Ruby among others.
-Permits to developers creates new powerful, efficient and simple applications
-with minimal effort.
-The main features of this middleware are:
+platform. It supports languages such as C++,Python, Java and Ruby among others.
+It allows developers to create new powerful, efficient and simple applications
+with minimal effort~\cite{ZEROCICE}.
+The main features of this middleware are the following:
+
 \begin{itemize}
 \item It is a general-purpose distributed computing platform.
-\item Uses a modern and flexible specification language.
-\item Dynamic invocation and dispatch.
-\item Request Forwarding.
+\item It uses a modern and flexible specification language.
+\item Dynamic invocation and dispatch are supported.
+\item Request Forwarding is provided.
 \item Asynchronous and synchronous invocation and dispatch.
-\item One-way, datagram and batched invocation.
-\item Fully thread-safe.
+\item One-way, datagram and batched invocation are also supported.
+\item Multi-threading software developments are fully thread-safe.
 \item Several transport protocols can be used as \ac{TCP},\ac{SSL},\ac{UDP} and also \ac{IP}v4 and
   \ac{IP}v6 are supported.
 \end{itemize}
 
 \ac{ICE} provides the following services:
 \begin{itemize}
-\item \emph{IceGrid:} A service for large-scale grid computing applications. 
-\item \emph{IceStorm:} A sophisticated event distribution service.
-\item \emph{Freeze:} Provides object persistence and the possibility to migrate
+\item \emph{IceGrid:} it is a service for large-scale grid computing applications.
+\item \emph{IceStorm:} it is a sophisticated event distribution service.
+\item \emph{Freeze:} it provides object persistence and the possibility to migrate
   these objects to a database.
-\item \emph{Glacier2:} A firewall service.
-\item \emph{IcePatch2:} A software and files distribution service.
-\end{itemize} 
+\item \emph{Glacier2:} it is a firewall service.
+\item \emph{IcePatch2:} it is a software and files distribution service.
+\end{itemize}
 
 \section{Software Design}
 
-In this section, the software engineering knowledge as design patters and
-software portability required by this project was studied. These areas are
+In this section, the software engineering knowledge and the software portability required by this project are studied. These areas are
 described in the following subsections.
 
 \subsection{Multiplatform source}
 
 One of the main objectives of GEO-Cloud consists of the software portability. As
 this project is an experiment, it has to be checked in any platform with any
-operative system, so the   
-
-The developed source was written in Python. Among the huge variety of Python
-interpreters, the used version for developing this project source is Python 2.7.
+operative system, so the developed source was written in Python. Among the huge variety of Python
+interpreters, the used version in this project source was Python 2.7.
 
 \emph{GNU/Linux} was the platform in which the development of all project files were
 carried out. Besides the libraries distributed within Python, \emph{Paramiko}
-Python library was used. This library implements \ac{SSH} protocol operations
-for managing and controlling machines remotely. This library is distributed
+Python library~\ref{PARAMIKO} was used. This library implements \ac{SSH} protocol operations
+for remotely managing and controlling machines. This library is distributed
 under \ac{GPL} v3.
-http://www.lag.net/paramiko/  
+http://www.lag.net/paramiko/
 
 \subsection{Software Development Life Cycles}
 
-Several methodologies for software development are. Historically, the software
+Historically, the software
 was developed without any methodology, so there were lots of bugs in the
 code. As a result, programs did not work correctly or they were inefficient or
 inclusive, they stopped unexpectedly. Then the saviour programmer tried to solve
-the trouble wasting lot of time. Thus, the software development is very
-expensive. 
+the trouble wasting lot of time. Thus, the software development was very
+expensive~\cite{MIRARPIATTINI}.
 At present, the software development is guided by life cycles. In this cycles,
-stages as planning, designing, implementation, testing, documenting, deployment
+stages such as planning, designing, implementation, testing, documenting, deployment
 and maintenance are basics for software development. Depending on how these
-stages are done, several life cycles are. Among others, the most important and
-more used are:
+stages are done, there are several life cycles. Among others, the most important and
+more used are the following:
+
 \begin{itemize}
-\item \emph{Waterfall model:} strict model in which developers have to follow these
-  stages in order: analisys,design, implementation, testing, deployment and maintenance.
+\item \emph{Waterfall model:} strict model in which the developers have to
+  follow the following stages in order: analisys, design, implementation, testing, deployment and maintenance.
 \item \emph{Spiral model:} this life cycle combines the waterfall model and rapid
   prototyping.
-\item \emph{Iterative and incremental cycle:} it bases on the development of small but
+\item \emph{Iterative and incremental cycle:} it is based on the development of small but
   ever-larger portions of a software. During software development, several
   iterations may be in progress at the same time. Using this cycle, the
-  end-users can check the no-ended product for updating requirements or to give feedback
+  end-users can check the no-ended product for updating requirements or for giving feedback
   to end-user.
-\item \emph{Agile development:} This model is very used nowadays, and its principles
-  are the iterative development, to incorporate continuous feedback and
-  stages iterations. 
+\item \emph{Agile development:} this model is very used nowadays. Its principles
+  are the iterative development and the incorporation of continuous feedback and
+  staging iterations.
 \end{itemize}
 
 \subsection{Design Patterns}
 
-The software programming patterns that were studied for developing GEO-Cloud
-are:
+The software programming patterns that were studied in the development of
+GEO-Cloud experiment are the following:
 \begin{itemize}
 \item Singleton: only a single instance of a class can exist.
 \item Composite: a tree structure of simple and composite objects.
@@ -737,12 +732,12 @@ are:
 
 \subsection{Testing}
 
-At the same time the development of GEO-Cloud software, the testing process was
-done also. The testing was made by two ways: hand testing and test-case oriented
-testing. In case of the second one, sundry testing frameworks were studied.
+While the GEO-Cloud software was being developed, the testing process was
+done. The testing was done as follows: hand testing and test-case oriented
+testing. In test-case oriented testing, sundry testing frameworks were studied.
 The selected framework for testing in Python was \emph{UnitTest} and its
-extension \emph{Nose}. It is included in Python standard library, is easy to use
-and it has lots of plugins. 
+extension \emph{Nose}. It is included in Python standard library, it is easy to use
+and it has lots of plugins~\cite{PyUNIT}.
 
 The developed test-cases were black-box essentially. Some white box test-cases
-were developed but the code coverage was not thorough. 
+were developed but the code coverage was not thorough.
