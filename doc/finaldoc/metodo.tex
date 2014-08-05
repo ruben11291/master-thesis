@@ -1,12 +1,12 @@
 \chapter{Method of work}
 \label{chap:method}
-\drop{I}{n} this chapter, the development software methodology during the
-development of Geo-Cloud is described. Also, the tools such hardware and software used for is depicted.
+\drop{I}{n} this chapter, the development software methodology applied for carrying
+out this project is described. Furthermore, the tools such as hardware and software used are enumerated.
  
 \section{Development Methodology}
-The selected methodology has been the \emph{iterative and incremental}
-model. This model provides numerous advantages as early adaptability, testing
-continuously and to have a implementation quite close to the final product. A
+The selected methodology is based in the \emph{Iterative and Incremental}
+model. This model provides numerous advantages such as early adaptability,
+continuously testing and has an implementation implementation close to the final product. A
 scheme of the model is shown in figure~\ref{fig:IncrementalModel}.
 
 
@@ -14,65 +14,63 @@ scheme of the model is shown in figure~\ref{fig:IncrementalModel}.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{statement/IterativeIncrementalDevelopment.png}
 %http://www.meranetworks.com/services/processes/iterative
-\caption{Iterative-incremental model}
+\caption{Iterative-Incremental model scheme}
 \label{fig:IncrementalModel}
 \end{center}
 \end{figure}
 
-This methodology enforces a strategy based in small iterations in which ones
-there are short changes applies to each module. This permits to generate a prototype
-growing and closing to the final version validating the initial requirements. In
-this way if any changes are required by the advisor, is easily to carry out
-them.
+This methodology enforces a strategy based in small iterations. In each
+iteration, the analisys of the requirements, implementation, testing and
+evaluation of the product is done. This permits to generate a prototype,
+iteratively to approach the final version validating the initial
+requirements. Thus, if the advisor requires any changes, they can be easily done.
  
-As the project has several parts, it is divided in modules and simultaneously,
-each module is divided in iterations. These iterations are depicted in Section~\ref{section:evolution}.
+As the project has several parts, it is divided in modules and each module, in iterations. These iterations are explained in Section~\ref{section:evolution}.
 
-\section{Tools}
+\section{Tools used in the project}
 
-In this section the resources such as software and hardware used during the
-development are enumerated and described.  
+In this section the tools and resources used to develop the project are described.  
 
 
 
 \subsection{Programming Languages}
 
-Several programming languages have been used for the Geo-Cloud
-implementation. These languages are described in Section~\ref{sec:high-level-languages} and they can be
+Several programming languages were used for the Geo-Cloud
+implementation. These languages were described in
+Section~\ref{sec:high-level-languages}. They can be
 summarized as follows:
 
 \begin{itemize}
-\item \textbf{Python:}  Main language used in the project. It is a
-  multiplatform, multipurpose object oriented language, although permits imperative and functional
-programming. It does not need to compile the source because it is
-interpreted (the operative systems in the cloud maybe not the same).
+\item \textbf{Python:}  it is the main language used in the project. It is a
+  multiplatform, multipurpose object oriented language, although it permits imperative and functional
+programming. It does not require to compile the source because it is
+interpreted.
  \item \textbf{\ac{XML}:} is a mark-up language that defines a set of rules for encoding
-documents in a format. It is used in some configuration files used by the
-   Orchestrator module or the User Interface tool.
+documents in a format. It is used in some configuration files thath both the
+\emph{Orchestrator} and the User Interface tool use.
 
-\item \textbf{\ac{JSON}:} is a lightweight language for data interchange between
-  applications. The \bonfire experiment descriptor must be written in this
-  language indicating the virtual machines instances, physical machines and the
+\item \textbf{\ac{JSON}:} it is a lightweight language to interchange data between
+  applications. The \bonfire experiment descriptor is written in this
+  language, indicating the virtual machines instances, physical machines and the
   network resources instantiated.
 
-\item \textbf{Bash:}  consists of several sentences that the operative system is
-able to read and translate in order to play a specific action. All the currents
-\emph{Linux} distributions contains a Bash interpret. 
+\item \textbf{Bash:} it consists of several sentences that the operative system can read and translate to play a specific action. All current
+\emph{Linux} distributions contain a \emph{Bash} interpreter. 
 
 \end{itemize}
 
 
 \subsection{Hardware}
 
-The development of GEO-Cloud project has been carried out in a PC owned by
-Deimos with the following features:
+The development of the GEO-Cloud project was carried out in a PC provided by
+\emph{Elecnor Deimos} with the following features:
 \begin{itemize}
 \item \emph{Intel Core i5 3450 3.1 GHz}
 \item \emph{8 GB RAM}
 \end{itemize}
 
-For the Version Control, the chosen server is
-Bitbucket~\footnote{http:www.bitbucket.org}.
+For the Version Control, Bitbucket~\footnote{Official Webpage: http:www.bitbucket.org} server was
+used and \emph{Git} was the selected version control system.
 
 The used resources provided  by the \emph{Fed4FIRE} testbeds are the following:
 
@@ -86,8 +84,8 @@ The used resources provided  by the \emph{Fed4FIRE} testbeds are the following:
   nodes have been used to simulate the satellite constellation and ground
   stations. 
 
-\item \textbf{BonFIRE}: Nodes from diferent testbeds have been selected. The
-  features of each node are depicted in Table~\ref{table:intro-instance-types} 
+\item \textbf{BonFIRE}: Nodes from diferent testbeds were selected. The
+  features the several types of nodes are summarized in Table~\ref{table:intro-instance-types}.
   \begin{itemize}
     \item From INRIA: 2 nodes Medium.
     \item From EPCC: 1 node Xlarge for Orchestrator and a \ac{EaaS} for

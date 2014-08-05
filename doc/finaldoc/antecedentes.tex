@@ -220,7 +220,7 @@ http://www.lua.org/
 language. It was designed and developed by \emph{Roberto Lerusalimschy}. This
 language is influenced by C++, Modula and Scheme among others. It provides
 native data structures as tables, records and associative arrays which this
-structure perform high throughput.
+structure perform high throughput~\cite{Organization2014}.
 
 
 \section{Networking}
@@ -237,13 +237,11 @@ Section~\ref{sec:planetlab} for acquiring these values was implemented.
 
 \subsection{Impairments}
 
-The communication through the Internet is not perfect because there are many
+The communication through the Internet is not perfect~\cite{Tanenbaum2003} because there are many
 sources or random events that affect traffic packets that are traversing a
 different network  at any given moment. This is a main issue to take into
 account when modelling a network. The main
-impairments
-%~\cite{http://iwl.com/white-papers/network-impairments/causes-and-correlation}
- of a network are the following:
+impairments of a network are the following:
 
 \begin{itemize}
 \item \emph{Packet Loss:} this is the disappearance of a packet that was
@@ -272,29 +270,29 @@ In the GEO-Cloud project, the impairments considered are \emph{Packet Loss} and
 
 In the networking subject, there are lots of tools that facilitate the obtantion
 of the
-features values for the metrics defined in a network~\cite{libroredes}.
+features values for the metrics defined in a network.
 For measuring the throughput, the bandwidth and the loss-rate the following
 tools can be used:
 
 \begin{itemize}
 \item \emph{Microsoft's
-    NTttcp~\cite{http://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769}:}
+    NTttcp~\cite{Microsoft2013}:}
   this tool is optimized for Windows environments and it similar to
   \emph{Iperf}. Testing impariments in networks can be done using this tool.
-\item \emph{NetCPS:} The most basick network testing can be performed to give a
+\item \emph{NetCPS:~\cite{Aase1998}} The most basick network testing can be performed to give a
   good baseline of network performance. This tool is optimized for Windows
   enviroments.
-\item \emph{Iperf~\cite{https://iperf.fr/}:} the most popular tool to measure maximum TCP bandwidth, allowing the
+\item \emph{Iperf~\cite{Iperf2014}:} the most popular tool to measure maximum TCP bandwidth, allowing the
   tuning of various parameters and UDP characteristics. \emph{Iperf} reports
   bandwidth, delay, jitter and datagram loss. JPerf is a Java-extension for
   providing a graphical user interface.
-\item \emph{Uperf~\cite{http://www.uperf.org/manual.html}:} is a network
+\item \emph{Uperf~\cite{Microsystems2013}:} is a network
   performance measurement tool that supports the execution of workload profiles. It
   is more complex and complete than Iperf or NetPerf allowing the user to model
   an application using a very high level language and running this over the
   network. It allows the experimenter to use multiple protocols, by varying message sizes to
   collect statistics.
-\item \emph{NetPerf~\cite{http://www.netperf.org/netperf/}:} is a benchmark that can be used to measure the performance of many different types of networking. It provides tests for both unidirectional throughput, and end-to-end latency.
+\item \emph{NetPerf~\cite{Company2012}:} is a benchmark that can be used to measure the performance of many different types of networking. It provides tests for both unidirectional throughput, and end-to-end latency.
 \end{itemize}
 
 For measuring the delay time the following tools are depicted:
@@ -342,12 +340,12 @@ as ``Federated testbeds''. The most important ones are the following:
 laboratory for the future internet sponsored by the \emph{U.S. National Science Foundation} for
 experimenting. In this platform developments such as protocol
 design and evaluation, distributed services or content management may be carried
-out~\cite{arriba}.
+out~\cite{Berman2014}.
 %~{http://www.cs.cmu.edu/afs/cs/usr/droh/www/papers/opencirrus-ieeecomputer.pdf}
 \item \emph{Open
   Cirrus:} The \emph{Open Cirrus} testbed provides a federation in cloud computing for
 experimentation. In order to support these experiments, global services were added by
-providing distributed common services. The experiments that can be carried out
+providing distributed common services~\cite{Avetisyan2010}. The experiments that can be carried out
 in this testbed are large-scale clustering experiments, machine learning and scientific computing. \emph{Open Cirrus} is composed by 10 sites in North
 America, Europe and Asia and the platform has been developed by the
 \emph{U.S. National Science Foundation}, \emph{the University of
@@ -399,7 +397,7 @@ In GEO-Cloud project, the testbeds used for implementing are \emph{Virtual
 \subsection{Fed4FIRE Testbeds}
 
 In the previous section the \emph{Fed4FIRE's testbeds} were numerated. Next, the
-facilities used in GEO-Cloud are detailed~\cite{referenciaFED4FIRE}.
+facilities used in GEO-Cloud are detailed.
 
 \subsubsection{Virtual Wall}
 
@@ -416,7 +414,7 @@ All servers have a management interface and five Gigabit Ethernet connections
 interconnected all of them by switches. On each of these links, the network
 impairments can be configured. There are also some virtual machines for
 customising the resources. Finally, the network
-impairments are configurable~\cite{VIRTUALWALL}.
+impairments are configurable~\cite{Wall2014}.
 
 \subsubsection{PlanetLab Europe}
 
@@ -426,7 +424,7 @@ Internet-connected Linux virtual machines. About 1000 servers conform \pl
 platform located in United States, Europe, Asia and elsewhere as Figure~\ref{fig:intr-planetlab-europe} depicts.
 This platform can be used by experimenters in order to develop and to check
 distributed systems, network protocols, peer-to-peer systems, network security
-and network measurements among others applications~\cite{PLANETLAB}.
+and network measurements among others applications~\cite{Europe2014}.
 
 Through \emph{Fed4FIRE}, the experimenters can reserve and deploy some
 PlanetLab Europe resources and to experiment with them.
@@ -441,11 +439,11 @@ PlanetLab Europe resources and to experiment with them.
 
 \subsubsection{BonFIRE}
 
-\emph{BonFIRE} is a multi-cloud testbed based on an \ac{IaaS}
+\emph{BonFIRE}~\cite{Hume2012} is a multi-cloud testbed based on an \ac{IaaS}
 delivery model with guidelines, policies and best practices for
 experimenting. Currently, \bonfire is composed by 7 geographically distributed
 testbeds, which offer heterogeneous cloud services, compute resources and
-storage resources. These testbeds are \emph{EPCC},\emph{
+storage resources~\cite{BonFIRE2014}. These testbeds are \emph{EPCC},\emph{
   INRIA},\emph{Wellness},\emph{ HLRS}, \emph{iMinds} and \emph{PSNC}. The
 Figure~\ref{fig:intr-bonfire-testbeds} shows these testbeds and its
 interconnections. The compute resources that \bonfire offers are summarized in Table~\ref{table:intro-instance-types}.
@@ -480,7 +478,7 @@ updated and destroyed according to the execution environment.
 In the \emph{Fed4FIRE} project, some tools for deploying, controlling and
 monitoring the experiments have been developed.
 Some of these tools are used only by developers to deploy, to provision, to
-make reservations and to discover resources~\cite{FED4FIRETOOLS}. These tools are \emph{Flack, Omni
+make reservations and to discover resources~\cite{Fed4FIRE2014}. These tools are \emph{Flack, Omni
   and SFI}, which have a common interface named \emph{SFA}.
 
 The experimenters utilize the tools for controlling the experiments. These tools
@@ -491,10 +489,10 @@ are described as follows:
   and it provides a high-level interface to describe experiments, to provision
   resources, to control experiments and to collect all the results of the
   experiment. To highlight that this implementation provides an important way to
-  manage and to make a workflow for an experiment~\cite{NEPI}.
+  manage and to make a workflow for an experiment~\cite{INRIA2014}.
 \item \emph{\ac{OMF6}:} is a generic framework that facilitates the definition and
   orchestration of the experiments. It can be used for controling the experiment
-  through a distributed infrastructure based on \ac{XMPP} and an Aggregate Manager
+    through a distributed infrastructure based on \ac{XMPP} and an Aggregate Manager
   that manages all the information flows. It can be integrated with \acs{OML} for
   provisioning, control and collection of all the information about the experiment.
 \item \emph{\acf{OML}:} this tool provides an \ac{API} to collect
@@ -518,7 +516,7 @@ accomplish a specific proceeding.
 \subsection{Frameworks}
 
 There are lots of graphical user interface engines or frameworks available for
-Python. Because the project is developed in Python, the user interface was also
+Python~\cite{Athanasias2014}. Because the project is developed in Python, the user interface was also
 developed in Python. In addition, the searched engines are multiplatform. Finally, considering these criteria, some frameworks and
 libraries  such as \emph{PyGUI, PyGtk, PyGame, PyQt, PyKDE and WxPython} were studied:
 
@@ -552,7 +550,7 @@ and collect it from machines effectively. For this purpose, the databases were
 created. The databases are conceptual models to orderly store the information. Another step forward was the creation of the \ac{DBMS}. The \ac{DBMS}
 is a software to manage the information contained into database to concentrate,
 to arrange and to provide lots of mechanisms to manage the information contained
-into database repository~\cite{Database}.
+into database repository~\cite{Group2010}.
 
 \subsection{DBMS}
 
@@ -563,31 +561,30 @@ free \ac{DBMS} were studied. The most interesting are the following:
 \item \textbf{MySQL:} open source relational database management system developed by
   \emph{MySQL AB}. It is the most used database system in web applications. \emph{MySQL} provides triggers, cursors, sub-selects, stored
   procedures, an embedded database library and efficiently works with distributed systems. This \ac{DBMS} is multiplatform and it works in any
-  operative system~\cite{MySQL}.
+  operative system~\footnote{For more information, see \url{http://www.mysql.com/}}.
 %https://www.monetdb.org/Home
 \item \textbf{MonetDB:} open source column-oriented database management system
   developed by \emph{Centrum Wiskunde \& Informatica} in Netherlands. It offers
   high performance on complex queries in large databases combining tables with
   lots of columns and multi-million rows. This \ac{DBMS} is performed in data
-  mining and geographic information systems~\cite{MonetDB}.
+  mining and geographic information systems~\footnote{For more information, see \url{https://www.monetdb.org/Home}}.
 %http://www.postgresql.org.es/
 \item \textbf{PostgreSQL:} \emph{PostgreSQL} is an object-oriented relational
   distributed database management system developed by \emph{PostgreSQL Global
     Development Team}. It is distributed under \ac{BSD} license. This database uses a
-  client-server model based on multi-processing for granting system stability~\cite{PostgreSQL}.
+  client-server model based on multi-processing for granting system stability~\footnote{For more information, see \url{http://www.postgresql.org.es/}}.
 \end{itemize}
 
 \emph{MySQL} was selected in the project development because there are quite documentation and the
 syntax is similar to \ac{SQL}.
 
 \section{Distributed Systems}
-%http://dl.acm.org/citation.cfm?id=1202502
-%http://etheldcofie.wordpress.com/2008/08/28/distributed-computing-paradigms-traditional-client-server-or-mobile-agents/
+
 Nowadays, most of applications need to obtain information from other sources
 or to communicate with another hardware either other computers or
-devices~\cite{UNADEELLAS}. As a
+devices. As a
 result, some programming paradigms like client-server, remote procedure call and
-remote object invocation were born~\cite{LAOTRA}.
+remote object invocation were born~\cite{Tanenbaum2008}.
 \begin{itemize}
 \item \textbf{Client-Server paradigm}~\\
 This architecture is composed by two parts: the first one is the server
@@ -625,7 +622,7 @@ Hadoop and ZeroC \ac{ICE} and its features are as follows:
 
 \subsubsection{Hadoop}
 %http://hadoop.apache.org/
-\emph{Hadoop}~\cite{HADOOP} is a framework for developing  reliable and scalable
+\emph{Hadoop}~\cite{Foundation2008} is a framework for developing  reliable and scalable
 distributed applications. It is based on
 the architecture used by \emph{Google} named ``MapReduce'' and other components
 like \emph{Google File System}.
@@ -647,7 +644,7 @@ license.
 \emph{ZeroC \ac{ICE}}, the internet communications engine, is a modern distributed computing
 platform. It supports languages such as C++,Python, Java and Ruby among others.
 It allows developers to create new powerful, efficient and simple applications
-with minimal effort~\cite{ZEROCICE}.
+with minimal effort~\cite{ZeroC2013}.
 The main features of this middleware are the following:
 
 \begin{itemize}
@@ -686,7 +683,7 @@ interpreters, the used version in this project source was Python 2.7.
 
 \emph{GNU/Linux} was the platform in which the development of all project files were
 carried out. Besides the libraries distributed within Python, \emph{Paramiko}
-Python library~\ref{PARAMIKO} was used. This library implements \ac{SSH} protocol operations
+Python library~\cite{Team2013} was used. This library implements \ac{SSH} protocol operations
 for remotely managing and controlling machines. This library is distributed
 under \ac{GPL} v3.
 http://www.lag.net/paramiko/
@@ -698,7 +695,7 @@ was developed without any methodology, so there were lots of bugs in the
 code. As a result, programs did not work correctly or they were inefficient or
 inclusive, they stopped unexpectedly. Then the saviour programmer tried to solve
 the trouble wasting lot of time. Thus, the software development was very
-expensive~\cite{MIRARPIATTINI}.
+expensive~\cite{Garcia2013}.
 At present, the software development is guided by life cycles. In this cycles,
 stages such as planning, designing, implementation, testing, documenting, deployment
 and maintenance are basics for software development. Depending on how these
@@ -737,7 +734,7 @@ done. The testing was done as follows: hand testing and test-case oriented
 testing. In test-case oriented testing, sundry testing frameworks were studied.
 The selected framework for testing in Python was \emph{UnitTest} and its
 extension \emph{Nose}. It is included in Python standard library, it is easy to use
-and it has lots of plugins~\cite{PyUNIT}.
+and it has lots of plugins~\cite{Foundation2014a}.
 
 The developed test-cases were black-box essentially. Some white box test-cases
 were developed but the code coverage was not thorough.

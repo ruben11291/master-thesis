@@ -14,45 +14,47 @@ The main objective of this project is defined regarding a series of functional
 requirements as follows:
 \begin{itemize}
 
-\item {\textbf{A Cloud Infrastructure in BonFIRE Testbed}: This
+\item {\textbf{To implement a Data Centre in the multicloud BonFIRE testbed}: This
   infrastructure for \ac{EO} provides the ingestion of raw data, on demand processing the raw
   data to obtain images, and later storing and cataloguing transparently,
   dynamically and automatically. For this purpose this components are needed:
 }
 \begin{itemize}
 
-\item{\textbf{Cloud Orchestrator}: It manages the
-  processing of images obtained from satellites and controls all the stages
-  (ingestion of images, processing, storing and cataloguing). The images
-  processors are provided by \emph{Elecnor Deimos} company, so their implementation is proprietary and they are treated as a black box.}
-\item {\textbf{Archive and Catalogue Subsystem}: The
-  results obtained from the processing have to be available in the cloud
-  infrastructure for end users.}
-\item{\textbf{Processors Module}: It process the raw data sent from
-  the Orchestrator component obtaining processed images from the Earth.}
+\item{\textbf{Cloud Orchestrator}: To manage the
+  processing of images obtained from satellites and to control all the stages
+  (ingestion of images, processing, storing and cataloguing).}
+\item {\textbf{Archive and Catalogue Subsystem}: To archive, to catalogue and to
+    provide to end-users, 
+ the results obtained from the processing stage.}
+\item{\textbf{Processors Module}: To process the raw data sent from
+  the Orchestrator component obtaining processed images from the Earth. The product
+  processors are provided and owned by \emph{Elecnor Deimos} company, so their implementation are treated as a black box.}
 \end{itemize}
-\item {\textbf{A profiling tool in PlanetLab}: for obtaining the real measures of
-  parameters and metrics involved in the communications of all components as
-  clients, ground stations, cloud and satellite constellation.}
 
+\item \textbf{To implement a Space Simulator in Virtual Wall testbed:} This
+  software simulates: the satellite
+  constellation getting images and downloading them into the ground stations; and ground
+  stations receiving the raw data sent by the satellites and sending it to cloud
+  infrastructure. In addition, the connections
+  between the satellite constellation and ground stations and between the ground
+  stations and cloud infrastructure are also simulated. 
 
-\item {\textbf{Software in Virtuall Wall}: This software simulates the satellite
-  constellation getting images and downloading into the ground stations, ground
-  stations receiving the raw data sent by the satellites and end users
-  accessing the resources in cloud through web services. Also, the connections
-  between the ground stations and the cloud infrastructure have a set of
-  impairments. This values of these impairments are obtained with the profiling tool in
-  \pl in order to build a  realistic experiment.}
+\item {\textbf{To obtain the network impairments values using PlanetLab testbed}: In
+    order to implement a closest to reality experiment, the real values of
+    loss-rate, bandwidth and \ac{RTT} of both the satellites-ground stations and
+    ground stations-cloud infrastructure networks, are obtained. Then, the
+    impairments of the networks implemented using the \vw testbed, are updated.}
 
-\item {\textbf{Creation of the experiment}: By combining and integrating
+\item {\textbf{To create the experiment}: By combining and integrating
   the developed in the three testbeds mentioned before.}
 
-\item {\textbf{Creation of a Graphical User Interface}: This \ac{GUI} provides
-  the deploy,execution and stop automatically.}
+\item {\textbf{To create a Graphical User Interface}: This \ac{GUI} provides
+  the deploy,execution and stop, easily and automatically.}
 
-\item {\textbf{System Validation}: Simulation of a scenario to validate the
+\item {\textbf{To validate the experiment}: Simulating of a scenario to validate the
   entire system obtaining, downloading, processing, storing and cataloguing
-  \ac{EO} images. Also, to validate if future internet cloud computing
+  \ac{EO} images. In addition,  to evaluate if future internet cloud computing
   and networks provide viable solutions for conventional \ac{EO}
   Systems to establish the basis for the implementation of \ac{EO}
   infrastructures in
