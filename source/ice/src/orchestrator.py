@@ -40,41 +40,45 @@ class OrchestratorI(geocloud.Orchestrator):
     def __init__(self,com):
         if not com:
             raise RuntimeError("Not communicator")
+        self.com = com
         q = com.stringToProxy('IceGrid/Query')
         self.query = IceGrid.QueryPrx.checkedCast(q)
         if not self.query:
             raise RuntimeError("Invalid proxy")
-        self.proxies_rawPP = self.query.findAllObjectsByType("::GeoCloud::Processor")
-        for prx in self.proxies_rawPP:
-            self.proxies_pp.append(geocloud.ProcessorPrx.checkedCast(prx))
-
-        if not self.proxies_pp:
-            raise RuntimeError("Not able to fecht processor proxies")
-
-        self.sem = Ice.threading.Lock() #Lock for managing the data structures
+        self.sem = Ice.threading.RLock() #Lock for managing the data structures
         
 
     def downloadedImage(self,path,current=None):
-        self.sem.acquire()
-	print "Path %s %s"%(path,current)
-        included = False
-        for proxy in self.proxies_pp:# for all proxies running into cloud
-            if proxy  not in self.busy_proxies_pp and not included: #if any proxy is free
-                print "Selected proxy : ",proxy
-                self.busy_proxies_pp[proxy]=path # add the proxy to busy with its file
-                self.stages_pp[proxy] = "L0" # add proxy with its corresponding stage
-                self.async_call= self.processImage(path,proxy) # send the processing order to process slave
-                #self.async_call = proxy.begin_processImage(path)
-                print "Sended image ",path
-                included = True
-        if not included:
-            print "Imagen includa ",path
-            self.pending.append(path) #
-        self.sem.release()
-        if included:
-            print "Waiting for sent ",path
-            #self.async_call.waitForSent()
-	return 0
+        print "Downloaded :",path
+        processor =None
+        try:
+            processor = geocloud.ProcessorPrx.checkedCast(current.adapter.getCommunicator().stringToProxy("hello"))
+            processor.processImage(path)
+        except Ice.NotRegisteredException:
+            hello = geocloud.ProcessorPrx.checkedCast(query.findObjectByType("::geocloud::ProcessingChainReplica"))
+        except Exception as e:
+            print e
+
+        if processor:
+            self.sem.acquire()
+        # included = False
+        # for proxy in self.proxies_pp:# for all proxies running into cloud
+        #     if proxy  not in self.busy_proxies_pp and not included: #if any proxy is free
+        #         print "Selected proxy : ",proxy
+        #         self.busy_proxies_pp[proxy]=path # add the proxy to busy with its file
+        #         self.stages_pp[proxy] = "L0" # add proxy with its corresponding stage
+        #         self.async_call= self.processImage(path,proxy) # send the processing order to process slave
+        #         #self.async_call = proxy.begin_processImage(path)
+        #         print "Sended image ",path
+        #         included = True
+        # if not included:
+        #     print "Imagen includa ",path
+        #     self.pending.append(path) #
+        # self.sem.release()
+        # if included:
+        #     print "Waiting for sent ",path
+        #     #self.async_call.waitForSent()
+	# return 0
 
     def processImage(self,path,prxPP):
         async_call=prxPP.begin_processImage(path)
@@ -90,29 +94,44 @@ class OrchestratorI(geocloud.Orchestrator):
         self.sem.release()
 
     def imageProcessed(self,path,prxPP,current=None):
-        self.sem.acquire()
-	print "Stop Scenario"
+        #self.sem.acquire()
+        try:
+            hello = geocloud.ProcessorPrx.checkedCast(current.adapter.getCommunicator().stringToProxy("hello"))
+            hello.processImage("CACAS")
+        except Ice.NotRegisteredException:
+            hello = geocloud.ProcessorPrx.checkedCast(query.findObjectByType("::geocloud::ProcessingChainReplica"))
+        except Exception as e:
+            print e
+        # included =False
+        # #avisar a broker log
+        # self.busy_proxies_pp.delete(prxPP) #remove proxy of the busy proxy list
+        # self.stages_pp.delete(prxPP) # remove the current stage for proxy
+        # if not self.pending.empty():
+        #     for proxy in self.proxies_pp:# for all proxies running into cloud
+        #         if proxy  not in self.busy_proxies_pp: #if any proxy is free
+        #             self.busy_proxies_pp[proxy]=path # add the proxy to busy with its file
+        #             self.stages_pp[proxy] = "L0" # add proxy with its corresponding stage
+        #             async_call= self.processImage(path,proxy) # send the processing order to process slave
+        #             print "Sended image ",path
+        #             included = True
+        #         if included:
+        #             async_call.waitForSent()
 
-        included =False
-        #avisar a broker log
-        self.busy_proxies_pp.delete(prxPP) #remove proxy of the busy proxy list
-        self.stages_pp.delete(prxPP) # remove the current stage for proxy
-        if not self.pending.empty():
-            for proxy in self.proxies_pp:# for all proxies running into cloud
-                if proxy  not in self.busy_proxies_pp: #if any proxy is free
-                    self.busy_proxies_pp[proxy]=path # add the proxy to busy with its file
-                    self.stages_pp[proxy] = "L0" # add proxy with its corresponding stage
-                    async_call= self.processImage(path,proxy) # send the processing order to process slave
-                    print "Sended image ",path
-                    included = True
-                if included:
-                    async_call.waitForSent()
-
-        self.sem.release()
+        #self.sem.release()
 
     def cleanQueue(self,current=None):
         self.sem.acquire()
 	print "Clean orchestrator"
+       
+        #a = self.query.findObjectById(self.com.stringToIdentity("ReplicaProcessingChain"))
+        try:
+            hello = geocloud.ProcessorPrx.checkedCast(current.adapter.getCommunicator().stringToProxy("hello"))
+            hello.processImage("CACAS")
+        except Ice.NotRegisteredException:
+            hello = geocloud.ProcessorPrx.checkedCast(query.findObjectByType("::geocloud::ProcessingChainReplica"))
+        except Exception as e:
+            print e
+        
         self.sem.release()
 
     def stop(self,current=None):
@@ -131,7 +150,7 @@ class Orchestrator(Ice.Application):
     def run(self,args):
         try:
             com = self.communicator()
-            servant = OrchestratorI(com)
+            servant = OrchestratorI()
             adapter = com.createObjectAdapter('OrchestratorOA')
             prx = adapter.add(servant, com.stringToIdentity('orchestrator'))
             print prx

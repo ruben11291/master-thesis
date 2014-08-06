@@ -1,7 +1,7 @@
 
 
 
-\begin{tabular}{p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}}
+\begin{longtable}{p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}}
   \tabheadformat
   \tabhead{Table}   & \tabhead{Function}& \tabhead{Columns} &
   \tabhead{Relationship}\\\hline
@@ -10,16 +10,14 @@
 time $T_0$ and the end time $T_f$. Its primary key\footnote{The \emph{primary
     key} identifies an object; for example a scenario, a ground station or a
   satellite} (represented with a key symbol in
-Figure~\ref{fig:sss-database-architecture}) is the name column.   & name timeIni
-timeEnd&None\\
+Figure~\ref{fig:sss-database-architecture}) is the name column.   &
+name \newline timeIni \newline timeEnd&None\\
 \hline
 
 
 \textit{GroundStations table} & It contains the ID of the Ground Station and its
-name. Its \emph{primary key} is the idGroundStation. &
-idSatellite scenario idGroundStation timeInStation timeOutStation
-interestZoneIni interestZoneEnd
-&None  \\\hline
+name. Its \emph{primary key} is the idGroundStation. & idSatellite  \newline scenario  \newline idGroundStation  \newline timeInStation  \newline timeOutStation
+ \newline interestZoneIni  \newline interestZoneEnd &None  \\\hline
 
 \textit{Satellites table} &  It contains the ID of the satellites
 \emph{idSatellite}, the scenario and the ground station id,
@@ -28,11 +26,11 @@ satellite enters into the visibility cone $[T_{GS}]_{0ij}$,
 \emph{timeInStation}, the time when it leaves the visibility cone
 $[T_{GS}]_{fij}$, \emph{timeOutStation}, the time when the satellite enters into
 the \emph{AIO} $[T_{AOI}]_{0i}$, \emph{interestZoneIni}, and the time when the
-satellite leaves the \emph{AOI} $[T_{AOI}]_{fi}$,\emph{interestZoneEnd}. All of
+satellite leaves the \emph{AOI} $[T_{AOI}]_{fi}$,\emph{interest}~\emph{ZoneEnd}. All of
 them are primary keys because a satellite can download images of several
 \emph{AOIs} in a single ground station.
-  & idGroundStation name ip port & This table relates the \emph{Scenarios} table and the \emph{GroundStations} table. This is because the \emph{scenario} and \emph{idGroundStation} columns are foreign keys\footnote{The \emph{foreign key} binds two tables, linked across a field. For example in this case, the column from the \emph{Satellites} table which is named \emph{Scenario} refers to an object that exists in the \emph{Scenarios} table.}. The characteristics of these columns are \emph{On delete cascade} and \emph{On update cascade}. This means that when an object contained in a table (\emph{GroundStation} table or \emph{Scenarios} table) is deleted, it is also automatically deleted the object that refers to it, and if it is updated the object is also automatically updated. \\\hline
-\end{tabular}
+  & idGroundStation \newline name \newline ip \newline port& This table relates the \emph{Scenarios} table and the \emph{GroundStations} table. This is because the \emph{scenario} and \emph{idGroundStation} columns are foreign keys\footnote{The \emph{foreign key} binds two tables, linked across a field. For example in this case, the column from the \emph{Satellites} table which is named \emph{Scenario} refers to an object that exists in the \emph{Scenarios} table.}. The characteristics of these columns are \emph{On delete cascade} and \emph{On update cascade}. This means that when an object contained in a table (\emph{GroundStation} table or \emph{Scenarios} table) is deleted, it is also automatically deleted the object that refers to it, and if it is updated the object is also automatically updated. \\\hline
+\end{longtable}
 
 
 % Local variables:

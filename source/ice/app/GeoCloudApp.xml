@@ -44,15 +44,14 @@
       </service-template>
       <server-template id="ChainProcessingTemplate">
          <parameter name="id"/>
-         <server id="ChainProcessing${id}" activation="on-demand" exe="./processor.py" pwd="${application.distrib}">
+         <server id="ChainProcessing${id}" activation="on-demand" deactivation-timeout="10" exe="./processor.py" pwd="${application.distrib}">
             <option>${id}</option>
             <properties>
                <property name="Ice.StdOut" value="/tmp/ChainProcessing${id}.out"/>
                <property name="Ice.StdErr" value="/tmp/ChainProcessing${id}.err"/>
+               <property name="Identity" value="hello"/>
             </properties>
-            <adapter name="ChainProcessingOA" endpoints="default" id="${server}.ChainProcessingOA">
-               <object identity="ProcessingChain${id}" type="::GeoCloud::Processor"/>
-            </adapter>
+            <adapter name="ChainProcessingOA" endpoints="default" id="${server}.ChainProcessingOA" replica-group="ProcessingChainReplica"/>
          </server>
       </server-template>
       <server-template id="Glacier2">
@@ -107,7 +106,7 @@
       </server-template>
       <replica-group id="ProcessingChainReplica">
          <load-balancing type="adaptive" load-sample="1" n-replicas="1"/>
-         <object identity="ReplicaProcessingChain"/>
+         <object identity="hello" type="::geocloud::ProcessingChainReplica"/>
       </replica-group>
       <node name="nodo1">
          <server-instance template="IcePatch2" directory="/home/deimos/git/geo-cloud_pfc/source/ice/src">
@@ -116,7 +115,7 @@
             </properties>
          </server-instance>
          <server-instance template="IceStorm"/>
-         <server id="Orchestrator" activation="always" exe="./orchestrator.py" pwd="${application.distrib}">
+         <server id="Orchestrator" activation="on-demand" deactivation-timeout="10" exe="./orchestrator.py" pwd="${application.distrib}">
             <properties>
                <property name="Ice.StdOut" value="/tmp/orchestrator.out"/>
                <property name="Ice.StdErr" value="/tmp/orchestrator.err"/>
@@ -133,7 +132,7 @@
          <server-instance template="ChainProcessingTemplate" id="2"/>
       </node>
       <node name="nodo3">
-         <server id="Broker" activation="always" exe="./broker.py" pwd="${application.distrib}">
+         <server id="Broker" activation="on-demand" deactivation-timeout="10" exe="./broker.py" pwd="${application.distrib}">
             <description>						</description>
             <properties>
                <property name="Ice.StdOut" value="/tmp/broker.out"/>

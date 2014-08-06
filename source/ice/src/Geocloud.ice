@@ -14,6 +14,7 @@ module geocloud {
  interface Processor{
 	//int init( Broker * log);
        	void processImage(string path);
+	void shutdown();
     };	
 
     interface Orchestrator{

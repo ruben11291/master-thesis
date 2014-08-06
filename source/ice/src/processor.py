@@ -26,28 +26,29 @@ import geocloud
 
 class ProcessorI(geocloud.Processor):
     
-    def __init__(self,com):
-        if not com:
-            raise RuntimeError("Communication is not available")
-        self.com = com
-        
+    def __init__(self,name):
+        self.name = name
+        # q = self.com.stringToProxy('IceGrid/Query')
+        # self.query = IceGrid.QueryPrx.checkedCast(q)
+        # if not self.query:
+        #     raise RuntimeError("Invalid proxy")
+        # orchest = self.query.findObjectById(self.com.stringToIdentity('orchestrator'))
+        # self.orchestrator = geocloud.OrchestratorPrx.checkedCast(orchest)
 
 
     def processImage(self,path,current=None):
         i=0  
-        q = self.com.stringToProxy('IceGrid/Query')
-        self.query = IceGrid.QueryPrx.checkedCast(q)
-        if not self.query:
-            raise RuntimeError("Invalid proxy")
-        orchest = self.query.findObjectById(self.com.stringToIdentity('orchestrator'))
-        self.orchestrator = geocloud.OrchestratorPrx.checkedCast(orchest)
-
+        print "Applied name:",self.name
         print "Processing image...",path
         
         if self.orchestrator:
             print "Sending image..."
-            self.orchestrator.imageProcessed(path,self)
-        
+            #left=self.orchestrator.begin_imageProcessed(path,(ProcessorI)self)
+            print "Sent"
+
+    def shutdown(self,current=None):
+        print (self.name+ " shutting down...")
+        current.adapter.getCommunicator().shutdown()
        
 
 
@@ -59,8 +60,10 @@ class Processor(Ice.Application):
             raise RuntimeError("Not communicator")
 
         else:
-            adapter = com.createObjectAdapter('ChainProcessingOA')
-            adapter.add(servant, com.stringToIdentity('ProcessingChain%s'%(sys.argv[1])))
+            properties = com.getProperties()
+            adapter = com.createObjectAdapter("ChainProcessingOA")
+            id = com.stringToIdentity(properties.getProperty("Identity"))
+            adapter.add(ProcessorI(properties.getProperty("Ice.ProgramName")),id)
             print "Processor%s ready!"%(sys.argv[1])
             adapter.activate()
             self.shutdownOnInterrupt()

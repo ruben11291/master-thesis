@@ -9,11 +9,11 @@ In a wide vision, it is an \ac{EO} system consisting of a constellation of satel
 
 The following requirements have been fulfilled to design the system:
 \begin{itemize}
-\item Swath: $160km$ (based on state of the art cameras).
-\item Resolution: $6.7m$ (based on state of the art cameras).
+\item Swath: $160~km$ (based on state of the art cameras).
+\item Resolution: $6.7~m$ (based on state of the art cameras).
 \item Low Earth Orbits.
 \item Sun Synchronous orbits.
-\item Download data rate: $160 Mbps$ (based on Deimos-2 satellite characteristics).
+\item Download data rate: $160~Mbps$ (based on Deimos-2 satellite characteristics).
 \item Optical Bands: 5 Multispectral (based on state of the art cameras).
 \end{itemize}
 
@@ -37,62 +37,78 @@ term future.
 
 
 \subparagraph{Satellite performances}~\\
-As a first iteration for the system, small platforms of less of $500kg$ are supposed according to the size and payload bay characteristics of representative platforms in this category. This study is based on the bus platforms currently offered by Surrey Satellite Technology Ltd, Satrec Initiative, Sierra Nevada Corporation, etcetera.
+As a first iteration for the system, small platforms of less of $500~kg$ are
+supposed according to the size and payload bay characteristics of representative
+platforms in this category. This study is based on the bus platforms currently
+offered by Surrey Satellite Technology Ltd, Satrec Initiative and Sierra Nevada Corporation.
 
-To reduce the amount of satellites orbiting the Earth, a design with two payloads has been assumed. Thus, the swath (the width of the field of view of each satellite in the surface of the Earth) can be duplicated without decreasing the resolution.
+In order to reduce the amount of satellites orbiting the Earth, a design with
+two payloads was assumed. Thus, the swath (the width of the field of view of each satellite in the surface of the Earth) can be duplicated without decreasing the resolution.
 
-The satellites shall be pointing to nadir, acquiring images without maneuvering because of the acquisition plan for cover the Earth daily. Simultaneously, when a satellite gets into the field of view of a Ground Station, the download starts and at the same time the satellite continues imaging.
+The satellites shall be pointing to nadir, acquiring images without maneuvering
+because of the acquisition plan for covering the Earth daily. Simultaneously,
+when a satellite gets into the field of view of a Ground Station, the download
+of the acquired images starts and at the same time the satellite continues
+recording the surface of the Earth.
 
-The main specifications of the satellites in the constellation are shown in Table~\ref{table:intro-satellite-performances}. The values of each parameter have been selected according to the state of the art and the desired quality of the images in the mission.
+The main specifications of the satellites in the constellation are shown in Table~\ref{table:intro-satellite-performances}. The values of each parameter were selected according to the state of the art and the desired quality of the images in the mission.
 
 \begin{table}[hp]
   \centering
   {\small
   \input{tables/sat-performances.tex}
   }
-  \caption{Main Performances of the Satellites}
+  \caption{Main performance parameters of the satellites}
   \label{table:intro-satellite-performances}
 \end{table}
 
 
 \subparagraph{Orbit definition}~\\
-It is common in \ac{EO} satellite missions the use of \emph{sun-synchronous} orbits. These orbits guarantee that the lighting conditions of the imaged places are the same during the mission, which is a very desirable characteristic.
+The use of \emph{sun-synchronous} orbits in \ac{EO} satellite missions is common. These orbits guarantee that the lighting conditions of the imaged places are the same during the mission, which is a very desirable characteristic.
 
-\ac{LTAN} is also a desired condition of the orbit very related to the lighting and weather conditions of those places that the satellite overflies (\ac{LTAN} is selected according to the desired local time of the overflown places and the cloud formation during the day); it is common the use of \emph{LTAN 10:30h} for Earth Observation.
+\ac{LTAN} is also a desired condition of the orbit very related to the lighting
+and weather conditions of those places that the satellite overflies (\ac{LTAN}
+is selected according to the desired local time of the overflown places and the
+cloud formation during the day). The use of \emph{LTAN 10:30h} is commmon for
+Earth Observation because at that time the best conditions of cloudiness,
+reflectivity and luminosity are given.
 
-Other of the main parameters of an orbit is the altitude. Altitude has effects in the resolution and the swath of the satellites, which has impact in the number of satellites required to achieve the coverage objective. According to the value of those parameters in the payloads included in the satellites, the reference altitude for the system was found to be \emph{646km}. \ac{SSO} condition implies a relation between the altitude and the inclination of the orbit of \emph{97.97deg} in this case.
+Other of the main parameters of an orbit is the altitude. Altitude has effects
+in the resolution and the swath of the satellites, which has impact in the
+number of satellites required to achieve the coverage objective. According to
+the value of those parameters in the payloads included in the satellites, the
+reference altitude for the system was found to be $646~km$. \ac{SSO}
+condition implies a relation between the altitude and the inclination of the
+orbit of $97.97~º$ in this case.
 
 \subparagraph{Number of satellites in the constellation}~\\
-The number of satellites shall be calculated using the altitude ($646 km$), the
-inclination ($97.97 deg$) and a swath in
-Table~\ref{table:intro-satellite-performances}. As a result, 17 satellites are
+The number of satellites is calculated by using the altitude ($646~km$), the
+inclination ($97.97~º$) and the swath ($160~km$). As a result, 17 satellites are
 required to carry out this mission. In Figure~\ref{fig:intr-constellation-global} the whole constellation is
 shown.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{detaildesign/constellation-global.png}
-\caption{Constellation of 17 satellites in a SSO orbit at 646km}
+\includegraphics[width=0.75\textwidth]{detaildesign/constellation-global.png}
+\caption{Constellation of 17 satellites in a SSO at $646~km$}
 \label{fig:intr-constellation-global}
 \end{center}
 \end{figure}
 
 \paragraph{Ground Stations design}~\\
 When the satellite acquires the data, it has to be downloaded to the Ground
-Stations and then it has to be distributed to the customers. Due to the huge
-quantity of data and the limitations the download data rate sets, several
+Stations. Due to the huge
+quantity of data and the limitations to download data rate sets, several
 stations distributed over the surface of the Earth are required. They will allow
-the satellite to communicate with them and download the images. Due the
-accumulated duration of the accesses to all the ground stations per day and the
-frequency of accesses per day (it varies with the latitude of the station), the
-Figure~\ref{fig:intr-footprints} shows how the Ground Stations and its
+the satellites to communicate with them and to download the
+images. Figure~\ref{fig:intr-footprints} shows how the Ground Stations and their
 footprints (area in which the satellites can communicate with the Ground
-Station) is distributed.
+Station) are distributed.
 
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{detaildesign/footprints.png}
+\includegraphics[width=0.85\textwidth]{detaildesign/footprints.png}
 \caption{Footprints of the selected Ground Stations}
 \label{fig:intr-footprints}
 \end{center}
@@ -100,17 +116,19 @@ Station) is distributed.
 
 \subsection{Generated Data Volume}
 
-Specifically, $135,698,500 km^2$ of ground surface are daily acquired. With the following expression can estimate the data volume generated:
+Specifically, $135,698,500~km^2$ of ground surface are daily acquired. With the
+following expression can be estimated the data volume generated:
 
 \begin{equation}
-Acquired~Data~Volume= \frac{Acquired~Surface}{GSD^2} * Nº bands * Digitalization
+Acquired~Data~Volume= \frac{Acquired~Surface}{GSD^2}~*~Nº bands~*~Digitalization
 \end{equation}
 
 Before downloading the images they are compressed. The ancillary data is
 included in the process (auxiliary information useful for the geolocation of the
-images, protocol \ldots). In this case, the ancillary data is estimated to be
+images, satellite status and communication protocol among others). In this case, the ancillary data is estimated to be
 12\% of the acquired data (based on Deimos 2 satellite measurements), which is
 added and then compressed. With the values depicted in
 Table~\ref{table:intro-satellite-performances}, the ancillary and the daily ground
-surface adquired, the data on ground can be estimated. As result including ancillary data before compression, \emph{11.55TBytes} shall be downloaded daily.
+surface adquired, the data on ground can be estimated. As a result, including
+ancillary data before compression, $11.55~TBytes$  shall be daily downloaded.
 

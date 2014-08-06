@@ -28,7 +28,8 @@ class GroundStation(Ice.Application):
                 sys.exit(-1)
             
             for i in range(1,30):
-                orchestratorPrx.downloadedImage("imagen"+str(i))
+                #orchestratorPrx.downloadedImage("imagen"+str(i))
+                orchestratorPrx.cleanQueue()
                 print "Downloaded..."
                 time.sleep(1.0);
             
