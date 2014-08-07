@@ -1,24 +1,30 @@
 
 \section{Implementation in Virtual Wall}
 
-In this section, the implementation is introduced indicating the testbeds involved in it and the required steps for the implementation.
+% In this section, the implementation is introduced indicating the testbeds involved in it and the required steps for the implementation.
 
-Fistly, the implementation of the \sss in \vw is depicted. The designed topology and the new
-modified topology (different to the designed one) are depicted because of the handicaps of
-the hardware during the implementation. Then, nodes reservation is
-explained and detailed. Finally, the scripts included in each type of
-node are described before the presentation of the execution.
+% Fistly, the implementation of the \sss in \vw is depicted. The designed topology and the new
+% modified topology (different to the designed one) are depicted because of the handicaps of
+% the hardware during the implementation. Then, nodes reservation is
+% explained and detailed. Finally, the scripts included in each type of
+% node are described before the presentation of the execution.
 
-The next section is dedicated to the implementation of the software
-developed in the \bonfire testbed. Nodes reservation is firstly
-depicted. Architecture and setup are also explained. And again, the
-scripts for each node setup are included before the description of the
-execution.
+% The next section is dedicated to the implementation of the software
+% developed in the \bonfire testbed. Nodes reservation is firstly
+% depicted. Architecture and setup are also explained. And again, the
+% scripts for each node setup are included before the description of the
+% execution.
 
-Finally, the integration between \vw and \bonfire is described.
+% Finally, the integration between \vw and \bonfire is described.
 
 % Section 6 is devoted\ to\ describe the\ demonstration\ of the\ GEO-Cloud
 % experiment prepared for the European Commission in June 2014.
+
+In this section, the implementation of the \sss in \vw is explained. First, the designed
+topology and the new modified topology (different to the design one) are layed out because
+the handicaps of the hardware during the implementation. Then, nodes reservation is
+explained and detailed. Finally, the scripts included in each type of node are described
+before the presentation of the execution.
 
 
 % \bigskip
@@ -26,9 +32,9 @@ Finally, the integration between \vw and \bonfire is described.
 % Finally, section 7 provides\ the main\ conclusions.
 
 
-\subsection{Implementation in Virtual Wall}
+\subsection{Topology network}
 
-In \vw the \sss was implemented. It is constituted of the
+The \sss is comprised of the
 following modules:
 \begin{itemize}
 \item The \emph{Satellite System Simulator}
@@ -51,15 +57,15 @@ The previous topology network involves Sat nodes to have 12 connections with the
 
 The nodes in \vw have a limitation of 5 physical connections. To deploy the previous
 topology we adapted the \sss software to establish those connections by software. This was
-done by making the \satss flexible to connect with any ground station from GS1 to GS12. Then the \satss can be multiplied and only connect to it the number of GS nodes desired. 
+done by making the \satss flexible to connect with any ground station from GS1 to GS12. 
 
-The solution was to multiply the \satss by three and connect 4 ground stations to each \satss. This ensures the same performance and dynamics of the previous topology network described in Figure~\ref{fig:impl-topology-vw}, and the only thing it changes is the software.
+The solution was to multiply the \satss by 3 and connect 4 ground stations to each \satss. This ensures the same performance and dynamics of the previous topology network described in Figure~\ref{fig:impl-topology-vw}, and the only thing it changes is the software.
 
 The \sss implemented in \vw is depicted in Figure~\ref{fig:impl-nodes-vw}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=1\textwidth]{implementationVWBF/nodes-vw.png}
+\includegraphics[width=1.1\textwidth]{implementationVWBF/nodes-vw.png}
 
 \caption{Topology Network in \vw}
 \label{fig:impl-nodes-vw}
@@ -70,12 +76,12 @@ The \sss implemented in \vw is depicted in Figure~\ref{fig:impl-nodes-vw}.
 
 \subsubsection{Nodes Reservation and Setup}
 
-
 The \sss is then constituted by 15 ``Generic nodes'' in \vw 1 (The \vw
 testbed is composed by two sets of machines, \vw 1 and \vw 2). The configuration of the experiment makes the provisioning of ``any available node'',
 which is more flexible in case a node is being used in other experiment (see Figure~\ref{fig:creating-node-jfed}). The links between SS \emph{(Satellite Simulators)} and GS \emph{(Ground Stations Simulators)} nodes
-are \emph{TCP}. The definition of the dependencies and the commands that will be installed at
-setup is defined in \emph{JFed} using a \emph{RSPEC} specification. This specification includes some
+are \ac{TCP}. The definition of the dependencies and the commands that will be installed at
+setup is defined in \emph{JFed} using a \emph{RSPEC} specification. The entire specification is
+attached in Annex~\ref{anex:rspec-specification}  This specification includes some
 bash commands or instructions that will execute after reservation automatically.
 
 
@@ -90,7 +96,6 @@ bash commands or instructions that will execute after reservation automatically.
 
 
 \paragraph{Satellite Simulator Nodes Setup}~\\
-
 The configuration of the nodes is done by using \emph{JFed RSPEC Experiment}. The
 setup steps are the following:
 \begin{itemize}
@@ -103,25 +108,11 @@ setup steps are the following:
 \item Source is downloaded from Google Drive where is located.
 \end{itemize}
 
-The script that perform the above is showed in Listing~\emph{code:impl-rspec-sat-sim}.
+The script that perform the above is showed in Listing~\ref{code:impl-rspec-sat-sim}.
 
-\begin{listing}[
-  float=h!,
-  caption  = {RSPEC specification for \emph{Satellite Simulators}},
-  label    = code:impl-rspec-sat-sim,
-  style=customc]
+\lstset{float=h!,caption={RSPEC specification for \emph{Satellite Simulators}},style=customc,numbers=left,label={code:impl-rspec-sat-sim}}
+\lstinputlisting[firstline=2,lastline=14]{../../source/vw/Description.rspec}
 
-<execute shell="sh" command="sudo route del default gw 10.2.15.254"/>
-<execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-<execute shell="sh" command="sudo apt-get update"/>
-<execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-
-<execute shell="sh" command="sudo wget --no-check-certificate <<google_drive_host_address>> -O
-/users/jbecedas/push_dbIP.sh"/>
-<execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
-<execute shell="sh" command="sudo wget --no-check-certificate
-<<google_drive_host_address>> -O /users/jbecedas/satellite.py"/>
-\end{listing}
 
 
 Where <<google\_drive\_host\_address>> is the address of the Google Drive URI in which the scripts are located.
@@ -131,26 +122,13 @@ obtain that \emph{IP address} and include it in the \emph{Satellite Simulator}, 
 acquire the \emph{IP address} of the database was developed \emph{push\_dbIP.sh}.
 Listing~\ref{code:impl-script-ipdb} contains the script.
 
-\begin{listing}[
-  float=h!,
-  caption  = {Bash script to write the Database's\emph{IP address} on a file},
-  label    = code:impl-script-ipdb,
-  style=customc]
+\lstset{float=h!,caption={Bash script to write the Database's \emph{IP address} on a file},style=customc,numbers=left,label= code:impl-script-ipdb}
+\lstinputlisting{../../source/vw/push_ip.sh}
 
-#!/bin/bash
-
-ip=$1
-
-touch /users/jbecedas/ipdb
-echo $ip > /users/jbecedas/ipdb
-\end{listing}
-
-The execution of the \emph{push\_dbIP.sh} script acquires the \emph{IP address} of the database and includes it in the file \emph{ipdb}, created by \emph{push\_dbIP.sh}:
-
-
-Now, the node is perfectly configured to proceed with the installation of the \emph{Satellite Simulator}. The software of the simulator has been archived too in \emph{Google Drive}. With the following command the software is acquired:
-
-It can now be executed in the node.
+The execution of the \emph{push\_dbIP.sh} script acquires the \emph{IP address} of the database and includes it in the file \emph{ipdb}, created by \emph{push\_dbIP.sh}.
+Finally, the node is perfectly configured to proceed with the installation of the
+\emph{Satellite Simulator}. The software of the simulator has been archived too in
+\emph{Google Drive}. The software is acquired and it can now be executed in the node.
 
 
 \subsubsection{Ground Station Simulator Nodes Setup}
@@ -173,53 +151,15 @@ setup are the following:
 \emph{install\_ftp.sh} file. This file content is in Listing~\ref{code:impl-ftp-installation}.  
 \end{itemize}
 
-The script that perform the above is showed in Listing~\emph{code:impl-rspec-gs-sim}.
+The script that perform the above is showed in Listing~\ref{code:impl-rspec-gs-sim}.
 
-\begin{listing}[
-  float=h!,
-  caption  = {RSPEC specification for \emph{Ground Stations Simulators}},
-  label    = code:impl-rspec-gs-sim,
-  style=customc]
+\lstset{float=h!,caption={RSPEC specification for \emph{Ground Station Simulators}},style=customc,numbers=left,label={code:impl-rspec-gs-sim}}
+\lstinputlisting[firstline=64,lastline=78]{../../source/vw/Description.rspec}
 
-<execute shell="sh" command="sudo route del default gw 10.2.15.254"/> <execute shell="sh" command="sudo route add default gw 10.2.15.253"/>
-<execute shell="sh" command="sudo apt-get update"/>  <execute shell="sh" command="sudo apt-get install python python-mysqldb -y"/>
-<execute shell="sh" command="sudo wget --no-check-certificate google_drive_host_address -O /users/jbecedas/push_dbIP.sh"/> <execute shell="sh" command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147"/>
-<execute shell="sh" command="sudo wget --no-check-certificate google_drive_host_address
--O /users/jbecedas/groundstation.py"/>
-<execute shell="sh" command="sudo wget --no-check-certificate google_drive_host_address -O
-/tmp/original.bin "/> 
-\end{listing}
 
-\begin{listing}[
-  float=h!,
-  caption  = {FTP server installation},
-  label    = code:impl-ftp-installation,
-  style=customc]
+\lstset{float=h!,caption={FTP server installation},style=customc,numbers=left,label={code:impl-ftp-installation}}
+\lstinputlisting{../../source/vw/install_ftp.sh}
 
-#!/bin/bash
-
-sudo apt-get update
-sudo apt-get install mysql-client ftp ftplib3 vsftpd -y
-sudo sed -i "s/listen=YES/listen=NO/" /etc/vsftpd.conf
-sudo sed -i "s/#listen_ipv6=NO/listen_ipv6=YES/" /etc/vsftpd.conf
-sudo sed -i "s/#listen_ipv6=YES/listen_ipv6=YES/" /etc/vsftpd.conf
-sudo sed -i "s/anonymous_enable=YES/anonymous_enable=NO/" /etc/vsftpd.conf
-sudo sed -i "s/#local_enable=NO/local_enable=YES/" /etc/vsftpd.conf
-sudo sed -i "s/#local_enable=YES/local_enable=YES/" /etc/vsftpd.conf
-sudo sed -i "s/#write_enable=NO/write_enable=YES/" /etc/vsftpd.conf
-sudo sed -i "s/#write_enable=YES/write_enable=YES/" /etc/vsftpd.conf
-sudo sed -i "s/#local_umask/local_umask/" /etc/vsftpd.conf
-sudo sed -i "s/#chroot_list_file/chroot_list_file/" /etc/vsftpd.conf
-sudo mkdir -p /home/ftp/deimos
-sudo mkdir /home/deimos
-sudo useradd -d /home/deimos -g ftp  deimos
-sudo chmod 777 -R /home
-sudo touch /etc/vsftpd.chroot_list
-sudo su
-echo "deimos:deimos"|chpasswd
-echo "deimos" >> /etc/vsftpd.chroot_list
-sudo service vsftpd restart
-\end{listing}
 
 Through the FTP connection the raw data will be transferred from the GS nodes to the BonFIRE cloud. 
 

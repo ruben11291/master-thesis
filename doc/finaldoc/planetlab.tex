@@ -23,10 +23,10 @@ percentage.
 
 \subsection{Platform description}
 
-The experiment presented in this report is completely carried out in \pl, although the results obtained will be used to implement a realistic model of the networks in the communications between the simulators and the cloud system of the GEO-Cloud experiment implemented in \vw and \bonfire respectively.
+The experiment presented was completely carried out in \pl, although the results obtained will be used to implement a realistic model of the networks in the communications between the simulators and the cloud system of the GEO-Cloud experiment implemented in \vw and \bonfire respectively.
 
 \pl is a global research network that supports the development of new network
-services (Europe, 2014). This testbed currently consists of 1188 nodes at 582
+services~\cite{Europe2014}. This testbed currently consists of 1188 nodes at 582
 sites, which allows researchers to develop new technologies for distributed
 storage, network mapping, peer-to-peer systems, distributed hash tables and
 query processing. Currently it is split into two platforms: \emph{PlanetLab
@@ -38,18 +38,22 @@ For the experiment we use nodes from both of them.
 
 To implement and execute the experiment we use the following tools:
 \begin{itemize}
-\item \emph{NEPI} <<(INRIA, 2014)>>: It is a Python-based language library used to design and easily run network experiments on network evaluation platforms (e.g. PlanetLab, OMF wireless testbeds and network simulators among others). It facilitates the definition of the experiment workflow, the automatic deployment of the experiment, resource control and result collection; and has the functionalities of automatic provisioning of resources and automatic deployment of the experiment. In the experiment NEPI is used to provision the nodes and execute the whole experiment.
-\item \emph{Iperf} <<(Iperf, 2014)>>: It is a tool used to measure the maximum \emph{TCP} bandwidth, allowing the tuning of various parameters and \emph{UDP} characteristics. \emph{Iperf} reports \emph{bandwidth}, \emph{delay jitter} and \emph{datagram loss}. This software allows any host to play the client and server roles. In the experiment, it is used to obtain the bandwidth with a step of one second when executed in \emph{TCP} mode and the loss rate when executed in \emph{UDP} mode. The nodes in Layer 1 and 2 are configured as clients and the cloud node as server.
-\item \emph{Ping} <<(Pelsser, Cittadini, Vissicchio, Bush, 2013)>>: It is
+\item \emph{NEPI}~\cite{INRIA2014}: it is a Python-based language library used to design and easily run network experiments on network evaluation platforms (e.g. \emph{PlanetLab}, \emph{OMF}, wireless testbeds and network simulators among others). It facilitates the definition of the experiment workflow, the automatic deployment of the experiment, resource control and result collection; and has the functionalities of automatic provisioning of resources and automatic deployment of the experiment. In the experiment \emph{NEPI} is used to provision the nodes and execute the whole experiment.
+\item \emph{Iperf}~\cite{Iperf2014}: it is a tool used to measure the maximum
+  \emph{TCP} bandwidth, allowing the tuning of various parameters and \emph{UDP}
+  characteristics. \emph{Iperf} reports \emph{bandwidth},
+  \emph{delay},\emph{jitter} and \emph{datagram loss}. This software allows any
+  host to play the client and server roles. In the experiment, it was used to obtain the bandwidth with a step of one second when executed in \emph{TCP} mode and the loss rate when executed in \emph{UDP} mode. The nodes in Layer 1 and 2 were configured as clients and the cloud node as server.
+\item \emph{Ping}~\cite{Pelsser2013}: It is
   software used to test if a host on an Internet Protocol is reachable. It
   measures the \ac{RTT} for messages sent from the originating host to a
-  destination host. In the experiment, it is used to measure the latency
+  destination host. In the experiment, it was used to measure the latency
   delivery  of a package over the Internet between the nodes in Layer 1 and 2 and the central node.
 \end{itemize}
 
 \subsection{PlanetLab Experiment}
 
-The objective of the \emph{GEO-Cloud} experiment is to simulate as realistically as possible the behaviour of a complete Earth Observation system. With this aim, the communication links in the real system have to be modelled to connect the simulators implemented in \vw and \bonfire with the values obtained from the experiment in \pl. The experiment then consists of communicating 12 real nodes representing the ground stations (the nearest \pl node to the real ground station was selected) and the end users distributed around the world (we selected 31 nodes from different 31 countries) with a node representing the cloud (located in \emph{INRIA}) to measure the real impairments of the networks and to implement a realistic model of the communications. The impairments to be measured and used to model the network are the effective bandwidth, the latency and the loss rate.
+The objective of the \emph{GEO-Cloud} experiment is to simulate as realistically as possible the behaviour of a complete Earth Observation system~\cite{Gonzalez2014}. With this aim, the communication links in the real system have to be modelled to connect the simulators implemented in \vw and \bonfire with the values obtained from the experiment in \emph{PlanetLab}. The experiment then consists of communicating 12 real nodes representing the ground stations (the nearest \pl node to the real ground station was selected) and the end users distributed around the world (we selected 31 nodes from different 31 countries) with a node representing the cloud (located in \emph{INRIA}) to measure the real impairments of the networks and to implement a realistic model of the communications. The impairments to be measured and used to model the network are the effective bandwidth, the latency and the loss rate.
 An equivalence scheme is shown in Figure~\ref{fig:ple-modelled-links} with the correlation between the
 parameters obtained from the experiment and the inputs to model the links
 between \vw and \bonfire.  There are two networks in the system:
@@ -74,13 +78,13 @@ experiment will be computed as the throughput parameter in \vw.
 \end{enumerate}
 
 \item Packet size: 1500 bytes.
-\item Protocol: the protocol used is TCP.
+\item Protocol: the protocol used is \ac{TCP}.
 \end{enumerate}
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=5.22037in,height=3.85406in]{planetlab/modelled-links.png}
-\caption{PlanetLab and Modelled Links Equivalences}
+\caption{PlanetLab and modelled links equivalences}
 \label{fig:ple-modelled-links}
 \end{center}
 \end{figure}
@@ -88,12 +92,12 @@ experiment will be computed as the throughput parameter in \vw.
 
 \subsubsection{System Modeling}
 
-The real system is modeled into three main components: i) a network of ground stations acquiring imagery data from a constellation of optical satellites, ii) a cloud infrastructure that ingests the data from the ground stations, processes it, stores it and distributes it through web services and iii) end users around the world accessing to the web services offered. The system can be divided into two layers:
+The real system was modeled into three main components: i) a network of ground stations acquiring imagery data from a constellation of optical satellites, ii) a cloud infrastructure that ingests the data from the ground stations, processes it, stores it and distributes it through web services and iii) end users around the world accessing to the web services offered. The system can be divided into two layers:
 
 \begin{enumerate}
 
 \item \emph{Layer 1} is constituted by 12 ground stations connecting with a cloud
-  infrastructure. The ground stations and their location are depicted in Table~\ref{table:ple-groundstations-location}. Their locations and footprints are depicted in Figure~\ref{fig:ple-footprints}. The footprints represent the area in which the satellites can establish the communication with the ground stations.
+  infrastructure. The ground stations and their location are depicted in Table~\ref{table:ple-groundstations-location}. Their locations and footprints are depicted in Figure~\ref{fig:intr-footprints}. The footprints represent the area in which the satellites can establish the communication with the ground stations.
 
 \begin{table}[hp]
   \centering
@@ -104,15 +108,6 @@ The real system is modeled into three main components: i) a network of ground st
   \label{table:ple-groundstations-location}
 \end{table}
 
-%\bigskip
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=5.37767in,height=2.68448in]{planetlab/footprints.png}
-
-\caption{Footprints of the ground stations}
-\label{fig:ple-footprints}
-\end{center}
-\end{figure}
 % {\centering
 % \includegraphics[width=5.37767in,height=2.68448in]{footprints.png} \par}
 
@@ -131,19 +126,20 @@ cloud. The system and the interconnections between components are depicted in
 Figure~\ref{fig:ple-system-description}. The connections between the ground stations and end users with the
 cloud are represented as arrows with different line types to represent that
 every connection can have different characteristics and impairments. All the
-connections are \emph{TCP}.
+connections are \ac{TCP}.
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=3.35852in,height=2.41008in]{planetlab/system-description.png}
 
-\caption{System Description}
+\caption{System description}
 \label{fig:ple-system-description}
 \end{center}
 \end{figure}
 
-We define the network in function of the following representative impairments: \emph{effective bandwidth, latency and loss rate}. Thus, every link is represented in function of the previous impairments: effective bandwidth, latency, loss rate.
-This system is implemented in \vw and \bonfire as depicted in Figure~\ref{fig:ple-scheme-system}. The experiment in \pl will be used to update the
+The network was defined in function of the following representative impairments: \emph{effective bandwidth, latency and loss rate}. Thus, every link were represented in function of the previous impairments: effective bandwidth, latency, loss rate.
+This system was implemented in \vw and \bonfire as depicted in
+Figure~\ref{fig:ple-scheme-system}. The experiment in \pl was used to update the
 network parameters connecting \vw and \bonfire.
 
 \begin{figure}[!h]
@@ -192,7 +188,7 @@ cloud servers for similarity with the real system:
   selected in \emph{PlanetLab Europe} and \emph{PlanetLab} Central in 31 different countries
   around the world. This allows us to have a representative sample of global
   users accessing the web service
-s. In this case, the network topology is also peer-to-peer. In Table Table~\ref{tab:ple-tablelayer2-nodes} the nodes selected for layer 2 are listed. We tried to increase the number of nodes in different countries, but during the execution of the experiment we did not find available PlanetLab nodes in the following countries: Austria, Cyprus, Denmark, Egypt, Ecuador, Iceland, India, Jordan, Mexico, Pakistan, Puerto Rico, Romania, Slovenia, Sri Lanka, Tunisia, Turkey, Venezuela, Uruguay and Taiwan.
+s. In this case, the network topology is also peer-to-peer. In Table~\ref{tab:ple-tablelayer2-nodes} the nodes selected for layer 2 are listed. We tried to increase the number of nodes in different countries, but during the execution of the experiment we did not find available PlanetLab nodes in the following countries: Austria, Cyprus, Denmark, Egypt, Ecuador, Iceland, India, Jordan, Mexico, Pakistan, Puerto Rico, Romania, Slovenia, Sri Lanka, Tunisia, Turkey, Venezuela, Uruguay and Taiwan.
 \end{itemize}
 
 
@@ -220,7 +216,14 @@ connections between the nodes are \emph{TCP}.
 
 \subsubsection{Experiment Design and Execution}
 
-The experiment is designed to measure the impairments of the network. Those impairments are required parameters in \vw to deploy a topology network in such a testbed. Then, in this experiment we measured latency, loss-rate and effective bandwidth. The deployment of the experiment was done with \nepi, in which \emph{Iperf} and \emph{Ping} were implemented to measure the impairments. The experiment consists of establishing communications between any node in layer 1 or layer 2 with the central node and measuring the previously described impairments. 21600 trials will be done during 6 hours of the experiment execution in steps of one second for each pair of nodes, i.e. a node from layer 1 or 2 and the central node.
+The experiment was designed to measure the impairments of the network. Those
+impairments are required parameters in \vw to deploy a topology network in such
+a testbed. Then, the latency, loss-rate and effective bandwidth were
+measured. The deployment of the experiment was done with \nepi, in which
+\emph{Iperf} and \emph{Ping} were implemented to measure the impairments. The
+experiment consists of establishing communications between any node in layer 1
+or layer 2 with the central node and measuring the previously described
+impairments. 21600 trials were performed during 6 hours of the experiment execution in steps of one second for each pair of nodes, i.e. a node from layer 1 or 2 and the central node.
 
 The software developed to measure the impairments is constituted of 6 scripts:
 \begin{itemize}
@@ -236,42 +239,43 @@ The software developed to measure the impairments is constituted of 6 scripts:
 
 The pair of scripts that measure the same impairment are differentiated one from each other in the provisioning of the nodes. Those nodes representing the ground stations are manually selected, while the end users nodes are automatically provisioned by \nepi by indicating the country name as parameter. This parameter allows \nepi to select an available node in that country.
 
-The previous six scripts are individually executed in a local host and they start their workflow.
+The previous six scripts were individually executed in a local host and they started their workflow.
 
 \paragraph{The bandwidthGS.py script}~\\
 
-The bandwidthGS.py  script measures the effective bandwidth in the ground
+The \emph{bandwidthGS.py}  script measures the effective bandwidth in the ground
 stations nodes. When it is executed it carries out the next tasks:
 \begin{enumerate}
 \item Provisioning of the nodes that were manually selected.
 \item Creation of the commands to be uploaded:
 \begin{itemize}
-\item In the cloud node
+\item In the cloud node:
 
 \emph{timeout \%dm iperf -s -f m -i 1 -p \%d} \\
 \emph{Timeout} is a command that executes a program during a specified time \%dm in
-minutes. For this experiment dm was chosen to be 65 minutes.
+minutes. For this experiment $dm$ was chosen to be 6 hours.
 \begin{itemize}
-\item s indicates that Iperf is executed in server mode
-\item -f m indicates the format to report the received data. In this case in Mb.
+\item s indicates that \emph{Iperf} is executed in server mode
+\item f m indicates the format to report the received data. In this case in $Mb$.
 \item i 1 Periodic reports every 1 second
-\item p \%d indicates the port to listen. In our case 20004.
+\item p \%d indicates the port to listen. In this case 20004.
 \end{itemize}
 
-\item In the ground station nodes
+\item In the ground station nodes:
+
 \emph{iperf  -i 1 -f m -c \%s -t \%d -p \%d  -y c > node\%d.out}\\
 \begin{itemize}
 \item i 1 Periodic reports every 1 second.
 \item f m indicates the format to report the received data. In this case in Mb.
 \item c \%s indicates the server to establish the communication with.
-\item t indicates the data transmission time. In our case 3600 seconds.
-\item p \%d indicates the port to listen. In our case 20004.
-\item y c> node\%d.out indicates that the report format is csv. The output file
+\item t indicates the data transmission time. In this case 3600 seconds.
+\item p \%d indicates the port to listen. In this case 20004.
+\item y c> node\%d.out indicates that the report format is \ac{CSV}. The output file
   is node\%d.out, where \%d indicates the number of the node tested.
 \end{itemize}
 \end{itemize}
 
-By default Iperf is executed in TCP mode.
+By default \emph{Iperf} is executed in \ac{TCP} mode.
 
 \item Uploads the commands to the nodes
 \item Executes the command in cloud
@@ -282,7 +286,7 @@ By default Iperf is executed in TCP mode.
 \item The resources are released.
 \end{enumerate}
 
-The flow diagram of the effective bandwidth measurements in the ground station nodes is depicted in Figure 6 a.
+The flow diagram of the effective bandwidth measurements in the ground station nodes is depicted in Figure~\ref{fig:ple-workflow-ground-bandwidth}.
 
 \paragraph{The bandwidthEndUser.py script}~\\
 
@@ -290,48 +294,49 @@ The \emph{bandwidthEndUser.py} script measures the effective bandwidth in the
 end users nodes. When it is executed it carries out the next tasks:
 \begin{enumerate}
 \item Automatic provisioning of the nodes.
-\item Tasks 2 to 9 of the bandwidthGS.py script.
+\item Tasks 2 to 9 of the \emph{bandwidthGS.py} script.
 \end{enumerate}
 
-The flow diagram of the effective bandwidth measurements in the end users nodes is depicted in Figure 6 b.
+The flow diagram of the effective bandwidth measurements in the end users nodes is depicted in Figure~\ref{fig:ple-workflow-enduser-bandwidth}.
 
 \paragraph{The lossRateGS.py script}~\\
 
-The lossRateGS.py  script measures the loss rate in the ground stations
+The \emph{lossRateGS.py}  script measures the loss rate in the ground stations
 nodes. When it is executed it carries out the next tasks:
 
 \begin{enumerate}
 \item Provisioning of the nodes that were manually selected.
 \item Creation of the commands to be uploaded:
 \begin{itemize}
-\item In the cloud node
+\item In the cloud node:
 
 \emph{timeout \%dm iperf -s -f m -i 1 -p \%d -u} \\
 \emph{Timeout} is a command that executes a program during a specified time \%dm in
-minutes. For this experiment dm was chosen to be 65 minutes.
+minutes. For this experiment dm was chosen to be 6 hours.%65 minutos
 \begin{itemize}
-\item s indicates that Iperf is executed in server mode
-\item -f m indicates the format to report the received data. In this case in Mb.
+\item s indicates that \emph{Iperf} is executed in server mode
+\item f m indicates the format to report the received data. In this case in $Mb$.
 \item i 1 Periodic reports every 1 second
-\item p \%d indicates the port to listen. In our case 20004.
+\item p \%d indicates the port to listen. In this case 20004.
 \item u indicates that the \emph{Iperf} software is executed in \emph{UDP} mode.
 \end{itemize}
 
-\item In the ground station nodes
+\item In the ground station nodes:
+
 \emph{iperf  -i 1 -f m -c \%s -t \%d -p \%d  -y c > node\%d.out}\\
 \begin{itemize}
 \item i 1 Periodic reports every 1 second.
 \item f m indicates the format to report the received data. In this case in \emph{Mb}.
 \item c \%s indicates the server to establish the communication with.
-\item t indicates the data transmission time. In our case 3600 seconds.
-\item p \%d indicates the port to listen. In our case 20004.
-\item y c> node\%d.out indicates that the report format is csv. The output file
+\item t indicates the data transmission time. In this case 3600 seconds.
+\item p \%d indicates the port to listen. In this case 20004.
+\item y c> node\%d.out indicates that the report format is \ac{CSV}. The output file
   is node\%d.out, where \%d indicates the number of the node tested.
 \item u indicates that the \emph{Iperf} software is executed in \emph{UDP} mode.
 \end{itemize}
 \end{itemize}
 
-By default Iperf is executed in TCP mode.
+By default \emph{Iperf} is executed in \ac{TCP} mode.
 
 \item Uploads the commands to the nodes
 \item Executes the command in cloud
@@ -343,27 +348,28 @@ By default Iperf is executed in TCP mode.
 \end{enumerate}
 
 The flow diagram of the loss rate measurements in the ground station nodes is
-depicted in Figure 6 a.
+depicted in Figure~\ref{fig:ple-workflow-ground-bandwidth}.
 
 \paragraph{The lossRateEndUser.py script}~\\
 
-The lossRateEndUser.py  script measures the loss rate in the end users
+The \emph{lossRateEndUser.py} script measures the loss rate in the end users
 nodes. When it is executed it carries out the next tasks:
 \begin{enumerate}
 \item Automatic provisioning of the nodes.
-\item Tasks 2 to 9 of the lossRateGS.py script.
+\item Tasks 2 to 9 of the \emph{lossRateGS.py} script.
 \end{enumerate}
-The flow diagram of the loss rate measurements in the end users nodes is
-depicted in Figure 6 b.
+The flow diagram of the loss-rate measurements in the end users nodes is
+depicted in Figure~\ref{fig:ple-workflow-enduser-bandwidth}.
 
 \paragraph{The latencyGS.py script}~\\
 
-The latencyGS.py  script measures the latency  in the ground stations
+The \emph{latencyGS.py}  script measures the latency  in the ground stations
 nodes. When it is executed it carries out the next tasks:
 \begin{enumerate}
 
 \item Provisioning of the nodes that were manually selected.
 \item Creation of the commands to be uploaded:
+
 \emph{ping \%s -w \%d}
 \begin{itemize}
 \item \%s indicates the host to do ping
@@ -378,54 +384,35 @@ nodes. When it is executed it carries out the next tasks:
 \item The resources are released.
 \end{enumerate}
 
-The flow diagram of the latency measurements in the ground station nodes is depicted in Figure 7 a.
+The flow diagram of the latency measurements in the ground station nodes is depicted in Figure~\ref{fig:ple-workflow-latency-ground}.
 
 \paragraph{The latencyEndUser.py script}~\\
 
-The latencyEndUser.py  script measures the loss rate in the end users
+The \emph{latencyEndUser.py}  script measures the latency in the end users
 nodes. When it is executed it carries out the next tasks:
 \begin{enumerate}
 \item Automatic provisioning of the nodes.
-\item Tasks 2 to 9 of the latencyGS.py script.
+\item Tasks 2 to 9 of the \emph{latencyGS.py} script.
 \end{enumerate}
 
 The flow diagram of the latency measurements in the end users nodes is depicted
-in Figure 7 b.
+in Figure~\ref{fig:ple-workflow-latency-user}.
 
-\begin{multicols}{2}
-\begin{figure}[!h]
+\begin{figure*}
 \begin{center}
-\includegraphics[width=0.2\textwidth]{planetlab/PLClient.jpg}
-\caption{(a)}
-\label{fig:ple-workflow-bandwidth}
+\subfloat[Flow diagram of the \emph{bandwidthEndUser.py} and \emph{lossRateEndUser.py} scripts]{ \includegraphics[width=0.2\textwidth]{planetlab/PLClient.jpg}
+\label{fig:ple-workflow-enduser-bandwidth}}
+\hspace{0.03\textwidth}
+\subfloat[Flow diagram of the \emph{bandwidthGS.py} and \emph{lossRateGS.py} scripts]{ \includegraphics[width=0.2\textwidth]{planetlab/PLGS.jpg}
+\label{fig:ple-workflow-ground-bandwidth}}
+\hspace{0.03\textwidth}
+\subfloat[Flow diagram of the \emph{latencyGS.py} script]{ \includegraphics[width=0.2\textwidth]{planetlab/PLPINGClients.jpg}
+\label{fig:ple-workflow-latency-user}}
+\hspace{0.03\textwidth}
+\subfloat[Flow diagram of the \emph{latencyEndUser.py} script]{ \includegraphics[width=0.2\textwidth]{planetlab/PLPINGGS.jpg}
+\label{fig:ple-workflow-latency-ground}}
 \end{center}
-\end{figure}
-\columnbreak
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.2\textwidth]{planetlab/PLGS.jpg}
-\caption{(b)}
-\label{fig:ple-workflow-loss-rate}
-\end{center}
-\end{figure}
-\end{multicols}
+\end{figure*}
 
-\begin{multicols}{2}
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.2\textwidth]{planetlab/PLPINGClients.jpg}
-\caption{(a)}
-\label{fig:ple-workflow-latency-user}
-\end{center}
-\end{figure}
-\columnbreak
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.2\textwidth]{planetlab/PLPINGGS.jpg}
-\caption{(b)}
-\label{fig:ple-workflow-latency-gs}
-\end{center}
-\end{figure}
-\end{multicols}
 
 \input{planetlabResults.tex}

@@ -984,9 +984,10 @@ in Figure~\ref{fig:sss-ground-station-activity}.
 \end{figure}
 
 \paragraph{Implementation}\label{par:sss-ground-implementation}~\\
-The implementation was done in Python 2.7, using the libraries described in Table~\ref{table:sss-ground-libraries}.
+The implementation was done in Python 2.7, using the libraries described in
+Table~\ref{table:sss-ground-libraries}. 
 
-\begin{table}[hp]
+\begin{table}[!h]
   \centering
   {\small
   \input{tables/gs-libraries.tex}
@@ -1018,8 +1019,9 @@ The execution of the satellite software must be done as sudo user as follows:
 where:
 \begin{itemize}
 \item \emph{IDSAT} is the ground station identity. This value must be an integer.
-\item \emph{SCENARIO} is the scenario to simulate. Must be an integer.
-\item \emph{DBHOST} is the host where the data base is located. Must be a hostname or an \emph{IP address}.
-\item \emph{LOGLEVEL} is the level of log that the software will show. The values can be: INFO, DEBUG. This parameter is optative. By default its value is INFO.
+\item \emph{SCENARIO} is the scenario to simulate. It must be an integer.
+\item \emph{DBHOST} is the host where the data base is located. It must be a hostname or an \emph{IP address}.
+\item \emph{LOGLEVEL} is the level of log that the software will show. The
+  values can be: INFO, DEBUG. This parameter is optative. Its value is INFO by default.
 \end{itemize}
 
