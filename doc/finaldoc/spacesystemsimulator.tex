@@ -230,7 +230,7 @@ this case $160~km$), and $v_{Gsat}$ the velocity of the satellite on ground (in 
 
 As an example, the Table~\ref{table:sss-acquisitions-scenario2} shows the data was obtained from ``Scenario 2: Infrastructure monitoring affection in railway infrastructures by sand movement in desert areas'':
 
-\begin{table}[hp]
+\begin{table}[h]
   \centering
   {\small
   \input{tables/acquisitions-scenario2.tex}
@@ -293,7 +293,7 @@ with a \emph{LIFO} process (See section \ref{subsubsec:parameters-required} numb
 As an example, the data of the accesses for the Scenario 2 are included in Table~\ref{table:sss-accesses-scenario2}.
 
 
-\begin{table}[hp]
+\begin{table}[h]
   \centering
   {\small
   \input{tables/accesses-scenario2.tex}
@@ -408,7 +408,7 @@ of the satellites acquiring the \emph{AOI} are the depicted in Table~\ref{table:
 
 %\begin{multicols}{2}
 %\begin{center}
-\begin{table}[hp]
+\begin{table}[h]
   \centering
   {\small
   \input{tables/headings-scenario.tex}
@@ -420,7 +420,7 @@ of the satellites acquiring the \emph{AOI} are the depicted in Table~\ref{table:
 
 %\columnbreak
 %\begin{center}
-\begin{table}[hp]
+\begin{table}[h]
   \centering
   {\small
   \input{tables/all-scenario.tex}
@@ -446,7 +446,7 @@ $[T_{AOI}]_{0i}$ and $[T_{AOI}]_{fi}$ of all the scenarios. Thus the script matc
 $[T_{GS}]_{0ij}$ and $[T_{GS}]_{fij}$ of one scenario with the $[T_{AOI}]_{0i}$ and $[T_{AOI}]_{fi}$ of such a scenario.
 
 To execute \emph{setDatabase.py} the arguments depicted in Table~\ref{table:sss-arguments-setdatabase} are required.
-\begin{table}[hp]
+\begin{table}[h]
   \centering
   {\small
   \input{tables/arguments-setdatabase.tex}
@@ -524,15 +524,15 @@ The database is constituted by three tables: \emph{Scenarios table},
 \emph{Satellites table} and \emph{GroundStations table}. The functionalities of the tables are described in
 Table~\ref{table:sss-funcionalities-database}:
 
-\begin{table}[!htb]
-  \centering
-  {\small
-  \input{tables/funcionalities-database.tex}
-  }
-  \caption{Funcionalities of the database tables for the simulator}
-  \label{table:sss-funcionalities-database}
-\end{table}
-
+% \begin{table}[h]
+%   \centering
+%   {\small
+%   \input{tables/funcionalities-database.tex}
+%   }
+%   \caption{Funcionalities of the database tables for the simulator}
+%   \label{table:sss-funcionalities-database}
+% \end{table}
+ \input{tables/funcionalities-database.tex}
 
 \subsubsection{Database Filling}
 
@@ -820,7 +820,7 @@ implement the software are listed in Table~\ref{table:sss-satellite-libraries}.
 
 
 
-\begin{table}[hp]
+\begin{table}[h]
   \centering
   {\small
   \input{tables/sat-libraries.tex}
@@ -850,7 +850,7 @@ $n=10$, although during the experiment execution stage this will be evaluated
 and probably changed. The Table~\ref{table:sss-scenario-relative-time} shows the absolute times and relative times for each scenario duration.
 
 
-\begin{table}[hp]
+\begin{table}[h]
   \centering
   {\small
   \input{tables/scenarios-relatives-times.tex}
@@ -987,7 +987,7 @@ in Figure~\ref{fig:sss-ground-station-activity}.
 The implementation was done in Python 2.7, using the libraries described in
 Table~\ref{table:sss-ground-libraries}. 
 
-\begin{table}[!h]
+\begin{table}[h]
   \centering
   {\small
   \input{tables/gs-libraries.tex}

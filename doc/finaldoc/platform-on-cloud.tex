@@ -71,7 +71,7 @@ Figure~\ref{fig:orchestrator-workflow} depicts the workflow of the \emph{Orchest
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.7\textwidth]{cloud/orchestrator-workflow.jpg}
+\includegraphics[width=1\textwidth]{cloud/orchestrator-workflow.jpg}
 \caption{Orchestrator workflow}
 \label{fig:orchestrator-workflow}
 \end{center}
@@ -82,10 +82,8 @@ Figure~\ref{fig:orchestrator-workflow} depicts the workflow of the \emph{Orchest
 The \emph{Orchestrator} has interfaces with the Ground Stations implemented in
 \emph{Virtual Wall}, with the \emph{Product Processors} and with the
 \emph{Archive and Catalogue}.
-
 \paragraph{Interfaces with the Ground Stations implemented in Virtual Wall}~\\
 The \emph{Ground Stations} are deployed in some \emph{Virtual Wall} nodes. In those, the impairments and features of the network are simulated. Essentially, the \emph{Orchestrator} is pooling those \emph{Ground Stations} over \ac{FTP} connections to know when a raw data is available. So, this Ground Stations are \ac{FTP} servers in which the \emph{Orchestrator} can get the raw data obtained by the constellation of satellites.
-
 \paragraph{Interfaces with the Product Processors}~\\
 The \emph{Orchestrator} communicates with the \emph{Product Processors} through the \emph{ProcessingChainController} instance as shown in Figure~\ref{fig:orchestrator-workflow}. The \emph{Orchestrator} commands the \emph{ProcessingChainController} to create a new processing chain to process the raw data. When this process finishes, the ProcessingChainController sends to the Orchestrator a message to indicate the end of the chain. Thus, the ProcessingChainController checks the product processors progress and initiates the next level until the processing chain finishes. Finally, the Orchestrator obtains the end product and locates it in the Catalogue Service. 
 

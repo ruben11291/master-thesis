@@ -1,10 +1,12 @@
 
 
-
+\centering
+{\small
 \begin{longtable}{p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}}
   \tabheadformat
   \tabhead{Table}   & \tabhead{Function}& \tabhead{Columns} &
   \tabhead{Relationship}\\\hline
+\endhead
 
 \textit{Scenarios table}    &  It contains the name of the scenario, the start
 time $T_0$ and the end time $T_f$. Its primary key\footnote{The \emph{primary
@@ -29,9 +31,20 @@ the \emph{AIO} $[T_{AOI}]_{0i}$, \emph{interestZoneIni}, and the time when the
 satellite leaves the \emph{AOI} $[T_{AOI}]_{fi}$,\emph{interest}~\emph{ZoneEnd}. All of
 them are primary keys because a satellite can download images of several
 \emph{AOIs} in a single ground station.
-  & idGroundStation \newline name \newline ip \newline port& This table relates the \emph{Scenarios} table and the \emph{GroundStations} table. This is because the \emph{scenario} and \emph{idGroundStation} columns are foreign keys\footnote{The \emph{foreign key} binds two tables, linked across a field. For example in this case, the column from the \emph{Satellites} table which is named \emph{Scenario} refers to an object that exists in the \emph{Scenarios} table.}. The characteristics of these columns are \emph{On delete cascade} and \emph{On update cascade}. This means that when an object contained in a table (\emph{GroundStation} table or \emph{Scenarios} table) is deleted, it is also automatically deleted the object that refers to it, and if it is updated the object is also automatically updated. \\\hline
+  & idGroundStation \newline name \newline ip \newline port& This table relates
+  the \emph{Scenarios} table and the \emph{GroundStations} table. This is
+  because the \emph{scenario} and \emph{idGroundStation} columns are foreign
+  keys\footnote{The \emph{foreign key} binds two tables, linked across a
+    field. For example in this case, the column from the \emph{Satellites} table
+    which is named \emph{Scenario} refers to an object that exists in the
+    \emph{Scenarios} table.}. The characteristics of these columns are \emph{On
+    delete cascade} and \emph{On update cascade}. This means that when an object
+  contained in a table (\emph{GroundStation} table or \emph{Scenarios} table) is
+  deleted, it is also automatically deleted the object that refers to it, and if
+  it is updated the object is also automatically updated. \\\hline
+\caption{Funcionalities of the database tables for the simulator} \label{table:sss-funcionalities-database}
 \end{longtable}
-
+}
 
 % Local variables:
 %   coding: utf-8
