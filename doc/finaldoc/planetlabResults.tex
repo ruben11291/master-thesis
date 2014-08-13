@@ -1,45 +1,40 @@
 
 \section{PlanetLab Experiment Results}
 
-During the exectuion of the \pl experiment (see section~\ref{sec:planetlab}), $21600$ communications were
-performed between every node rendering the ground stations and end users and the
-node representing the cloud.
-The bandwidth, loss-rate and latency were
-measured. The nodes with their obtained values are represented in Table~\ref{anex:nodes-pl-results},
-where every node are sorted by the distance between the cloud node and it.
-The $21600$ samples during 6 hours of continous execution are represented in
-histrograms for each node.
-
-
-% During the execution of the experiment 21600 communications were established between every node representing ground stations and users and the central node representing the cloud. The bandwidth, latency and loss rate were measured. %In Figure \ref{fig:Bandwidth_gs} is represented the measurements obtained of the bandwidth during the first 20 minutes of the experiment execution in the node representing the Chetumal ground station. Only this extract is represented to help the reader visualize the data.
-% In Figure \ref{fig:Bandwidth_gs_hist} the 21600 samples acquired in the communication between the node 22 and the central node during 6 hours of continuous execution are represented in a normalized histogram. The data accurately fits to a gaussian distribution with mean $3.28~Mbps$ and standard deviation $0.446~Mbps$. In Figure \ref{fig:Latency_gs_hist} a normalized histogram of the measured latency is represented. It was fitted with a gaussian distribution with mean $154.210~ms$ and standard deviation $1.314~ms$. The loss rate between this node and the central node was obtained to be $0.0096$\%.
-
-% The previous procedure was followed for the rest of the nodes. In Table \ref{table:Nodes}, columns 5 and 6, the mean and the standard deviation for each node are depicted respectively. In the table it can be observed that in general, the bandwidth decreases when the distance between nodes increases. However the node 5 in Madrid presents a higher dispersion in the bandwidth value with respect to the rest of nodes. It has a bandwidth of $15.2~Mbps$. The measurements were fitted with different functions by using the least squares optimization method. For each fitted function the $R^2$ coefficient of determination, which varies between 0 and 1, and indicates how well the statistical distribution is fitted. The highest the value of the $R^2$, the better the fitting. The following results were obtained: $Bandwidth=4.655e^{-10^{-4}x}$, $R^2=0.5454$; $Bandwidth=-3\cdot10^{-4}x+4.9444$, $R^2=0.3628$ and $Bandwidth=-1.519Ln(x)+15.325$, $R^2=0.4539$, where $x$ is the distance between any node and the central node in $km$. The bandwidth was obtained in $Mbps$. However, the hyperbolic function was the one that best fitted the distribution:
-% \begin{equation}\label{eq:bandwidth_fitting}
-% Bandwidth=184.91x^{-0.547};~R^2=0.582
-% \end{equation}
-
-% Columns 7 and 8 in Table \ref{table:Nodes} show the mean and standard deviation of the latency measured in all the nodes connecting the central node in France. In this case the fitting used was a linear function. It accurately fitted the data distribution. The equation that approximated the data is the following:
-% \begin{equation}\label{eq:latency_fitting}
-% Latency=0.0228x+17.88;~R^2=0.8927
-% \end{equation}
-% The latency is obtained in $ms$ when the distance $x$ is introduced in $km$.
-
-% Column 9 in Table \ref{table:Nodes} shows the loss rate between any node and the central node during the whole execution of the experiment. In most of the communications the loss rate was under 0.2\%. Two cases are remarkable: on the one hand, between the node 20 in Russia and the central node 0\% of loss rate was measured, which means that no packets were lost; on the other hand, between Greece (node 15) and the central node, a loss rate of 15.68\% was measured, maybe because of interruptions in the network, overload of the server in Greece or routed network fails. The mean of the loss rates between all the communications was 0.053\% with a standard deviation of 0.097\% without considering the node in Greece in the calculations.
-
-% \begin{figure}[tb]
-%   \centering
-%   \includegraphics[scale=0.4]{Figures/IndividuallyGSHistChetumal.pdf}\\
-%   \caption{Bandwidth of the node representing Chetumal ground station.} \label{fig:Bandwidth_gs_hist}
-% \end{figure}
-
-% \begin{figure}[tb]
-%   \centering
-%   \includegraphics[scale=0.4]{Figures/DelayHistGSChetumal.pdf}\\
-%   \caption{Latency of the node representing Chetumal ground station.} \label{fig:Latency_gs_hist}
-% \end{figure}
+During the execution of the \pl experiment (see Section~\ref{sec:planetlab}) 21600 communications were established between every node representing ground stations and users and the central node representing the cloud. The bandwidth, latency and loss rate were measured.
+In Figure~\ref{fig:Bandwidth_gs_hist} the 21600 samples acquired in the communication between the node 22 and the central node during 6 hours of continuous execution are represented in a normalized histogram. The data accurately fits to a gaussian distribution with mean $3.28~Mbps$ and standard deviation $0.446~Mbps$. In Figure~\ref{fig:Latency_gs_hist} a normalized histogram of the measured latency is represented. It was fitted with a gaussian distribution with mean $154.210~ms$ and standard deviation $1.314~ms$. The loss rate between this node and the central node was obtained to be $0.0096$\%~\cite{Gonzalez2014}.
+\begin{figure*}
+\begin{center}
+  \subfloat[Bandwidth of the node representing Chetumal ground station]{\includegraphics[scale=0.35]{resultsPL/IndividuallyGSHistChetumal.pdf}
+ \label{fig:Bandwidth_gs_hist}}
+\hspace{0.01\textwidth}
+\subfloat[Latency of the node representing Chetumal ground
+station]{\includegraphics[scale=0.35]{resultsPL/DelayHistGSChetumal.pdf}
+ \label{fig:Latency_gs_hist}}
+\end{center}
+\end{figure*}
 
 
 
-\subsection{Conclusions}
-In this document the part of the GEO-Cloud experiment executed in PlanetLab is presented. Topology networks have been created in two layers to simulate the communications between the ground stations and the cloud infrastructure and between such a cloud infrastructure with end users around the world accessing web services computed in cloud. The experiment consists of measuring the real network impairments (effective bandwidth, latency and loss rate) to obtain an approach for its later implementation in the complete Earth Observation system simulator implemented in Virtual Wall and BonFIRE. 
+The previous procedure was followed for the rest of the nodes. In
+Figure~\ref{fig:bandwidth-plot} the mean and the standard deviation for each
+node are depicted respectively. It can be observed that in general, the bandwidth decreases when the distance between nodes increases. However the node 5 in Madrid presents a higher dispersion in the bandwidth value with respect to the rest of nodes. It has a bandwidth of $15.2~Mbps$. The measurements were fitted with different functions by using the least squares optimization method. For each fitted function the $R^2$ coefficient of determination, which varies between 0 and 1, and indicates how well the statistical distribution is fitted. The highest the value of the $R^2$, the better the fitting. The following results were obtained: $Bandwidth=4.655e^{-10^{-4}x}$, $R^2=0.5454$; $Bandwidth=-3\cdot10^{-4}x+4.9444$, $R^2=0.3628$ and $Bandwidth=-1.519Ln(x)+15.325$, $R^2=0.4539$, where $x$ is the distance between any node and the central node in $km$. The bandwidth was obtained in $Mbps$. However, the hyperbolic function was the one that best fitted the distribution:
+\begin{equation}\label{eq:bandwidth_fitting}
+Bandwidth=184.91x^{-0.547};~R^2=0.582
+\end{equation}
+
+Figure~\ref{fig:delay-plot} shows the mean and standard
+deviation of the latency measured in all the nodes connecting the central node
+in France. In this case the fitting used was a linear function. It accurately fitted the data distribution. The equation that approximated the data is the following:
+\begin{equation}\label{eq:latency_fitting}
+Latency=0.0228x+17.88;~R^2=0.8927
+\end{equation}
+The latency is obtained in $ms$ when the distance $x$ is introduced in $km$.
+
+Figure~\ref{fig:loss-rate-plot} shows the loss rate between any node and the central node during the whole execution of the experiment. In most of the communications the loss rate was under 0.2\%. Two cases are remarkable: on the one hand, between the node 20 in Russia and the central node 0\% of loss rate was measured, which means that no packets were lost; on the other hand, between Greece (node 15) and the central node, a loss rate of 15.68\% was measured, maybe because of interruptions in the network, overload of the server in Greece or routed network fails. The mean of the loss rates between all the communications was 0.053\% with a standard deviation of 0.097\% without considering the node in Greece in the calculations.
+
+Table~\ref{anex:nodes-pl-results} summarizes the obtained measures. Column 5 and 6 show the mean and
+the standard deviation of the bandwidth measured in all the nodes connecting the
+central node in France. Column 7 and 8 also depict the mean and standard
+deviation of the latency in the nodes. Finally, column 9 represents the measured
+loss-rate between any node and the central node during the experiment.

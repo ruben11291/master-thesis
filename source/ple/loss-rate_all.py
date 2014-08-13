@@ -34,7 +34,7 @@ def plot_loss_rate_gs(file,node,distance,outfile):
     for line in file:
         if line.find("%") != -1:
             num = (line[line.find("(")+1:line.find("%")])
-            print num
+            #print num
     node_.append(int(node))
     loss_rate_.append(float(num))
 
@@ -67,7 +67,7 @@ if __name__=="__main__":
                 distance_=0
                 added.append(fileinput.split("node")[0])
                 if fileinput.find("Spain")!= -1:
-                    print fileinput.split("node")[0].split(":")[1]
+                    #print fileinput.split("node")[0].split(":")[1]
                     distance_=distances[SpainNodes[fileinput.split("node")[0].split(":")[1]]]
                 else:
                     distance_ = distances[fileinput.split(":")[0]]
@@ -76,25 +76,29 @@ if __name__=="__main__":
             #f = open(os.sys.argv[1]+"/"+fileinput,"r")
             #plot_loss_rate_gs(f,node,output)
         for fileinput in os.listdir(os.sys.argv[2]):
+            print fileinput
             if not fileinput.split("node")[0] in added or fileinput.find("Argentina")!=-1:
+            #if  fileinput.find("Argentina")!=-1:
 
                 # files.append((os.sys.argv[1]+"/"+fileinput,distances[fileinput.split(":")[0]],plot_loss_rate_gs))
                 distance_=0
                 added.append(fileinput.split("node")[0])
                 if fileinput.find("Spain")!= -1:
-                    print fileinput.split("node")[0].split(":")[1]
+                    #print fileinput.split("node")[0].split(":")[1]
                     distance_=distances[SpainNodes[fileinput.split("node")[0].split(":")[1]]]
                 else:
                     distance_ = distances[fileinput.split(":")[0]]
                 files.append((os.sys.argv[2]+"/"+fileinput,distance_,plot_loss_rate_customers))
             #files.append((os.sys.argv[2]+"/"+fileinput,distances[fileinput.split(":")[0]],plot_loss_rate_customers))
-
+            else:
+                print "a",fileinput
             #f = open(os.sys.argv[2]+"/"+fileinput,"r")
             #plot_loss_rate_customers(f,node,output)
         #plt.show()
         ordered_files=sorted(files, key= lambda file:file[1])
 
         node=1
+        print "NUMERO %d"%(len(loss_rate_))
 
         for file in ordered_files:
             f = open(file[0],"r")
@@ -102,33 +106,25 @@ if __name__=="__main__":
             file[2](f,node,file[1],output)
             node+=1
 
-        def autolabel(rects):
-            for rect in rects:
-                h = rect.get_height()
-                plt.text(rect.get_x()+rect.get_width()/2., 1.05*h, '    %.3f'%float(h),
-                        ha='center', va='bottom',rotation='vertical')
+        print "NUMERO %d"%(len(loss_rate_))
 
-        fig=plt.figure(figsize=(20,19))
 
         # Set color transparency (0: transparent; 1: solid)
         a = 0.7
 # Create a colormap
-        customcmap = [(x/50.,  x/40., 0.05) for x in range(len(loss_rate_))]
         for i in range(0,len(loss_rate_)):
-            print node_[i],loss_rate_[i]
-            if loss_rate_[i] < 10:
-                print loss_rate_[i]
-                color=float(node)/len(loss_rate_)
-                print color
-                r=plt.bar(node_[i],loss_rate_[i],label="Node %d"%(i),color=customcmap[i])
-                autolabel(r)
-
-        #plt.bar(node_,loss_rate_)
-        #plt.autoscale(enable=True, axis='both', tight=True)
-        plt.legend(ncol=2,shadow=True, loc=9, bbox_to_anchor=(0.5, -0.1),borderaxespad=0.,fontsize=10,numpoints=1)
+            # print node_[i],loss_rate_[i]
+            # print loss_rate_[i]
+            if loss_rate_[i] > 5:
+                plt.plot(node_[i],0.5,"*",label="*Node %d: %f"%(node_[i],loss_rate_[i]))
+            else:
+                plt.plot(node_[i],loss_rate_[i],"o",label="Node %d: %f"%(node_[i],loss_rate_[i]))
+            plt.legend(ncol=2,shadow=True,bbox_to_anchor=(0.5, -0.1),borderaxespad=0.,fontsize=10,numpoints=1,loc=9)
 
         #plt.show()
 
+        plt.xlabel("Nodes",fontsize=10,style="italic")
+        plt.ylabel("Loss-rate (%)",fontsize=10,style="italic")
         savefig("Loss-rateALL"+".png",bbox_inches='tight',dpi=300)
 
     except IOError as e:

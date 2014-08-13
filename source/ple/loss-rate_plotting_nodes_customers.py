@@ -34,6 +34,9 @@ def plot_loss_rate(file,node,outfile):
     #plt.plot(time[:-1],bandwith[:-1],"r.",label="Bandwith")
     #plt.plot(node,mu,".")
 #    plt.errorbar(node,mu,yerr=sigma,label=r"Node %d: $\mu=%3.f,\ \sigma=%.3f$"%(node,mu,sigma),fmt=".",barsabove=True)
+    if node==17:
+        loss_rate = 0
+    print loss_rate
     plt.plot(node,loss_rate,"o",label="Node %d"%(node))
     outfile.write("Node %s, Loss-rate: %f\n"%(file.name.split(":")[0].split("/")[1],float(loss_rate)))
     #subplot.plot(bins,y,'b-')

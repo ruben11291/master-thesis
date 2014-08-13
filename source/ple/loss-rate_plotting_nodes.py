@@ -30,8 +30,8 @@ def plot_loss_rate(file,node,outfile):
     plt.plot(node,num,"o")
 
     plt.xlabel("Nodes",fontsize=7,style="italic")
-    plt.ylabel("Bandwidth (Mbps)",fontsize=7,style="italic")
-    plt.title('Bandwidth per node')
+    plt.ylabel("Loss-rate (%)",fontsize=7,style="italic")
+    plt.title('Loss-rate per node')
     #plt.annotate(r"$\mu=%3.f,\ \sigma=%.3f$"%(mu,sigma),(node,mu+sigma))
     plt.grid(True)
     plt.tight_layout()
