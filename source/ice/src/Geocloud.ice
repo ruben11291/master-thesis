@@ -3,33 +3,46 @@
 module geocloud {
     exception AlreadyExists { string key; };
     exception NoSuchKey { string key; };
-    //This interface provides a operation to get last modifications in a node
-    interface Broker{
-	void appendLog(string newLog);
-	void startScenario(string scenario, int scen);
-	void stopScenario(int scen);
-    };
+    exception CreationScenarioException{};
+    exception StartScenarioException{};
+    exception StopScenarioException{};
+    exception ArchiveNotAvailableException{};
+    exception OrchestratorNotAvailableException{};
+    exception ProcessingException{};
+    exception CataloguingException{};
 
- 
- interface Processor{
-	//int init( Broker * log);
-       	void processImage(string path);
-	void shutdown();
-    };	
+    //This interface provides a operation to get last modifications in a node
 
     interface Orchestrator{
-	int downloadedImage(string path);//the ground station calls this operation passing the path
-	int levelProcessed(string path, Processor* pp, string level);
-	int imageProcessed(string path, Processor* pp );
-	void cleanQueue();
-	void stop();
-	
+    	void initScenario(int scen) throws StartScenarioException,ArchiveNotAvailableException;
+	void downloadedImage(string path);//the ground station calls this operation passing the path
+	void imageProcessed(string path);
+	void imageCatalogued(string path);
+	void stopScenario() throws StopScenarioException;
     };
-	
-    interface ArchiveAndCataloge{
+
+    interface Broker{
+	void startScenario(int scen) throws OrchestratorNotAvailableException, StartScenarioException;
+	void appendLog(string newLog);
+	void stopScenario(int scen);
+	void setOrchestrator( Orchestrator * orch);
+	string getLastLogs();
+    };
+
+
+ interface Processor{
 	//int init( Broker * log);
-	int createScenario(string scenario);	
-	int catalogue(string path,string scenario);
-	int deleteScenario(string scenario);
+       	void processImage(string path) throws ProcessingException;
+	void shutdown();
+	void setOrchestrator(Orchestrator * orch);
+    };
+
+
+
+    interface ArchiveAndCatalogue{
+	void setBroker( Broker * bro);
+	int createScenario(int scenario) throws CreationScenarioException;
+	int catalogue(string path,int scenario) throws CataloguingException;
+	int deleteScenario(int scenario);
     };
 };

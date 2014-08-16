@@ -20,42 +20,55 @@
 
 import sys, traceback, Ice,IceGrid
 import time
+import subprocess
 
 Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
 import geocloud
 
 class ProcessorI(geocloud.Processor):
-    
-    def __init__(self,name):
-        self.name = name
-        # q = self.com.stringToProxy('IceGrid/Query')
-        # self.query = IceGrid.QueryPrx.checkedCast(q)
-        # if not self.query:
-        #     raise RuntimeError("Invalid proxy")
-        # orchest = self.query.findObjectById(self.com.stringToIdentity('orchestrator'))
+
+    def __init__(self,com,name):
+        self.name=name
+        self.thread=None
+        if not com:
+            raise RuntimeError("Not communicator")
+        self.com=com
+        q = com.stringToProxy('IceGrid/Query')
+        self.query = IceGrid.QueryPrx.checkedCast(q)
+        if not self.query:
+           raise RuntimeError("Invalid proxy")
+        # orchest = self.query.findObjectById(com.stringToIdentity('orchestrator'))
         # self.orchestrator = geocloud.OrchestratorPrx.checkedCast(orchest)
 
 
+    def setOrchestrator(self, orch,current=None):
+        self.orchestrator = orch
+
     def processImage(self,path,current=None):
-        i=0  
-        print "Applied name:",self.name
+        i=0
         print "Processing image...",path
-        
+        t = time.time()
+        while (time.time()-t < 5.0):
+            time.sleep(1.0)
+            print "aa"
+
+        print "Sending image..."
+        self.orchestrator = geocloud.OrchestratorPrx.uncheckedCast(self.com.stringToProxy("orchestrator"))
         if self.orchestrator:
-            print "Sending image..."
-            #left=self.orchestrator.begin_imageProcessed(path,(ProcessorI)self)
+            left=self.orchestrator.begin_imageProcessed(path)
             print "Sent"
 
     def shutdown(self,current=None):
         print (self.name+ " shutting down...")
         current.adapter.getCommunicator().shutdown()
-       
+        if self.thread:
+            self.thread.kill()
+            self.thread=None
 
 
 class Processor(Ice.Application):
     def run(self,args):
         com = self.communicator()
-        servant = ProcessorI(com)
         if not com:
             raise RuntimeError("Not communicator")
 
@@ -63,12 +76,12 @@ class Processor(Ice.Application):
             properties = com.getProperties()
             adapter = com.createObjectAdapter("ChainProcessingOA")
             id = com.stringToIdentity(properties.getProperty("Identity"))
-            adapter.add(ProcessorI(properties.getProperty("Ice.ProgramName")),id)
+            adapter.add(ProcessorI(com,properties.getProperty("Ice.ProgramName")),id)
             print "Processor%s ready!"%(sys.argv[1])
             adapter.activate()
-            self.shutdownOnInterrupt()
+            #self.shutdownOnInterrupt()
             com.waitForShutdown()
-            
+
 
 if __name__=="__main__":
     app = Processor()

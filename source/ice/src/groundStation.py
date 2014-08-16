@@ -26,14 +26,15 @@ class GroundStation(Ice.Application):
             except Exception as e:
                 print e
                 sys.exit(-1)
-            
-            for i in range(1,30):
+
+           # for i in range(1,3):
                 #orchestratorPrx.downloadedImage("imagen"+str(i))
-                orchestratorPrx.cleanQueue()
-                print "Downloaded..."
-                time.sleep(1.0);
-            
-           
+                #orchestratorPrx.cleanQueue()
+
+                #time.sleep(1.0);
+            brokerPrx.begin_startScenario(1)
+            sys.exit(0)
+
 
 if __name__=="__main__":
     c = GroundStation(1)

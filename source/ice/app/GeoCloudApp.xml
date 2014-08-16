@@ -105,17 +105,27 @@
          </icebox>
       </server-template>
       <replica-group id="ProcessingChainReplica">
-         <load-balancing type="adaptive" load-sample="1" n-replicas="1"/>
+         <load-balancing type="round-robin" n-replicas="1"/>
          <object identity="hello" type="::geocloud::ProcessingChainReplica"/>
       </replica-group>
       <node name="nodo1">
-         <server-instance template="IcePatch2" directory="/home/deimos/git/geo-cloud_pfc/source/ice/src">
+         <server id="Broker" activation="always" deactivation-timeout="10" exe="./broker.py" pwd="${application.distrib}">
+            <description>						</description>
+            <properties>
+               <property name="Ice.StdOut" value="/tmp/broker.out"/>
+               <property name="Ice.StdErr" value="/tmp/broker.err"/>
+            </properties>
+            <adapter name="BrokerOA" endpoints="default" id="${server}.BrokerOA">
+               <object identity="broker"/>
+            </adapter>
+         </server>
+         <server-instance template="IcePatch2" directory="/home/ruben/git/geo-cloud_pfc/source/ice/src">
             <properties>
                <property name="Ice.ServerIdleTime" value="5"/>
             </properties>
          </server-instance>
          <server-instance template="IceStorm"/>
-         <server id="Orchestrator" activation="on-demand" deactivation-timeout="10" exe="./orchestrator.py" pwd="${application.distrib}">
+         <server id="Orchestrator" activation="always" deactivation-timeout="10" exe="./orchestrator.py" pwd="${application.distrib}">
             <properties>
                <property name="Ice.StdOut" value="/tmp/orchestrator.out"/>
                <property name="Ice.StdErr" value="/tmp/orchestrator.err"/>
@@ -132,14 +142,14 @@
          <server-instance template="ChainProcessingTemplate" id="2"/>
       </node>
       <node name="nodo3">
-         <server id="Broker" activation="on-demand" deactivation-timeout="10" exe="./broker.py" pwd="${application.distrib}">
+         <server id="ArchiveAndCatalogue" activation="always" deactivation-timeout="10" exe="./archive_and_catalog.py" pwd="${application.distrib}">
             <description>						</description>
             <properties>
-               <property name="Ice.StdOut" value="/tmp/broker.out"/>
-               <property name="Ice.StdErr" value="/tmp/broker.err"/>
+               <property name="Ice.StdOut" value="/tmp/ayc.out"/>
+               <property name="Ice.StdErr" value="/tmp/ayc.err"/>
             </properties>
-            <adapter name="BrokerOA" endpoints="default" id="${server}.BrokerOA">
-               <object identity="broker"/>
+            <adapter name="AyCOA" endpoints="default" id="${server}.AyCOA">
+               <object identity="ayc"/>
             </adapter>
          </server>
       </node>

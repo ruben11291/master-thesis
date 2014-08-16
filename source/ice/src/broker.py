@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 import sys, traceback, Ice,IceGrid
-import time
+import time,datetime
 
 Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
 import geocloud
 
 class BrokerI(geocloud.Broker):
-    clean = False #if True, is necessary to clean the Orchestrator Queue and stop all processors
+    lastlogs = []
 
     def __init__(self,com):
         if not com:
@@ -16,65 +16,57 @@ class BrokerI(geocloud.Broker):
         if not self.query:
             raise RuntimeError("Invalid proxy")
         self.clean = False
-        self.file=open("broker.log","w")
+        # cat = self.query.findObjectById(com.stringToIdentity('ayc'))
+        # self.catalogue = geocloud.ArchiveAndCataloguePrx.checkedCast(cat)
+        self.orchestrator = geocloud.OrchestratorPrx.checkedCast(com.stringToProxy("orchestrator"))
+        self.sem = Ice.threading.RLock() #Lock for managing the data structures
+
 
     def appendLog(self,newLog,current=None):
-	print "Log %s"%(newLog)
-        #lock
-        self.file.write(newLog)
-        self.lastlogs.append(newLog)
-        #unlock
-	#self.log.append(newLog)
-    
+        self.sem.acquire()
+        self.lastlogs.append(str(datetime.datetime.now())+" "+newLog)
+        self.sem.release()
+
     def getLastLogs(self,current=None):
-        #lock
+        self.sem.acquire()
         tmp =list(self.lastlogs)
-        #unlock
+        self.lastlogs=[]
+        self.sem.release()
         ret=""
-        for part in tmp:
-            ret+=str(part)
+        for part in tmp: #introduces the lines in a string var
+            ret+=str(part+"\n")
         return ret
 
-    def startScenario(self,scenario,scen,current=None):
-	print "Starting ",scenario
+    def startScenario(self,scenario,current=None):
+        self.sem.acquire()
+        #self.lastlogs=[]
+        self.sem.release()
+        self.appendLog("<Broker> Initializing Scenario %d"%(scenario))
         try:
-            orchestrator=self.query.findObjectById("orchestrator")
-            if self.clean:
-                clean_orch= orchestrator.begin_cleanQueue()
-                finish_pp = orchestrator.begin_stopPP()
-                clean_orch.waitToBeCompleted()
-                finish_pp.waitToBeCompleted()
-            
+            if self.orchestrator:
+                ami=self.orchestrator.begin_initScenario(scenario)
+                ami.waitForSent()
             #starts the satellites and the ground stations
             #To use NEPI or to implement ICE also
-            self.clean = True
-
-
-        except ObjectNotExistException:
-            print "Object not found!"
-            sys.exit(-1)
         except Exception as e:
-            print e
+            self.appendLog("Exception %s"%(e))
             sys.exit(-1)
+        print self.lastlogs
 
-            		
+
     def stopScenario(self,scen,current=None):
-	print "Stop Scenario"
+        self.sem.acquire()
+        self.appendLog("<Broker> Stopping scenario %d"%(scen))
+        self.sem.release()
         try:
-            orchestrator=self.query.findObjectById("orchestrator")
-            if self.clean:
-                clean_orch= orchestrator.begin_cleanQueue()
-                finish_pp = orchestrator.begin_stopPP()
-                clean_orch.waitToBeCompleted()
-                finish_pp.waitToBeCompleted()
-            
+            if self.orchestrator:
+                ami=self.orchestrator.begin_stopScenario()
+                ami.waitForSent()
             #stops the satellites and the ground stations
             #To use NEPI or to implement ICE also
-            self.clean = False
-            
-        except ObjectNotExistException:
-            print "Object not found!"
-            sys.exit(-1)
+            self.sem.acquire()
+            self.appendLog("<Broker> Stopping space simulator")
+            self.sem.release()
         except Exception as e:
             print e
             sys.exit(-1)
@@ -88,7 +80,6 @@ class Broker(Ice.Application):
             servant = BrokerI(com)
             adapter = com.createObjectAdapter('BrokerOA')
             adapter.add(servant, com.stringToIdentity('broker'))
-            print "Broker ready!"
             adapter.activate()
             self.shutdownOnInterrupt()
             com.waitForShutdown()
@@ -97,8 +88,8 @@ class Broker(Ice.Application):
         except Exception as e:
             print "Unrecognized exception has occurred!",e
 
-            
-     
+
+
 
 
 if __name__=="__main__":

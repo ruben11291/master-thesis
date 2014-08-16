@@ -1,49 +1,57 @@
 import sys, traceback, Ice,IceGrid
 Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
 import geocloud
-import sys
+import sys,time
 
-class Client(Ice.Application):
-    def run(self,args):
-        com = self.communicator()
-        if not com:
-            raise RuntimeError("Not communicator")
+status = 0
+ic = None
+try:
+    ic = Ice.initialize(sys.argv)
+    base = ic.stringToProxy("broker")
+    printer = geocloud.BrokerPrx.checkedCast(base)
+    orches = geocloud.OrchestratorPrx.checkedCast(ic.stringToProxy("orchestrator"))
 
-        else:
-            query = com.stringToProxy('IceGrid/Query')
-            q = IceGrid.QueryPrx.checkedCast(query)
-            try:
-                broker = q.findObjectById(com.stringToIdentity('broker'))
-                brokerPrx = geocloud.BrokerPrx.checkedCast(broker)
-                print brokerPrx
-                #orchestrator = geocloud.OrchestratorPrx.checkedCast(orch[0])
-            except Exception as e:
-                print e
-                sys.exit(-1)
-            
-            
-           
-           
-            start=brokerPrx.begin_startScenario("Scenario1",1)
-            #print "Applying for"
-            start.waitForCompleted()
-#base = com.stringToProxy('orchestrator1')
-            #orchestrator = geocloud.OrchestratorPrx.checkedCast(orch[0])
-            # if not orchestrator:
-            #     raise RuntimeError("Invalid proxy")
-    #if not orch:
-	#raise RuntimeError("Invalid proxy")
-            # r = orchestrator.begin_downladedImage("aa")
-            # print "Despues de la primera invocacion remota"
-            # a = orchestrator.begin_cleanQueue()
-            
-            # print r.isCompleted()
-            # print a.isCompleted()
-            # r.waitForCompleted()
-            # a.waitForCompleted()
-            # print r.isCompleted()
-            # print a.isCompleted()
+    if not printer:
+        raise RuntimeError("Invalid proxy")
 
-if __name__=="__main__":
-    c = Client()
-    sys.exit(c.main(sys.argv))
+    printer.startScenario(1)
+    s=printer.getLastLogs()
+    print orches
+    orches.downloadedImage('ac')
+    #time.sleep(1.0)
+    orches.downloadedImage('Segunda')
+    #time.sleep(1.0)
+    orches.downloadedImage('Tercera')
+    #time.sleep(1.0)
+    orches.downloadedImage('Cuarta')
+    #time.sleep(1.0)
+    orches.downloadedImage("quinta")
+    orches.downloadedImage("sexta")
+    orches.downloadedImage("sexta1")
+    orches.downloadedImage("sexta2")
+
+    # printer.begin_stopScenario(1)
+    # orches.imageProcessed("cam")
+    # orches.imageProcessed("c   ")
+    # orches.imageProcessed("b  ")
+    # orches.imageProcessed("4")
+    # orches.imageProcessed("e  ")
+    # orches.imageProcessed("r")
+
+    print s
+
+    s=printer.getLastLogs()
+    print s
+except:
+    traceback.print_exc()
+    status = 1
+
+if ic:
+    # Clean up
+    try:
+        ic.destroy()
+    except:
+        traceback.print_exc()
+        status = 1
+
+sys.exit(status)
