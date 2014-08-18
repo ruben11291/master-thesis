@@ -19,7 +19,7 @@
 
 #!/bin/bash
 VERSIONGS=2.5
-VERSIONT=7.0.53
+VERSIONT=7.0.55
 PLUGIN=geoserver-${VERSIONGS}-csw-plugin.zip
 WAR=geoserver-${VERSIONGS}-war.zip
 APACHE=apache-tomcat-${VERSIONT}
@@ -29,7 +29,7 @@ apt-get install unzip wget openjdk-6-jdk openjdk-6-jre -y
 cd /tmp
 rm -rf /tmp/geo* /tmp/apache* /usr/share/tomcat* /tmp/*.jar
 wget --tries=10 downloads.sourceforge.net/project/geoserver/GeoServer/${VERSIONGS}/$WAR&& unzip ${WAR} && rm ${WAR}
-wget --tries=10 apache.rediris.es/tomcat/tomcat-7/v${VERSIONT}/bin/${APACHE}.tar.gz && tar xvzf  ${APACHE}.tar.gz 
+wget --tries=10 apache.rediris.es/tomcat/tomcat-7/v${VERSIONT}/bin/${APACHE}.tar.gz && tar xvzf  ${APACHE}.tar.gz
 wget --tries=10 http://sourceforge.net/projects/geoserver/files/"GeoServer Extensions"/${VERSIONGS}/${PLUGIN} && unzip ${PLUGIN} && rm ${PLUGIN}
 #http://downloads.sourceforge.net/project/geoserver/GeoServer%20Extensions/${VERSIONGS}/${PLUGIN}?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgeoserver%2Ffiles%2FGeoServer%2520Extensions%2F2.5%2F&ts=1399541643&use_mirror=kent
 export CATALINA_HOME=/usr/share/tomcat7/${APACHE}/
@@ -56,9 +56,7 @@ sleep 2s
 
 sleep 2s
 
-mv /tmp/*.jar /usr/share/tomcat7/apache-tomcat-7.0.53/webapps/geoserver/WEB-INF/lib/
+mv /tmp/*.jar /usr/share/tomcat7/${APACHE}/webapps/geoserver/WEB-INF/lib/
 
 #/usr/share/tomcat7/${APACHE}/bin/stop.sh
 /usr/share/tomcat7/${APACHE}/bin/startup.sh
-
-

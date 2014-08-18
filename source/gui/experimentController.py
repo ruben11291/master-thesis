@@ -31,7 +31,7 @@ from connections import VWConnection
 import time
 
 class ExperimentController():
-    
+
     def __init__(self,widget=None):
         self.threadLog = threading.Lock()
         self.widget = widget
@@ -51,11 +51,11 @@ class ExperimentController():
         ground_id = 0
         satellite_id=1
         for ground in self.groundstations:
-            self.ground_stations_connections.append(VWConnection(ground_id,ground,'jbecedas','/home/deimos/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/deimos/Descargas/emulabcert.pem'))
+            self.ground_stations_connections.append(VWConnection(ground_id,ground,'jbecedas','/home/ruben/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/ruben/Descargas/emulabcert.pem'))
             self.log("Ground station %s reached!"%(ground_id))
             ground_id +=1
         for sat in self.satellites:
-            self.satellites_connections.append(VWConnection(satellite_id,sat,'jbecedas','/home/deimos/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/deimos/Descargas/emulabcert.pem'))
+            self.satellites_connections.append(VWConnection(satellite_id,sat,'jbecedas','/home/ruben/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/ruben/Descargas/emulabcert.pem'))
             self.log("Satellite System Simulator %s reached!"%(satellite_id))
             satellite_id+=1
         self.clean_ground()
@@ -66,30 +66,30 @@ class ExperimentController():
         for i in range(1,18):
             order += "python satellite.py %s %s `cat ipdb` &;"%(i, self.getScenario())
         for sat in self.satellites_connections:
-           
+
             sat.execute(order)
             self.log("Satellite %d started!"%(sat.getId()))
-       
+
         self.log("Satellites started!")
-            
+
     def start_ground(self):
        # pdb.set_trace()
         for gs in self.ground_stations_connections:
             order = "python groundstation.py %s %s `cat ipdb`"%(gs.getId(),self.getScenario())
             gs.execute(order)
             self.log("Ground Station %d started!"%(gs.getId()))
-        self.log("Ground Stations started!")  
+        self.log("Ground Stations started!")
 
     def stop_ground(self):
         for gs in self.ground_stations_connections:
             gs.stop()
             self.log("Ground Station %d stopped!"%(gs.getId()))
-            
+
     def stop_sat(self):
         for sat in self.satellites_connections:
             sat.stop()
             self.log("Satellite %d stopped!"%(sat.getId()))
-   
+
     def clean_sat(self):
         command="killall python"
         for sat in self.satellites_connections:
@@ -103,14 +103,14 @@ class ExperimentController():
         for gs in self.ground_stations_connections:
             gs.execute(command)
         self.log("Cleaned Ground Stations")
-            
+
     def setScenario(self,scenario):
         self.scenario = scenario
 
     def getScenario(self):
         if self.scenario:
             return self.scenario
-        
+
 
     def log(self,msg):
         print msg
@@ -131,7 +131,7 @@ class ExperimentController():
         self.start_satellites()
         if self.widget:
             self.widget.scenarioInitiated()
-  
+
     def stopScenario(self):
         if self.getScenario() is not None:
             self.log("Stopping scenario %d"%(int(self.getScenario())))
