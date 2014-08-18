@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:delay="http://www.protogeni.net/resources/rspec/ext/delay/1" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:flack="http://www.protogeni.net/resources/rspec/ext/flack/1" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:jFed_command="http://jfed.iminds.be/rspec/ext/jfed-command/1" xmlns:jfed-ssh-keys="http://jfed.iminds.be/rspec/ext/jfed-ssh-keys/1" xmlns:ns11="http://www.geni.net/resources/rspec/ext/shared-vlan/1" xmlns:sharedvlan="http://www.protogeni.net/resources/rspec/ext/shared-vlan/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expires="2014-10-04T08:40:47Z" generated="2014-07-22T08:41:13.298+02:00" generated_by="Experimental jFed Rspec Editor" type="manifest" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/manifest.xsd">
     <node client_id="SS1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n172-15" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21769">
+=======
+<?xml version="1.0" encoding="UTF-8"?><rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:delay="http://www.protogeni.net/resources/rspec/ext/delay/1" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:flack="http://www.protogeni.net/resources/rspec/ext/flack/1" xmlns:jFed="http://jfed.iminds.be/rspec/ext/jfed/1" xmlns:jFedBonfire="http://jfed.iminds.be/rspec/ext/jfed-bonfire/1" xmlns:jFed_command="http://jfed.iminds.be/rspec/ext/jfed-command/1" xmlns:jfed-ssh-keys="http://jfed.iminds.be/rspec/ext/jfed-ssh-keys/1" xmlns:ns11="http://www.geni.net/resources/rspec/ext/shared-vlan/1" xmlns:sharedvlan="http://www.protogeni.net/resources/rspec/ext/shared-vlan/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expires="2014-09-18T18:21:33Z" generated="2014-08-17T18:19:24.062+02:00" generated_by="Experimental jFed Rspec Editor" type="manifest" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/manifest.xsd">
+    <node client_id="SS1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-13a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23220">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -11,6 +16,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n172-15.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="239.0" y="82.0"/>
@@ -31,6 +37,28 @@
         <host name="SS1.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="SS2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n173-10" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21764">
+=======
+            <login authentication="ssh-keys" hostname="n144-13a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="239.0" y="82.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="SS1:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-13a:eth3" mac_address="002590300b05" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23230">
+            <ip address="192.168.1.1" type="ipv4"/>
+        </interface>
+        <interface client_id="SS1:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-13a:eth5" mac_address="002590300b07" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23233">
+            <ip address="192.168.2.1" type="ipv4"/>
+        </interface>
+        <interface client_id="SS1:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-13a:eth2" mac_address="002590300b04" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23236">
+            <ip address="192.168.3.1" type="ipv4"/>
+        </interface>
+        <interface client_id="SS1:if4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-13a:eth4" mac_address="002590300b06" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23239">
+            <ip address="192.168.4.1" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n144-13a"/>
+        <host name="SS1.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="SS2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-09b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23223">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -42,6 +70,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n173-10.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="805.0" y="65.0"/>
@@ -62,6 +91,28 @@
         <host name="SS2.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="SS3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n172-10" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21768">
+=======
+            <login authentication="ssh-keys" hostname="n142-09b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="805.0" y="65.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="SS2:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth3" mac_address="003048dd7e1d" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23243">
+            <ip address="192.168.5.2" type="ipv4"/>
+        </interface>
+        <interface client_id="SS2:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth2" mac_address="003048dd7e1c" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23245">
+            <ip address="192.168.6.1" type="ipv4"/>
+        </interface>
+        <interface client_id="SS2:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth4" mac_address="003048dd7e1e" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23248">
+            <ip address="192.168.7.1" type="ipv4"/>
+        </interface>
+        <interface client_id="SS2:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth5" mac_address="003048dd7e1f" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23251">
+            <ip address="192.168.8.1" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-09b"/>
+        <host name="SS2.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="SS3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-17b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23217">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -73,6 +124,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n172-10.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="1271.0" y="72.0"/>
@@ -93,6 +145,28 @@
         <host name="SS3.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n172-11" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21762">
+=======
+            <login authentication="ssh-keys" hostname="n144-17b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1271.0" y="72.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="SS3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-17b:eth4" mac_address="002590300bf2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23255">
+            <ip address="192.168.9.2" type="ipv4"/>
+        </interface>
+        <interface client_id="SS3:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-17b:eth3" mac_address="002590300bf1" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23257">
+            <ip address="192.168.10.1" type="ipv4"/>
+        </interface>
+        <interface client_id="SS3:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-17b:eth2" mac_address="002590300bf0" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23261">
+            <ip address="192.168.11.2" type="ipv4"/>
+        </interface>
+        <interface client_id="SS3:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-17b:eth5" mac_address="002590300bf3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23263">
+            <ip address="192.168.12.1" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n144-17b"/>
+        <host name="SS3.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-01b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23222">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -108,6 +182,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n172-11.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="3.0" y="240.0"/>
@@ -119,6 +194,19 @@
         <host name="GS1.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n172-16" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21770">
+=======
+            <login authentication="ssh-keys" hostname="n142-01b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="3.0" y="240.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-01b:eth3" mac_address="003048de626d" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23231">
+            <ip address="192.168.1.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-01b"/>
+        <host name="GS1.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-08a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23226">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -134,6 +222,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n172-16.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="449.0" y="235.0"/>
@@ -145,6 +234,19 @@
         <host name="GS2.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n173-14" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21761">
+=======
+            <login authentication="ssh-keys" hostname="n142-08a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="449.0" y="235.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node4:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08a:eth3" mac_address="003048de62cd" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23237">
+            <ip address="192.168.3.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-08a"/>
+        <host name="GS2.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-06b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23227">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -160,6 +262,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n173-14.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="47.0" y="463.0"/>
@@ -171,6 +274,19 @@
         <host name="GS3.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n173-02" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21763">
+=======
+            <login authentication="ssh-keys" hostname="n144-06b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="47.0" y="463.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node5:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-06b:eth3" mac_address="002590300b29" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23234">
+            <ip address="192.168.2.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n144-06b"/>
+        <host name="GS3.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-08b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23213">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -186,6 +302,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n173-02.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="374.0" y="462.0"/>
@@ -197,6 +314,19 @@
         <host name="GS4.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS5" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n173-12" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21758">
+=======
+            <login authentication="ssh-keys" hostname="n142-08b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="374.0" y="462.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node6:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08b:eth3" mac_address="003048dd7dd9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23240">
+            <ip address="192.168.4.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-08b"/>
+        <host name="GS4.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS5" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n143-02b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23218">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -212,10 +342,11 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
-            <login authentication="ssh-keys" hostname="n173-12.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+            <login authentication="ssh-keys" hostname="n143-02b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="621.0" y="219.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+<<<<<<< HEAD
         <interface client_id="node7:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n173-12:eth6" mac_address="0015171bb44a" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21785">
             <ip address="192.168.5.1" type="ipv4"/>
         </interface>
@@ -223,6 +354,15 @@
         <host name="GS5.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS6" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n173-04" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21757">
+=======
+        <interface client_id="node7:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-02b:eth3" mac_address="002590328e75" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23242">
+            <ip address="192.168.5.1" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n143-02b"/>
+        <host name="GS5.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS6" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-06a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23215">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -238,6 +378,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n173-04.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="1011.0" y="203.0"/>
@@ -249,6 +390,19 @@
         <host name="GS6.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS7" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n172-04" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21756">
+=======
+            <login authentication="ssh-keys" hostname="n142-06a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1011.0" y="203.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node8:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-06a:eth3" mac_address="003048de6339" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23246">
+            <ip address="192.168.6.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-06a"/>
+        <host name="GS6.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS7" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-05b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23219">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -264,6 +418,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n172-04.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="630.0" y="461.0"/>
@@ -275,6 +430,19 @@
         <host name="GS7.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS8" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n173-09" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21766">
+=======
+            <login authentication="ssh-keys" hostname="n142-05b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="630.0" y="461.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node9:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-05b:eth3" mac_address="003048dd7d75" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23249">
+            <ip address="192.168.7.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-05b"/>
+        <host name="GS7.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS8" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-04a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23221">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -290,6 +458,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n173-09.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="992.0" y="474.0"/>
@@ -301,6 +470,19 @@
         <host name="GS8.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS9" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n173-06" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21760">
+=======
+            <login authentication="ssh-keys" hostname="n144-04a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="992.0" y="474.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node10:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-04a:eth3" mac_address="002590300bd1" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23252">
+            <ip address="192.168.8.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n144-04a"/>
+        <host name="GS8.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS9" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n144-08b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23225">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -316,6 +498,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n173-06.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="1168.0" y="168.0"/>
@@ -327,6 +510,19 @@
         <host name="GS9.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS10" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n172-06" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21765">
+=======
+            <login authentication="ssh-keys" hostname="n144-08b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1168.0" y="168.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node11:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-08b:eth3" mac_address="002590300b55" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23254">
+            <ip address="192.168.9.1" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n144-08b"/>
+        <host name="GS9.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS10" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-05a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23214">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -342,6 +538,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n172-06.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="1397.0" y="162.0"/>
@@ -353,6 +550,19 @@
         <host name="GS10.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS11" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n173-03" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21767">
+=======
+            <login authentication="ssh-keys" hostname="n142-05a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1397.0" y="162.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node12:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-05a:eth3" mac_address="003048de6379" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23260">
+            <ip address="192.168.11.1" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-05a"/>
+        <host name="GS10.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS11" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-03b" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23224">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -368,6 +578,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n173-03.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="1214.0" y="457.0"/>
@@ -379,6 +590,19 @@
         <host name="GS11.DEMOPFC.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
     </node>
     <node client_id="GS12" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n172-07" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21759">
+=======
+            <login authentication="ssh-keys" hostname="n142-03b.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1214.0" y="457.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node13:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-03b:eth3" mac_address="003048de6385" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23258">
+            <ip address="192.168.10.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-03b"/>
+        <host name="GS11.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <node client_id="GS12" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+node+n142-07a" component_manager_id="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm" exclusive="true" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23216">
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
         <sliver_type name="raw-pc"/>
         <services>
             <execute command="sudo route del default gw 10.2.15.254" shell="sh"/>
@@ -394,6 +618,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.147" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
+<<<<<<< HEAD
             <login authentication="ssh-keys" hostname="n172-07.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
         </services>
         <jFed:location x="1452.0" y="449.0"/>
@@ -475,5 +700,88 @@
         <link_type name="lan"/>
         <interface_ref client_id="SS3:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n172-10:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21806"/>
         <interface_ref client_id="node14:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n172-07:eth6" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+21807"/>
+=======
+            <login authentication="ssh-keys" hostname="n142-07a.wall1.ilabt.iminds.be" port="22" username="jbecedas"/>
+        </services>
+        <jFed:location x="1452.0" y="449.0"/>
+        <jFed:nodeDescription>simple-node</jFed:nodeDescription>
+        <interface client_id="node14:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-07a:eth3" mac_address="003048de62e5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23264">
+            <ip address="192.168.12.2" type="ipv4"/>
+        </interface>
+        <emulab:vnode name="n142-07a"/>
+        <host name="GS12.DEMO.wall2-ilabt-iminds-be.wall1.ilabt.iminds.be"/>
+    </node>
+    <link client_id="link7" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23229" vlantag="203">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS1:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-13a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23230"/>
+        <interface_ref client_id="node3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-01b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23231"/>
+    </link>
+    <link client_id="link9" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23232" vlantag="197">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS1:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-13a:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23233"/>
+        <interface_ref client_id="node5:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-06b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23234"/>
+    </link>
+    <link client_id="link8" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23235" vlantag="199">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS1:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-13a:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23236"/>
+        <interface_ref client_id="node4:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23237"/>
+    </link>
+    <link client_id="link10" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23238" vlantag="116">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS1:if4" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-13a:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23239"/>
+        <interface_ref client_id="node6:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-08b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23240"/>
+    </link>
+    <link client_id="link11" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23241" vlantag="198">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="node7:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n143-02b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23242"/>
+        <interface_ref client_id="SS2:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23243"/>
+    </link>
+    <link client_id="link12" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23244" vlantag="196">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS2:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23245"/>
+        <interface_ref client_id="node8:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-06a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23246"/>
+    </link>
+    <link client_id="link13" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23247" vlantag="100">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS2:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23248"/>
+        <interface_ref client_id="node9:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-05b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23249"/>
+    </link>
+    <link client_id="link14" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23250" vlantag="128">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS2:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-09b:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23251"/>
+        <interface_ref client_id="node10:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-04a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23252"/>
+    </link>
+    <link client_id="link15" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23253" vlantag="119">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="node11:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-08b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23254"/>
+        <interface_ref client_id="SS3:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-17b:eth4" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23255"/>
+    </link>
+    <link client_id="link16" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23256" vlantag="200">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS3:if1" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-17b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23257"/>
+        <interface_ref client_id="node13:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-03b:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23258"/>
+    </link>
+    <link client_id="link17" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23259" vlantag="202">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="node12:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-05a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23260"/>
+        <interface_ref client_id="SS3:if2" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-17b:eth2" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23261"/>
+    </link>
+    <link client_id="link18" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23262" vlantag="201">
+        <component_manager name="urn:publicid:IDN+wall1.ilabt.iminds.be+authority+cm"/>
+        <link_type name="lan"/>
+        <interface_ref client_id="SS3:if3" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n144-17b:eth5" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23263"/>
+        <interface_ref client_id="node14:if0" component_id="urn:publicid:IDN+wall1.ilabt.iminds.be+interface+n142-07a:eth3" sliver_id="urn:publicid:IDN+wall1.ilabt.iminds.be+sliver+23264"/>
+>>>>>>> e2b56ae24a47c1756eb6fca5e37d49b0a01a02d2
     </link>
 </rspec>

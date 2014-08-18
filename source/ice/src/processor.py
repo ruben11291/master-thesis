@@ -37,8 +37,7 @@ class ProcessorI(geocloud.Processor):
         self.query = IceGrid.QueryPrx.checkedCast(q)
         if not self.query:
            raise RuntimeError("Invalid proxy")
-        # orchest = self.query.findObjectById(com.stringToIdentity('orchestrator'))
-        # self.orchestrator = geocloud.OrchestratorPrx.checkedCast(orchest)
+       
 
 
     def setOrchestrator(self, orch,current=None):
