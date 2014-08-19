@@ -1,7 +1,183 @@
-\chapter{Project Evolution and Cost}
+\chapter{Evolution and Costs}
 \label{chap:evolution}
+\drop{T}{he} different phases performed in the development of this project are described,
+specifying the milestones of each one and their temporal cost and complexity.
+
 
 \section{Project Evolution}
 \label{section:evolution}
 
-\section{Cost}
+Before the start of the development phase (March 5th), a trainning stage with
+the different testbeds used for the development, the specifically technologies of
+\emph{Elecnor Deimos} company and some Spatial acknowledge were studied during a month. Then the
+requirement analysis stage such as tecnological and functional terms were
+studied. Several papers describing the component-oriented architecture were
+performed as a result. Once the requirements were specified, the iterative
+development started. Below these phases are fully described.
+
+
+\subsection{Preliminary requirements analysis}
+
+\subsection{General design}
+
+\subsection{Iterations of the development}
+
+In this section the iterations done for the development of GeoCloud are
+enumerated and explained describing the achievements, the complexity of some
+parts and the most relevant decisions considered.
+
+\subsubsection{Iteration 1}
+
+Firstly the folder structure in which the source and the documentation are
+located, were created. The scale of the project is quite considerable so it was
+strictly necessary to establish a main directory per each testbed. Furthermore,
+a pair of accounts were created; the first one, in the \bonfire official page
+and other one, in the \emph{iMinds Emulab} official page. In both profiles, the
+\ac{RSA} key generated was upload.
+For the designing of the entire cloud architecture, a top-down model was
+selected. Thus, the Ground Segment on premises of \emph{Elecnor Deimos} was
+studied and the main components for obtaining geolocated images of the Earth
+surface were identified. These cloud architecture components were also designed
+studing its relationships and the data flows between them. The design of the
+interfaces and relationships between all cloud components were analysed. 
+The basic architecture of the Orchestrator component were
+designed, drafted and some \ac{UML} diagrams were pictured. 
+
+Regarding the \sss, the data files of the defined scenarios such as satellite acceses,
+time of each satellite is inside a footprint and the number of acquired images per
+satellite were obtained. Then, a data analysis of them was carried out in order
+to design and build the data base and the script for populating it.
+
+
+The main objective for this iteration can be summarized such as the preparation
+of the development environment and the design of the cloud system and the
+obtaining data of the satellite constellation in order to build a customized simulator.
+
+\subsubsection{Iteration 2}
+
+The implementation of the cloud architecture components was started. First, the
+Orchestrator component were developed in order to locally run. The class
+ProcessingChain controler was designed using a Singleton pattern. Then, the
+Archive and Catalog module was also locally implemented. \emph{Geo-Server} and
+\emph{Geo-Network} were studied in order to obtain which one was more convenient
+for deploying into the component. \emph{Apache Tomcat} and \emph{Geo-Server}
+were installed and the \ac{CSW} plugin of \emph{Geo-Server} was also deployed
+and tested.
+The product processors of \emph{Elecnor Deimos} were studied and installed in
+the development computer. The Processing Chain component was implemented and
+tested executing
+via command line the processors respectively.
+
+For implementing the \sss, some Python libraries for scheduling and planning
+actions were studied. Then, the development of the \emph{Satellite System
+  Simulator} was carried out obtaining the satellite data from database and
+scheduling functions depending on the behaviour of the satellite in each
+scenario.
+The development of the \gsss was done conceiving the \emph{Ground Stations
+  Simulators} as simple servers processing the received packets.   
+At first, the \emph{Satellite System Simulator}  sent a raw data in a constant
+bit rate. However, the required bit-rate was $160~Mbps$, thus the network over internet
+can not sure it transmission rate. The solution was to implement to send tiny
+packets in order to the network was able to transmit it in the time required.    
+Using this approach, the \emph{Ground Stations
+  Simulators} taken into account the number of packets received. The number of
+the received images by the ground stations depended on
+the number of these packets. Several test cases were done in order to validate
+this approach.
+
+At the end of the iteration 2, the \sss was finished and tested and the cloud
+architecture was locally implemented and their components individually tested.
+ 
+\subsubsection{Iteration 3}
+
+In this iteration, the main objective consists of designing and implementing of the
+\pl experiment. For that, the federation tools provided by the \emph{Fed4FIRE}
+project were investigated. As a result, \emph{Nepi} was selected for doing the
+profiling tool in \pl. 
+For the development of this experiment, the following stages were performed:
+\begin{itemize}
+\item Searching and selecting nodes around the world for simulating the
+  end-users and ground stations.
+\item Testing the connectivity of all selected nodes and creating some scripts
+  for testing them. This process were complicated because the most of nodes
+  appear in the \pl webpage as available and working but executing the script,
+  some of them were unreachable. Thus, this trouble delayed the experiment
+  because it was necessary to check node to node for selecting the availables only.
+\item Deliberating about the impairments for measuring (loss-rate, effective
+  bandwidth and delay) and with which tools these measures can be obtained. 
+\item Finally, the implementation and execution of the developed scripts.
+\end{itemize}
+
+Once the results were obtained, some scripts using \emph{Python-matplotlib} were
+developed. These scripts read the collected data and represented them using bar
+plots or linear plots. 
+
+\subsubsection{Iteration 4}
+
+The \sss was not implemented yet in \vw testbed. So using \emph{JFed}, a
+deployment of \vw nodes were accomplished. Implementation jfed
+
+Creacion exp en bonfire
+setup nodes bonfire ftp
+
+ejecucion scenario 1 y 2
+realizacion demo comision
+
+At the end of this iteration, the \sss was fully implemented and deployed. The
+cloud architecture was built and all its components interconnected and executing
+scenarios. These scenarios provided the integration test of the entire cloud
+system implementation.
+
+
+\subsubsection{Iteration 5}
+
+Comparacion entre nfs y ftp
+implementation of the shared storage
+resultados ref resultadosgeocloud
+
+%\subsubsection{Iteration 6} ?? ICE implementation!!
+
+\section{Resources and costs}
+
+This section lists and describes the various resources used, both temporal 
+and economically (for the latter an estimate was performed). Furthermore, the
+statistics of the employed repository for control of versions are presented.
+
+\subsection{Economical cost}
+
+The trainning time of this project comprises from 3rd of February to 10th of
+March (24 days). The approximated daily dedicated time is 8 hours and the considered price for that period of time was \EUR{5}/hour. The approximated dedicated time for implementation was 8 hours daily
+during 105 days which add in a total of 840 hours. It was considered an average
+price of \EUR{15}/hour a programmer (reference prices acquired from
+\url{https://freelance.infojobs.net/freelancers})
+
+The Table~\ref{table:economical-breakdown} shows the breakdown of resouces used during the development.
+
+
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/economical-breakdown.tex}
+  }
+  \caption{Economical breakdown for the GeoCloud development}
+  \label{table:economical-breakdown}
+\end{table}
+
+\subsection{Repository statistics}
+
+The version control tool used in the development of this project was \emph{Git}
+supported by the \emph{Bitbucket} repository service.
+
+\emph{Cloc} tool was used for counting the source lines of code of all languajes in which
+GeoCloud was developed. This tool counts all lines of the code distinguing
+between code properly, blank lines and comment lines. The Table~\ref{table:git-statistics} shows the
+exectution results of \emph{Cloc} in the source folder.
+
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/source-lines.tex}
+  }
+  \caption{Number of source lines of code of project}
+  \label{table:git-statistics}
+\end{table}
