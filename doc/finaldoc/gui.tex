@@ -1,27 +1,47 @@
-\section{GEO-Cloud GUI}
+\section{GEO-Cloud Graphical User Interface}
 
 In this section, the \ac{GUI} developed for managing the execution of the defined
 scenarios in GEO-Cloud experiment is exposed. First, the architecture is
-explained. Then, the components as \emph{ExperimentController}, \emph{Video
-  Component} or \emph{Load Plot} among others are described. Finally, the
-\ac{GUI} is shown and an example execution step by step is performed.
+explained. The components such as \emph{ExperimentController}, \emph{Video
+  Component}, \emph{Log Component}, \emph{About Component} and \emph{WorkLoad component} are described. Finally, the workflow is explained.
 
 \subsection{Architecture}
 
-The graphical user interface of GEO-Cloud experiment is composed by some
-components:
+The graphical user interface of GEO-Cloud experiment is composed by the following components:
 
 \begin{itemize}
 
-\item \emph{Experiment Controller:}
-\item \emph{RemoteConnection:}
+\item \emph{Experiment Controller}: it manages the \sss turning on or shutting it down.
+\item \emph{Video Component}: it shows a video demonstration of the satellite constellation acquiring images at same time that the satellites in \vw.
+\item \emph{About Component}: it shows the \emph{About} window where the acknowledments are shown.
+\item \emph{Log Component}: it prints the logs which receives from satellites and ground stations.
+\item \emph{Workload component}: it plots the workload of the Orchestrator and Processing chain machine.
 
 \end{itemize}
 
-\subsubsection{Experiment Controller}
-\subsubsection{RemoteConnection Class}
+The Figure~\ref{} shows the architecture where the relations between the components are pictured.
 
-\subsection{Execution}
+%esquema architectur
+
+\subsubsection{Experiment Controller}
+
+This component connects with the \sss for managing it execution. Basically, this component is constituted by the following classes: the ExperimentController class, VWConnection class and JFedParser class. This classes controls, connects and parsers the execution of the \sss, obtains the connections with \sss nodes and process a configuration file in order to obtain the \sss nodes hostnames, respectively.
+
+The ExperimentController sequentially follows the next steps during the execution:
+\begin{itemize}
+\item First, the JFedParser is created and it parsers the contain of the file namely ``jfed.out'' located 
+
+\end{itemize}
+
+\subsubsection{Video Component}
+
+This 
+
+\subsection{About Component}
+
+\subsection{Log Component}
+
+\subsection{Workload Component}
 
 
 
