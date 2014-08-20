@@ -22,9 +22,12 @@ import sys, traceback, Ice,IceGrid
 import time
 import threading
 import pdb
-#from AyC import catalog
-import MySQLdb as mdb
-from collections import deque
+from geoserver.catalog import Catalog
+from geoserver.workspace import Workspace
+from geoserver.store import DataStore
+from geoserver.store import CoverageStore
+from geoserver.catalog import Catalog, ConflictingDataError, UploadError, \
+    FailedRequestError
 #Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
 Ice.loadSlice('-I'+Ice.getSliceDir()+' Geocloud.ice')
 import geocloud
@@ -40,32 +43,78 @@ class ArchiveAndCatalogueI(geocloud.ArchiveAndCatalogue):
         self.query = IceGrid.QueryPrx.checkedCast(q)
         if not self.query:
             raise RuntimeError("Invalid proxy")
-        self.broker=None
-
+        self.broker=geocloud.BrokerPrx.checkedCast(com.stringToProxy("broker"))
+        self.sem = Ice.threading.RLock() #Lock for managing the data structures
+        geoserver_path = "http://localhost:80/geoserver/rest"
+        self.catalog = Catalog(geoserver_path)
+        self.workspace=None
 
     def setBroker(self,broker,current=None):
         self.broker =broker
 
     def log(self,log):
         if self.broker:
-            self.broker.begin_appendLog("<ArchiveAndCatalogue> "+log)
+            self.broker.begin_appendLog("<ArchiveAndCatalogue> "+str(log))
         else:
-            print "Created",scenario
+            print log
 
     def createScenario(self,scenario,current=None):
-        self.log("Created Scenario %s"%(scenario))
-        return 1
+        self.sem.acquire()
+        try:
+            if self.catalog ==None:
+                self.log("Catalog")
+                raise geocloud.CreationScenarioException()
+            try:
+                self.workspace = self.catalog.create_workspace(scenario,scenario)
+                self.workspace.enabled =True
+                self.log("Created Scenario %s"%(scenario))
+            except Exception:
+                print ("workspace does not created")
+                self.log("Workspace does not created")
+        except FailedRequestError:
+            self.log("Request failed")
+            raise geocloud.CreationScenarioException();
+        finally:
+            self.sem.release()
+                
 
-    def catalogue(self,path,scenario,current=None):
-        if scenario: #si existe escenario
-            print "Catalogada",path
-        return 1
+    def catalogue(self,path,store,scenario,current=None):
+  
+        if self.workspace ==None:
+            raise geocloud.CataloguingException()
+        else:
+            try:
+                if self.catalog==None:
+                    raise geocloud.CataloguingException()
+               # store = path.split('/')[-1]
+                self.sem.acquire()
+                cv = self.catalog.create_coveragestore(store,path,self.workspace)
+                self.log("%s Catalogued!"%(path))
+            except ConflictingDataError as e:
+                self.log(e)
+            except UploadError as e:
+                self.log(e)
+            except FailedRequestError  as e:
+		None
+            except Exception as e:
+                self.log(e)
+            finally:
+                self.sem.release()
+                
 
     def deleteScenario(self,scenario,current=None):
-        if scenario:#si existe scenario
-            print  "Deleted ",scenario
-        return 1
-
+        self.sem.acquire()
+        try:
+            for layer in self.catalog.get_layers():
+                self.catalog.delete(layer)
+            for coverage in self.catalog.get_stores():
+                for resource in coverage.get_resources():
+                    catalog.delete(resource)
+                catalog.delete(coverage)
+            for vk in catalog.get_workspaces():
+                catalog.delete(wk)
+        except Exception:
+            self.log("Exception while cleanning scenario")
 
 class ArchiveAndCatalogue(Ice.Application):
     def run(self,args):

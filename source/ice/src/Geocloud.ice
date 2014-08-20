@@ -6,6 +6,7 @@ module geocloud {
     exception CreationScenarioException{};
     exception StartScenarioException{};
     exception StopScenarioException{};
+    exception DeleteScenarioException{};
     exception ArchiveNotAvailableException{};
     exception OrchestratorNotAvailableException{};
     exception ProcessingException{};
@@ -41,8 +42,8 @@ module geocloud {
 
     interface ArchiveAndCatalogue{
 	void setBroker( Broker * bro);
-	int createScenario(int scenario) throws CreationScenarioException;
-	int catalogue(string path,int scenario) throws CataloguingException;
-	int deleteScenario(int scenario);
+	void createScenario(string scenario) throws CreationScenarioException;
+	void catalogue(string path,string storage,string scenario) throws CataloguingException;
+	void deleteScenario(int scenario) throws DeleteScenarioException;
     };
 };

@@ -18,7 +18,62 @@ development started. Below these phases are fully described.
 
 \subsection{Preliminary requirements analysis}
 
+The initial requirements analysis which the entire system should satisfy were
+obtained after a week from the end of trainning stage.
+At first, some basics requirements were fixed. These are the following:
+\begin{itemize}
+\item It must base in open source and open standards.
+\item The language used for the implementation must be multiplatform, dynamic
+  and multipurpose.
+\item The tools used for development should be the \emph{Fed4FIRE} tools.
+\item The platforms were the software must be checked were the \emph{Fed4FIRE}
+  platforms.
+\item The implemented system must be as realistic as possible. This means to
+  create a \emph{Ground Segment} such as it is owned by \emph{Elecnor Deimos}
+  for checking and measuring the performance which the same \acl{EO} system may
+  expand in a cloud platform.
+\end{itemize}
+
+Then a document containing the requirements of the whole system and each
+component of it were accomplished. In this document the components of the \sss,
+the cloud architecture and the experiment in \pl were stated. The requirements
+of each component of
+the \sss such as the \satss and \gsss were obtained. The need the inclusion of
+the database into system were discovered because there were the only way to obtain the
+\ac{IP} of the \emph{Ground Stations}. The cloud architecture components were
+individually analysed, wherewith the comunications between them and its
+interactions. The requirements of the differents machines where these serves
+were taken place, the network requirements and topologies were studied.  
+The requirements of the \pl experiment basically were what kind of impairments
+are involved in network communications. They were studied and investigated for
+knowing the influence over the transmission speed, loss rate data and latency.
+
+Then the design of the scenarios and their executions were defined in order to
+check all funcionalities and to evaluate the performance which the experiment must offer.
+Moreover the \ac{GUI} was not taken into account but at the moment the
+experiments started, it was decided to design and to implement the graphical interface.
+
+
 \subsection{General design}
+
+The design of GeoCloud project was done inside a modular and extensible
+frame. It is composed by many components which each one of them are
+self-contained, in different platforms and interfaces. Transparency, openness
+and scalability are the adjetives which governed the development. Thus if were
+necessary to introduce or to modify any funcionalty, the effort to do this with
+minimal effort.
+% In principle the
+%\emph{Fed4FIRE} federation facilitates their communications and operations but,
+%at the moment of the implementation of this project, some funcionalities did not
+%properly work. 
+
+Furthermore, it was interesting to automatize the execution of the
+experiments. For that the \ac{GUI} was developed in order to any user without
+aknowledges about the implementation, could to use and understand it.
+
+Some software engineering patterns were applied such as \emph{Proxy},
+\emph{Fachade}, \emph{Controller} and \emph{Singleton}. These patterns allows to understand and easily to
+maintain the source code. 
 
 \subsection{Iterations of the development}
 
@@ -115,25 +170,50 @@ plots or linear plots.
 \subsubsection{Iteration 4}
 
 The \sss was not implemented yet in \vw testbed. So using \emph{JFed}, a
-deployment of \vw nodes were accomplished. Implementation jfed
+deployment of \vw nodes were accomplished. There were lots of problems with that
+because the nodes conectivity was correct for \ac{IP}v6 but not for
+\ac{IP}v4. Once the nodes deployment were succesful and they can be reached via
+\ac{SSH}, the \sss was installed into them. The \sss was correctly executed. 
 
-Creacion exp en bonfire
-setup nodes bonfire ftp
+Then the architecture in \bonfire was also implemented and integrated. The
+machines which harboured the cloud components were prepared. The \ac{FTP} server
+into the Orchestrator, the \emph{GeoServer} software and \emph{Apache} installed
+into the \emph{ArchiveAndCatalogue} and the product processors were laid into
+the \emph{Chain Processing} machine.
 
-ejecucion scenario 1 y 2
-realizacion demo comision
+Once the cloud architecture were prepared, the software were uploaded. Then, the
+scenario 1 was selected for testing the system and it was executed. There were
+to do some changes in the code in order to correct some bugs bugs. At first
+these executions were manually made, however there were some task and
+interactions with  machines and it was necesary to develop an user interface to
+automatise all processes.
+
+Finally, the \ac{GUI} was performed and the execution of these experiments were
+perfectly automatised. Furthermore, the \emph{European Commission} invite us to
+present this project and for doing a demonstration who the system worked and how
+the results of these executions can be seen at real time by the end-user.
 
 At the end of this iteration, the \sss was fully implemented and deployed. The
 cloud architecture was built and all its components interconnected and executing
 scenarios. These scenarios provided the integration test of the entire cloud
-system implementation.
+system implementation and the demonstration of the functionality in front of the
+\emph{European Commission}.
 
 
 \subsubsection{Iteration 5}
 
-Comparacion entre nfs y ftp
-implementation of the shared storage
-resultados ref resultadosgeocloud
+In this interacion the main issues were the experiment executions and the
+collection of some results repeteadly. 
+
+The scenario 1 and 2 were carried through for obtaining results. This results
+are in Section~\ref{sec:geocloud-results}. Next the implementation of a shared
+storage in order to avoid the sends between the cloud components was done. This
+shared storage is based in \ac{NFS}. This protocol enables sharing files between
+some compute resources and it maintains the consistency of these files.
+The experiment also was executed with this latest enhancement obtaining results
+for contrasting with the results obtained without shared storage. This
+comparative can be also seen in the results section.
+
 
 %\subsubsection{Iteration 6} ?? ICE implementation!!
 

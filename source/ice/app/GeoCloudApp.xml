@@ -119,7 +119,7 @@
                <object identity="broker"/>
             </adapter>
          </server>
-         <server-instance template="IcePatch2" directory="/home/ruben/git/geo-cloud_pfc/source/ice/src">
+         <server-instance template="IcePatch2" directory="/home/deimos/git/geo-cloud_pfc/source/ice/src">
             <properties>
                <property name="Ice.ServerIdleTime" value="5"/>
             </properties>
