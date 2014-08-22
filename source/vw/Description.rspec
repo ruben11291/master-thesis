@@ -10,7 +10,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
         </services>
         <jFed:location x="239.0" y="82.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -30,7 +30,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
         </services>
         <jFed:location x="805.0" y="65.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -50,7 +50,7 @@
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkXzF4OERoNGJGbzg -O /users/jbecedas/groundstation.py" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
         </services>
         <jFed:location x="1271.0" y="72.0"/>
         <jFed:nodeDescription>simple-node</jFed:nodeDescription>
@@ -73,7 +73,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="3.0" y="240.0"/>
@@ -94,7 +94,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="449.0" y="235.0"/>
@@ -115,7 +115,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="47.0" y="463.0"/>
@@ -136,7 +136,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="374.0" y="462.0"/>
@@ -157,7 +157,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="621.0" y="219.0"/>
@@ -178,7 +178,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1011.0" y="203.0"/>
@@ -199,7 +199,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="630.0" y="461.0"/>
@@ -220,7 +220,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="992.0" y="474.0"/>
@@ -241,7 +241,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1168.0" y="168.0"/>
@@ -262,7 +262,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1397.0" y="162.0"/>
@@ -283,7 +283,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1214.0" y="457.0"/>
@@ -304,7 +304,7 @@
             <execute command="sudo bash /users/jbecedas/add_wanBF.sh" shell="sh"/>
             <execute command="sudo bash /users/jbecedas/install_ftp.sh" shell="sh"/>
             <execute command="sudo wget --no-check-certificate https://googledrive.com/host/0B7vtkY3QTQrkYi1GTnZyU0o3Tlk -O /users/jbecedas/push_dbIP.sh" shell="sh"/>
-            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 131.254.204.163" shell="sh"/>
+            <execute command="sudo bash /users/jbecedas/push_dbIP.sh 129.215.175.148" shell="sh"/>
             <execute command="sudo touch /tmp/original.bin" shell="sh"/>
         </services>
         <jFed:location x="1452.0" y="449.0"/>

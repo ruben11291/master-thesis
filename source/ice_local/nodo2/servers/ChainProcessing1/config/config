@@ -1,0 +1,15 @@
+# Configuration file (08/21/14 12:51:09.553)
+
+# Server configuration
+Ice.Admin.ServerId=ChainProcessing1
+Ice.Admin.Endpoints=tcp -h 127.0.0.1
+Ice.ProgramName=ChainProcessing1
+# Object adapter ChainProcessingOA
+ChainProcessingOA.Endpoints=default
+ChainProcessingOA.AdapterId=ChainProcessing1.ChainProcessingOA
+ChainProcessingOA.ReplicaGroupId=ProcessingChainReplica
+# Server descriptor properties
+Ice.StdOut=/tmp/ChainProcessing1.out
+Ice.StdErr=/tmp/ChainProcessing1.err
+Identity=hello
+Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- This file was written by IceGrid Admin -->
 <icegrid>
-   <application name="HelloApp">
-      <description>Ejemplo de aplicación distribuida minimalista.</description>
+   <application name="GeoCloudApp">
+      <description>Cloud Architecture for EO</description>
       <distrib icepatch="${application}.IcePatch2/server"/>
       <service-template id="IceStorm">
          <parameter name="instance-name" default="${application}.IceStorm"/>
@@ -105,21 +105,11 @@
          </icebox>
       </server-template>
       <replica-group id="ProcessingChainReplica">
-         <load-balancing type="round-robin" n-replicas="1"/>
+         <load-balancing type="adaptive" n-replicas="1"/>
          <object identity="hello" type="::geocloud::ProcessingChainReplica"/>
       </replica-group>
       <node name="nodo1">
-         <server id="Broker" activation="always" deactivation-timeout="10" exe="./broker.py" pwd="${application.distrib}">
-            <description>						</description>
-            <properties>
-               <property name="Ice.StdOut" value="/tmp/broker.out"/>
-               <property name="Ice.StdErr" value="/tmp/broker.err"/>
-            </properties>
-            <adapter name="BrokerOA" endpoints="default" id="${server}.BrokerOA">
-               <object identity="broker"/>
-            </adapter>
-         </server>
-         <server-instance template="IcePatch2" directory="/home/deimos/git/geo-cloud_pfc/source/ice/src">
+         <server-instance template="IcePatch2" directory="/tmp/ice/src">
             <properties>
                <property name="Ice.ServerIdleTime" value="5"/>
             </properties>
@@ -150,6 +140,18 @@
             </properties>
             <adapter name="AyCOA" endpoints="default" id="${server}.AyCOA">
                <object identity="ayc"/>
+            </adapter>
+         </server>
+      </node>
+      <node name="nodo4">
+         <server id="Broker" activation="always" deactivation-timeout="10" exe="./broker.py" pwd="${application.distrib}">
+            <description>						</description>
+            <properties>
+               <property name="Ice.StdOut" value="/tmp/broker.out"/>
+               <property name="Ice.StdErr" value="/tmp/broker.err"/>
+            </properties>
+            <adapter name="BrokerOA" endpoints="default" id="${server}.BrokerOA">
+               <object identity="broker"/>
             </adapter>
          </server>
       </node>

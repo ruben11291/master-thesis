@@ -1,0 +1,13 @@
+# Configuration file (08/21/14 12:51:09.550)
+
+# Server configuration
+Ice.Admin.ServerId=ArchiveAndCatalogue
+Ice.Admin.Endpoints=tcp -h 127.0.0.1
+Ice.ProgramName=ArchiveAndCatalogue
+# Object adapter AyCOA
+AyCOA.Endpoints=default
+AyCOA.AdapterId=ArchiveAndCatalogue.AyCOA
+# Server descriptor properties
+Ice.StdOut=/tmp/ayc.out
+Ice.StdErr=/tmp/ayc.err
+Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

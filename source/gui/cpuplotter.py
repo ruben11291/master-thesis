@@ -41,7 +41,7 @@ class CpuStat:
     counter = 0
 
     def __init__(self,host):
-        self.load =  Loads(host,'root','/home/ruben/.ssh/id_rsa.pub','ssh.fr-inria.bonfire-project.eu','geo-user',22,'/home/ruben/.ssh/id_rsa.pub')
+        self.load =  Loads(host,'root','/home/deimos/.ssh/id_rsa.pub','ssh.fr-inria.bonfire-project.eu','geo-user',22,'/home/deimos/.ssh/id_rsa.pub')
         self.procValues = self.__lookup()
 
     def statistic(self):

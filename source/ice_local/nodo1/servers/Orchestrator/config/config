@@ -1,0 +1,13 @@
+# Configuration file (08/21/14 12:51:09.555)
+
+# Server configuration
+Ice.Admin.ServerId=Orchestrator
+Ice.Admin.Endpoints=tcp -h 127.0.0.1
+Ice.ProgramName=Orchestrator
+# Object adapter OrchestratorOA
+OrchestratorOA.Endpoints=default
+OrchestratorOA.AdapterId=Orchestrator.OrchestratorOA
+# Server descriptor properties
+Ice.StdOut=/tmp/orchestrator.out
+Ice.StdErr=/tmp/orchestrator.err
+Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

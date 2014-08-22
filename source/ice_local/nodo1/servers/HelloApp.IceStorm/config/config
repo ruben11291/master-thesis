@@ -1,0 +1,10 @@
+# Configuration file (08/21/14 12:51:09.554)
+
+# Server configuration
+Ice.Admin.ServerId=HelloApp.IceStorm
+Ice.Admin.Endpoints=tcp -h 127.0.0.1
+Ice.ProgramName=HelloApp.IceStorm
+IceBox.Service.HelloApp.IceStorm=IceStormService,34:createIceStorm --Ice.Config='/home/deimos/git/geo-cloud_pfc/source/ice/nodo1/servers/HelloApp.IceStorm/config/config_HelloApp.IceStorm'
+IceBox.InstanceName=HelloApp.IceStorm
+IceBox.LoadOrder=HelloApp.IceStorm
+Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

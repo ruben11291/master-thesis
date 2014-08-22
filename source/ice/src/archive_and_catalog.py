@@ -29,7 +29,7 @@ from geoserver.store import CoverageStore
 from geoserver.catalog import Catalog, ConflictingDataError, UploadError, \
     FailedRequestError
 #Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
-Ice.loadSlice('-I'+Ice.getSliceDir()+' Geocloud.ice')
+
 import geocloud
 
 

@@ -1,0 +1,14 @@
+# Configuration file (08/21/14 12:51:09.554)
+
+# Object adapter HelloApp.IceStorm.Publish
+HelloApp.IceStorm.Publish.Endpoints=default
+HelloApp.IceStorm.Publish.AdapterId=HelloApp.IceStorm.Publish
+# Object adapter HelloApp.IceStorm.TopicManager
+HelloApp.IceStorm.TopicManager.Endpoints=default
+HelloApp.IceStorm.TopicManager.AdapterId=HelloApp.IceStorm.TopicManager
+# Database environment HelloApp.IceStorm
+Freeze.DbEnv.HelloApp.IceStorm.DbHome=/home/deimos/git/geo-cloud_pfc/source/ice/nodo1/servers/HelloApp.IceStorm/dbs/HelloApp.IceStorm
+# Service descriptor properties
+HelloApp.IceStorm.InstanceName=HelloApp.IceStorm
+HelloApp.IceStorm.Flush.Timeout=1000
+Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

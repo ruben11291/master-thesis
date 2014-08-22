@@ -51,11 +51,11 @@ class ExperimentController():
         ground_id = 0
         satellite_id=1
         for ground in self.groundstations:
-            self.ground_stations_connections.append(VWConnection(ground_id,ground,'jbecedas','/home/ruben/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/ruben/Descargas/emulabcert.pem'))
+            self.ground_stations_connections.append(VWConnection(ground_id,ground,'jbecedas','/home/deimos/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/deimos/Descargas/emulabcert.pem'))
             self.log("Ground station %s reached!"%(ground_id))
             ground_id +=1
         for sat in self.satellites:
-            self.satellites_connections.append(VWConnection(satellite_id,sat,'jbecedas','/home/ruben/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/ruben/Descargas/emulabcert.pem'))
+            self.satellites_connections.append(VWConnection(satellite_id,sat,'jbecedas','/home/deimos/.ssh/id_rsa.pub','bastion.test.iminds.be','jbecedas',22,'/home/deimos/Descargas/emulabcert.pem'))
             self.log("Satellite System Simulator %s reached!"%(satellite_id))
             satellite_id+=1
         self.clean_ground()

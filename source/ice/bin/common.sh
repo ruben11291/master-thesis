@@ -35,7 +35,7 @@ start() {
 	    start_node $i
 	done
     else
-	for i in 1 2 3 ; do
+	for i in 1 2 3 4 ; do
 	    start_node $i
 	done
     fi
@@ -47,7 +47,7 @@ stop() {
 	    stop_node $i
 	done
     else
-	for i in 3 2 1 ; do
+	for i in 4 3 2 1 ; do
 	    stop_node $i
 	done
     fi
@@ -59,7 +59,7 @@ clean() {
 	    clean_node $i
 	done
     else
-	for i in 1 2 3 ; do
+	for i in 1 2 3 4 ; do
 	    clean_node $i
 	done
 	rm -rf log

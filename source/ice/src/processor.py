@@ -22,7 +22,7 @@ import sys, traceback, Ice,IceGrid
 import time
 import subprocess
 
-Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
+
 import geocloud
 
 class ProcessorI(geocloud.Processor):

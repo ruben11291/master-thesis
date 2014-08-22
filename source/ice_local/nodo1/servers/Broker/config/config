@@ -1,0 +1,13 @@
+# Configuration file (08/21/14 12:51:09.552)
+
+# Server configuration
+Ice.Admin.ServerId=Broker
+Ice.Admin.Endpoints=tcp -h 127.0.0.1
+Ice.ProgramName=Broker
+# Object adapter BrokerOA
+BrokerOA.Endpoints=default
+BrokerOA.AdapterId=Broker.BrokerOA
+# Server descriptor properties
+Ice.StdOut=/tmp/broker.out
+Ice.StdErr=/tmp/broker.err
+Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

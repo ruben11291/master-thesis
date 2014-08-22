@@ -24,12 +24,13 @@ import sys, traceback, Ice,IceGrid
 import time,datetime
 import threading
 import pdb
+import loadData
 #from processingChain import processingChainController
 #from AyC import catalog
 import MySQLdb as mdb
 from collections import deque
 #Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
-Ice.loadSlice('-I'+Ice.getSliceDir()+' Geocloud.ice')
+
 import geocloud
 
 class OrchestratorI(geocloud.Orchestrator):

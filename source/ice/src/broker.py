@@ -2,7 +2,6 @@
 import sys, traceback, Ice,IceGrid
 import time,datetime
 
-Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
 import geocloud
 
 class BrokerI(geocloud.Broker):

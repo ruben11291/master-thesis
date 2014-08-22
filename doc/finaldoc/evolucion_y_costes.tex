@@ -7,10 +7,10 @@ specifying the milestones of each one and their temporal cost and complexity.
 \section{Project Evolution}
 \label{section:evolution}
 
-Before the start of the development phase (March 5th), a trainning stage with
+Before the start of the development phase (March 5th), a training stage with
 the different testbeds used for the development, the specifically technologies of
 \emph{Elecnor Deimos} company and some Spatial acknowledge were studied during a month. Then the
-requirement analysis stage such as tecnological and functional terms were
+requirement analysis stage such as technological and functional terms were
 studied. Several papers describing the component-oriented architecture were
 performed as a result. Once the requirements were specified, the iterative
 development started. Below these phases are fully described.
@@ -18,8 +18,8 @@ development started. Below these phases are fully described.
 
 \subsection{Preliminary requirements analysis}
 
-The initial requirements analysis which the entire system should satisfy were
-obtained after a week from the end of trainning stage.
+The initial requirements analyses which the entire system should satisfy were
+obtained after a week from the end of training stage.
 At first, some basics requirements were fixed. These are the following:
 \begin{itemize}
 \item It must base in open source and open standards.
@@ -42,15 +42,15 @@ of each component of
 the \sss such as the \satss and \gsss were obtained. The need the inclusion of
 the database into system were discovered because there were the only way to obtain the
 \ac{IP} of the \emph{Ground Stations}. The cloud architecture components were
-individually analysed, wherewith the comunications between them and its
-interactions. The requirements of the differents machines where these serves
+individually analysed, wherewith the communications between them and its
+interactions. The requirements of the different machines where these serves
 were taken place, the network requirements and topologies were studied.  
-The requirements of the \pl experiment basically were what kind of impairments
+The requirements of the \pl experiment basically consist of which impairments
 are involved in network communications. They were studied and investigated for
 knowing the influence over the transmission speed, loss rate data and latency.
 
 Then the design of the scenarios and their executions were defined in order to
-check all funcionalities and to evaluate the performance which the experiment must offer.
+check all functionalities and to evaluate the performance which the experiment must offer.
 Moreover the \ac{GUI} was not taken into account but at the moment the
 experiments started, it was decided to design and to implement the graphical interface.
 
@@ -58,10 +58,10 @@ experiments started, it was decided to design and to implement the graphical int
 \subsection{General design}
 
 The design of GeoCloud project was done inside a modular and extensible
-frame. It is composed by many components which each one of them are
+frame. It is composed by many components which each one of them is
 self-contained, in different platforms and interfaces. Transparency, openness
-and scalability are the adjetives which governed the development. Thus if were
-necessary to introduce or to modify any funcionalty, the effort to do this will
+and scalability are the adjectives which governed the development. Thus if were
+necessary to introduce or to modify any functionality, the effort to do this will
 be minimal.
 % In principle the
 %\emph{Fed4FIRE} federation facilitates their communications and operations but,
@@ -69,11 +69,10 @@ be minimal.
 %properly work. 
 
 Furthermore, it was interesting to automatize the execution of the
-experiments. For that the \ac{GUI} was developed in order to any user without
-aknowledges about the implementation, could to use and understand it.
+experiments. For that the \ac{GUI} was developed in order to any user without acknowledges about the implementation, could to use and understand it.
 
 Some software engineering patterns were applied such as \emph{Proxy},
-\emph{Fachade}, \emph{Controller} and \emph{Singleton}. These patterns allows to understand and easily to
+\emph{Facade}, \emph{Controller} and \emph{Singleton}. These patterns allow to understand and easily to
 maintain the source code. 
 
 \subsection{Iterations of the development}
@@ -89,18 +88,18 @@ located, were created. The scale of the project is quite considerable so it was
 strictly necessary to establish a main directory per each testbed. Furthermore,
 a pair of accounts were created; the first one, in the \bonfire official page
 and other one, in the \emph{iMinds Emulab} official page. In both profiles, the
-\ac{RSA} key generated was upload.
+\ac{RSA} key generated was uploaded.
 For the designing of the entire cloud architecture, a top-down model was
 selected. Thus, the Ground Segment on premises of \emph{Elecnor Deimos} was
 studied and the main components for obtaining geolocated images of the Earth
 surface were identified. These cloud architecture components were also designed
-studing its relationships and the data flows between them. The design of the
+studying its relationships and the data flows between them. The design of the
 interfaces and relationships between all cloud components were analysed. 
 The basic architecture of the Orchestrator component were
 designed, drafted and some \ac{UML} diagrams were pictured. 
 
-Regarding the \sss, the data files of the defined scenarios such as satellite acceses,
-time of each satellite is inside a footprint and the number of acquired images per
+Regarding the \sss, the data files of the defined scenarios such as satellite accesses,
+time of each satellite is inside a footprint and the numbers of acquired images per
 satellite were obtained. Then, a data analysis of them was carried out in order
 to design and build the data base and the script for populating it.
 
@@ -112,9 +111,9 @@ obtaining data of the satellite constellation in order to build a customized sim
 \subsubsection{Iteration 2}
 
 The implementation of the cloud architecture components was started. First, the
-Orchestrator component were developed in order to locally run. The class
-ProcessingChain controler was designed using a Singleton pattern. Then, the
-Archive and Catalog module was also locally implemented. \emph{Geo-Server} and
+Orchestrator component was developed in order to locally run. The class
+Processing Chain controller was designed using a Singleton pattern. Then, the
+Archive and Catalogue module was also locally implemented. \emph{Geo-Server} and
 \emph{Geo-Network} were studied in order to obtain which one was more convenient
 for deploying into the component. \emph{Apache Tomcat} and \emph{Geo-Server}
 were installed and the \ac{CSW} plugin of \emph{Geo-Server} was also deployed
@@ -133,7 +132,7 @@ The development of the \gsss was done conceiving the \emph{Ground Stations
   Simulators} as simple servers processing the received packets.   
 At first, the \emph{Satellite System Simulator}  sent a raw data in a constant
 bit rate. However, the required bit-rate was $160~Mbps$, thus the network over internet
-can not sure it transmission rate. The solution was to implement to send tiny
+can not sure it transmission rate. The solution was to implement it sending tiny
 packets in order to the network was able to transmit it in the time required.    
 Using this approach, the \emph{Ground Stations
   Simulators} taken into account the number of packets received. The number of
@@ -155,13 +154,13 @@ For the development of this experiment, the following stages were performed:
 \item Searching and selecting nodes around the world for simulating the
   end-users and ground stations.
 \item Testing the connectivity of all selected nodes and creating some scripts
-  for testing them. This process were complicated because the most of nodes
+  for testing them. This process was complicated because the most of nodes
   appear in the \pl webpage as available and working but executing the script,
   some of them were unreachable. Thus, this trouble delayed the experiment
-  because it was necessary to check node to node for selecting the availables only.
+  because it was necessary to check node to node for only selecting the available.
 \item Deliberating about the impairments for measuring (loss-rate, effective
   bandwidth and delay) and with which tools these measures can be obtained. 
-\item Finally, the implementation and execution of the developed scripts.
+\item Finally, the implementation and execution of the developed scripts were accomplished.
 \end{itemize}
 
 Once the results were obtained, some scripts using \emph{Python-matplotlib} were
@@ -171,10 +170,10 @@ plots or linear plots.
 \subsubsection{Iteration 4}
 
 The \sss was not implemented yet in \vw testbed. So using \emph{JFed}, a
-deployment of \vw nodes were accomplished. There were lots of problems with that
-because the nodes conectivity was correct for \ac{IP}v6 but not for
-\ac{IP}v4. Once the nodes deployment were succesful and they can be reached via
-\ac{SSH}, the \sss was installed into them. The \sss was correctly executed. 
+deployment of \vw nodes was accomplished. There were lots of problems with that
+because the nodes connectivity was correct for \ac{IP}v6 but not for
+\ac{IP}v4. Once the nodes deployment was successful and they can be reached via
+\ac{SSH}, the \sss was installed into them.  
 
 Then the architecture in \bonfire was also implemented and integrated. The
 machines which harboured the cloud components were prepared. The \ac{FTP} server
@@ -182,15 +181,15 @@ into the Orchestrator, the \emph{GeoServer} software and \emph{Apache} installed
 into the \emph{ArchiveAndCatalogue} and the product processors were laid into
 the \emph{Chain Processing} machine.
 
-Once the cloud architecture were prepared, the software were uploaded. Then, the
+Once the cloud architecture was prepared, the software was uploaded. Then, the
 scenario 1 was selected for testing the system and it was executed. There were
-to do some changes in the code in order to correct some bugs bugs. At first
+to do some changes in the code in order to correct some bugs. At first
 these executions were manually made, however there were some task and
-interactions with  machines and it was necesary to develop an user interface to
-automatise all processes.
+interactions with machines and it was necessary to develop an user interface to
+automatize all processes.
 
 Finally, the \ac{GUI} was performed and the execution of these experiments were
-perfectly automatised. Furthermore, the \emph{European Commission} invite us to
+perfectly automatized. Furthermore, the \emph{European Commission} invite us to
 present this project and for doing a demonstration who the system worked and how
 the results of these executions can be seen at real time by the end-user.
 
@@ -203,8 +202,8 @@ system implementation and the demonstration of the functionality in front of the
 
 \subsubsection{Iteration 5}
 
-In this interacion the main issues were the experiment executions and the
-collection of some results repeteadly. 
+In this iteration the main issues were the experiment executions and the
+collection of some results repeatedly. 
 
 The scenario 1 and 2 were carried through for obtaining results. This results
 are in Section~\ref{sec:geocloud-results}. Next the implementation of a shared
@@ -226,13 +225,13 @@ statistics of the employed repository for control of versions are presented.
 
 \subsection{Economical cost}
 
-The trainning time of this project comprises from 3rd of February to 10th of
+The training time of this project comprises from 3rd of February to 10th of
 March (24 days). The approximated daily dedicated time is 8 hours and the considered price for that period of time was \EUR{5}/hour. The approximated dedicated time for implementation was 8 hours daily
 during 105 days which add in a total of 840 hours. It was considered an average
 price of \EUR{15}/hour a programmer (reference prices acquired from
 \url{https://freelance.infojobs.net/freelancers})
 
-The Table~\ref{table:economical-breakdown} shows the breakdown of resouces used during the development.
+The Table~\ref{table:economical-breakdown} shows the breakdown of resources used during the development.
 
 
 \begin{table}[hp]
@@ -249,10 +248,10 @@ The Table~\ref{table:economical-breakdown} shows the breakdown of resouces used 
 The version control tool used in the development of this project was \emph{Git}
 supported by the \emph{Bitbucket} repository service.
 
-\emph{Cloc} tool was used for counting the source lines of code of all languajes in which
-GeoCloud was developed. This tool counts all lines of the code distinguing
-between code properly, blank lines and comment lines. The Table~\ref{table:git-statistics} shows the
-exectution results of \emph{Cloc} in the source folder.
+\emph{Cloc} tool was used for counting the source lines of code of all languages in which
+GeoCloud was developed. This tool counts all lines of the code differentiating
+between code, blank lines and comment lines properly. The Table~\ref{table:git-statistics} shows the
+execution results of \emph{Cloc} in the source folder.
 
 \begin{table}[hp]
   \centering

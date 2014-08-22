@@ -1,4 +1,3 @@
-#include <Ice/BuiltinSequences.ice>
 
 module geocloud {
     exception AlreadyExists { string key; };

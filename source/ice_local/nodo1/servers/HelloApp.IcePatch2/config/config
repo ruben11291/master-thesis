@@ -1,0 +1,14 @@
+# Configuration file (08/21/14 12:51:09.554)
+
+# Server configuration
+Ice.Admin.ServerId=HelloApp.IcePatch2
+Ice.Admin.Endpoints=tcp -h 127.0.0.1
+Ice.ProgramName=HelloApp.IcePatch2
+# Object adapter IcePatch2
+IcePatch2.Endpoints=default
+IcePatch2.AdapterId=HelloApp.IcePatch2.IcePatch2
+# Server descriptor properties
+IcePatch2.InstanceName=HelloApp.IcePatch2
+IcePatch2.Directory=/home/deimos/git/geo-cloud_pfc/source/ice/src
+Ice.ServerIdleTime=5
+Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

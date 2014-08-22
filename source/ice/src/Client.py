@@ -1,5 +1,5 @@
 import sys, traceback, Ice,IceGrid
-Ice.loadSlice('-I {} Geocloud.ice'.format(Ice.getSliceDir()))
+
 import geocloud
 import sys,time
 
