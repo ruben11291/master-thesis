@@ -215,8 +215,21 @@ for contrasting with the results obtained without shared storage. This
 comparative can be also seen in the results section.
 
 
-%\subsubsection{Iteration 6} ?? ICE implementation!!
+\subsubsection{Iteration 6} 
 
+The last step of this project was to implement all components of Cloud system using
+a distributed middleware as ZeroC ICE. First, the slice file which contains the
+definition of the distributed interfaces were carried out. Then, the
+implementation of each individual component were performed implementing the
+operations which were defined in the slice file. During the development of this
+architecture, lots of manually test were performed. Once the implementation
+finished and the test cases were successfuly executed,  IceGrid were used for
+the automatically deployment between all the distributed nodes. The nodes
+implementation and deployment using IceGrid was locally tested. 
+Next, the arquitecture had to be installed and executed on cloud. The port
+policies restrictions avoid this architecture over ICE middleware was tested and
+checked in the cloud platform.
+ 
 \section{Resources and costs}
 
 This section lists and describes the various resources used, both temporal 

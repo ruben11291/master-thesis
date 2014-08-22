@@ -1,0 +1,146 @@
+\chapter{Source code}
+
+Due to the extension of the source code (5.000 lines), it is solely included
+in the CR-ROM attached to this document.
+
+The distribution of the source in the implementation of the GeoCloud experiment
+The implementation of the GEO-Cloud experiment consists of some parts:
+\begin{itemize}
+\item To create a Space System Simulator 
+\item To implement a Virtual Wall experiment and to use jFed to deploy it.
+\item To create in BonFIRE the Orchestrator, A\&C , Database and Processing Chain. 
+\item To create setup scripts to initialize the nodes into BonFIRE and Virtual Wall.
+\end{itemize}
+
+In order to explain the following sections, the root directory of all files it
+is namely ``GeoCloud''. Inside it there are two folders: ``doc'' which contains
+the documentation and ``source'' which contain all source code developed in this
+project.
+
+\section{Space System Simulator files}
+
+The Space System Simulator consists of a Satellite System Simulator and a Ground
+Station System Simulator. The Satellite System Simulator is constituted by 17
+Satellite Simulators executing at time. Also the Ground Station System Simulator
+is constituted by 12 Ground Station Simulators executing at time. The source of
+the software is located in \emph{source/vw/simulator} as follows:
+\begin{itemize}
+\item \emph{satellite.py}: source that Satellite Simulator.
+\item \emph{groundstation.py}: source that Ground Station Simulator.
+\item \emph{runGS.sh}: Bash script that deploys and starts the Ground Station Simulators.
+\item \emph {runSat.sh}: Bash script that deploys and starts the Satellite Simulators.
+\item \emph {clean.sh}: Bash script that cleans all log files and temporally files.
+\end{itemize}
+
+\section{Virtual Wall deployment files}
+
+The files used to deploy the Spatial System Simulator in Virtual Wall are
+located in \emph{source/vw} and they are the following:
+\begin{itemize}
+\item \emph{Description.rspec}: Specification in RSPEC format in order to jFed creates the experiment.  This file contains the nodes reservation and some commands to execute after the node initialization.
+\item \emph{install\_ftp.sh}: Installation of the ftp server on the node.
+\item \emph{pus\_ip.sh}: Script that puts the IP database in a file on the node.
+\end{itemize}
+
+\section{Orchestrator, Archive and Catalogue, Database and Processing Chain
+  files}
+
+The BonFIRE is composed by the Orchestrator, A\&C, database and Processing Chain
+modules. The Orchestrator, A\&C and Processing Chain software in the GEO-Cloud
+project are in the Cloud. The Database is in the \bonfire platform but is only
+used for hosting the hostnames which the ground station nodes have.
+
+Such there are two implementations for the Cloud architecture, each one of them
+it is located in a different location each other.
+
+The first implementation it is located in \emph{source/bonfire} as follows:
+
+\begin{itemize}
+\item \emph{Orchestrator}: All source is located in \emph{source/bonfire/orchestrator} as follows:
+\begin{itemize}
+\item \emph{listener.py}: listener class used by Orchestrator component.
+\item \emph{main.py}: contains the main method used by Orchestrator component.
+\item \emph{orchestrator.py}: contains the class Orchestrator used by Orchestrator component.
+\item \emph{processingChain.py}: contains the processingChain component used by Orchestrator.
+\item \emph{Orchestrator.conf.xml}: contains the initial configuration for the Orchestrator in \ac{XML} format.
+\item \emph{Load.py (Not used)}: Python class that obtains the CPU workload
+  remotely.  
+\end{itemize}
+\item \emph{A\&C}: All source is located in \emph{source/bonfire/geoserver} as
+  follows:
+\begin{itemize}
+\item \emph{install.sh}: bash script that install the A\&C. Must be executed in a BonFIRE node.
+\item \emph{catalog\_pp.py}: this script is called by the processing chain in order to store and catalog the processed image into the A\&C module.
+\item \emph{Install\_ftp.sh}: bash script that install a ftp server on the node.
+\end{itemize}
+\item \emph{Product Processors}: Source is located in \emph{source/bonfire/processingChain} as follows:
+\begin{itemize}
+\item \emph{PPscript.sh}: bash script that it is called by the Orchestrator in
+  order to process an image. 
+\end{itemize}
+\end{itemize}
+
+The second implementation using \emph{ZeroC ICE} is located in
+\emph{source/ice/} as follows:
+
+\begin{itemize}
+
+\item \emph{app}: this folder contains the distributed application for its
+  deployment.
+\item \emph{cfg}: it contains the configuration files for deploying the nodes
+  using \emph{IceGrid} service.
+\item \emph{certs}: it contains the certificates for authenticating connections.
+\item \emph{bin}: it contains the clean, start and stop scripts.
+\item \emph{test}: this folder contains the developed test in order to check the
+  funcionality of the components.
+\item \emph{src}: this directory contains the source files for each component of
+  the cloud.
+\end{itemize}
+
+The Database files are located in \emph{source/database/modelDatabase} and
+\emph{source/database/scenaries}.
+\begin{itemize}
+\item	The directory \emph{source/database/modelDatabase} contains the
+  following files:
+\begin{itemize}
+\item \emph{dbmodel.mwb}: database model for opening in \emph{Mysql-Workbench}. 
+\item \emph{dbmodel.mwb.bak}: backup of dbmodel.mwb.
+\item \emph{modelDataBase}: database model in SQL language.
+\item \emph{schema.png}: database schema picture.
+\item \emph{setup.sh}: bash script to install and create the database in a \bonfire node.
+\item \emph{Autorun.sh (Not used)}: bash script in order to start the mysql demon with a customized configuration.
+\item \emph{my.cnf (Not used)}: MySQL service  customized configuration.
+\end{itemize}
+\item The directory \emph{source/database/scenaries} contains the following files:
+\begin{itemize}
+\item \emph{All\_Scenarios.csv}: contains the \ac{AOI} of all scenarios.
+\item \emph{Scenario\_1\_Emergencies\_Lorca\_Earthquake.csv}: contains the visibility zones and the satellites that enters in them for the scenario 1.
+\item \emph{Scenario\_2\_Infrastructure\_monitoring.csv}: contains the visibility zones and the satellites that enters in them for the scenario 2.
+\item \emph{Scenario\_3\_South\_West\_England.csv}: contains the visibility zones and the satellites that enters in them for the scenario 3.
+\item \emph{Scenario\_4\_Precision\_Agriculture\_Argentina.csv}: contains the visibility zones and the satellites that enters in them for the scenario 4.
+\item \emph{Scenario\_5\_Basemap\_Worldwide.csv}: contains the visibility zones and the satellites that enters in them for the scenario 5.
+\item \emph{setDatabase.py}: script that initializes the database created by
+setup.sh.
+\end{itemize}
+\end{itemize}
+\section{PlanetLab experiment files}
+The resources corresponding \pl experiment are located in \emph{source/ple/} directory.
+This directory contains quite files, and these are the following:
+\begin{itemize}
+\item \emph{iperfClients.py}: It contains the PlanetLab experiment script that obtains the client nodes bandwidth.
+\item \emph{iperfClientsUDP.py}: It contains the PlanetLab experiment script that obtains the client nodes loss-rate.
+\item \emph{pingClients.py}: It contains the PlanetLab experiment script that obtains the client nodes round trip time.
+\item \emph{pPLE.py}: It contains the PlanetLab experiment script that obtains the ground station nodes bandwidth.
+\item \emph{pPLEUDP.py}: It contains the PlanetLab experiment script that obtains the ground station nodes loss-rate.
+\item \emph{pingPLE.py}: It contains the PlanetLab experiment script that obtains the ground station nodes round trip time.
+\item \emph{bandwidth\_plotting\_nodes.py}: Script that plots the bandwidth nodes ordered by distance.
+\item \emph{bandwidth\_plotting.py}: Script that plots the ground stations nodes bandwidth.
+\item \emph{bandwith\_plotting\_node.py}: Script that plots the nodes bandwidth.
+\item \emph{bandwidth\_plotting\_per\_ground.py}: Script that plots the ground stations nodes bandwidth into a histogram.
+\item \emph{Loss-rate\_plotting\_nodes.py}: Script that plots the loss-rate per node.
+\item \emph{Loss-rate\_plotting\_nodes\_customers.py}: Script that plots the loss-rate per client node.
+\item \emph{pPLE.py}: 
+\item \emph{pPLEUDP.py}:
+\item \emph{*.out}: contains results of executions
+\item \emph{Results* directories}: contains some execution results.
+\end{itemize}
