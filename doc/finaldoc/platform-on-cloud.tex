@@ -1,15 +1,18 @@
 \subsection{Orchestrator}
-
+\label{sub:orch}
 This section describes the design of the \emph{Orchestrator}. The \emph{Orchestrator} is the
 component that manages the task to be done in the cloud. It is running over the
 \bonfire Cloud and controls all interactions between all the components implemented in \emph{Fed4FIRE} testbeds as \bonfire and \vw.
 First, the \emph{Orchestrator}'s funcionalities and the interactions with other
-components of the GEO-Cloud system are described. Then, the workflow of
+components of the GEO-Cloud system are described. Then, the two implementations,
+firstly the implementation to run a simple experiment and then, the ICE
+implementation will be explained. In two implementations, the workflow of
 \emph{Orchestrator} and the interfaces with the \emph{Archive and Catalog} module and the
-\emph{Processing Chain} module are depicted.
+\emph{Processing Chain} module and design and implementation are
+depicted. Finally, the execution and its implementation in \bonfire testbed is
+also explained for both cases.
 
 
-\subsubsection{Functionality}
 
 The \emph{Orchestrator} has the following functions:
 
@@ -48,53 +51,6 @@ pooling the Ground Stations frequently. When the \emph{Orchestrator} gets the da
 uses the Product Processor for processing the data to generate the result
 image. When this processing has finished, the \emph{Orchestrator} sends the image to
 Archive and Catalogue to be available for customers.
-
-\subsubsection{Workflow}
-
-The \emph{Orchestrator} works by following the next sequence of steps:
-\begin{enumerate}
-\item The \emph{Orchestrator} gets all the information about the \emph{Ground
-    Stations Simulators} and localizes them.
-\item The \emph{Listener} pools to the \emph{Ground Stations} and when there are
-  a downloadable raw data, the \emph{New\_Data\_Event} is launched.
-\item  When the \emph{New\_Data\_Event} occurs, the \emph{Orchestrator} downloads the data.
-\item  The \emph{Orchestrator} moves the raw data to a shared storage.
-\item Then, the \emph{Orchestrator} makes different \emph{Job Orders} for the processors. The \emph{Job Order} contains all the useful information for the \emph{Product Processors} to proceed with the image processing.
-\item The \emph{Orchestrator} gets the \emph{ProcessorChainController} object (this object was made regarding \emph{Singleton pattern}).
-\item The \emph{Orchestrator} instructs the \emph{ProcessorChainController} object to create a new processing chain by sending the \emph{JobOrders} created in step 4.
-\item The \emph{ProcessorChain Controller} object creates a new \emph{Processing Chain} to process the data.
-\item The \emph{Processing Chain} sequentially executes the L0, L1A, L1B, L1C processors.
-\item When the \emph{ProcessingChain} has finished, this notifies the \emph{ProcessorChainController} object that the processing ended.
-\item The \emph{ProcessingChainController} alerts the \emph{Orchestrator} that the \emph{Processing Chain} has finished.
-\item The \emph{Orchestrator} takes the created image and puts it into the \emph{Archive}.
-Figure~\ref{fig:orchestrator-workflow} depicts the workflow of the \emph{Orchestrator}.
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=1\textwidth]{cloud/orchestrator-workflow.jpg}
-\caption{Orchestrator workflow}
-\label{fig:orchestrator-workflow}
-\end{center}
-\end{figure}
-
-\subsubsection{Interfaces}
-
-The \emph{Orchestrator} has interfaces with the Ground Stations implemented in
-\emph{Virtual Wall}, with the \emph{Product Processors} and with the
-\emph{Archive and Catalogue}.
-\paragraph{Interfaces with the Ground Stations implemented in Virtual Wall}~\\
-The \emph{Ground Stations} are deployed in some \emph{Virtual Wall} nodes. In those, the impairments and features of the network are simulated. Essentially, the \emph{Orchestrator} is pooling those \emph{Ground Stations} over \ac{FTP} connections to know when a raw data is available. So, this Ground Stations are \ac{FTP} servers in which the \emph{Orchestrator} can get the raw data obtained by the constellation of satellites.
-\paragraph{Interfaces with the Product Processors}~\\
-The \emph{Orchestrator} communicates with the \emph{Product Processors} through the \emph{ProcessingChainController} instance as shown in Figure~\ref{fig:orchestrator-workflow}. The \emph{Orchestrator} commands the \emph{ProcessingChainController} to create a new processing chain to process the raw data. When this process finishes, the ProcessingChainController sends to the Orchestrator a message to indicate the end of the chain. Thus, the ProcessingChainController checks the product processors progress and initiates the next level until the processing chain finishes. Finally, the Orchestrator obtains the end product and locates it in the Catalogue Service. 
-
-\subsubsection{Design}
-
-\subsubsection{Implementation}
-
-\subsubsection{Execution}
-
-\subsubsection{Implementation in BonFIRE}
-
 
 
 
@@ -202,13 +158,11 @@ The output is the following:
 \item Orthorectified Images.
 \end{itemize}
 
-\subsubsection{Implementation in BonFIRE}
-
 
 
 
 \subsection{Archive and Catalogue}
-
+\label{sub:archive}
 
 The \emph{Archive and Catalogue} is a shared space of memory between the \emph{Orchestrator}, the product processors and the distribution of data. It has a data acquisition component.
 
@@ -236,12 +190,602 @@ The \emph{Archive and Catalogue} basically consists of:
 \end{figure}
 
 
+
+\subsection{First implementation of the cloud architecture}
+
+The first implementation of the cloud architecture is based in the following
+components:
+\begin{itemize}
+\item The Orchestrator module.
+\item The Processing Chain module.
+\item The Archive and Catalogue module.
+\end{itemize}
+
+The diagram in Figure~\ref{fig:first-architecture} the entire architecture is shown. The
+communications were done using \ac{SSH} commands and the sending of the files were
+performed using the \ac{SCP} protocol. For this implementation the raw data
+travels from the Orchestrator to Processing Chain module. Then, it is
+processed and finally, the Proccesing Chain module sends it to Archive and
+Catalogue module. There is important to highlight that the
+Orchestrator does not send the processed image to the Archive and Catalogue
+module. The Processing Chain module is which sends this orthorectified images
+for archiving and cataloguing. Doing it this way, it is avoid the sending between the Orchestrator
+and the Processing Chain after the image was processed. Consecuently, the time for
+archiving and cataloguing was reduced for each processed image.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]{statement/geocloudConcept.png}
+\caption{First architecture on cloud}
+\label{fig:first-architecture}
+\end{center}
+\end{figure}
+
+The different components which compound the cloud architecture are fully
+explained in the following sections. For each component, the  workflow, the
+design, the implementation of the component and how was implemented in \bonfire are detailed.
+
+\subsubsection{Orchestrator}
+
+The first implementation of the Orchestrator component was performed in order to
+execute the designed scenarios and to get its results. This implementation uses
+\ac{SSH} and \ac{SCP} as communication and file sending protocols, respectively. 
+
+\paragraph{Workflow}~\\
+
+The \emph{Orchestrator} component works by following the next sequence of steps:
+\begin{enumerate}
+\item The \emph{LoadData object} gets all the information about the \emph{Ground
+    Stations Simulators} and localizes them.
+\item The \emph{Listener object} pools to the \emph{Ground Stations} and when there are
+  a downloadable raw data, the \emph{New\_Data\_Event} is launched.
+\item  When the \emph{New\_Data\_Event} occurs, the \emph{Orchestrator} downloads the data.
+\item  The \emph{Orchestrator} moves the raw data to a shared storage.
+\item Then, the \emph{Orchestrator} makes different \emph{Job Orders} for the processors. The \emph{Job Order} contains all the useful information for the \emph{Product Processors} to proceed with the image processing.
+\item The \emph{Orchestrator} gets the \emph{ProcessorChainController} object (this object was made regarding \emph{Singleton pattern}).
+\item The \emph{Orchestrator} instructs the \emph{ProcessorChainController}
+  object to create a new processing chain by sending the \emph{JobOrders}
+  created in step 4. If there were any image processing, the request is queued.
+\item The \emph{ProcessorChain Controller} object creates a new \emph{Processing
+  Chain} to remotely process the data.
+\item The \emph{Processing Chain} sequentially executes the L0, L1A, L1B, L1C processors.
+\item When the \emph{ProcessingChain} has finished, this notifies the \emph{ProcessorChainController} object that the processing ended.
+\item The \emph{ProcessingChainController} alerts the \emph{Orchestrator} that the \emph{Processing Chain} has finished.
+\item The \emph{Orchestrator} takes the created image and puts it into the
+  \emph{Archive}. As a improvement, this communication was not done. The
+  sending to archiving and cataloguing is performed when the Processing Chain
+  finishes and sends the image to Archive and Catalogue module. 
 \end{enumerate}
 
+Figure~\ref{fig:orchestrator-workflow} depicts the workflow of the \emph{Orchestrator}.
 
-\subsubsection{Implementation}
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=1\textwidth]{cloud/orchestrator-workflow.jpg}
+\caption{Orchestrator workflow}
+\label{fig:orchestrator-workflow}
+\end{center}
+\end{figure}
 
-\subsubsection{Execution}
+\paragraph{Interfaces}~\\
 
-\subsubsection{Implementation in BonFIRE}
+The \emph{Orchestrator} has interfaces with the Ground Stations implemented in
+\emph{Virtual Wall}, with the \emph{Product Processors} and with the
+\emph{Archive and Catalogue}.
+\subparagraph{Interfaces with the Ground Stations implemented in Virtual
+  Wall}~\\
 
+The \emph{Ground Stations} are deployed in some \emph{Virtual Wall} nodes. In
+those, the impairments and features of the network are simulated. Essentially,
+the \emph{Orchestrator} is pooling those \emph{Ground Stations} over \ac{FTP}
+connections to know when a raw data is available. So, this Ground Stations are
+\ac{FTP} servers in which the \emph{Orchestrator} can get the raw data obtained
+by the constellation of satellites.
+
+\subparagraph{Interfaces with the Product Processors}~\\
+
+The \emph{Orchestrator} communicates with the \emph{Product Processors} through
+the \emph{ProcessingChainController} instance as shown in
+Figure~\ref{fig:orchestrator-workflow}. The \emph{Orchestrator} commands via
+\ac{SSH} the \emph{ProcessingChainController} to create a new processing chains
+to process the raw data and sends it by a \ac{SCP} transmission. When this process finishes, the \emph{ProcessingChainController} sends to the \emph{Orchestrator} a message to indicate the end of the chain. Thus, the \emph{ProcessingChainController} checks the product processors progress and initiates the next level until the processing chain finishes. Finally, the \emph{ProcessingChain} obtains the end product and locates it in the Catalogue service. 
+
+\paragraph{Design}~\\
+
+The Orchestrator is formed by the \emph{Listener}, the \emph{JobOrder} and
+the \emph{ProcessingChainController}, the \emph{Orchestrator} and the \emph{Load} classes.
+
+\begin{itemize}
+\item \emph{Listener class}: It is responsible to obtain the \emph{FTP}
+  connections and to poll them in order to get the images when they are created in the
+  ground stations. When an image is detected in any ground station, a thread is
+  created in order to download it. Then, the Orchestrator object is signaled in order
+  to begin the processing.
+\item \emph{JobOrder class}: It perform the creation of the job orders for
+  processors. It is not used because a defined job order is used in all
+  processings of scenarios.
+\item \emph{ProcessingChainController class}: It  manages the processing in the
+  processors via \ac{SSH}. Processing is remotely executed. When a image is
+  sending by the Orchestrator class to the ProcessingChainController class, a
+  new thread is created. Then, this thread remotely process the image in the
+  ProcessingChain module. If any request cames at same time, they are queued.
+  This is a class based in the Singleton pattern.
+\item \emph{Orchestrator class}: This class is desinged following a \emph{Controller}
+  pattern. It manages the interactions between all above class and integrates
+  them.
+\item \emph{LoadData class}: it parsers the configuration file for obtaining the
+  \ac{IP} addresses of Database node, Archive and Catalogue node and the
+  Processing Chain module. Furthermore, the user and password for \ac{FTP}
+  connections are included into the configuration file. 
+\end{itemize}
+
+
+
+\paragraph{Implementation}~\\
+
+The implementation of this module was done in Python2.7. The python's libraries
+needed to implement the software are listed in Table~\ref{table:orches-first-libraries}.
+When we installed Python, all the libraries were installed with the exception of “MySQLdb”,
+which was manually installed.
+
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/orches-first-libraries.tex}
+  }
+  \caption{Orchestrator’s Python Libraries}
+  \label{table:orches-first-libraries}
+\end{table}
+
+Moreover, it requires the \ac{SCP} and \ac{SSH} clients for communicating  with other
+modules on cloud.
+In addition, a script was developed in order to obtain the workload of the
+Orchestrator's machine. That file uses the ``Python-psutil'' library in order to
+obtain the cpu times such as user, idle, nice and iowait cycles. This file is
+used by the graphical interface for plotting the workload of the Orchestrator at
+real time.
+
+
+\paragraph{Execution}~\\
+
+To execute the Orchestrator module the following dependencies are required:
+\begin{itemize}
+\item Python v.2.7. For previous versions it has not been tested.
+\item Python packages listed in Table~\ref{table:orches-first-libraries}.
+\item Ethernet interface for the network connection in the \bonfire \emph{WAN}.
+\item Connectivity with the database located in \bonfire through the network.
+\item To setup the ``orchestrator.conf.xml'' with the correct \ac{IP} addresses
+  of Archive and Catalogue node, Chain Processing node and database node.
+\end{itemize}
+
+The execution of the satellite software it is executed inside the
+``source/bonfire/orchestrator'' with the following
+command line:
+\begin{itemize}
+\item[>] python main.py
+\end{itemize}
+ 
+\paragraph{Implementation in BonFIRE}~\\
+
+For implementing of the Orchestrator the following steps were done:
+
+\begin{itemize}
+ \item Reservation of a \emph{Xlarge} machine in \emph{EPCC} \bonfire
+   platform. This machine belongs the \bonfire \emph{WAN} so it can communicate
+   with all machines in that network. 
+ \item Instalation of the necessary libraries (see
+   Table~\ref{table:orches-first-libraries}).
+ \item To upload the Orchestrator' source to the Orchestrator machine.
+ \item To generate a pair of \ac{RSA} keys for enabling the connections to
+   \emph{Procesing Chain} node.
+\end{itemize}
+
+\subsubsection{Chain Processing}
+
+The first implementation the Chain Processing was performed as a bash
+script. This script is remotely executed by the Orchestrator for processing the
+images. It was made in this manner because this is an implementation for testing the
+processing behaviour on cloud. The elastic service provided by the \bonfire
+platform was not available, so as a first approach, a machine was fixed for
+testing the architecture. Furthermore, the clustering service provided for
+\emph{INRIA} did not also work, so the dinamic creation of processes can not be
+done because a only processing chain needs as minimum 6 GB of RAM memory. At the
+end, only a Chain Processing at time can be executed, so this implementation is
+very restricted in performance. 
+
+\paragraph{Workflow}~\\
+
+The \emph{Processing Chain} component works by following the next sequence of
+steps:
+
+\begin{enumerate}
+\item The \emph{Orchestrator} component sends the image using \ac{SCP} to the
+  directory ``tmp'' in the \emph{Processing Chain} machine.
+\item The \emph{Orchestrator} remotely executes the script ``PP\_script.sh''
+  located in the \emph{Processing Chain} machine.
+\item The image processing start. The processors are sequentially executed.
+\item When all the product processors have finished, the \emph{Processing Chain}
+  sends the orthorectified image to \emph{Archive and Catalogue} using
+  \ac{SCP}. 
+\item The \emph{Processing Chain} orders to \emph{Archive and Catalogue} module
+ to archive and catalogue the image which has sent. In the first development, the
+ \emph{Processing Chain} returned the results to the \emph{Orchestrator} in
+ order to the \emph{Orchestrator} sended the geolocated images for cataloguing
+ and archiving. But that implementation were inefficient because there were two
+ sending files more (the first one is between the \emph{Processing Chain} to the
+ \emph{Orchestrator} and the second one, between the \emph{Orchestrator} and
+ \emph{Archive and Catalogue}.
+\end{enumerate}
+
+\paragraph{Interfaces}~\\
+
+The \emph{Processing Chain} module has interfaces with both the \emph{Orchestrator}
+and \emph{Archive and Catalogue} modules.
+\subparagraph{Interfaces with the Orchestrator}~\\
+
+The \emph{Orchestrator} communicates with the \emph{Processing Chain} for
+sending new incoming raw data for processing and executes commands remotely. This communication is realised
+using \ac{SCP} for file sending and for remote commands, (\ac{SSH}). This provides a manner for creating processes
+on-demand. If the \emph{Processing Chain} machine were running in a cluster or
+under a \ac{EaaS}, the
+resources were dinamically requested. 
+
+\subparagraph{Interfaces with the Archive and Catalogue}~\\
+
+The \emph{Archive and Catalogue} receives the images which the \emph{Processing
+  Chain} has processed. Sending is performed using \ac{SCP}. Then, the
+\emph{Processing Chain} remotely executes a Python script for archiving and
+cataloguing the sent image.
+
+\paragraph{Design}~\\
+
+The \emph{Processing Chain} is formed by the ``PP\_script.sh'' bash
+script. Originally, this module will be located in a \acl{EaaS}. The \bonfire
+platform has not available this feature yet, so it was decided to push into a
+cluster provided by the \emph{INRIA} testbed. The cluster platform was not also
+available, so it was necessary to create and fix a machine which plays the
+\emph{Processing Chain} role with the restriction that there can only be one
+instance. Could have token another machine for playing the \emph{Processing
+  Chain} role, but creating a fixed architecture is not the purpose of this
+project.
+
+\paragraph{Implementation}~\\
+
+The implementation of this module was done in Bash. This script needs the
+\ac{IP} address of the \emph{Archive and Catalogue} module. In addition, it
+requires the \ac{SCP} and \ac{SSH} clients for its interfaces with the other
+modules. The image which is sent when the processing finished it is always the
+same because for this experiment is more important the processing on cloud than
+the resulting image.
+  
+In addition, a script was developed in order to obtain the workload of the
+Orchestrator's machine. That file uses the ``Python-psutil'' library in order to
+obtain the cpu times such as user, idle, nice and iowait cycles. This file is
+used by the graphical interface for plotting the workload of the Orchestrator at
+real time.
+
+Finally, there were implemented the processing using a shared storage instead of
+the local storage. The shared storage is provided by the \emph{IBBT} testbeds
+and it provides that several machines can access to the storage at same
+time. This storage is implemented using \ac{NFS} protocol. Ideally, the \ac{NFS}
+protocol using a network with a large bandwidth and links with 10 GB Ethernet is
+more efficient that a local hard disk. The problem consists of the \ac{NFS}
+server is not conformed by disk located in \bonfire platform. The physical disk
+where the information is saved are in \emph{IBBT} (Gent, Belgium). Thus, the
+read and write accesses from any \bonfire testbed (INRIA and EPCC in this case)
+travel from \bonfire to \emph{IBBT} through Internet. This supose high
+latencies, large waiting times and it implies that the CPU is idle large time
+waiting for I/O operations. These results are shown in Section~\ref{geocloud
+  results}.
+
+The implementation of this shared storage was performed as follows:
+\begin{itemize}
+\item In the \bonfire web interface, a shared storage was created. 
+\item The folders structure for processing were done. This structure is composed
+  by (the local structure has the same distribution): 
+\begin{itemize}
+\item Job orders folder: it contains the job orders necessary for processing all
+  stages.
+\item l0\_input folder: it contains the neccesary inputs for L0 processor. 
+\item l0r\_input folder: it contains the neccesary inputs for L0R processor. 
+\item l1a\_input folder: it contains the neccesary inputs for L1A processor. 
+\item l1br\_input folder: it contains the neccesary inputs for L1BR processor. 
+\item l1bc\_input folder: it contains the neccesary inputs for L1BC processor. 
+\item l1cr\_input folder: it contains the neccesary inputs for L1CR processor. 
+\item l1ct\_input folder: it contains the neccesary inputs for L1CT processor. 
+\end{itemize}
+\item Processors outputs folder: contains the outputs and temporaly files
+  created by the processors during their actions.
+\end{itemize}
+
+\paragraph{Execution}~\\
+
+To execute the \emph{Processing Chain} module the following dependencies are
+required:
+\begin{itemize}
+\item To know the \ac{IP} address of the \emph{Archive and Catalogue} is
+  implemented.
+\item Ethernet interface for the network connection in the \bonfire \emph{WAN}.
+\item The geolocated image for sending to \emph{Archive and Catalogue} module
+  once the processing is finished. 
+\item The product processors owned by \emph{Deimos Space} were installed in the
+  machine
+\end{itemize}
+
+The path within the script works are absulutes so the site when it was executed
+is not important. The script is located inside
+``source/bonfire/ProcessingChain'' folder. The execution of the software is executed with the following
+command line:
+\begin{itemize}
+\item[>] bash PPscript.sh <<arg1>> <<arg2>>
+\end{itemize}
+
+where \emph{arg1} is the outfile name where the \emph{Archive and Catalogue} module
+saves the image and the \emph{arg2} is the simulated scenario.
+
+
+\paragraph{Implementation in BonFIRE}
+
+For implementing of the \emph{Processing Chain} module the following steps were done:
+
+\begin{itemize}
+ \item Reservation of a \emph{Xlarge} machine in \emph{EPCC} \bonfire
+   platform. This machine belongs the \bonfire \emph{WAN} so it can communicate
+   with all machines in that network. 
+ \item Installation of the product processors.
+ \item Uploading the geolocated image.
+ \item To upload the \emph{ProcessingChain} source to the \emph{ProcessingChain}
+   machine.
+ \item To append the public key from \emph{Processing Chain} machine to the
+   \emph{``~/.ssh/authorized\_host''} for
+   allowing the incoming connections.
+\end{itemize}
+
+\subsubsection{Archive and Catalogue}
+
+The first implementation of the \emph{Archive and Catalogue} component was
+performed for archiving and cataloguing the geolocated images which were
+processed in the simulation of the defined scenarios. It is based on the
+\emph{GeoServer} software. The inputs are given by the \emph {Processing Chain}
+module when it finishes of processing an image. It sends the image using
+\ac{SCP} and then, it remotely executes the Python script for archiving and
+cataloguing the image. Once the image is catalogued, the end user can access to
+it accesing to \emph{IP} address of the node using a web-browser. The
+\emph{GeoServer} were showed and the end user can navigate between the different
+scenarios and files generated in its executions.
+
+\paragraph{Workflow}~\\
+
+The \emph{Archive and Catalogue} component works by following the next sequence
+of steps:
+\begin{enumerate}
+\item The \emph{Processing Chain} ends it processing and sending the resulting
+  image via \ac{SCP} to the \emph{Archive and Catalogue} 
+\item The Python script is remotely executed by the \emph{Processing Chain}
+  using \ac{SSH}.
+\item The script obtains the image for archiving and to copy it into the
+  \emph{GeoServer} data directory.
+\item The script catalogues the image using the \ac{API} provided by
+  \emph{GeoServer}. If the scenario was not created as a workspace, the
+  workspace namely like the scenario is created.
+  \item A store is created in order to house the image.
+  \item The image is catalogued into the workspace and stored into the created store.
+\item When it is done, the \emph{Processing Chain} knows that cataloguing has
+  finished and ends its execution.
+\item The \emph{GeoServer} module publishes the catalogued image using the
+  \ac{CSW} protocol. Any end user connectig the web interface can access the
+  catalogued and published images of the scenarios.
+\end{enumerate}
+
+\paragraph{Interfaces}~\\
+
+The \emph{Archive and Catalogue} has interfaces with the \emph{Processing Chain}
+and the \emph{GeoServer} software. 
+
+\subparagraph{Interfaces with the Processing Chain}~\\
+
+When the \emph{Processing Chain} module has finished the processing of an image,
+it sends using \ac{SCP} protocol the file for archiving and cataloguing. The
+\emph{Archive and Catalogue} recives the image and stores it into the data
+directory of \emph{GeoServer}. Then, the \emph{Processing Chain} remotely orders
+to catalogue this image.  
+
+\subparagraph{Interfaces with the GeoServer software}~\\
+
+The \emph{GeoServer} software provides a Python \ac{API} namely
+\emph{Gsconfig}. The official page of this library is
+\url{https://github.com/boundlessgeo/gsconfig}. Using this library, operations
+with layers, images, tilesets or storages can be done. In this project there
+were used the operations for cataloguing ``tiff'' images (the ``tiff'' format is
+the standard format for geodata images).
+
+\subparagraph{Interfaces with CSW clients}~\\
+
+The \emph{GeoServer} software implements a \ac{CSW} plugin to provide end users
+to use a \ac{CSW} instead of a web-browser for accesing the catalogued images.
+This feature provides a new connectivity channel for data interchange between
+modules of others projects, business or end users.
+
+\paragraph{Design}~\\
+
+The \emph{Archive and Catalogue} is formed by the \emph{GeoServer} software and
+a Python script for communicating with \emph{GeoServer} in order to catalogue
+and store the processed images.
+
+\paragraph{Implementation}~\\
+
+The implementation of this module was done in Python2.7. The python's libraries
+needed to implement the software are listed in Table~\ref{table:orches-first-libraries}.
+The \emph{Gsconfig} library was manually installed as follows:
+\begin{itemize}
+\item The library is in the following
+  url:\url{https://github.com/boundlessgeo/gsconfig}.
+\item For installing the library, it is necessary to install the ``Python-pip''
+  package.
+\item Then just execute ``pip install gsconfig''.
+\end{itemize}
+
+Then, the \emph{GeoServer} software was necessary to install. For that, the
+\emph{Apache Tomcat} server was installed. Then, it was downloaded the ``war''
+file which contains the \emph{GeoServer} software from the official webpage and
+it was installed into the \emph{Tomcat} server. In Section~\ref{para:bonfire-impl-cat} this process
+is detailed. 
+
+\paragraph{Execution}~\\
+
+To execute the \emph{Archive and Catalogue} module the following dependencies
+are required:
+\begin{itemize}
+\item \emph{Apache Tomcat}
+\item \emph{Geoserver with the \ac{CSW} plugin}
+\item \emph{Gsconfig library installed}
+\item \emph Ethernet interface for the network connection in the \bonfire
+  \emph{WAN}.
+\item \emph Ethernet interface for the network connection with a public \ac{IP}
+  address. In this project a \ac{IP}v4 was used.
+\end{itemize}
+
+The developed source for archiving and cataloguing is located in
+``source/bonfire/geoserver''. The execution of the \emph{Archive and Catalogue}
+module namely ``catalog\_pp.py'' is done as follows:
+\begin{itemize}
+\item[>] python catalog\_pp.py <<name\_file>> <<scenario>> <<nameStore>>
+\end{itemize}
+where ``name\_file'' is the absolute path of the image to archive and catalogue,
+``scenario'' is the scenario in which the image is catalogued and the
+<<nameStore>> is the name of the created store for housing the image.
+
+\paragraph{Implementation in BonFIRE}~\\
+\label{para:bonfire-impl-cat}
+
+
+For implementing of the \emph{Archive and Catalogue} module the following steps were done:
+
+\begin{itemize}
+ \item Reservation of a \emph{Medium} machine in \emph{INRIA} \bonfire
+   platform. This machine belongs the \bonfire \emph{WAN} so it can communicate
+   with all machines in that network. Moreover it has a public \ac{IP} address
+   in order to be accesible outside the \bonfire network by end users. 
+ \item Installation of the \emph{Apache Tomcat} server and to customize it in
+   order to listen in port 80.
+ \item Installation of the \emph{GeoServer} and \emph{CSW} plugin into
+   \emph{Apache Tomcat}.
+ \item Uploading the geolocated image.
+ \item To upload the \emph{ProcessingChain} source to the \emph{ProcessingChain}
+   machine.
+ \item To append the public key from \emph{Processing Chain} machine to the
+   \emph{``~/.ssh/authorized\_host''} for
+   allowing the incoming connections.
+\end{itemize}
+
+
+\subsection{Implementation of the cloud architecture using ZeroC ICE}
+
+ZeroC ICE provides multiple services for creation of distributed
+architectures. Using its replication service, load balancing and location
+transparency the following architecture was carried through. The components of
+this architecture are represented in Figure~\ref{fig:ice-architecture}. This components are the
+following:
+
+\begin{itemize}
+\item \emph{Broker}: This component acts as an intermediate between the client
+  interface (see Section~\ref{sec:interfaz}) and the cloud architecture
+  components. 
+\item \emph{Orchestrator}: it was explained in Section~\ref{sub:orch}.
+\item \emph{Processor}: this component proccess the images downloaded by the
+  Orchestrator module.
+\item \emph{ProcessingChainReplica module}: this component is conformed by some
+  Processors.
+\item \emph{Archive and Catalogue module}: it was explained in Section~\ref{sub:archive}.
+\end{itemize}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=1\textwidth]{cloud/orchestrator-workflow.jpg}
+\caption{Cloud architecture using ZeroC ICE}
+\label{fig:ice-architecture}
+\end{center}
+\end{figure}
+
+In the following sections, these modules are explained with its design and interfaces,
+implementations and implementation in the cloud platform. Finally, the
+deployment of the software in each module is shown.
+
+\subsubsection{Orchestrator}
+
+\paragraph{Workflow}~\\
+
+\paragraph{Interfaces}~\\
+
+\paragraph{Design}~\\
+
+
+\paragraph{Implementation}~\\
+
+\paragraph{Execution}~\\
+
+\paragraph{Implementation in BonFIRE}~\\
+
+\subsubsection{Processor}
+
+\paragraph{Workflow}~\\
+
+\paragraph{Interfaces}~\\
+
+\paragraph{Design}~\\
+
+
+\paragraph{Implementation}~\\
+
+\paragraph{Execution}~\\
+
+\paragraph{Implementation in BonFIRE}~\\
+
+
+
+\subsubsection{ProcessingChainReplica}
+
+\paragraph{Workflow}~\\
+
+\paragraph{Interfaces}~\\
+
+\paragraph{Design}~\\
+
+
+\paragraph{Implementation}~\\
+
+\paragraph{Execution}~\\
+
+\paragraph{Implementation in BonFIRE}~\\
+
+
+
+\subsubsection{Archive and Catalogue}
+
+\paragraph{Workflow}~\\
+
+\paragraph{Interfaces}~\\
+
+\paragraph{Design}~\\
+
+
+\paragraph{Implementation}~\\
+
+\paragraph{Execution}~\\
+
+\paragraph{Implementation in BonFIRE}~\\
+
+
+
+\subsubsection{Deployment}
+
+The deployment of the distributed application was done using the \emph{IceGrid}
+and \emph{IcePatch} services. The first provides location transparency and
+server replication service by creating replica groups. 
+
+
+The source must be located in ``/tmp/ice'' because to create an application for
+deploying in several machines, the most usual is to provide a way for an easy
+deployment. 
+The architecture based on the ZeroC ICE middleware only can be deployed
+locally.  

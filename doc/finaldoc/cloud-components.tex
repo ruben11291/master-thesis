@@ -11,13 +11,32 @@ Earth's surface images. This modules are summarized as follows:
 \item \emph{Archive and catalogue:} it is the place where the processed images are stored and catalogued for its distribution.
 \end{itemize}
 
-In the following sections, these cloud components are
-depicted and the interactions among them are also explained. First, the product
-processors compose the \emph{Processing Chain} are shown. These processors are owned
-by Elecnor Deimos company, so they are not fully described but the main features
-are exposed. Then, the \emph{Archive and Catalogue}
-module is described. Finally, the \emph{Orchestrator} component that manages all the
-cloud processes is fully explained and detailed.
- 
+
+There are two implementations of this architecute: the first one uses \ac{SSH}
+and \ac{SCP} for communications and the processing is limited to one chain
+processing each time; the second one is based in the distributed middleware
+ZeroC ICE and it takes advantage of the use of the location transparency, server
+replication and replication service in order to satisfy all request for
+processing images. This implementation only is a prototype. It is not fully
+complete because there were some troubles with its implementation in \bonfire
+owing to the network policies imposed by the platform. 
+
+
+In the following sections, these cloud architectures are detailed. Firstly, the
+componets which appear in both architecture such as Orchestrator,
+ProcessingChain and Archive and Catalogue modules are explained. Then, both
+architectures and its components are hardly studied. In each architecture
+description, the architecture design is elaborated and then, the communications
+between the components, the implementation, its executions and its
+implementations in \bonfire are shown.
+
+%% First, the product
+%% processors compose the \emph{Processing Chain} are shown. These processors are owned
+%% by Elecnor Deimos company, so they are not fully described but the main features
+%% are exposed. Then, the \emph{Archive and Catalogue}
+%% module is described. Finally, the \emph{Orchestrator} component that manages all the
+%% cloud processes is fully explained and detailed.
+
+
 \input{platform-on-cloud.tex}
 
