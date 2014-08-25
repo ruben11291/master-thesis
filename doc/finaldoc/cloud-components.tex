@@ -1,34 +1,33 @@
 \section{Cloud Architecture}
 
 In this section, the \ac{EO} architecture on cloud is fully described. As
-mentioned, the cloud infrastructure where this system is implemented is provided
-by \bonfire multi-cloud. The \emph{Orchestrator}, \emph{Archive and Catalogue} and \emph{Processing
+mentioned, the cloud infrastructure in which this system is implemented is provided
+by the \bonfire multi-cloud testbed. The \emph{Orchestrator}, the \emph{Archive and
+  Catalogue} and the \emph{Processing
 Chain} integrate the cloud components for processing, archiving and cataloging
 Earth's surface images. This modules are summarized as follows:
 \begin{itemize}
 \item \emph{Orchestrator:} it manages the automatic distribution of the raw data to the processors. It handles the complete automatic processing chain execution.  If the processor chain is occupied, the manager replicates the complete chain in a new machine.
-\item \emph{Processing Chain:} it processes the raw data and converts it in orthorectified images. 
+\item \emph{Processing Chain:} it processes the raw data and converts it in
+  different image products. 
 \item \emph{Archive and catalogue:} it is the place where the processed images are stored and catalogued for its distribution.
 \end{itemize}
 
 
-There are two implementations of this architecute: the first one uses \ac{SSH}
-and \ac{SCP} for communications and the processing is limited to one chain
-processing each time; the second one is based in the distributed middleware
-ZeroC ICE and it takes advantage of the use of the location transparency, server
-replication and replication service in order to satisfy all request for
-processing images. This implementation only is a prototype. It is not fully
-complete because there were some troubles with its implementation in \bonfire
-owing to the network policies imposed by the platform. 
+There are two implementations of this architecture: the first one uses \ac{SSH}
+and \ac{SCP} for communications and the processing is limited to one proccesing chain each time; the second one is based in the distributed middleware
+ZeroC ICE and it takes advantage of the use of the location transparency,
+distribution and replication service in order to satisfy all the request for
+image processing. This last implementation is in a prototype stage. Its final
+implementation is not objective of this project and it is contemplated in future
+works.
 
 
-In the following sections, these cloud architectures are detailed. Firstly, the
-componets which appear in both architecture such as Orchestrator,
-ProcessingChain and Archive and Catalogue modules are explained. Then, both
-architectures and its components are hardly studied. In each architecture
-description, the architecture design is elaborated and then, the communications
-between the components, the implementation, its executions and its
-implementations in \bonfire are shown.
+In the following sections the
+componets which appear in both architectures such as the Orchestrator,
+the ProcessingChain and the Archive and Catalogue modules are explained. Then, both
+architectures and their components are deeply studied. In each architecture, the architecture design is elaborated and then, the communications
+between the components, their implementation and their executions in \bonfire are described.
 
 %% First, the product
 %% processors compose the \emph{Processing Chain} are shown. These processors are owned

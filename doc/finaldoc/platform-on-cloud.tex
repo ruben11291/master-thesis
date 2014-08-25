@@ -1,18 +1,11 @@
-\subsection{Orchestrator}
+\subsection{Cloud components in GeoCloud}
+
+\subsubsection{Orchestrator}
 \label{sub:orch}
-This section describes the design of the \emph{Orchestrator}. The \emph{Orchestrator} is the
-component that manages the task to be done in the cloud. It is running over the
-\bonfire Cloud and controls all interactions between all the components implemented in \emph{Fed4FIRE} testbeds as \bonfire and \vw.
-First, the \emph{Orchestrator}'s funcionalities and the interactions with other
-components of the GEO-Cloud system are described. Then, the two implementations,
-firstly the implementation to run a simple experiment and then, the ICE
-implementation will be explained. In two implementations, the workflow of
-\emph{Orchestrator} and the interfaces with the \emph{Archive and Catalog} module and the
-\emph{Processing Chain} module and design and implementation are
-depicted. Finally, the execution and its implementation in \bonfire testbed is
-also explained for both cases.
-
-
+The \emph{Orchestrator} is the
+component that manages the tasks to be done in the cloud. It is running over the
+\bonfire Cloud and controls all the interactions between all the components
+implemented in the \bonfire testbed.
 
 The \emph{Orchestrator} has the following functions:
 
@@ -21,12 +14,11 @@ The \emph{Orchestrator} has the following functions:
 \item To generate the Job Orders. They contain all the necessary information
   that the processors need. Furthermore these \ac{XML} files include the interfaces and addresses of the folders in which the input information to the processors is located and the folders in which the outputs of the processors have to be sent. They also include the format in which the processors generate their output.
 \item To look for raw data in the ground stations (pooling) to ingest such raw data in a shared storage unit in the cloud for its distribution to the processing chain.
-\item To control the processing chain by communicating with the product processors, which have four levels of processing: L0, L1A, L1B and L1C.
+\item To control the processing chain by communicating with the product processors.
 \item To manage the archive and catalogue.
 \end{itemize}
 
-The orchestrator is designed to be implemented in the GEO-Cloud architecture. It
-interacts with different modules:
+The orchestrator interacts with different modules:
 \begin{itemize}
 
 \item Ground stations implemented in \vw.
@@ -48,17 +40,17 @@ Figure~\ref{fig:orchestrator-interactions} depicts the \emph{Orchestrator’s} i
 
 As shown in Figure~\ref{fig:orchestrator-interactions}, the \emph{Orchestrator} is
 pooling the Ground Stations frequently. When the \emph{Orchestrator} gets the data,
-uses the Product Processor for processing the data to generate the result
-image. When this processing has finished, the \emph{Orchestrator} sends the image to
-Archive and Catalogue to be available for customers.
+it uses the Product Processor for processing the data to generate the resulting
+image. When this processing is finished, the \emph{Orchestrator} sends the image to
+the Archive and Catalogue to be available for customers.
 
 
 
-\subsection{Processing Chain}
+\subsubsection{Processing Chain}
 
 
 The \emph{Processing Chain} is a module which is in charge of the processing of the
-payload raw data from the satellites to produce image products. The four, most
+payload raw data from the satellites to produce image products. The four most
 important operations that the product processors perform on the input data are
 the following:
 \begin{itemize}
@@ -93,7 +85,7 @@ The output image products are classified into four different levels, according t
 \end{center}
 \end{figure}
 
-\subsubsection{The L0 Processor}
+\paragraph{The L0 Processor}~\\
 
 The acquired data is organized into image sectors of predefined size and structure and converted in scenes. Scenes, as defined here, are used throughout the subsequent L1 levels. The size and configuration of the scene is not changed again in the processing chain, for this reason the scene definition is constant for all the L1 levels.
 
@@ -108,25 +100,25 @@ The outputs are the following:
 \item The L0 products.
 \end{itemize}
 
-\subsubsection{The L1A Processor}
-
-This section describes the functionality of the processors included in the Level 1A of the Automatic Processing Chain. The goal of Level 1A is to calibrate the scenes. The resulting images are given in units of radiances.
+\paragraph{The L1A Processor}~\\
+The goal of Level 1A is to calibrate the scenes. The resulting images are given in units of radiance.
 
 The L1A component works on the scenes that compound the L0 product, performing different transformations over pixel values to generate radiances.
 
-The inputs to the L1A level are:
+The inputs to the L1A level are the following:
 \begin{itemize}
 \item One L0 scene.
 \item The configuration database.
 \item The calibration database.
 \end{itemize}
 
-The output is:
+The output is the following:
 \begin{itemize}
 \item The L1A product.
 \end{itemize}
 
-\subsubsection{The L1B Processor}
+\paragraph{The L1B Processor}~\\
+
 Level 1B implements the geolocation, resampling and packing.
 
 The inputs to the L1B level are the following:
@@ -142,7 +134,7 @@ The outputs are the following:
 \end{itemize}
 
 
-\subsubsection{The L1C Processor}
+\subsubsection{The L1C Processor}~\\
 
 The L1C processor performs the ortho-rectification of the L1B product using ground control points.
 
@@ -161,20 +153,22 @@ The output is the following:
 
 
 
-\subsection{Archive and Catalogue}
+\subsubsection{Archive and Catalogue}
 \label{sub:archive}
 
-The \emph{Archive and Catalogue} is a shared space of memory between the \emph{Orchestrator}, the product processors and the distribution of data. It has a data acquisition component.
-
-\emph{Data Acquisition component:} This component manages the input data arriving to the \emph{Archive and Catalog}. The ingestion of data is automatic.
+The \emph{Archive and Catalogue} is a shared space of memory between the
+\emph{Orchestrator}, the product processors and the distribution of data. It has
+a data acquisition component which manages the input data arriving to the
+\emph{Archive and Catalogue}. The ingestion of data in this module is automatic.
 
 In the \emph{Archive and Catalogue} module the processed images are stored and catalogued for their distribution.
 
-The \emph{Archive and Catalogue} basically consists of:
+The \emph{Archive and Catalogue} basically consists of the archive and the
+catalogue sub-modules:
 \begin{itemize}
-\item The \emph{Archive} is constituted by optimized storages structure allowing managing a big amount of data, efficient storage and retrieval of any kind of file. The \emph{Archive} shall be organized in hierarchical levels of storage in order to provide a cost effective storage solution.
+\item The \emph{Archive} is constituted by optimized storages structure allowing managing a big amount of data, efficient storage and retrieval of any kind of file. The \emph{Archive} is organized in hierarchical levels of storage in order to provide a cost effective storage solution.
 
-\item The \emph{Catalogue} shall store an inventory database with the metadata of archive files. It allows the product process chain easiness to access to the metadata from the processed products.
+\item The \emph{Catalogue} stores an inventory database with the metadata of archive files. It allows the product process chain easiness to access to the metadata from the processed products.
 
 \item For the added value services the catalog will be accessed by a \emph{Web Service}.
 
@@ -191,9 +185,9 @@ The \emph{Archive and Catalogue} basically consists of:
 
 
 
-\subsection{First implementation of the cloud architecture}
+\subsection{Implementation of the cloud architecture using SSH and SCP}
 
-The first implementation of the cloud architecture is based in the following
+The cloud implementation using \ac{SSH} and \ac{SCP} is based in the following
 components:
 \begin{itemize}
 \item The Orchestrator module.
@@ -201,17 +195,16 @@ components:
 \item The Archive and Catalogue module.
 \end{itemize}
 
-The diagram in Figure~\ref{fig:first-architecture} the entire architecture is shown. The
+The diagram in Figure~\ref{fig:first-architecture} shows the entire architecture is shown. The
 communications were done using \ac{SSH} commands and the sending of the files were
 performed using the \ac{SCP} protocol. For this implementation the raw data
-travels from the Orchestrator to Processing Chain module. Then, it is
-processed and finally, the Proccesing Chain module sends it to Archive and
-Catalogue module. There is important to highlight that the
+travels from the Orchestrator to the Processing Chain module, where it is
+processed. Finally, the Proccesing Chain module sends the processed image to the
+Archive and
+Catalogue module. It is important to highlight that the
 Orchestrator does not send the processed image to the Archive and Catalogue
-module. The Processing Chain module is which sends this orthorectified images
-for archiving and cataloguing. Doing it this way, it is avoid the sending between the Orchestrator
-and the Processing Chain after the image was processed. Consecuently, the time for
-archiving and cataloguing was reduced for each processed image.
+module, the Processing Chain module sends it for archiving and cataloguing. Consecuently, the time for
+archiving and cataloguing for each processed image was reduced.
 
 \begin{figure}[!h]
 \begin{center}
@@ -225,13 +218,9 @@ The different components which compound the cloud architecture are fully
 explained in the following sections. For each component, the  workflow, the
 design, the implementation of the component and how was implemented in \bonfire are detailed.
 
-\subsubsection{Orchestrator}
+\subsubsection{Implementation of the Orchestrator}
 
-The first implementation of the Orchestrator component was performed in order to
-execute the designed scenarios and to get its results. This implementation uses
-\ac{SSH} and \ac{SCP} as communication and file sending protocols, respectively. 
-
-\paragraph{Workflow}~\\
+\paragraph{Orchestrator Workflow}~\\
 
 The \emph{Orchestrator} component works by following the next sequence of steps:
 \begin{enumerate}
@@ -261,13 +250,13 @@ Figure~\ref{fig:orchestrator-workflow} depicts the workflow of the \emph{Orchest
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=1\textwidth]{cloud/orchestrator-workflow.jpg}
+\includegraphics[width=1.2\textwidth]{cloud/orchestrator-workflow.jpg}
 \caption{Orchestrator workflow}
 \label{fig:orchestrator-workflow}
 \end{center}
 \end{figure}
 
-\paragraph{Interfaces}~\\
+\paragraph{Orchestrator Interfaces}~\\
 
 The \emph{Orchestrator} has interfaces with the Ground Stations implemented in
 \emph{Virtual Wall}, with the \emph{Product Processors} and with the
@@ -275,10 +264,9 @@ The \emph{Orchestrator} has interfaces with the Ground Stations implemented in
 \subparagraph{Interfaces with the Ground Stations implemented in Virtual
   Wall}~\\
 
-The \emph{Ground Stations} are deployed in some \emph{Virtual Wall} nodes. In
-those, the impairments and features of the network are simulated. Essentially,
+The \emph{Ground Stations} are deployed in some \emph{Virtual Wall} nodes. There, the impairments and features of the network are simulated. Essentially,
 the \emph{Orchestrator} is pooling those \emph{Ground Stations} over \ac{FTP}
-connections to know when a raw data is available. So, this Ground Stations are
+connections to know when new raw data is available. So, this Ground Stations are
 \ac{FTP} servers in which the \emph{Orchestrator} can get the raw data obtained
 by the constellation of satellites.
 
@@ -288,30 +276,32 @@ The \emph{Orchestrator} communicates with the \emph{Product Processors} through
 the \emph{ProcessingChainController} instance as shown in
 Figure~\ref{fig:orchestrator-workflow}. The \emph{Orchestrator} commands via
 \ac{SSH} the \emph{ProcessingChainController} to create a new processing chains
-to process the raw data and sends it by a \ac{SCP} transmission. When this process finishes, the \emph{ProcessingChainController} sends to the \emph{Orchestrator} a message to indicate the end of the chain. Thus, the \emph{ProcessingChainController} checks the product processors progress and initiates the next level until the processing chain finishes. Finally, the \emph{ProcessingChain} obtains the end product and locates it in the Catalogue service. 
+to process the raw data and sends it through an \ac{SCP} transmission. When this
+process finishes, the \emph{ProcessingChainController} sends  a message to
+indicate the end of the chain to the \emph{Orchestrator}. Thus, the \emph{ProcessingChainController} checks the product processors progress and initiates the next level until the processing chain finishes. Finally, the \emph{ProcessingChain} obtains the end product and locates it in the Catalogue service. 
 
-\paragraph{Design}~\\
+\paragraph{Orchestrator Design}~\\
 
 The Orchestrator is formed by the \emph{Listener}, the \emph{JobOrder} and
 the \emph{ProcessingChainController}, the \emph{Orchestrator} and the \emph{Load} classes.
 
 \begin{itemize}
-\item \emph{Listener class}: It is responsible to obtain the \emph{FTP}
-  connections and to poll them in order to get the images when they are created in the
+\item \emph{Listener class}: It is responsible of obtaining the \emph{FTP}
+  connections and polling them in order to get the images when they are created in the
   ground stations. When an image is detected in any ground station, a thread is
-  created in order to download it. Then, the Orchestrator object is signaled in order
+  created to download it. Then, the Orchestrator object is signaled in order
   to begin the processing.
-\item \emph{JobOrder class}: It perform the creation of the job orders for
-  processors. It is not used because a defined job order is used in all
+\item \emph{JobOrder class}: It perform the creation of the job orders. For
+  simplicity, a specific job order is always used in all
   processings of scenarios.
 \item \emph{ProcessingChainController class}: It  manages the processing in the
-  processors via \ac{SSH}. Processing is remotely executed. When a image is
-  sending by the Orchestrator class to the ProcessingChainController class, a
-  new thread is created. Then, this thread remotely process the image in the
-  ProcessingChain module. If any request cames at same time, they are queued.
+  product processors via \ac{SSH}. The processing is remotely executed. When an image is
+  sent by the Orchestrator class to the ProcessingChainController class, a
+  new thread is created. Then, this thread remotely processes the image in the
+  ProcessingChain module. If any request comes at same time, it is queued.
   This is a class based in the Singleton pattern.
-\item \emph{Orchestrator class}: This class is desinged following a \emph{Controller}
-  pattern. It manages the interactions between all above class and integrates
+\item \emph{Orchestrator class}: This class is desinged by following a \emph{Controller}
+  pattern. It manages the interactions between all above classes and integrates
   them.
 \item \emph{LoadData class}: it parsers the configuration file for obtaining the
   \ac{IP} addresses of Database node, Archive and Catalogue node and the
@@ -321,12 +311,10 @@ the \emph{ProcessingChainController}, the \emph{Orchestrator} and the \emph{Load
 
 
 
-\paragraph{Implementation}~\\
+\paragraph{Orchestrator Implementation}~\\
 
-The implementation of this module was done in Python2.7. The python's libraries
+The implementation of this module was done in Python 2.7. The libraries
 needed to implement the software are listed in Table~\ref{table:orches-first-libraries}.
-When we installed Python, all the libraries were installed with the exception of “MySQLdb”,
-which was manually installed.
 
 \begin{table}[hp]
   \centering
@@ -338,15 +326,15 @@ which was manually installed.
 \end{table}
 
 Moreover, it requires the \ac{SCP} and \ac{SSH} clients for communicating  with other
-modules on cloud.
+modules in the cloud.
 In addition, a script was developed in order to obtain the workload of the
-Orchestrator's machine. That file uses the ``Python-psutil'' library in order to
-obtain the cpu times such as user, idle, nice and iowait cycles. This file is
+Orchestrator machine. That file uses the ``Python-psutil'' library in order to
+obtain the CPU times such as user, idle, nice and iowait cycles. This file is
 used by the graphical interface for plotting the workload of the Orchestrator at
 real time.
 
 
-\paragraph{Execution}~\\
+\paragraph{Orchestrator Execution}~\\
 
 To execute the Orchestrator module the following dependencies are required:
 \begin{itemize}
@@ -380,10 +368,9 @@ For implementing of the Orchestrator the following steps were done:
    \emph{Procesing Chain} node.
 \end{itemize}
 
-\subsubsection{Chain Processing}
+\subsubsection{Implementation of the Processing Chain}
 
-The first implementation the Chain Processing was performed as a bash
-script. This script is remotely executed by the Orchestrator for processing the
+The implementation of the Processing Chain was performed in a bash script. This script is remotely executed by the Orchestrator for processing the
 images. It was made in this manner because this is an implementation for testing the
 processing behaviour on cloud. The elastic service provided by the \bonfire
 platform was not available, so as a first approach, a machine was fixed for
@@ -393,7 +380,7 @@ done because a only processing chain needs as minimum 6 GB of RAM memory. At the
 end, only a Chain Processing at time can be executed, so this implementation is
 very restricted in performance. 
 
-\paragraph{Workflow}~\\
+\paragraph{Processing Chain Workflow}~\\
 
 The \emph{Processing Chain} component works by following the next sequence of
 steps:
@@ -407,37 +394,39 @@ steps:
 \item When all the product processors have finished, the \emph{Processing Chain}
   sends the orthorectified image to \emph{Archive and Catalogue} using
   \ac{SCP}. 
-\item The \emph{Processing Chain} orders to \emph{Archive and Catalogue} module
- to archive and catalogue the image which has sent. In the first development, the
- \emph{Processing Chain} returned the results to the \emph{Orchestrator} in
- order to the \emph{Orchestrator} sended the geolocated images for cataloguing
- and archiving. But that implementation were inefficient because there were two
+\item The \emph{Processing Chain} orders the \emph{Archive and Catalogue} module
+ to archive and catalogue the image received. In the first development, the
+ \emph{Processing Chain} returned the results to the \emph{Orchestrator} and the
+ orchestrator sent the images to the \emph{Archive and Catalogue} module for cataloguing
+ and archiving. But that implementation was inefficient because there were two
  sending files more (the first one is between the \emph{Processing Chain} to the
  \emph{Orchestrator} and the second one, between the \emph{Orchestrator} and
- \emph{Archive and Catalogue}.
+ \emph{Archive and Catalogue}. Finally, the solution to improve that was to
+ accomplish only a sending. The \emph{Processing Chain} after processing sends
+ the results for archiving and cataloguing. 
 \end{enumerate}
 
-\paragraph{Interfaces}~\\
+\paragraph{Processing Chain Interfaces}~\\
 
 The \emph{Processing Chain} module has interfaces with both the \emph{Orchestrator}
-and \emph{Archive and Catalogue} modules.
+and the \emph{Archive and Catalogue} modules.
 \subparagraph{Interfaces with the Orchestrator}~\\
 
 The \emph{Orchestrator} communicates with the \emph{Processing Chain} for
-sending new incoming raw data for processing and executes commands remotely. This communication is realised
-using \ac{SCP} for file sending and for remote commands, (\ac{SSH}). This provides a manner for creating processes
-on-demand. If the \emph{Processing Chain} machine were running in a cluster or
-under a \ac{EaaS}, the
-resources were dinamically requested. 
+processing new incoming raw data. This communication is carried out using \ac{SCP} for file sending and for remote commands, (\ac{SSH}). This provides a manner of creating processes
+on-demand. If the \emph{Processing Chain} machine was running in a cluster or
+under an \ac{EaaS}, the
+resources would be dinamically requested. 
 
 \subparagraph{Interfaces with the Archive and Catalogue}~\\
 
 The \emph{Archive and Catalogue} receives the images which the \emph{Processing
-  Chain} has processed. Sending is performed using \ac{SCP}. Then, the
-\emph{Processing Chain} remotely executes a Python script for archiving and
+  Chain} has processed. The transfer of the images is performed using \ac{SCP}. Then, the
+\emph{Processing Chain} remotely executes a Python script in the \emph{Archive
+  and Catalogue} machine for archiving and
 cataloguing the sent image.
 
-\paragraph{Design}~\\
+\paragraph{Processing Chain Design}~\\
 
 The \emph{Processing Chain} is formed by the ``PP\_script.sh'' bash
 script. Originally, this module will be located in a \acl{EaaS}. The \bonfire
@@ -449,7 +438,7 @@ instance. Could have token another machine for playing the \emph{Processing
   Chain} role, but creating a fixed architecture is not the purpose of this
 project.
 
-\paragraph{Implementation}~\\
+\paragraph{Processing Chain Implementation}~\\
 \label{par:pp-impl}
 The implementation of this module was done in Bash. This script needs the
 \ac{IP} address of the \emph{Archive and Catalogue} module. In addition, it
@@ -498,7 +487,7 @@ The implementation of this shared storage was performed as follows:
   created by the processors during their actions.
 \end{itemize}
 
-\paragraph{Execution}~\\
+\paragraph{Processing Chain Execution}~\\
 
 To execute the \emph{Processing Chain} module the following dependencies are
 required:
@@ -554,7 +543,7 @@ it accesing to \emph{IP} address of the node using a web-browser. The
 \emph{GeoServer} were showed and the end user can navigate between the different
 scenarios and files generated in its executions.
 
-\paragraph{Workflow}~\\
+\paragraph{Archive and Catalogue Workflow}~\\
 
 The \emph{Archive and Catalogue} component works by following the next sequence
 of steps:
@@ -577,7 +566,7 @@ of steps:
   catalogued and published images of the scenarios.
 \end{enumerate}
 
-\paragraph{Interfaces}~\\
+\paragraph{Archive and Catalogue Interfaces}~\\
 
 The \emph{Archive and Catalogue} has interfaces with the \emph{Processing Chain}
 and the \emph{GeoServer} software. 
@@ -606,7 +595,7 @@ to use a \ac{CSW} instead of a web-browser for accesing the catalogued images.
 This feature provides a new connectivity channel for data interchange between
 modules of others projects, business or end users.
 
-\paragraph{Design}~\\
+\paragraph{Archive and Catalogue Design}~\\
 
 The \emph{Archive and Catalogue} is formed by the \emph{GeoServer} software and
 a Python script for communicating with \emph{GeoServer} in order to catalogue
@@ -619,7 +608,7 @@ by the \emph{Processing Chain}.
 
 incluir esquema script -> geoserver -> csw o http
 
-\paragraph{Implementation}~\\
+\paragraph{Archive and Catalogue Implementation}~\\
 
 The implementation of this module was done in Python2.7. The python's libraries
 needed to implement the software are listed in Table~\ref{table:orches-first-libraries}.
@@ -638,7 +627,7 @@ file which contains the \emph{GeoServer} software from the official webpage and
 it was installed into the \emph{Tomcat} server. In Section~\ref{para:bonfire-impl-cat} this process
 is detailed. 
 
-\paragraph{Execution}~\\
+\paragraph{Archive and Catalogue Execution}~\\
 
 To execute the \emph{Archive and Catalogue} module the following dependencies
 are required:
@@ -731,7 +720,7 @@ shown. Furthermore, these modules are explained with its design,
 implementations and executions. Finally, the
 deployment of the software in each module is shown.
 
-\subsubsection{ICE interface}
+\subsubsection{ICE interfaces}
 
 The distributed application using ZeroC ICE was made using a slice file namely
 ``Geocloud.ice''for
