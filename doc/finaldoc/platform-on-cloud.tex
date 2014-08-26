@@ -177,7 +177,7 @@ catalogue sub-modules:
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{detaildesign/scheme-archive-catalogue.png}
+\includegraphics[width=0.5\textwidth]{detaildesign/scheme-archive-catalogue1.png}
 \caption{Scheme of the Archive and Catalogue module.}
 \label{fig:archive-catalogue-scheme}
 \end{center}
@@ -208,7 +208,7 @@ archiving and cataloguing for each processed image was reduced.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=0.9\textwidth]{cloud/first-architecture.jpg}
+\includegraphics[width=1.0\textwidth]{cloud/first-architecture.jpg}
 \caption{First architecture on cloud}
 \label{fig:first-architecture}
 \end{center}
@@ -250,7 +250,7 @@ Figure~\ref{fig:orchestrator-workflow} depicts the workflow of the \emph{Orchest
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=1.2\textwidth]{cloud/orchestrator-workflow.jpg}
+\includegraphics[width=1.0\textwidth]{cloud/orchestrator-workflow.jpg}
 \caption{Orchestrator workflow}
 \label{fig:orchestrator-workflow}
 \end{center}
@@ -429,43 +429,39 @@ cataloguing the sent image.
 \paragraph{Processing Chain Design}~\\
 
 The \emph{Processing Chain} is formed by the ``PP\_script.sh'' bash
-script. Originally, this module will be located in a \acl{EaaS}. The \bonfire
+script. Originally, this module will be located in an \acl{EaaS}. The \bonfire
 platform has not available this feature yet, so it was decided to push into a
 cluster provided by the \emph{INRIA} testbed. The cluster platform was not also
 available, so it was necessary to create and fix a machine which plays the
 \emph{Processing Chain} role with the restriction that there can only be one
-instance. Could have token another machine for playing the \emph{Processing
-  Chain} role, but creating a fixed architecture is not the purpose of this
-project.
+instance. 
 
 \paragraph{Processing Chain Implementation}~\\
 \label{par:pp-impl}
-The implementation of this module was done in Bash. This script needs the
+The implementation of this module was done using a bash script. This script needs the
 \ac{IP} address of the \emph{Archive and Catalogue} module. In addition, it
 requires the \ac{SCP} and \ac{SSH} clients for its interfaces with the other
-modules. The image which is sent when the processing finished it is always the
-same because for this experiment is more important the processing on cloud than
+modules. The image which is sent to the \emph{Archive and Catalogue} when the
+process is finished, it is always the
+same because for the experiment is more important the processing on cloud than
 the resulting image.
   
 In addition, a script was developed in order to obtain the workload of the
-Orchestrator's machine. That file uses the ``Python-psutil'' library in order to
-obtain the cpu times such as user, idle, nice and iowait cycles. This file is
-used by the graphical interface for plotting the workload of the Orchestrator at
+Orchestrator machine. That file uses the ``Python-psutil'' library in order to
+obtain the CPU times such as user, idle, nice and iowait cycles. This file is
+used by the graphical user interface for plotting the workload of the Orchestrator at
 real time.
 
-Finally, there were implemented the processing using a shared storage instead of
-the local storage. The shared storage is provided by the \emph{IBBT} testbeds
-and it provides that several machines can access to the storage at same
-time. This storage is implemented using \ac{NFS} protocol. Ideally, the \ac{NFS}
+Finally,  shared storage was used to store the images instead of
+the local storage. The shared storage is provided by the \emph{IBBT} testbed. This storage is implemented using \ac{NFS} protocol. Ideally, the \ac{NFS}
 protocol using a network with a large bandwidth and links with 10 GB Ethernet is
-more efficient that a local hard disk. The problem consists of the \ac{NFS}
-server is not conformed by disk located in \bonfire platform. The physical disk
-where the information is saved are in \emph{IBBT} (Gent, Belgium). Thus, the
+more efficient than using a local hard disk. However the \ac{NFS}
+server is not conformed by disks located in the \bonfire platform. The physical disks
+where the information is saved are in \emph{IBBT} located in Ghent (Belgium). Thus, the
 read and write accesses from any \bonfire testbed (INRIA and EPCC in this case)
-travel from \bonfire to \emph{IBBT} through Internet. This supose high
+travel from \bonfire to \emph{IBBT} through the Internet. This involves high
 latencies, large waiting times and it implies that the CPU is idle large time
-waiting for I/O operations. These results are shown in Section~\ref{geocloud
-  results}.
+waiting for I/O operations. These results are shown in Section~\ref{sec:geocloud-results}.
 
 The implementation of this shared storage was performed as follows:
 \begin{itemize}
@@ -492,42 +488,38 @@ The implementation of this shared storage was performed as follows:
 To execute the \emph{Processing Chain} module the following dependencies are
 required:
 \begin{itemize}
-\item To know the \ac{IP} address of the \emph{Archive and Catalogue} is
-  implemented.
+\item To know the \ac{IP} address of the \emph{Archive and Catalogue}.
 \item Ethernet interface for the network connection in the \bonfire \emph{WAN}.
 \item The geolocated image for sending to \emph{Archive and Catalogue} module
   once the processing is finished. 
-\item The product processors owned by \emph{Deimos Space} were installed in the
-  machine
+\item The Product Processors owned by \emph{Elecnor Deimos} installed in the
+  machine.
 \end{itemize}
 
-The path within the script works are absulutes so the site when it was executed
-is not important. The script is located inside
+The script is located inside
 ``source/bonfire/ProcessingChain'' folder. The execution of the software is executed with the following
 command line:
 \begin{itemize}
 \item[>] bash PPscript.sh <<arg1>> <<arg2>>
 \end{itemize}
-
-where \emph{arg1} is the outfile name where the \emph{Archive and Catalogue} module
+where \emph{arg1} is the outfile name in which the \emph{Archive and Catalogue} module
 saves the image and the \emph{arg2} is the simulated scenario.
 
 
-\paragraph{Implementation in BonFIRE}
+\paragraph{Implementation in BonFIRE}~\\
 
-For implementing of the \emph{Processing Chain} module the following steps were done:
+To implement the \emph{Processing Chain} module the following steps were done:
 
 \begin{itemize}
  \item Reservation of a \emph{Xlarge} machine in \emph{EPCC} \bonfire
    platform. This machine belongs the \bonfire \emph{WAN} so it can communicate
-   with all machines in that network. 
+   with all the machines in that network. 
  \item Installation of the product processors.
  \item Uploading the geolocated image.
- \item To upload the \emph{ProcessingChain} source to the \emph{ProcessingChain}
+ \item Uploading the \emph{ProcessingChain} source to the \emph{ProcessingChain}
    machine.
- \item To append the public key from \emph{Processing Chain} machine to the
-   \emph{``~/.ssh/authorized\_host''} for
-   allowing the incoming connections.
+ \item Appending the public key from \emph{Processing Chain} machine to the
+   \emph{``~/.ssh/authorized\_host''} to allow the incoming connections.
 \end{itemize}
 
 \subsubsection{Archive and Catalogue}
@@ -536,32 +528,30 @@ The first implementation of the \emph{Archive and Catalogue} component was
 performed for archiving and cataloguing the geolocated images which were
 processed in the simulation of the defined scenarios. It is based on the
 \emph{GeoServer} software. The inputs are given by the \emph {Processing Chain}
-module when it finishes of processing an image. It sends the image using
+module when it finishes the processing of an image. It sends the image using
 \ac{SCP} and then, it remotely executes the Python script for archiving and
-cataloguing the image. Once the image is catalogued, the end user can access to
-it accesing to \emph{IP} address of the node using a web-browser. The
-\emph{GeoServer} were showed and the end user can navigate between the different
-scenarios and files generated in its executions.
+cataloguing the image. Once the image is catalogued, the end user can access it
+with the \emph{IP} address of the node using a web-browser. Then
+\emph{GeoServer} is showed and the end user can navigate between the different
+scenarios and files generated in the execution of the experiment.
 
 \paragraph{Archive and Catalogue Workflow}~\\
 
 The \emph{Archive and Catalogue} component works by following the next sequence
 of steps:
 \begin{enumerate}
-\item The \emph{Processing Chain} ends it processing and sending the resulting
+\item The \emph{Processing Chain} ends its processing and sends the resulting
   image via \ac{SCP} to the \emph{Archive and Catalogue} 
 \item The Python script is remotely executed by the \emph{Processing Chain}
-  using \ac{SSH}.
-\item The script obtains the image for archiving and to copy it into the
+  by using \ac{SSH}.
+\item The script obtains the image for archiving and copies it into the
   \emph{GeoServer} data directory.
-\item The script catalogues the image using the \ac{API} provided by
+\item The image is catalogued by using the \ac{API} provided by
   \emph{GeoServer}. If the scenario was not created as a workspace, the
-  workspace namely like the scenario is created.
+  workspace is created.
   \item A store is created in order to house the image.
-  \item The image is catalogued into the workspace and stored into the created store.
-\item When it is done, the \emph{Processing Chain} knows that cataloguing has
-  finished and ends its execution.
-\item The \emph{GeoServer} module publishes the catalogued image using the
+  \item The image is catalogued in the workspace and stored in the created store.
+  \item The \emph{GeoServer} module publishes the catalogued image using the
   \ac{CSW} protocol. Any end user connectig the web interface can access the
   catalogued and published images of the scenarios.
 \end{enumerate}
@@ -574,24 +564,23 @@ and the \emph{GeoServer} software.
 \subparagraph{Interfaces with the Processing Chain}~\\
 
 When the \emph{Processing Chain} module has finished the processing of an image,
-it sends using \ac{SCP} protocol the file for archiving and cataloguing. The
+it sends the image to the \emph{Archive and Catalogue} module via \ac{SCP} protocol to proceed with its archive and catalogue. The
 \emph{Archive and Catalogue} recives the image and stores it into the data
 directory of \emph{GeoServer}. Then, the \emph{Processing Chain} remotely orders
 to catalogue this image.  
 
 \subparagraph{Interfaces with the GeoServer software}~\\
 
-The \emph{GeoServer} software provides a Python \ac{API} namely
+The \emph{GeoServer} software provides a Python library namely
 \emph{Gsconfig}. The official page of this library is
 \url{https://github.com/boundlessgeo/gsconfig}. Using this library, operations
-with layers, images, tilesets or storages can be done. In this project there
-were used the operations for cataloguing ``tiff'' images (the ``tiff'' format is
-the standard format for geodata images).
+with layers, images, tilesets or storages can be done. The provided operations
+for cataloguing ``tiff'' images (the default format for geodata images) were used in this project.
 
 \subparagraph{Interfaces with CSW clients}~\\
 
-The \emph{GeoServer} software implements a \ac{CSW} plugin to provide end users
-to use a \ac{CSW} instead of a web-browser for accesing the catalogued images.
+The \emph{GeoServer} software implements a \ac{CSW} plugin to provide the end users
+a \ac{CSW} interface instead of a web-browser for accesing the catalogue.
 This feature provides a new connectivity channel for data interchange between
 modules of others projects, business or end users.
 
@@ -610,22 +599,31 @@ incluir esquema script -> geoserver -> csw o http
 
 \paragraph{Archive and Catalogue Implementation}~\\
 
-The implementation of this module was done in Python2.7. The python's libraries
-needed to implement the software are listed in Table~\ref{table:orches-first-libraries}.
+The implementation of this module was done in Python 2.7. The python's libraries
+needed to implement the software are listed in
+Table~\ref{table:ayc-first-libraries}.
+
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/ayc-first-libraries.tex}
+  }
+  \caption{ICE Archive and Catalogue Python Libraries}
+  \label{table:ayc-first-libraries}
+\end{table}
+
 The \emph{Gsconfig} library was manually installed as follows:
 \begin{itemize}
-\item The library is in the following
-  url:\url{https://github.com/boundlessgeo/gsconfig}.
-\item For installing the library, it is necessary to install the ``Python-pip''
-  package.
+\item The library obtained from the following url: \url{https://github.com/boundlessgeo/gsconfig}.
+\item Firstly, the ``Python-pip''  package is installed.
 \item Then just execute ``pip install gsconfig''.
 \end{itemize}
 
-Then, the \emph{GeoServer} software was necessary to install. For that, the
-\emph{Apache Tomcat} server was installed. Then, it was downloaded the ``war''
-file which contains the \emph{GeoServer} software from the official webpage and
+Then, the \emph{GeoServer} software was required to be installed. For that purpose, the
+\emph{Apache Tomcat} server was installed. Then, the ``war''
+file which contains the \emph{GeoServer} software was downloaded from the official webpage and
 it was installed into the \emph{Tomcat} server. In Section~\ref{para:bonfire-impl-cat} this process
-is detailed. 
+is explained in detail. 
 
 \paragraph{Archive and Catalogue Execution}~\\
 
@@ -638,7 +636,7 @@ are required:
 \item \emph Ethernet interface for the network connection in the \bonfire
   \emph{WAN}.
 \item \emph Ethernet interface for the network connection with a public \ac{IP}
-  address. In this project a \ac{IP}v4 was used.
+  address. In this project an \ac{IP}v4 was used.
 \end{itemize}
 
 The developed source for archiving and cataloguing is located in
@@ -647,29 +645,31 @@ module namely ``catalog\_pp.py'' is done as follows:
 \begin{itemize}
 \item[>] python catalog\_pp.py <<name\_file>> <<scenario>> <<nameStore>>
 \end{itemize}
-where ``name\_file'' is the absolute path of the image to archive and catalogue,
-``scenario'' is the scenario in which the image is catalogued and the
+where <<name\_file>> is the absolute path of the image to the \emph{Archive and Catalogue},
+<<scenario>> is the scenario in which the image is catalogued and the
 <<nameStore>> is the name of the created store for housing the image.
 
 \paragraph{Implementation in BonFIRE}~\\
 \label{para:bonfire-impl-cat}
 
 
-For implementing of the \emph{Archive and Catalogue} module the following steps were done:
+For implementing the \emph{Archive and Catalogue} module the following steps were done:
 
 \begin{itemize}
  \item Reservation of a \emph{Medium} machine in \emph{INRIA} \bonfire
-   platform. This machine belongs the \bonfire \emph{WAN} so it can communicate
-   with all machines in that network. Moreover it has a public \ac{IP} address
+   platform. This machine belongs to the \bonfire \emph{WAN} so it can communicate
+   with all the machines in that network. Moreover it has a public \ac{IP} address
    in order to be accesible outside the \bonfire network by end users. 
- \item Installation of the \emph{Apache Tomcat} server and to customize it in
-   order to listen in port 80.
- \item Installation of the \emph{GeoServer} and \emph{CSW} plugin into
-   \emph{Apache Tomcat}.
- \item Uploading the geolocated image.
- \item To upload the \emph{ProcessingChain} source to the \emph{ProcessingChain}
+ \item Installation of the Java version 6.
+ \item Installation of the \emph{Apache Tomcat} server and its customization in
+   order to listen in port 80 and to reserve the necessary requirements for Java.
+ \item Installation of the \emph{GeoServer} and the \emph{CSW} plugin in
+   \emph{Apache Tomcat}. In the CD-ROM attached the setup script for this step
+   is included.
+ \item Uploading of the geolocated image.
+ \item Uploading of the \emph{ProcessingChain} source to the \emph{ProcessingChain}
    machine.
- \item To append the public key from \emph{Processing Chain} machine to the
+ \item Appending the public key from \emph{Processing Chain} machine to the
    \emph{``~/.ssh/authorized\_host''} for
    allowing the incoming connections.
 \end{itemize}
@@ -677,28 +677,33 @@ For implementing of the \emph{Archive and Catalogue} module the following steps 
 
 \subsection{Implementation of the cloud architecture using ZeroC ICE}
 
-ZeroC ICE provides multiple services for creation of distributed
-architectures. Using its replication service, load balancing and location
-transparency the following architecture was carried through. The components of
-this architecture are represented in Figure~\ref{fig:ice-architecture}. This components are the
+ZeroC ICE provides multiple services to create distributed
+architectures. By using its replication service, load balancing and location
+transparency the following architecture can be obtained.
+The components of the architecture implemented with ZeroC ICE are represented in Figure~\ref{fig:ice-architecture}. This components are the
 following:
 
 \begin{itemize}
-\item \emph{Broker}: This component acts as an intermediate between the client
-  interface (see Section~\ref{sec:interfaz}) and the cloud architecture
+\item \emph{Client/Ground Stations}: it is the client of the architecture but it
+  is not included into the cloud. It says to the \emph{Orchestrator} that new raw data is available. In this
+  project the client implementation was done to check the funcionality of the
+  architecture. The implementation of the client
+  funcionality in the Ground Stations implemented in \vw may be future work.
+\item \emph{Broker}: it acts as an intermediary between the client and the cloud architecture
   components. 
-\item \emph{Orchestrator}: it was explained in Section~\ref{sub:orch}.
-\item \emph{Processor}: this component proccess the images downloaded by the
+\item \emph{Orchestrator}: this component manages the ingestion and the
+  processing the raw data and archiving and cataloguing the images obtained. It was explained in Section~\ref{sub:orch}.
+\item \emph{Processor}: this component proccesses the images downloaded by the
   \emph{Orchestrator} module and it notifies the \emph{Orchestrator} when it
   finishes. All \emph{Processors} are joined into a Replica Group namely
   \emph{ProcessingChainReplica module}. It provides the replication service and the load
   balancing. When it receives a request for processing, it selects the one of \emph{Processing Chain} which less workload has.
-\item \emph{Archive and Catalogue}: it was explained in Section~\ref{sub:archive}.
+\item \emph{Archive and Catalogue}: it archives and catalogues the images. It was explained in Section~\ref{sub:archive}.
 \end{itemize}
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=1\textwidth]{cloud/second-architecture.jpg}
+\includegraphics[width=0.95\textwidth]{cloud/second-architecture.jpg}
 \caption{Cloud architecture using ZeroC ICE}
 \label{fig:ice-architecture}
 \end{center}
@@ -715,10 +720,10 @@ components such as the \emph{Orchestrator}, the \emph{Archive and Catalogue} and
 at same time. This implementation avoid the file transfers and it does the cloud
 more clear, dynamic and scalable.
 
-In the following sections, the  ICE interfaces between these components are
-shown. Furthermore, these modules are explained with its design,
-implementations and executions. Finally, the
-deployment of the software in each module is shown.
+In the following sections the  ICE interfaces between these components are
+shown and the previous modules modules are explained. Their design and
+interfaces with other modules are described. Finally, the
+deployment of the software in each module is explained in detail.
 
 \subsubsection{ICE interfaces}
 
@@ -730,7 +735,7 @@ communication between these components. The slice file is listed in Listing~\ref
 
 \begin{listing}[
   float=h!,
-  caption  = {Interfaces of ICE application},
+  caption  = {Slice of the ICE application},
   label    = code:ice-slice,
 style=customc]
 
@@ -773,7 +778,6 @@ module geocloud {
 
 
     interface ArchiveAndCatalogue{
-	void setBroker( Broker * bro);
 	void createScenario(string scenario) throws CreationScenarioException;
 	void catalogue(string path,string storage,string scenario) throws CataloguingException;
 	void deleteScenario(int scenario) throws DeleteScenarioException;
@@ -781,7 +785,7 @@ module geocloud {
 };
 \end{listing}
 
-\subsubsection{Orchestrator}
+\subsubsection{Implementation of the Orchestrator}
 
 The second implementation of this cloud architecture is based in the ZeroC ICE
 middleware. The Orchestrator performs the same task that in the other
@@ -790,7 +794,6 @@ then, the communications between the component of the cloud are done using the
 Ice interfaces of each component. Ice uses \ac{TCP} protocol by default.
 
 \paragraph{Workflow}~\\
-
 
 The \emph{Orchestrator} component works by following the next sequence of steps:
 \begin{enumerate}
@@ -829,19 +832,22 @@ Group and with the
 \subparagraph{Interfaces with the Ground Stations implemented in Virtuall
   Wall}~\\
 
-
 The \emph{Ground Stations} are deployed in some \emph{Virtual Wall} nodes. In
 those, the impairments and features of the network are simulated. Essentially,
 the \emph{Orchestrator} is pooling those \emph{Ground Stations} over \ac{FTP}
 connections to know when a raw data is available. So, this Ground Stations are
 \ac{FTP} servers in which the \emph{Orchestrator} can get the raw data obtained
-by the constellation of satellites.
+by the constellation of satellites. 
+As the ICE implementation could not be
+deployed in the \bonfire platform, the checking and testing of funcionalities
+were locally done. Thus, a client playing as a Ground Station was developed in
+order to check and validate the architecture. It is described in Section\~{}. 
 
-\subparagraph{Interfaces with the Product Processors}~\\
+\subparagraph{Interfaces with the  Processors}~\\
 
-The interfaces which the \emph{Product Processors} provides are listed in
+The interfaces which the \emph{Processors} provides are listed in
 Listing~\ref{code:ice-slice}. The operations that the \emph{Orchestrator} uses
-are \emph{processImage} and \emph{setOrchestrator} operations.
+are \emph{processImage} and \emph{setOrchestrator} operations. 
 
 \subparagraph{Interfaces with the Archive and Catalogue}~\\
 
@@ -873,7 +879,8 @@ which contains the following operations:
 The requests are served when they come to the \emph{Orchestrator} module. If
 other request comes and the processing chains are busy, they are automatically queued by the
 ICE execution core. Thus, it is not necessary to maintain a queuing algorithm in
-the \emph{Orchestrator}.
+the \emph{Orchestrator}. However it is necessary to have some data structures, in
+this case dictionaries) to temporaly store the images which are en different stages.
 
 Furthermore, when the \emph{Orchestrator} is initialized the Listener process is
 accomplished. It listen the \ac{FTP} connections with the ground stations for
@@ -882,7 +889,7 @@ ground stations until the \emph{Orchestrator} execution ends.
 
 \paragraph{Implementation}~\\
 
-The implementation of this module was done in Python2.7 using ZeroC ICE 3.4. The
+The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
 Table~\ref{table:orches-second-libraries}
 
@@ -891,7 +898,7 @@ Table~\ref{table:orches-second-libraries}
   {\small
   \input{tables/orches-second-libraries.tex}
   }
-  \caption{ICE Orchestrator’s Python Libraries}
+  \caption{ICE Orchestrator Python Libraries}
   \label{table:orches-second-libraries}
 \end{table}
 
@@ -900,25 +907,26 @@ Table~\ref{table:orches-second-libraries}
 To execute the \emph{Orchestrator} module the following dependencies
 are required:
 \begin{itemize}
-\item \emph{ZeroC ICE 3.4}
-\item \emph Ethernet interface for connecting with \emph{IceGrid} locator.
+\item \emph{ZeroC ICE 3.4} installed.
+\item \emph Ethernet interface for connecting with \emph{IceGrid} locator (see Section~\ref{subsub:deployment}.
 \item \emph Configuration file for the node.
 \end{itemize}
  In Section~\ref{subsub:deployment} the
   automatically deployment and execution is explained. 
 
-\subsubsection{Processor}
+\subsubsection{Implementation of the  Processor}
 
-The processor component perform the raw data processing to obtain a
-geolocated image. It executes all processor stages and notifies the
-\emph{Orchestrator} server for cataloguing. It is implemented in a shared
-storage, so all the necessary files are located in that shared memory space as
-the Section~\ref{par:pp-impl} explained. Moreover, all the instantiated
-\emph{Processors} forming part of the \emph{ProcessingChainReplica} in order to
-provide load balancing and dinamically replication service.
+The processor component process the raw data to obtain a
+geolocated image. It executes all product processor stages and notifies the
+\emph{Orchestrator} server for cataloguing. The background filesystem where it
+is implemented and executed is a shared storage, so all the necessary files are
+located in that shared memory space as the Section~\ref{par:pp-impl}
+explained. Moreover, all the instantiated \emph{Processors} forming part of the
+\emph{ProcessingChainReplica} in order to provide load balancing and dynamic
+replication service. 
 
 
-\paragraph{Workflow}~\\
+\paragraph{ Processor Workflow}~\\
 
 The \emph{Processor} component works by following the next sequence of steps:
 
@@ -936,77 +944,206 @@ The \emph{Processor} component works by following the next sequence of steps:
 \end{enumerate}
 
 
-\paragraph{Interfaces}~\\
+\paragraph{ Processor Interfaces}~\\
 
 The \emph{Processor} component has interfaces with the \emph{Orchestrator}.
 
 \subparagraph{Interfaces with the Orchestrator}
 
 The \emph{Processor} server receives the order for processing an image. When the
-processing finished, the \emph{Processor} notifies the \emph{Orchestrator} 
+processing finished, the \emph{Processor} notifies the \emph{Orchestrator} by
+calling the \emph{imageProcessed} function.
 
-\paragraph{Design}~\\
+\paragraph{ Processor Design}~\\
 
+The \emph{Processor} module implements the \emph{Processor} interface which
+contains the following operations:
 
-\subsubsection{ProcessingChainReplica}
+\begin{itemize}
+\item \emph{void processImage(string path)}: it is invoked by the
+  \emph{Orchestrator} in order to process the image located in path. Thus, all
+  the product processors are sequentially executed and the \emph{processedImage}
+  of the \emph{Orchestrator} is called. 
+\item \emph{void shutdown()}: this funcion turns off the proccesor.
+\item \emph{setOrchestrator()}: it sets up the \emph{Orchestrator} proxy to be
+  used for the \emph{Processor}.
+\end{itemize}
+
+\subparagraph{ProcessingChainReplica}
 
 This component involves all the \emph{Processors} in the ICE application. It
 provides two services: dynamic replication and load balancing. The first
 of them is used for creating new \emph{Processors} on demand. The second one 
 servers the incoming petitions searching the less overloaded \emph{Processor}
 and returning its proxy for carrying out the request.
-The \emph{Processor} server is fo
 
-\paragraph{Implementation}~\\
+\paragraph{ Processor Implementation}~\\
 
-The implementation of this module was done in Python2.7 using ZeroC ICE 3.4. The
+The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
 Table~\ref{}
 
-\paragraph{Execution}~\\
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/processor-second-libraries.tex}
+  }
+  \caption{ICE Processor Python Libraries}
+  \label{table:processor-second-libraries}
+\end{table}
 
-To execute the \emph{Orchestrator} module the following dependencies
+\paragraph{Processor Execution}~\\
+
+To execute the \emph{Processor} module the following dependencies
 are required:
 \begin{itemize}
-\item \emph{ZeroC ICE 3.4}
+\item \emph{ZeroC ICE 3.4} installed.
 \item \emph Ethernet interface for connecting with \emph{IceGrid} locator.
 \item \emph Configuration file for the node. In Section~\ref{subsub:deployment} the
   automatically deployment and execution is explained. 
 \end{itemize}
 
+\subsubsection{Implementation of the Archive and Catalogue}
+
+The second implementation of the \emph{Archive and Catalogue} component using
+ZeroC ICE was
+performed for archiving and cataloguing the geolocated images which were
+processed in the simulation of the defined scenarios. It uses the
+\emph{GeoServer} software and the Python library (Gsconfig) to catalogue and
+archive the images.
+
+\paragraph{Archive and Catalogue Workflow}~\\
+
+The \emph{Archive and Catalogue} component works by following the next sequence of steps:
+\begin{enumerate}
+\item The ICE core application is initialized and the ICE communicator is
+  created.
+\item The \emph{Archive and Catalogue Object Adapter} is instantiated and the \emph{A\&C} servant is
+  added to it.
+\item When the initialization of a scenario is called, a workspace is created.
+\item Then, when a image is requested for cataloguing, the module communicates with the
+  \emph{GeoServer} software by the library to catalogue. 
+\item Some images can be catalogued in the same scenario.
+\item When the scenario ends, the \emph{deleteScenario} is invoked and the
+  workspace is deleted.
+\end{enumerate}
+
+\paragraph{Archive and Catalogue Interfaces}~\\
+
+The \emph{Archive and Catalogue} module has interfaces with the
+\emph{Orchestrator} and the \emph{GeoServer} software.
+
+\subparagraph{Interfaces with the Orchestrator}
+
+The \emph{Archive and Catalogue} module notifies the \emph{Orchestrator} by
+using the \emph{imageCatalogued} call when a
+image was catalogued.
+
+\subparagraph{Interfaces with the GeoServer software}~\\
+
+The \emph{GeoServer} software provides a Python library namely
+\emph{Gsconfig}. The official page of this library is
+\url{https://github.com/boundlessgeo/gsconfig}. Using this library, operations
+with layers, images, tilesets or storages can be done. The provided operations
+for cataloguing ``tiff'' images (the default format for geodata images) were
+used in this project.
+
+\paragraph{Archive and Catalogue Design}~\\
+
+The \emph{Archive and Catalogue} module implements the \emph{Archive and
+  Catalogue} interface which contains the following operations:
+
+\begin{itemize}
+\item \emph{void createScenario(string scenario)}: it is invoked by the
+  \emph{Orchestrator} and creates the workspace into the \emph{GeoServer}
+  platform for storing the images.
+\item \emph{void catalogue(string path, string storage,string scenario)}: It
+  catalogues the image located in path, it creates the storage where the image is
+  stored and it creates the workspace namely scenario.
+\item \emph{deleteScenario(string scenario)}: it deletes the workspace created
+  for carrying out the scenario.
+\end{itemize}
+
+
+\paragraph{Archive and Catalogue Implementation}~\\
+
+The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
+python's libraries needed to implement the software are listed in
+Table~\ref{table:ayc-second-libraries}
+
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/ayc-second-libraries.tex}
+  }
+  \caption{ICE Archive and Catalogue Python Libraries}
+  \label{table:ayc-second-libraries}
+\end{table}
+
+The \emph{Gsconfig} library was manually installed as follows:
+\begin{itemize}
+\item The library obtained from the following url: \url{https://github.com/boundlessgeo/gsconfig}.
+\item Firstly, the ``Python-pip''  package is installed.
+\item Then just execute ``pip install gsconfig''.
+\end{itemize}
+
+Then, the \emph{GeoServer} software was required to be installed. For that purpose, the
+\emph{Apache Tomcat} server was installed. Then, the ``war''
+file which contains the \emph{GeoServer} software was downloaded from the official webpage and
+it was installed into the \emph{Tomcat} server.
+
+\paragraph{Archive and Catalogue Execution}~\\
+
+To execute the \emph{Orchestrator} module the following dependencies
+are required:
+\begin{itemize}
+\item \emph{ZeroC ICE 3.4} installed.
+\item \emph Ethernet interface for connecting with \emph{IceGrid} locator (see
+  Section~\ref{subsub:deployment}.
+\item \emph{Apache Tomcat}
+\item \emph{Geoserver with the \ac{CSW} plugin}
+\item \emph{Gsconfig library installed}
+\item \emph Configuration file for the node.
+\end{itemize}
+ In Section~\ref{subsub:deployment} the
+  automatically deployment and execution is explained. 
+
+\subsubsection{Implementation of the Broker}
 
 
 
-\paragraph{Workflow}~\\
 
-\paragraph{Interfaces}~\\
+\subsubsection{Implementation of the Client}
 
-\paragraph{Design}~\\
+The developed client for testing and checking the funcionality of the cloud
+architecture were development using the ICE runtime environment as follows:
+\begin{itemize}
+\item Obtaining the \emph{Orchestrator proxy}
+\item Sending \emph{downloadedImage} calls to \emph{Orchestrator}
+\item Calling \emph{getLastLogs} of the \emph{Broker}, periodically.
+\end{itemize}
 
-
+As future work, the ground stations may be implemented by using the ICE
+middleware for creating an experimentation environment more 
 \paragraph{Implementation}~\\
+
+The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
+python's libraries needed to implement the software are listed in
+Table~\ref{table:client-libraries}
+
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/client-libraries.tex}
+  }
+  \caption{ICE Client Python Libraries}
+  \label{table:client-libraries}
+\end{table}
 
 \paragraph{Execution}~\\
 
-\paragraph{Implementation in BonFIRE}~\\
 
-
-
-\subsubsection{Archive and Catalogue}
-
-\paragraph{Workflow}~\\
-
-\paragraph{Interfaces}~\\
-
-\paragraph{Design}~\\
-
-
-\paragraph{Implementation}~\\
-
-\paragraph{Execution}~\\
-
-\paragraph{Implementation in BonFIRE}~\\
-
+The execution of the Client is performed as follows:
 
 
 \subsubsection{Deployment}
@@ -1014,8 +1151,10 @@ are required:
 
 The deployment of the distributed application was done using the \emph{IceGrid}
 and \emph{IcePatch} services. 
-The first one provides location transparency by using well-known objects and server replication and load
-balancing services by creating replica groups. 
+\emph{IceGrid} provides location transparency by using well-known objects and server replication and load
+balancing services by creating replica groups. \emph{IcePatch} is an
+efficient file patching service that is easy to configure and use. It provides the
+automatically source distribution to all nodes.
 
 The deployment was made creating a distributed application which is composed by
 nodes, servers running in the nodes and object adapters created by the servers. 
@@ -1042,18 +1181,33 @@ following:
 \item Clean.sh: it cleans the temporaly files and directories created during the execution.
 \end{itemize}
 
-\emph{IcePatch} provides the sending of the source code to all nodes involved in
-the distributed application. \emph{IceGrid} automatically package the source and
-sends to target nodes. Then
-
- At same time in a machine can be attached one or more
-nodes. It mainly provides the location transparency feature because the location
-of the servers is independent wherein the machines are locatedbecause can be many instances
-of the same in many machines
-
-
-The source must be located in ``/tmp/ice'' because to create an application for
+Moreover, the source must be located in ``/tmp/ice'' because to create an application for
 deploying in several machines, the most usual is to provide a way for an easy
 deployment. 
-The architecture based on the ZeroC ICE middleware only can be deployed
-locally.  
+
+For the deployment was effective, the ``icegridnode'' services must be running
+in each node. 
+There are several configuration files for the nodes. These files are located in
+``source/ice/cfg/'' directory. The ``node\$.cfg'' files ,where ``\$'' is a number,
+are the configuration files for the nodes. One of them, in this case the
+``node1.cfg'' contains the configuration for the locator service. 
+The locator service provides to ICE applications the location of all well-known
+objects registered in the ICE runtime environment. 
+The execution of each node is done as follows:
+\begin{itemize}
+\item[>]icegridnode --nochdir --daemon --Ice.Config=cfg/nodo\$.cfg
+\end{itemize}
+where \$ is the number of node to be executed.
+ 
+Finally the installation of the application and the source distribution is done
+by the following command:
+\begin{itemize}
+\item[>]icegridadmin --Ice.Config=cfg/locator.cfg -e ``application add
+  app/GeoCloudApp.xml''
+\end{itemize}
+
+where the locator file contains the address of the node where it is located and
+the GeoCloudApp.xml is the application description where the deployment,
+replication policies and the different services involve in the distributed
+application are defined.
+
