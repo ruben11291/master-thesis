@@ -730,7 +730,7 @@ deployment of the software in each module is explained in detail.
 The distributed application using ZeroC ICE was made using a slice file namely
 ``Geocloud.ice''for
 specifying the components interfaces. These interfaces allows the transparently
-communication between these components. The slice file is listed in Listing~\ref{code:ice-slice}:
+communication between these components. The slice file is listed in Listing~\ref{code:ice-slice}.
 
 
 \begin{listing}[
@@ -793,7 +793,7 @@ architecture. It connects with the ground stations over \ac{FTP} connections and
 then, the communications between the component of the cloud are done using the
 Ice interfaces of each component. Ice uses \ac{TCP} protocol by default.
 
-\paragraph{Workflow}~\\
+\paragraph{ Orchestrator Workflow}~\\
 
 The \emph{Orchestrator} component works by following the next sequence of steps:
 \begin{enumerate}
@@ -822,7 +822,7 @@ The \emph{Orchestrator} component works by following the next sequence of steps:
   sends the absolute path of the image for archiving and cataloguing.
 \end{enumerate}
 
-\paragraph{Interfaces}~\\
+\paragraph{ Orchestrator Interfaces}~\\
 
 The \emph{Orchestrator} has interfaces with the Ground Stations implemented in
 \emph{Virtual Wall}. Moreover this component  communicates with the \emph{Product Processors} through the Replica
@@ -856,7 +856,7 @@ Listing~\ref{code:ice-slice}. The operation that the \emph{Orchestrator} uses is
 the \emph{catalogue} operation.
 
 
-\paragraph{Design}~\\
+\paragraph{ Orchestrator Design}~\\
 
 The \emph{Orchestrator} module implements the \emph{Orchestrator} interface
 which contains the following operations:
@@ -887,7 +887,7 @@ accomplished. It listen the \ac{FTP} connections with the ground stations for
 detecting and downloading new raw data. This process is always pooling the
 ground stations until the \emph{Orchestrator} execution ends.
 
-\paragraph{Implementation}~\\
+\paragraph{Orchestrator Implementation}~\\
 
 The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
@@ -902,7 +902,7 @@ Table~\ref{table:orches-second-libraries}
   \label{table:orches-second-libraries}
 \end{table}
 
-\paragraph{Execution}~\\
+\paragraph{OrchestratorExecution}~\\
 
 To execute the \emph{Orchestrator} module the following dependencies
 are required:
@@ -916,7 +916,7 @@ are required:
 
 \subsubsection{Implementation of the  Processor}
 
-The processor component process the raw data to obtain a
+The \emph{Processor} component process the raw data to obtain a
 geolocated image. It executes all product processor stages and notifies the
 \emph{Orchestrator} server for cataloguing. The background filesystem where it
 is implemented and executed is a shared storage, so all the necessary files are
@@ -926,7 +926,7 @@ explained. Moreover, all the instantiated \emph{Processors} forming part of the
 replication service. 
 
 
-\paragraph{ Processor Workflow}~\\
+\paragraph{Processor Workflow}~\\
 
 The \emph{Processor} component works by following the next sequence of steps:
 
@@ -944,7 +944,7 @@ The \emph{Processor} component works by following the next sequence of steps:
 \end{enumerate}
 
 
-\paragraph{ Processor Interfaces}~\\
+\paragraph{Processor Interfaces}~\\
 
 The \emph{Processor} component has interfaces with the \emph{Orchestrator}.
 
@@ -954,7 +954,7 @@ The \emph{Processor} server receives the order for processing an image. When the
 processing finished, the \emph{Processor} notifies the \emph{Orchestrator} by
 calling the \emph{imageProcessed} function.
 
-\paragraph{ Processor Design}~\\
+\paragraph{Processor Design}~\\
 
 The \emph{Processor} module implements the \emph{Processor} interface which
 contains the following operations:
@@ -977,7 +977,7 @@ of them is used for creating new \emph{Processors} on demand. The second one
 servers the incoming petitions searching the less overloaded \emph{Processor}
 and returning its proxy for carrying out the request.
 
-\paragraph{ Processor Implementation}~\\
+\paragraph{Processor Implementation}~\\
 
 The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
@@ -1060,7 +1060,7 @@ The \emph{Archive and Catalogue} module implements the \emph{Archive and
 \item \emph{void catalogue(string path, string storage,string scenario)}: It
   catalogues the image located in path, it creates the storage where the image is
   stored and it creates the workspace namely scenario.
-\item \emph{deleteScenario(string scenario)}: it deletes the workspace created
+\item \emph{void deleteScenario(string scenario)}: it deletes the workspace created
   for carrying out the scenario.
 \end{itemize}
 
@@ -1110,22 +1110,118 @@ are required:
 
 \subsubsection{Implementation of the Broker}
 
+The \emph{Broker} component perform the initialization and the stop of the
+scenarios. In addition, it collects the cloud components logs in order to
+provide them to \emph{Client} when it applies for them.
 
+\paragraph{Broker Workflow}~\\
+
+The \emph{Broker} component works by following the next sequence of steps:
+\begin{itemize}
+\item The ICE core application is initialized and the ICE communicator is
+  created.
+\item The \emph{Broker Object Adapter} is instantiated and the \emph{Broker} servant is
+  added to it.
+\item The  \emph{Broker} creates a data structure for storing the last log
+  received until any client applies for them.
+\item When the \emph{Broker} receives a log, it stores into the data structure.
+\item When the \emph{Broker} receives a request applying for the logs, the
+  \emph{Broker} returns them and it cleans the data structure.
+\item When the client invokes the ``startScenario'' of the \emph{Broker}, it
+  obtains the \emph{Orchestrator} proxy and it calls the remote method
+  ``initScenario'' of the \emph{Orchestrator} interface.
+\item When the client invokes the ``stopScenario of the \emph{Broker}, it
+  obtains the \emph{Orchestrator} proxy and it calls the remote method
+  ``stopScenario'' of the \emph{Orchestrator} interface.
+\end{itemize}
+
+\paragraph{Broker Interfaces}~\\
+
+The \emph{Broker} component has interfaces with the \emph{Orchestrator}, with
+all cloud components for logging and with the \emph{Clients} for sending the
+collecting logs.
+
+\subparagraph{Interfaces with the Orchestrator}~\\
+
+The \emph{Broker} module communicates with the \emph{Orchestrator} by using the
+\emph{initScenario} and \emph{stopScenario} calls. The first one is used to
+initialize the scenario in the \emph{Orchestrator} and the second one is used
+to stop the scenario in the \emph{Orchestrator}.
+
+\subparagraph{Interfaces with all the cloud components}~\\
+
+The cloud components communicates with the \emph{Broker} component by using the
+\emph{appendLog} operation. When this operation is invoked, the log passing such
+as parameter is added into the log data structure.  
+
+\subparagraph{Interfaces with the clients}~\\
+
+The \emph{Clients} invokes the \emph{getLastLogs} procedure in order to obtains
+all logs collected far by.
+
+\paragraph{Broker Design}~\\
+
+The \emph{Broker} module implements the \emph{Broker} interface which
+contains the following operations:
+
+\begin{itemize}
+\item \emph{void startScenario(int scen)}: it initializes the data structure to
+  store logs and initializes the \emph{Orchestrator} calling \emph{initScenario}
+  of it.
+\item \emph{void stopScenario(int scen)}: it calls the \emph{stopScenario}
+  operation of the \emph{Orchestrator}. The data structure is not cleaned in
+  this method because all the available logs may be not readed for clients.
+\item \emph{void appendLog(string log)}: this function is called by all
+  components of the  cloud and it appends the log as parameter into the data
+  structure of the \emph{Broker}. 
+\item \emph{string getLastLogs()}: this function returns to the applicant client
+  the last available logs in the log data structure. Then, the log structure is
+  cleaned for appending more log strings.
+\item \emph{void setOrchestrator( Orchestrator *orch )}: it sets up the \emph{Orchestrator} proxy to be
+  used for the \emph{Broker}.
+\end{itemize}
+
+
+\paragraph{Broker Implementation}~\\
+
+The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
+python's libraries needed to implement the software are listed in
+Table~\ref{}
+
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/broker-libraries.tex}
+  }
+  \caption{ICE Broker Python Libraries}
+  \label{table:broker-libraries}
+\end{table}
+
+
+\paragraph{Broker Execution}~\\
+
+To execute the \emph{Processor} module the following dependencies
+are required:
+\begin{itemize}
+\item \emph{ZeroC ICE 3.4} installed.
+\item \emph Ethernet interface for connecting with \emph{IceGrid} locator.
+\item \emph Configuration file for the node. In Section~\ref{subsub:deployment} the
+  automatically deployment and execution is explained. 
+\end{itemize}
 
 
 \subsubsection{Implementation of the Client}
 
-The developed client for testing and checking the funcionality of the cloud
+The client developed for testing and checking the funcionality of the cloud
 architecture were development using the ICE runtime environment as follows:
 \begin{itemize}
 \item Obtaining the \emph{Orchestrator proxy}
-\item Sending \emph{downloadedImage} calls to \emph{Orchestrator}
-\item Calling \emph{getLastLogs} of the \emph{Broker}, periodically.
+\item Sending raw data to  \emph{Orchestrator} by calling \emph{downloadedImage}.
+\item Calling \emph{getLastLogs} function of the \emph{Broker}, periodically.
 \end{itemize}
 
 As future work, the ground stations may be implemented by using the ICE
-middleware for creating an experimentation environment more 
-\paragraph{Implementation}~\\
+middleware.
 
 The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
@@ -1140,10 +1236,24 @@ Table~\ref{table:client-libraries}
   \label{table:client-libraries}
 \end{table}
 
-\paragraph{Execution}~\\
-
+\paragraph{Client Execution}~\\
 
 The execution of the Client is performed as follows:
+
+To execute the \emph{Orchestrator} module the following dependencies
+are required:
+\begin{itemize}
+\item \emph{ZeroC ICE 3.4} installed.
+\item \emph Ethernet interface for connecting with \emph{IceGrid} locator (see
+  Section~\ref{subsub:deployment}.
+\item \emph Configuration file for the locator.
+\end{itemize}
+
+The execution of the client, which is located in ``source/ice/src/client.py'',
+is done as follows:
+\begin{itemize}
+\item[>] python client.py --Ice.Config=cfg/locator.cfg
+\end{itemize}
 
 
 \subsubsection{Deployment}
