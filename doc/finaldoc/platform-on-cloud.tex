@@ -688,26 +688,38 @@ following:
 \item Layer 1: the ZeroC ICE distributed platform. It provides the runtime environment
   where distributed components can be deployed conforming a distributed
   architecture.
-\item Layer 2: the cloud architecture. It defines the components, relations and their
-  interfaces for processing, storing and cataloguing Earth Observation images. 
-\item Layer 3: the architecture components. It defines the basics features that
-  the components require. In this architecture, the following components were defined:
+\item Layer 2: the cloud architecture. It defines the logical nodes in which the
+  servers (components of the system) are deployed.
+\begin{itemize}
+\item Orchestrator node: it is the node in which the \emph{Orchestrator} server
+  is deployed.
+\item \emph{Broker node}: it is the node in which the \emph{Broker} server is
+  deployed.
+\item \emph{Processing Chain node}: it is the node in which the \emph{Processing
+  Chain} server is deployed.
+\item \emph{Archive and Catalogue} node: it is the node in which the
+  \emph{Archive and Catalogue} is deployed.
+\end{itemize}
+\item Layer 3: the architecture servers (also namely component). It defines the basics features such
+  as their relations and interfaces that the components require. In this architecture, the following servers were defined:
 \begin{itemize}
 \item \emph{Client/Ground Stations}: it is the client of the architecture but it
-  is not included into the cloud. It says to the \emph{Orchestrator} that new raw data is available. In this
+  is not included into the cloud. This component is used by the experimenter to
+  initialize the experiment. It says to the \emph{Orchestrator} that new raw data is available. In this
   project the client implementation was done to check the funcionality of the
   architecture. The implementation of the client
   funcionality in the Ground Stations implemented in \vw may be future work.
-\item \emph{Broker}: it acts as an intermediary between the client and the cloud architecture
+\item \emph{Broker} server: it acts as an intermediary between the client and the cloud architecture
   components. 
-\item \emph{Orchestrator}: this component manages the ingestion and the
+\item \emph{Orchestrator} server: this component manages the ingestion and the
   processing the raw data and archiving and cataloguing the images obtained. It was explained in Section~\ref{sub:orch}.
-\item \emph{Processing Chain}: this component proccesses the images downloaded by the
+\item \emph{Processing Chain} server: this component proccesses the images downloaded by the
   \emph{Orchestrator} module and it notifies the \emph{Orchestrator} when it
-  finishes. All \emph{Processing Chains} are joined into a Replica Group namely
+  finishes. All \emph{Processing Chains} servers are joined into a Replica Group namely
   \emph{ProcessingChainReplica module}. It provides the replication service and the load
-  balancing. When it receives a request for processing, it selects the one of \emph{Processing Chain} which less workload has.
-\item \emph{Archive and Catalogue}: it archives and catalogues the images. It was explained in Section~\ref{sub:archive}.
+  balancing. When it receives a request for processing, it selects one of the 
+  \emph{Processing Chain} servers which less workload has.
+\item \emph{Archive and Catalogue} server: it archives and catalogues the images. It was explained in Section~\ref{sub:archive}.
 \end{itemize}
 \end{itemize}
 \begin{figure}[!h]
@@ -722,7 +734,7 @@ following:
 This architecture is independent of the platform when it is executed. There are
 logical nodes in which ICE deploys the servers. These nodes may match with
 physical nodes or may be several logical nodes in the same physical node. The
-ICE runtime manages the location of the nodes and their execution.
+ICE runtime manages the location of the servers and their execution.
 
 Furthermore, the data store is shared between all the servers. This means that the
 components such as the \emph{Orchestrator}, the \emph{Archive and Catalogue} and the
@@ -1112,7 +1124,7 @@ are required:
 \item \emph Configuration file for the node.
 \end{itemize}
  In Section~\ref{subsub:deployment} the
-  automatically deployment and execution of the \emph{Archive and Catalogue} is explained. 
+  automatic deployment and execution of the \emph{Archive and Catalogue} is explained. 
 
 \subsubsection{Implementation of the Broker}
 
@@ -1128,41 +1140,39 @@ The \emph{Broker} component works by following  sequence of steps:
 \item The \emph{Broker Object Adapter} is instantiated and the \emph{Broker} servant is
   added to it.
 \item The  \emph{Broker} creates a data structure for storing the last log
-  received until any client applies for them.
-\item When the \emph{Broker} receives a log, it stores into the data structure.
+  received.
+\item The \emph{Broker} receives a log and it stores it in the data structure.
 \item When the \emph{Broker} receives a request applying for the logs, the
   \emph{Broker} returns them and it cleans the data structure.
-\item When the client invokes the ``startScenario'' of the \emph{Broker}, it
+\item When the experimenter invokes the \emph{startScenario} of the \emph{Broker}, it
   obtains the \emph{Orchestrator} proxy and it calls the remote method
-  ``initScenario'' of the \emph{Orchestrator} interface.
-\item When the client invokes the ``stopScenario of the \emph{Broker}, it
+  \emph{initScenario} of the \emph{Orchestrator} interface.
+\item When the experimenter invokes the \emph{stopScenario} of the \emph{Broker}, it
   obtains the \emph{Orchestrator} proxy and it calls the remote method
-  ``stopScenario'' of the \emph{Orchestrator} interface.
+  \emph{stopScenario} of the \emph{Orchestrator} interface.
 \end{enumerate}
 
 \paragraph{Broker Interfaces}~\\
 
 The \emph{Broker} component has interfaces with the \emph{Orchestrator}, with
-all cloud components for logging and with the \emph{Clients} for sending the
-collecting logs.
+all the cloud components and with the clients used by experimenters.
 
 \subparagraph{Interfaces with the Orchestrator}~\\
 
 The \emph{Broker} module communicates with the \emph{Orchestrator} by using the
 \emph{initScenario} and \emph{stopScenario} calls. The first one is used to
-initialize the scenario in the \emph{Orchestrator} and the second one is used
-to stop the scenario in the \emph{Orchestrator}.
+initialize the experiment in the \emph{Orchestrator} and the second one is used
+to stop the experiment in the \emph{Orchestrator}.
 
 \subparagraph{Interfaces with all the cloud components}~\\
 
-The cloud components communicates with the \emph{Broker} component by using the
-\emph{appendLog} operation. When this operation is invoked, the log passing such
-as parameter is added into the log data structure.  
+The cloud components communicate with the \emph{Broker} by using the
+\emph{appendLog} operation. When this operation is invoked, the log sent as parameter is added in the log data structure.  
 
 \subparagraph{Interfaces with the clients}~\\
 
-The \emph{Clients} invokes the \emph{getLastLogs} procedure in order to obtains
-all logs collected far by.
+The clients invokes the \emph{getLastLogs} procedure in order to obtains
+all the logs collected.
 
 \paragraph{Broker Design}~\\
 
@@ -1171,27 +1181,28 @@ contains the following operations:
 
 \begin{itemize}
 \item \emph{void startScenario(int scen)}: it initializes the data structure to
-  store logs and initializes the \emph{Orchestrator} calling \emph{initScenario}
-  of it.
+  store logs and initializes the \emph{Orchestrator} by calling \emph{initScenario}.
 \item \emph{void stopScenario(int scen)}: it calls the \emph{stopScenario}
   operation of the \emph{Orchestrator}. The data structure is not cleaned in
-  this method because all the available logs may be not readed for clients.
+  this method because all the available logs may not be read by the experimenter
+  client.
 \item \emph{void appendLog(string log)}: this function is called by all
-  components of the  cloud and it appends the log as parameter into the data
+  components of the  cloud and it appends the log as parameter in the data
   structure of the \emph{Broker}. 
 \item \emph{string getLastLogs()}: this function returns to the applicant client
-  the last available logs in the log data structure. Then, the log structure is
+  the last available logs in the log data structure. When finished, the log structure is
   cleaned for appending more log strings.
-\item \emph{void setOrchestrator( Orchestrator *orch )}: it sets up the \emph{Orchestrator} proxy to be
-  used for the \emph{Broker}.
+\item \emph{void setOrchestrator( Orchestrator *orch )}: it sets up the
+  \emph{Orchestrator} proxy passed as parameter to be
+  used by the \emph{Broker}.
 \end{itemize}
 
 
 \paragraph{Broker Implementation}~\\
 
-The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
+The implementation of the \emph{Broker} was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
-Table~\ref{}
+Table~\ref{table:broker-libraries}
 
 \begin{table}[hp]
   \centering
@@ -1205,28 +1216,32 @@ Table~\ref{}
 
 \paragraph{Broker Execution}~\\
 
-To execute the \emph{Processing Chain} module the following dependencies
+To execute the \emph{Broker} module the following dependencies
 are required:
 \begin{itemize}
 \item \emph{ZeroC ICE 3.4} installed.
 \item \emph Ethernet interface for connecting with \emph{IceGrid} locator.
 \item \emph Configuration file for the node. In Section~\ref{subsub:deployment} the
-  automatically deployment and execution is explained. 
+  automatic deployment and its execution of the \emph{Broker} are explained. 
 \end{itemize}
 
 
-\subsubsection{Implementation of the Client}
+\subsubsection{Implementation of the client}
 
 The client developed for testing and checking the funcionality of the cloud
-architecture were development using the ICE runtime environment as follows:
+architecture were developed in the ICE runtime environment. The functionalities
+that the client performs are the following:
 \begin{itemize}
-\item Obtaining the \emph{Orchestrator proxy}
+\item Obtaining the \emph{Orchestrator proxy}.
 \item Sending raw data to  \emph{Orchestrator} by calling \emph{downloadedImage}.
 \item Calling \emph{getLastLogs} function of the \emph{Broker}, periodically.
 \end{itemize}
 
 As future work, the ground stations may be implemented by using the ICE
-middleware.
+middleware. It would provide more transparency and easiness to deploy the
+experiments. Furthermore, it would facilitate the integration with the
+\emph{Orchestrator} by using the \emph{Orchestrator} interface to notify that
+there are new raw data availble.
 
 The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
@@ -1243,9 +1258,7 @@ Table~\ref{table:client-libraries}
 
 \paragraph{Client Execution}~\\
 
-The execution of the Client is performed as follows:
-
-To execute the \emph{Orchestrator} module the following dependencies
+To execute the client attached in the CD-ROM, the following dependencies
 are required:
 \begin{itemize}
 \item \emph{ZeroC ICE 3.4} installed.
@@ -1261,17 +1274,18 @@ is done as follows:
 \end{itemize}
 
 
-\subsubsection{Deployment}
+\subsubsection{Deployment of the ICE architecture}
 \label{subsub:deployment}
 
-The deployment of the distributed application was done using the \emph{IceGrid}
+The deployment of the ICE architecture was done using the \emph{IceGrid}
 and \emph{IcePatch} services. 
 \emph{IceGrid} provides location transparency by using well-known objects and server replication and load
 balancing services by creating replica groups. \emph{IcePatch} is an
-efficient file patching service that is easy to configure and use. It provides the
+efficient file patching service which is easy to configure and use. It provides the
 automatically source distribution to all nodes.
 
-The deployment was made creating a distributed application which is composed by
+The deployment was made creating a distributed application (located in
+``source/ice/app'' folder) which is composed by
 nodes, servers running in the nodes and object adapters created by the servers. 
 The nodes are the logical implementation of a physical node where any kind of
 server can be executed. The nodes created for this deployment were the
@@ -1322,7 +1336,9 @@ by the following command:
 \end{itemize}
 
 where the locator file contains the address of the node where it is located and
-the GeoCloudApp.xml is the application description where the deployment,
+the \emph{GeoCloudApp.xml} is the application description where the deployment,
 replication policies and the different services involve in the distributed
-application are defined.
+application are defined. Executing the \emph{icegridadmin} command and
+installing the application, automatically are deployed and started up the
+servers in their respective node.
 
