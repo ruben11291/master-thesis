@@ -1,13 +1,89 @@
 \section{GEO-Cloud Experiment Results}
 \label{sec:geocloud-results}
 
-In this section, the results obtained of the GeoCloud project 
-
 The first results of the Cloud architecture were obtained from the execution of
-the both first and second scenarios. The time of processing with the processors
-working with images located into their local storage are shown in
-Table~\ref{table:results-processing}. In that table can be seen that it is
-possible to obtain an orthorectified in 8 minutes moreless.  
-Furthermore, the time on delivered the
-images after processing was only the transfer time between the Processing Chain
-to the Archive and Catalogue module. 
+the both first and second scenarios. The GeoCloud results were performed to
+demonstrate that the architecture works as it should. 
+
+The time of processing with the processors working in cloud with images located
+into their local storage are shown in the Table~\ref{table:p-times}. The table
+represents the times of each processor takes for processing an input
+product. The first row of the table shows the real time of the processor wastes
+in processing operations. The system time represents the time that the system
+wastes performing the system calls that the processors do. The elapsed time is
+the total time which the processing takes. The times of every I/O operations are
+included in it.   
+
+\begin{table}[!h]
+  \centering
+  {\small
+  \input{tables/processor-times.tex}
+  }
+  \caption{Processing times of each product processor}
+  \label{table:p-times}
+\end{table}
+
+The L1CT and L1CR are not shown because these processors have not been installed
+by platforms troubles.
+
+Consecuently, these results are contrasted with the times obtained of executing
+the processors in the shared storage. These results are depicted in Table~\ref{table:p-times-shared}
+and there are much difference in terms of time.
+
+\begin{table}[!h]
+  \centering
+  {\small
+  \input{tables/processor-times-shared.tex}
+  }
+  \caption{Processing times of each product processor in the shared storage}
+  \label{table:p-times-shared}
+\end{table}
+
+
+The contrast is clear. The difference consists of the \ac{NFS} used is located
+in other \emph{Fed4FIRE} testbed. It is \emph{IBBT} which is located in
+Ghent(Belgium), so all the I/O operations such as reads and writes are performed
+using the Internet network. The delays on the communications, the congestion of
+the network and the packets distribution algorithms of the network generate that
+huge difference between the times locally performed or the times obtained using
+the shared storage.
+
+To corroborate that hypotesis, a performance test in the shared storage was carried out. This test
+consists of executing the following command:
+\begin{itemize}
+\item[>] dd if=/dev/zero of=/mnt/shared/test-performance bs=1M count=2560
+  conv=fdatasync
+\end{itemize}
+It measures the write rate to the shared storage. The result obtained was the
+following:
+\begin{itemize}
+\item 2684354560 bytes (2.7 GB) copied, 1174.6 s, 2.3 MB/s
+\end{itemize}
+
+Then, the command was repeated for executing in the local storage as follows:
+\begin{itemize}
+\item[>] dd if=/dev/zero of=/mnt/local/test-performance bs=1M count=2560
+  conv=fdatasync
+\end{itemize}
+
+It measures the write rate to the shared storage. The result obtained was the
+following:
+\begin{itemize}
+\item 2684354560 bytes (2.7 GB) copied, 50.975 s, 52.7 MB/s
+\end{itemize}
+
+Thus it is concluded that the bottleneck obtained in the products processors
+implemented in the shared storage is due to the implementation of the \ac{NFS}
+storage which the
+\emph{Fed4FIRE} testbed has implemented.
+
+Furthermore, the cataloguing time of any image is near to cero in the local
+implementation of the storage and it is nil in the implementation of the shared
+storage. In the first one exists a data transfer  between the \emph{Processing
+  Chain} and the \emph{Archive and Catalogue} modules. Althought
+the data transfer rate between \bonfire machines is 1 Gbps, so the transferring
+time is short. However in the second one, these transfers are avoided so the
+storing and archiving is inmediately done.
+
+Finally, a video of a real time system execution is included in the CD-ROM.
+

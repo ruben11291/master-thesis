@@ -186,7 +186,7 @@ catalogue sub-modules:
 
 
 \subsection{Implementation of the cloud architecture using SSH and SCP}
-
+\label{subsec:ssh-cloud}
 The cloud implementation using \ac{SSH} and \ac{SCP} is based in the following
 components:
 \begin{itemize}
@@ -680,9 +680,18 @@ For implementing the \emph{Archive and Catalogue} module the following steps wer
 ZeroC ICE provides multiple services to create distributed
 architectures. By using its replication service, load balancing and location
 transparency the following architecture can be obtained.
-The components of the architecture implemented with ZeroC ICE are represented in Figure~\ref{fig:ice-architecture}. This components are the
+The components of the architecture implemented with ZeroC ICE and their
+interrelations are represented in Figure~\ref{fig:ice-architecture}. The layers
+of the cloud architecture are the
 following:
-
+\begin{itemize}
+\item Layer 1: the ZeroC ICE distributed platform. It provides the runtime environment
+  where distributed components can be deployed conforming a distributed
+  architecture.
+\item Layer 2: the cloud architecture. It defines the components, relations and their
+  interfaces for processing, storing and cataloguing Earth Observation images. 
+\item Layer 3: the architecture components. It defines the basics features that
+  the components require. In this architecture, the following components were defined:
 \begin{itemize}
 \item \emph{Client/Ground Stations}: it is the client of the architecture but it
   is not included into the cloud. It says to the \emph{Orchestrator} that new raw data is available. In this
@@ -693,14 +702,14 @@ following:
   components. 
 \item \emph{Orchestrator}: this component manages the ingestion and the
   processing the raw data and archiving and cataloguing the images obtained. It was explained in Section~\ref{sub:orch}.
-\item \emph{Processor}: this component proccesses the images downloaded by the
+\item \emph{Processing Chain}: this component proccesses the images downloaded by the
   \emph{Orchestrator} module and it notifies the \emph{Orchestrator} when it
-  finishes. All \emph{Processors} are joined into a Replica Group namely
+  finishes. All \emph{Processing Chains} are joined into a Replica Group namely
   \emph{ProcessingChainReplica module}. It provides the replication service and the load
   balancing. When it receives a request for processing, it selects the one of \emph{Processing Chain} which less workload has.
 \item \emph{Archive and Catalogue}: it archives and catalogues the images. It was explained in Section~\ref{sub:archive}.
 \end{itemize}
-
+\end{itemize}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{cloud/second-architecture.jpg}
@@ -709,16 +718,17 @@ following:
 \end{center}
 \end{figure}
 
+
 This architecture is independent of the platform when it is executed. There are
 logical nodes in which ICE deploys the servers. These nodes may match with
 physical nodes or may be several logical nodes in the same physical node. The
-ICE runtime manages the location of the nodes and its execution.
+ICE runtime manages the location of the nodes and their execution.
 
-Furthermore, the data store is shared between all servers. It means that the
+Furthermore, the data store is shared between all the servers. This means that the
 components such as the \emph{Orchestrator}, the \emph{Archive and Catalogue} and the
-\emph{Processors} share the same logical memory space and they can write or read data
-at same time. This implementation avoid the file transfers and it does the cloud
-more clear, dynamic and scalable.
+\emph{Processing Chains} share the same logical memory space and they can write or read data
+at the same time. This implementation avoids the file transfers and it does the
+cloud infrastructure clearer, more dynamic and scalable.
 
 In the following sections the  ICE interfaces between these components are
 shown and the previous modules modules are explained. Their design and
@@ -729,8 +739,8 @@ deployment of the software in each module is explained in detail.
 
 The distributed application using ZeroC ICE was made using a slice file namely
 ``Geocloud.ice''for
-specifying the components interfaces. These interfaces allows the transparently
-communication between these components. The slice file is listed in Listing~\ref{code:ice-slice}.
+specifying the  interfaces between components. These interfaces allows the transparently
+communication between the components. The slice file is listed in Listing~\ref{code:ice-slice}.
 
 
 \begin{listing}[
@@ -787,13 +797,12 @@ module geocloud {
 
 \subsubsection{Implementation of the Orchestrator}
 
-The second implementation of this cloud architecture is based in the ZeroC ICE
-middleware. The Orchestrator performs the same task that in the other
-architecture. It connects with the ground stations over \ac{FTP} connections and
-then, the communications between the component of the cloud are done using the
-Ice interfaces of each component. Ice uses \ac{TCP} protocol by default.
+The Orchestrator performs the same task that in the architecture based in
+\ac{SSH} and \ac{SCP} (see Section~\ref{subsec:ssh-cloud}). It connects with the ground stations over \ac{FTP} connections and
+then, the communications between the components of the cloud are done by using the
+ICE interfaces of each component. ICE uses \ac{TCP} protocol by default.
 
-\paragraph{ Orchestrator Workflow}~\\
+\paragraph{Orchestrator Workflow}~\\
 
 The \emph{Orchestrator} component works by following the next sequence of steps:
 \begin{enumerate}
@@ -806,26 +815,26 @@ The \emph{Orchestrator} component works by following the next sequence of steps:
   stations \ac{IP} addresses and the \ac{FTP} credentials.
 \item The \emph{LoadData object} gets all the information about the \emph{Ground
     Stations Simulators} and localizes them.
-\item The \emph{Listener} processor pools the \emph{Ground Stations} and when there are
+\item The \emph{Listener} pools the \emph{Ground Stations} and when there are
   a downloadable raw data, the Orchestrator's function \emph{donwloadedImage} is
-  called passing as argument the absolute path of the image. 
+  called passing the absolute path of the image as parameter. 
 \item  When the \emph{downloadedImage} is called, the \emph{Orchestrator}
   obtains the data.
 \item  The \emph{Orchestrator} moves the raw data to a shared storage.
-\item Then, the \emph{Orchestrator} makes different \emph{Job Orders} for the processors. The \emph{Job Order} contains all the useful information for the \emph{Product Processors} to proceed with the image processing.
+\item Then, the \emph{Orchestrator} makes different \emph{Job Orders} for the Processing Chains. The \emph{Job Order} contains all the required information by the \emph{Product Processing Chains} to proceed with the image processing.
 \item The \emph{Orchestrator} gets the \emph{ProcessorChainReplica} proxy (this
-  replica group contains all the processors in the cloud) and calls the
+  replica group contains all the Processing Chains in the cloud) and calls the
   \emph{processImage} operation of the proxy.
-\item When the selected processor finishes, it calls the \emph{processedImage}
+\item When the selected Processing Chain finishes, it calls the \emph{processedImage}
   operation of the \emph{Orchestrator}.
 \item The \emph{Orchestrator} obtains the \emph{Archive and Catalogue} proxy and
   sends the absolute path of the image for archiving and cataloguing.
 \end{enumerate}
 
-\paragraph{ Orchestrator Interfaces}~\\
+\paragraph{Orchestrator Interfaces}~\\
 
 The \emph{Orchestrator} has interfaces with the Ground Stations implemented in
-\emph{Virtual Wall}. Moreover this component  communicates with the \emph{Product Processors} through the Replica
+\emph{Virtual Wall}. Moreover this component  communicates with the \emph{Product Processing Chains} through the Replica
 Group and with the
 \emph{Archive and Catalogue}. 
 
@@ -835,17 +844,17 @@ Group and with the
 The \emph{Ground Stations} are deployed in some \emph{Virtual Wall} nodes. In
 those, the impairments and features of the network are simulated. Essentially,
 the \emph{Orchestrator} is pooling those \emph{Ground Stations} over \ac{FTP}
-connections to know when a raw data is available. So, this Ground Stations are
-\ac{FTP} servers in which the \emph{Orchestrator} can get the raw data obtained
+connections to know when new raw data is available. So, this Ground Stations are
+\ac{FTP} servers in which the \emph{Orchestrator} can get the raw data recorded
 by the constellation of satellites. 
 As the ICE implementation could not be
 deployed in the \bonfire platform, the checking and testing of funcionalities
 were locally done. Thus, a client playing as a Ground Station was developed in
-order to check and validate the architecture. It is described in Section\~{}. 
+order to check and validate the architecture. 
 
-\subparagraph{Interfaces with the  Processors}~\\
+\subparagraph{Interfaces with the  Processing Chains}~\\
 
-The interfaces which the \emph{Processors} provides are listed in
+The interfaces which the \emph{Processing Chains} provides are listed in
 Listing~\ref{code:ice-slice}. The operations that the \emph{Orchestrator} uses
 are \emph{processImage} and \emph{setOrchestrator} operations. 
 
@@ -856,35 +865,34 @@ Listing~\ref{code:ice-slice}. The operation that the \emph{Orchestrator} uses is
 the \emph{catalogue} operation.
 
 
-\paragraph{ Orchestrator Design}~\\
+\paragraph{Orchestrator Design}~\\
 
 The \emph{Orchestrator} module implements the \emph{Orchestrator} interface
 which contains the following operations:
 \begin{itemize}
 \item \emph{void initScenario(int scen)}: it initializes the scenario in the
   module.
-\item \emph{void downloadedImage(string path)}: it indicates to
-  \emph{Orchestrator} that an image is available for processing in the specified
+\item \emph{void downloadedImage(string path)}: it indicates to the
+  \emph{Orchestrator} that an image is available to be processed  in the specified
   path.
-\item \emph{void imageProcessed(string path)}: the processors call this function
-  to indicate to \emph{Orchestrator} that the processing of the image has
+\item \emph{void imageProcessed(string path)}: the Processing Chains call this function
+  to indicate to the \emph{Orchestrator} that the processing of the image has
   finished, so the \emph{Orchestrator} can archive and catalogue it.
-\item \emph{void imageCatalogued(string path)}: the catalogue module uses it for
-  notifying to \emph{Orchestrator} that the image located in ``path'' was
+\item \emph{void imageCatalogued(string path)}: the catalogue module uses this
+  function to notify the \emph{Orchestrator} that the image located in ``path'' was
   archived and catalogued.
 \item \emph{void stopScenario(int scen)}: it stops the scenario in the
-  \emph{Orchestrator}. Furthermore, it stops all the processing chains working.
+  \emph{Orchestrator}. Furthermore, it stops all the existing processing chains working.
 \end{itemize}
 
 The requests are served when they come to the \emph{Orchestrator} module. If
 other request comes and the processing chains are busy, they are automatically queued by the
 ICE execution core. Thus, it is not necessary to maintain a queuing algorithm in
 the \emph{Orchestrator}. However it is necessary to have some data structures, in
-this case dictionaries) to temporaly store the images which are en different stages.
+this case dictionaries to temporaly store the images which are in different stages.
 
-Furthermore, when the \emph{Orchestrator} is initialized the Listener process is
-accomplished. It listen the \ac{FTP} connections with the ground stations for
-detecting and downloading new raw data. This process is always pooling the
+Furthermore, when the \emph{Orchestrator} is initialized the \emph{Listener} process is
+accomplished. It listens the \ac{FTP} connections with the ground stations to detect and download new raw data. This process is always pooling the
 ground stations until the \emph{Orchestrator} execution ends.
 
 \paragraph{Orchestrator Implementation}~\\
@@ -898,7 +906,7 @@ Table~\ref{table:orches-second-libraries}
   {\small
   \input{tables/orches-second-libraries.tex}
   }
-  \caption{ICE Orchestrator Python Libraries}
+  \caption{ICE \emph{Orchestrator} Python Libraries}
   \label{table:orches-second-libraries}
 \end{table}
 
@@ -908,80 +916,79 @@ To execute the \emph{Orchestrator} module the following dependencies
 are required:
 \begin{itemize}
 \item \emph{ZeroC ICE 3.4} installed.
-\item \emph Ethernet interface for connecting with \emph{IceGrid} locator (see Section~\ref{subsub:deployment}.
+\item \emph Ethernet interface for connecting with the \emph{IceGrid} locator (see Section~\ref{subsub:deployment}).
 \item \emph Configuration file for the node.
 \end{itemize}
  In Section~\ref{subsub:deployment} the
-  automatically deployment and execution is explained. 
+  automatic deployment and execution of this module is explained. 
 
-\subsubsection{Implementation of the  Processor}
+\subsubsection{Implementation of the  Processing Chain}
 
-The \emph{Processor} component process the raw data to obtain a
-geolocated image. It executes all product processor stages and notifies the
-\emph{Orchestrator} server for cataloguing. The background filesystem where it
-is implemented and executed is a shared storage, so all the necessary files are
-located in that shared memory space as the Section~\ref{par:pp-impl}
-explained. Moreover, all the instantiated \emph{Processors} forming part of the
+The \emph{Processing Chain} component processes the raw data to obtain a calibrated,
+geolocated and orthorectified image. It executes all the product processor stages and notifies the
+\emph{Orchestrator} server The background filesystem, where the cloud based in
+ICE are implemented and executed, is a shared storage, so all the necessary files are
+located in that shared memory space  explained in Section~\ref{par:pp-impl}. Moreover, all the instantiated \emph{Processing Chains} form part of the
 \emph{ProcessingChainReplica} in order to provide load balancing and dynamic
-replication service. 
+replication services. 
 
 
-\paragraph{Processor Workflow}~\\
+\paragraph{Processing Chain Workflow}~\\
 
-The \emph{Processor} component works by following the next sequence of steps:
+The \emph{Processing Chain} component works by following the next sequence of steps:
 
 \begin{enumerate}
 \item The \emph{setOrchestrator} operation is invoked for setting up the
-  \emph{Orchestrator} into the \emph{Processor}.
-\item When the \emph{Orchestrator} invokes the \emph{processImage} fuction by sending
-  the absolute path where the image is located.
-\item The \emph{Archive and Catalogue} module uses the \ac{API} of GeoServer for
-  connecting it.
-\item The image is sent for storing and cataloguing.
-\item The \emph{Processor} is ready for processing other image.
+  \emph{Orchestrator} in the \emph{Processing Chain}.
+\item When the \emph{Orchestrator} invokes the \emph{processImage} fuction, the
+  \emph{Processing Chain} starts to transform the raw data located in path.
+\item When all the stages have been performed, the \emph{Processing Chain} calls the
+  \emph{processedImage} of the \emph{Orchestrator}.
+\item The \emph{Processing Chain} is ready for processing other image.
 \item If the \emph{shutdown} function is called by the \emph{Orchestrator}, the
-  processor is turned off.
+ \emph{Processing Chain} is turned off.
 \end{enumerate}
 
 
-\paragraph{Processor Interfaces}~\\
+\paragraph{Processing Chain Interfaces}~\\
 
-The \emph{Processor} component has interfaces with the \emph{Orchestrator}.
+The \emph{Processing Chain} component has interfaces with the \emph{Orchestrator}.
 
-\subparagraph{Interfaces with the Orchestrator}
+\subparagraph{Interfaces with the Orchestrator}~\\
 
-The \emph{Processor} server receives the order for processing an image. When the
-processing finished, the \emph{Processor} notifies the \emph{Orchestrator} by
+The \emph{Processing Chain} server receives the order to process an image. When the
+processing is finished, the \emph{Processing Chain} notifies the end of the
+processing to the \emph{Orchestrator} by
 calling the \emph{imageProcessed} function.
 
-\paragraph{Processor Design}~\\
+\paragraph{Processing Chain Design}~\\
 
-The \emph{Processor} module implements the \emph{Processor} interface which
+The \emph{Processing Chain} module implements the \emph{Processor} interface, which
 contains the following operations:
 
 \begin{itemize}
 \item \emph{void processImage(string path)}: it is invoked by the
   \emph{Orchestrator} in order to process the image located in path. Thus, all
-  the product processors are sequentially executed and the \emph{processedImage}
+  the product Processing Chains are sequentially executed and the \emph{processedImage}
   of the \emph{Orchestrator} is called. 
 \item \emph{void shutdown()}: this funcion turns off the proccesor.
 \item \emph{setOrchestrator()}: it sets up the \emph{Orchestrator} proxy to be
-  used for the \emph{Processor}.
+  used for the \emph{Processing Chain}.
 \end{itemize}
 
-\subparagraph{ProcessingChainReplica}
+\subparagraph{ProcessingChainReplica}~\\
 
-This component involves all the \emph{Processors} in the ICE application. It
+This component involves all the \emph{Processing Chains} in the ICE application. It
 provides two services: dynamic replication and load balancing. The first
-of them is used for creating new \emph{Processors} on demand. The second one 
-servers the incoming petitions searching the less overloaded \emph{Processor}
+of service is used for creating new on demand \emph{Processing Chains}. The second
+one service servers the incoming petitions searching the less overloaded \emph{Processing Chain}
 and returning its proxy for carrying out the request.
 
-\paragraph{Processor Implementation}~\\
+\paragraph{Processing Chain Implementation}~\\
 
 The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
-Table~\ref{}
+Table~\ref{table:processor-second-libraries}.
 
 \begin{table}[hp]
   \centering
@@ -992,23 +999,22 @@ Table~\ref{}
   \label{table:processor-second-libraries}
 \end{table}
 
-\paragraph{Processor Execution}~\\
+\paragraph{Processing Chain Execution}~\\
 
-To execute the \emph{Processor} module the following dependencies
+To execute the \emph{Processing Chain} module the following dependencies
 are required:
 \begin{itemize}
 \item \emph{ZeroC ICE 3.4} installed.
 \item \emph Ethernet interface for connecting with \emph{IceGrid} locator.
 \item \emph Configuration file for the node. In Section~\ref{subsub:deployment} the
-  automatically deployment and execution is explained. 
+  automatic deployment of the \emph{Processing Chain} and its execution are explained. 
 \end{itemize}
 
 \subsubsection{Implementation of the Archive and Catalogue}
 
-The second implementation of the \emph{Archive and Catalogue} component using
+The implementation of the \emph{Archive and Catalogue} component using
 ZeroC ICE was
-performed for archiving and cataloguing the geolocated images which were
-processed in the simulation of the defined scenarios. It uses the
+performed to archive and catalogue the processed images. It uses the
 \emph{GeoServer} software and the Python library (Gsconfig) to catalogue and
 archive the images.
 
@@ -1023,8 +1029,8 @@ The \emph{Archive and Catalogue} component works by following the next sequence 
 \item When the initialization of a scenario is called, a workspace is created.
 \item Then, when a image is requested for cataloguing, the module communicates with the
   \emph{GeoServer} software by the library to catalogue. 
-\item Some images can be catalogued in the same scenario.
-\item When the scenario ends, the \emph{deleteScenario} is invoked and the
+\item The images are catalogued in the same workspace.
+\item When the scenario ends, \emph{deleteScenario} is invoked and the
   workspace is deleted.
 \end{enumerate}
 
@@ -1033,25 +1039,25 @@ The \emph{Archive and Catalogue} component works by following the next sequence 
 The \emph{Archive and Catalogue} module has interfaces with the
 \emph{Orchestrator} and the \emph{GeoServer} software.
 
-\subparagraph{Interfaces with the Orchestrator}
+\subparagraph{Interfaces with the Orchestrator}~\\
 
-The \emph{Archive and Catalogue} module notifies the \emph{Orchestrator} by
+The \emph{Archive and Catalogue} module notifies a images was catalogue to the \emph{Orchestrator} by
 using the \emph{imageCatalogued} call when a
-image was catalogued.
+image is catalogued.
 
 \subparagraph{Interfaces with the GeoServer software}~\\
 
-The \emph{GeoServer} software provides a Python library namely
+The \emph{GeoServer} software provides a Python library named
 \emph{Gsconfig}. The official page of this library is
 \url{https://github.com/boundlessgeo/gsconfig}. Using this library, operations
 with layers, images, tilesets or storages can be done. The provided operations
 for cataloguing ``tiff'' images (the default format for geodata images) were
-used in this project.
+used.
 
 \paragraph{Archive and Catalogue Design}~\\
 
 The \emph{Archive and Catalogue} module implements the \emph{Archive and
-  Catalogue} interface which contains the following operations:
+  Catalogue} interface, which contains the following operations:
 
 \begin{itemize}
 \item \emph{void createScenario(string scenario)}: it is invoked by the
@@ -1059,9 +1065,9 @@ The \emph{Archive and Catalogue} module implements the \emph{Archive and
   platform for storing the images.
 \item \emph{void catalogue(string path, string storage,string scenario)}: It
   catalogues the image located in path, it creates the storage where the image is
-  stored and it creates the workspace namely scenario.
+  stored and it creates the workspace named scenario.
 \item \emph{void deleteScenario(string scenario)}: it deletes the workspace created
-  for carrying out the scenario.
+  to carry out the experiment.
 \end{itemize}
 
 
@@ -1069,7 +1075,7 @@ The \emph{Archive and Catalogue} module implements the \emph{Archive and
 
 The implementation of this module was done in Python 2.7 using ZeroC ICE 3.4. The
 python's libraries needed to implement the software are listed in
-Table~\ref{table:ayc-second-libraries}
+Table~\ref{table:ayc-second-libraries}.
 
 \begin{table}[hp]
   \centering
@@ -1082,42 +1088,41 @@ Table~\ref{table:ayc-second-libraries}
 
 The \emph{Gsconfig} library was manually installed as follows:
 \begin{itemize}
-\item The library obtained from the following url: \url{https://github.com/boundlessgeo/gsconfig}.
+\item The library is obtained from the following url: \url{https://github.com/boundlessgeo/gsconfig}.
 \item Firstly, the ``Python-pip''  package is installed.
 \item Then just execute ``pip install gsconfig''.
 \end{itemize}
 
-Then, the \emph{GeoServer} software was required to be installed. For that purpose, the
+The \emph{GeoServer} software was required to be installed. For that purpose, the
 \emph{Apache Tomcat} server was installed. Then, the ``war''
-file which contains the \emph{GeoServer} software was downloaded from the official webpage and
-it was installed into the \emph{Tomcat} server.
+file which contains the \emph{GeoServer} software was downloaded from the
+official webpage and it was installed into the \emph{Tomcat} server.
 
 \paragraph{Archive and Catalogue Execution}~\\
 
-To execute the \emph{Orchestrator} module the following dependencies
+To execute the \emph{Orchestrator} module, the following dependencies
 are required:
 \begin{itemize}
 \item \emph{ZeroC ICE 3.4} installed.
-\item \emph Ethernet interface for connecting with \emph{IceGrid} locator (see
-  Section~\ref{subsub:deployment}.
-\item \emph{Apache Tomcat}
-\item \emph{Geoserver with the \ac{CSW} plugin}
-\item \emph{Gsconfig library installed}
+\item \emph Ethernet interface for connecting with the \emph{IceGrid} locator (see
+  Section~\ref{subsub:deployment}).
+\item \emph{Apache Tomcat}.
+\item \emph{Geoserver with the \ac{CSW} plugin}.
+\item \emph{Gsconfig library installed}.
 \item \emph Configuration file for the node.
 \end{itemize}
  In Section~\ref{subsub:deployment} the
-  automatically deployment and execution is explained. 
+  automatically deployment and execution of the \emph{Archive and Catalogue} is explained. 
 
 \subsubsection{Implementation of the Broker}
 
-The \emph{Broker} component perform the initialization and the stop of the
-scenarios. In addition, it collects the cloud components logs in order to
-provide them to \emph{Client} when it applies for them.
+The \emph{Broker} component performs the initialization and the stop of the
+experiments. In addition, it collects the which are accesible by the experimenters.
 
 \paragraph{Broker Workflow}~\\
 
-The \emph{Broker} component works by following the next sequence of steps:
-\begin{itemize}
+The \emph{Broker} component works by following  sequence of steps:
+\begin{enumerate}
 \item The ICE core application is initialized and the ICE communicator is
   created.
 \item The \emph{Broker Object Adapter} is instantiated and the \emph{Broker} servant is
@@ -1133,7 +1138,7 @@ The \emph{Broker} component works by following the next sequence of steps:
 \item When the client invokes the ``stopScenario of the \emph{Broker}, it
   obtains the \emph{Orchestrator} proxy and it calls the remote method
   ``stopScenario'' of the \emph{Orchestrator} interface.
-\end{itemize}
+\end{enumerate}
 
 \paragraph{Broker Interfaces}~\\
 
@@ -1200,7 +1205,7 @@ Table~\ref{}
 
 \paragraph{Broker Execution}~\\
 
-To execute the \emph{Processor} module the following dependencies
+To execute the \emph{Processing Chain} module the following dependencies
 are required:
 \begin{itemize}
 \item \emph{ZeroC ICE 3.4} installed.
@@ -1278,7 +1283,7 @@ following:
   server. The \emph{GeoServer} software is also included.
 \item \emph{Broker node}: it contains the \emph{Broker} server which acts as an
   intermediate between the cloud architecture and the client or ground stations.
-\item \emph{Processor node}: it contains a \emph{Processor} server. 
+\item \emph{Processing Chain node}: it contains a \emph{Processing Chain} server. 
 \end{itemize}
 
 

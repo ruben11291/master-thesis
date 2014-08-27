@@ -108,9 +108,7 @@ interfaces and relationships between all the cloud components were analysed.
 The basic architecture of the Orchestrator component were
 designed, drafted and some \ac{UML} diagrams were pictured. 
 
-Regarding the \sss, the data files of the defined scenarios such as satellite accesses,
-time of each satellite is inside a footprint and the numbers of acquired images per
-satellite were obtained. Then, a data analysis was carried out in order
+Regarding the \sss, the data files from \ac{STK} software were obtained. Then, a data analysis was carried out in order
 to design and build the data base and its associated script to fill it.
 
 
@@ -252,7 +250,7 @@ The training time of this project comprises from 3rd of February to 10th of
 March (24 days). The approximated daily dedicated time is 8 hours and the
 considered price for that period of time was \EUR{15}/hour. The approximated
 dedicated time for the implementation of the system was 8 hours daily
-during 105 days which add in a total of 840 hours in that period. It was considered an average
+during 105 days i.e. 840 hours in that period. It was considered an average
 price of \EUR{15}/hour a programmer (reference prices acquired from
 \url{https://freelance.infojobs.net/freelancers}). The Table~\ref{table:economical-breakdown} shows the breakdown of resources used during the development.
 
@@ -269,7 +267,26 @@ price of \EUR{15}/hour a programmer (reference prices acquired from
 \subsection{Repository statistics}
 
 The source version control tool used in the development of this project was \emph{Git}
-supported by the \emph{Bitbucket} repository service.
+supported by the \emph{Bitbucket} repository service. In Figure~\ref{fig:source-lines} the
+evolution of the source code is shown. Furthermore, the number of commits
+performed during the development of the project and the documentation are
+represented in Figure~\ref{fig:commits}.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{evolucion/source-lines.png}
+\caption{Source code evolution}
+\label{fig:source-lines}
+\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{evolucion/commits.png}
+\caption{Evolution of the number of commits}
+\label{fig:commits}
+\end{center}
+\end{figure}
 
 The \emph{Cloc} tool was used for counting the source lines of code of all the
 programming languages in which
@@ -277,7 +294,7 @@ GeoCloud was developed. This tool counts all lines of the code differentiating
 between code, blank lines and comment lines properly. The Table~\ref{table:git-statistics} shows the
 execution results of \emph{Cloc} in the source folder.
 
-\begin{table}[hp]
+\begin{table}[!h]
   \centering
   {\small
   \input{tables/source-lines.tex}
@@ -285,3 +302,4 @@ execution results of \emph{Cloc} in the source folder.
   \caption{Number of source lines of code of project}
   \label{table:git-statistics}
 \end{table}
+

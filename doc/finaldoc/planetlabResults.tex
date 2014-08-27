@@ -18,10 +18,29 @@ station]{\includegraphics[scale=0.35]{resultsPL/DelayHistGSChetumal.pdf}
 
 The previous procedure was followed for the rest of the nodes. In
 Figure~\ref{fig:bandwidth-plot} the mean and the standard deviation for each
-node are depicted respectively. It can be observed that in general, the bandwidth decreases when the distance between nodes increases. However the node 5 in Madrid presents a higher dispersion in the bandwidth value with respect to the rest of nodes. It has a bandwidth of $15.2~Mbps$. The measurements were fitted with different functions by using the least squares optimization method. For each fitted function the $R^2$ coefficient of determination, which varies between 0 and 1, and indicates how well the statistical distribution is fitted. The highest the value of the $R^2$, the better the fitting. The following results were obtained: $Bandwidth=4.655e^{-10^{-4}x}$, $R^2=0.5454$; $Bandwidth=-3\cdot10^{-4}x+4.9444$, $R^2=0.3628$ and $Bandwidth=-1.519Ln(x)+15.325$, $R^2=0.4539$, where $x$ is the distance between any node and the central node in $km$. The bandwidth was obtained in $Mbps$. However, the hyperbolic function was the one that best fitted the distribution:
+node are depicted respectively. It can be observed that in general, the
+bandwidth decreases when the distance between nodes increases. However the node
+5 in Madrid presents a higher dispersion in the bandwidth value with respect to
+the rest of nodes. It has a bandwidth of $15.2~Mbps$. The measurements were
+fitted with different functions by using the least squares optimization
+method. Exponential, polynomial, logarithm and hyperbolic functions were used to
+fit the samples. For each fitted function the $R^2$ coefficient of
+determination, which varies between 0 and 1, and indicates how well the
+statistical distribution is fitted. The highest the value of the $R^2$, the
+better the fitting. The following results were obtained: for exponential
+function: $Bandwidth=4.655e^{-10^{-4}x}$,$R^2=0.5454$; for polynomial function
+$Bandwidth=-3\cdot10^{-4}x+4.9444$, $R^2=0.3628$ and for logarithm function $Bandwidth=-1.519Ln(x)+15.325$, $R^2=0.4539$, where $x$ is the distance between any node and the central node in $km$. The bandwidth was obtained in $Mbps$. However, the hyperbolic function was the one that best fitted the distribution:
 \begin{equation}\label{eq:bandwidth_fitting}
 Bandwidth=184.91x^{-0.547};~R^2=0.582
 \end{equation}
+
+\begin{center}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{resultsPL/bandwidthall.pdf}\\
+  \caption{Bandwidth of all nodes} \label{fig:bandwidth-plot}
+\end{figure}
+\end{center}
 
 Figure~\ref{fig:delay-plot} shows the mean and standard
 deviation of the latency measured in all the nodes connecting the central node
@@ -31,10 +50,30 @@ Latency=0.0228x+17.88;~R^2=0.8927
 \end{equation}
 The latency is obtained in $ms$ when the distance $x$ is introduced in $km$.
 
-Figure~\ref{fig:loss-rate-plot} shows the loss rate between any node and the central node during the whole execution of the experiment. In most of the communications the loss rate was under 0.2\%. Two cases are remarkable: on the one hand, between the node 20 in Russia and the central node 0\% of loss rate was measured, which means that no packets were lost; on the other hand, between Greece (node 15) and the central node, a loss rate of 15.68\% was measured, maybe because of interruptions in the network, overload of the server in Greece or routed network fails. The mean of the loss rates between all the communications was 0.053\% with a standard deviation of 0.097\% without considering the node in Greece in the calculations.
+
+\begin{center}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{resultsPL/DelayNodes.pdf}\\
+  \caption{Latency of all nodes} \label{fig:delay-plot}
+\end{figure}
+\end{center}
+
+Figure~\ref{fig:loss-rate-plot} shows the loss rate between any node and the central node during the whole execution of the experiment. In most of the communications the loss rate was under 0.2\%. Two cases are remarkable: on the one hand, between the node 20 in Russia and the central node 0\% of loss rate was measured, which means that no packets were lost; on the other hand, between Greece (node 16) and the central node, a loss rate of 15.68\% was measured, maybe because of interruptions in the network, overload of the server in Greece or routed network fails. The mean of the loss rates between all the communications was 0.053\% with a standard deviation of 0.097\% without considering the node in Greece in the calculations.
 
 Table~\ref{anex:nodes-pl-results} summarizes the obtained measures. Column 5 and 6 show the mean and
 the standard deviation of the bandwidth measured in all the nodes connecting the
 central node in France. Column 7 and 8 also depict the mean and standard
 deviation of the latency in the nodes. Finally, column 9 represents the measured
 loss-rate between any node and the central node during the experiment.
+
+
+
+
+\begin{center}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{resultsPL/Loss-rateALL.png}\\
+  \caption{Bandwidth of all nodes.} \label{fig:loss-rate-plot}
+\end{figure}
+\end{center}
