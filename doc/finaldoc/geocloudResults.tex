@@ -1,32 +1,184 @@
 \section{GEO-Cloud Experiment Results}
 \label{sec:geocloud-results}
 
-The first results of the Cloud architecture were obtained from the execution of
-the both first and second scenarios. The GeoCloud results were performed to
-demonstrate that the architecture works as it should. 
+The scope of this project is to develop and implement in a Federated Future
+Internet infrastructure a simulation environment that allows experimenters
+testing different realistic Earth Observation scenarios, in which a
+constellation of satellites record images of the world surface in a daily basis,
+downloaded to a distributed network of ground stations a processed and
+distributed through a data center computed in cloud.
 
-The time of processing with the processors working in cloud with images located
-into their local storage are shown in the Table~\ref{table:p-times}. The table
-represents the times of each processor takes for processing an input
-product. The first row of the table shows the real time of the processor wastes
-in processing operations. The system time represents the time that the system
-wastes performing the system calls that the processors do. The elapsed time is
-the total time which the processing takes. The times of every I/O operations are
-included in it.   
+The experiment carried out to demonstrate the correct implementation of the
+GEOCloud system consisted in the execution of the ``Scenario 1: Emergencies-Lorca’s Earthquake'' (see Section~\ref{anex:scenarios}). This scenario focuses in the Earthquake that
+took place in the city of Lorca in May 11th 2011. When the natural disaster occurred
+it was required to have as soon as possible recent images of the affected area in
+order to assess the damages and plan the emergency services
+involvement. Satellite imagery has been proven to be an indispensable tool to
+face natural disasters. Satellite imagery is then required before, during and
+after the disaster occurred. 
+
+Firstly, the whole system was started and configured, and the graphical user
+interface executed. Notice that the Ground Stations of the \sss was configured with
+the network impairments measured in the PlanetLab experiment (see
+Section~\ref{sec:pl-res}). The Table~\ref{table:gs-results} shows these values.
+
+\begin{table}[!h]
+  \centering
+  {\small
+  \input{tables/gs-results.tex}
+  }
+  \caption{Impairments by Ground Station implemented in \vw}
+  \label{table:gs-results}
+\end{table}
+
+
+
+Once the experiment was started by clicking the start button in the \ac{GUI} the system started working in an integrated fashion:
+\begin{itemize}
+\item The satellite connects with the Ground Station.
+\item The satellite downloads the acquired data to the Ground Station.
+\item The cloud ingests, process, archive and catalogue the images resulting
+  from processing the acquired data by the satellites.
+\end{itemize}
+
+
+In the simulation of the scenario, the \vw nodes were reached and they received
+the command to start the scenario. These nodes are the 12 Ground Stations and
+the constellation formed by 17 satellites. The Ground Stations were initialized by
+the \emph{GUI} by sending the identity of the Ground Station for each one, and
+the scenario to simulate. 
+The same occurs for the satellite constellation. The \ac{GUI} sends each satellite the
+identification of the satellite and the scenario to simulate.
+ The \satss and the \gsss started their executions. The satellites act regarding the data obtained from the \ac{STK} software. 
+There are different behaviours depending the zone in which the satellite enters (see
+Section~\ref{sec:spaceSystemSimulator}). In the Scenario 1, the satellites which
+enters into any Ground Station visibility zone are: 1, 7, 4, 5 two times, 11 two
+times. The duration of each access are located in the Table~\ref{table:accesses-scenario1}.
+\begin{table}[!h]
+  \centering
+  {\small
+  \input{tables/accesses-scenario1.tex}
+  }
+  \caption{Satellite accesses in Scenario 1}
+  \label{table:accesses-scenario1}
+\end{table}
+
+The only satellite that acquires \ac{AOI} in this scenario is the satellite
+11. The others satellites enters in their corresponding footprints and they
+download the acquire non \ac{AOI} raw data files into the Ground Stations. When the satellite 11 enters into the Puertollano footprint, a connection with
+the Puertollano Ground Station is stablished. The satellite
+11 starts imaging at $1395~Mbps$ the Lorca surface when overfly Spain and at the same time, it
+starts to download at $160~Mbps$ these data to the Puertollano ground station. During the
+duration of this scenario (23.4 seconds) a image of the Lorca region is
+acquired and downloaded in the Puertollano ground station. The others satellite
+download during at $160~Mbps$ non \ac{AOI} data until the scenario ends. 
+
+When the satellite 11 leaves of the Puertollano footprint, the ground station
+counts the received packets. These packets are ``AOI'' packets, so all the data
+belong to \ac{AOI} area. Resulting of data counting, an \ac{AOI} raw data file is created in the
+Puertollano ground station. 
+The others satellite download non ``AOI'' packets during the scenario duration
+at $160~Mbps$. For example, the Svalbard ground stations receives the packets
+from the satellite 12. This ground station creates a non \ac{AOI} image in its
+memory.
+
+The features of raw data are summarized as follows:
+\begin{itemize}
+\item The raw data occupies $302~MB$. 
+\item The raw data represents a scene acquired by a satellite. A scene is a
+  piece of the Earth surface. In this case represents the Lorca \ac{AOI} zone.
+\item The raw data scene is splitted in 8 sectors. A scene is a set of metadata and
+  values representing a piece of the total image acquired.
+\item The raw data is conformed by the data of the different spectral bands
+  together the metadata. The metadata are the geolocation data and the
+  decompression data among others.
+\end{itemize}
+
+
+Meanwhile, the \emph{Orchestrator} is periodically polling the ground stations
+\ac{FTP} connections for detecting when an image is created in some of
+these. When it detects that the Puertollano ground station creates an \emph{AOI}
+image, it automatically download it. For the others ground stations it is the
+same. The download data rate between a \vw node (ground station) and a \bonfire
+node (the \emph{Orchestrator}) is is around $235~Mb/s$. However the simulated
+bandwidth is not that because the \vw nodes connections were customized with the results
+showed in Table~\ref{table:gs-results}. Thus, the real transfer data rate are
+shown in that table.
+
+Then, when the \ac{AOI} image of Puertollano ground station is detected, it is
+downloaded through \ac{FTP} and the \emph{Orchestrator}. The \emph{Orchestrator}
+queues the raw data for processing. If the \emph{Processing Chain} module is free,
+the \emph{Orchestrator} can send that data for processing. If the
+\emph{Processing Chain} is busy, the \emph{Orchestrator} queued the raw data until
+the \emph{Processing Chain} is free. 
+As the Lorca image is the first acquired raw data of the scenario, it is sent to
+process. The \bonfire machines are interconnected through  \emph{Gigabit Ethernet}
+interfaces, so the transfer data rate between the  \emph{Orchestrator} to the
+\emph{Processing Chain}. Note that in the implementation using a shared storage,
+this data sending is avoid because the \emph{Orchestrator} only sends the path
+of the raw data to the \emph{Processing Chain}, so this sending time is nil.
+
+Once the raw data was sent to the \emph{Processing Chain}, the transformation from
+raw data to a geolocated and orthorectified image starts. In this implementation the
+on demand creation of the \emph{Processing Chains} can not be implemented due to
+the \emph{Fed4FIRE} tools for that have not been finished yet.
+Thus, when the raw data is in  the \emph{Processing Chain} component, it automatically starts the processing. The processing accomplishes the L0, L0R,
+L1A, L1BG, L1BR, L1C stages. 
+The functions of the different stages are explained
+in Section~\ref{subsub:processors}. As summary, the functions of the
+\emph{Product Processors} are the following:
+\begin{itemize}
+\item \emph{Level 0} obtains unprocessed images, in digital count numbers.
+\item \emph{Level L1A} obtains calibrated products, in units of radiance.
+\item \emph{Level L1B} obtains calibrated and geometrically corrected products
+  (ortho-rectified), blindly geolocated. There are two L1B processors: L1BG and
+  L1BR. Both \emph{Product Processors} done the same but the first in manually
+  configured and the second one, automatically.
+\item \emph{Level L1C} obtains calibrated and geometrically corrected products (ortho-rectified), precisely geolocated using ground control points.
+\end{itemize}
+
+
+The required times obtained for
+each \emph{Product Processor} are shown in the Table~\ref{table:p-times}. In
+this case, these \emph{Product Processors} were implemented with a datablock
+storage as background file system. These
+times were obtained by sampling and these are the mean values. The first column of the table ``User Time'' shows the  time of the
+\emph{Product Processors} used to the image process. The second column ``System
+Time'' represents the time that the system required to perform the system calls. The ``Elapsed Time'' is
+the total time required to process the image at each different level. The times of every I/O operations are
+included in it. The ``RAM'' column represents the required \emph{RAM} memory to
+perform the process. The last column ``CPU'' is the spent \ac{CPU} for
+processing this stage.
 
 \begin{table}[!h]
   \centering
   {\small
   \input{tables/processor-times.tex}
   }
-  \caption{Processing times of each product processor}
+  \caption{Processing times of each product processor in the datablock storage}
   \label{table:p-times}
 \end{table}
 
-The L1CT and L1CR are not shown because these processors have not been installed
-by platforms troubles.
+As it can be observed in the table, the \emph{RAM} required for each
+\emph{Product Processor} is different. This is due to the actions which are
+performed by the \emph{Product Processors} are different. For example, the L0
+stage slightly process the raw data and the other hand, the L1BR processor
+accomplishes the geolocation of the image, so it is more \emph{CPU} intense. 
+The same is applied for the use of the \emph{RAM} memory which depends of the
+doings of the \emph{Product Processor}.
+Furthermore, the
+uses of the \ac{CPU} sometimes overload of 100\%. This is due to the processing
+requires more than one core. Thus the workload is over 100\% means that the
+\emph{Product Processor} occuped more than a node to carry through the task.
 
-Consecuently, these results are contrasted with the times obtained of executing
+The times required of each \emph{Product Processor} also are different. This is
+due to the done actions. The L1B requires more time than the others because it accomplishes the image
+geometric corrections. The actions performed by each \emph{Product Processor} is
+explained in Section~\ref{subsub:processors}. 
+
+
+
+Consecuently, these results are contrasted with the times obtained when executing
 the processors in the shared storage. These results are depicted in Table~\ref{table:p-times-shared}
 and there are much difference in terms of time.
 
@@ -39,26 +191,28 @@ and there are much difference in terms of time.
   \label{table:p-times-shared}
 \end{table}
 
-
-The contrast is clear. The difference consists of the \ac{NFS} used is located
-in other \emph{Fed4FIRE} testbed. It is \emph{IBBT} which is located in
-Ghent(Belgium), so all the I/O operations such as reads and writes are performed
+The required time of each \emph{Product Processor} by using a shared storage as
+file system is much greater. The difference consists of the \ac{NFS} in which
+the shared storage is implemented,  is located
+in other \emph{Fed4FIRE} testbed. This testbed is the \emph{IBBT} platform which is located in
+Ghent(Belgium), so all the \emph{I/O} operations such as reads and writes are performed
 using the Internet network. The delays on the communications, the congestion of
-the network and the packets distribution algorithms of the network generate that
-huge difference between the times locally performed or the times obtained using
-the shared storage.
+the network and the packets distribution algorithms of the network provoke more
+delays than when performing locally or when using the shared storage.  
 
 To corroborate that hypotesis, a performance test in the shared storage was carried out. This test
-consists of executing the following command:
+consisted of executing the following command:
 \begin{itemize}
 \item[>] dd if=/dev/zero of=/mnt/shared/test-performance bs=1M count=2560
   conv=fdatasync
 \end{itemize}
-It measures the write rate to the shared storage. The result obtained was the
+It measured the write rate to the shared storage. The result obtained was the
 following:
 \begin{itemize}
 \item 2684354560 bytes (2.7 GB) copied, 1174.6 s, 2.3 MB/s
 \end{itemize}
+2.7 GB of data was copied in $1174.6~s$, obtaining a data rate  of $2.3~MB/s$ between the
+\bonfire machine and the store located in \emph{IBBT}. 
 
 Then, the command was repeated for executing in the local storage as follows:
 \begin{itemize}
@@ -66,24 +220,53 @@ Then, the command was repeated for executing in the local storage as follows:
   conv=fdatasync
 \end{itemize}
 
-It measures the write rate to the shared storage. The result obtained was the
+It measured the write rate to the shared storage. The result obtained was the
 following:
 \begin{itemize}
 \item 2684354560 bytes (2.7 GB) copied, 50.975 s, 52.7 MB/s
 \end{itemize}
+2.7 GB of data was copied in $50.97~s$, obtaining a data rate  of $2.3~MB/s$ between the \bonfire machine and
+the store located in a store located in \bonfire or in the machine.
 
 Thus it is concluded that the bottleneck obtained in the products processors
 implemented in the shared storage is due to the implementation of the \ac{NFS}
 storage which the
 \emph{Fed4FIRE} testbed has implemented.
 
-Furthermore, the cataloguing time of any image is near to cero in the local
-implementation of the storage and it is nil in the implementation of the shared
-storage. In the first one exists a data transfer  between the \emph{Processing
-  Chain} and the \emph{Archive and Catalogue} modules. Althought
-the data transfer rate between \bonfire machines is 1 Gbps, so the transferring
-time is short. However in the second one, these transfers are avoided so the
-storing and archiving is inmediately done.
+As a result, the image of \emph{Lorca} was processed in the following
+times:
+\begin{itemize}
+\item Using a datablock storage: $2~h:17':43''$
+\item Using a shared storage: $17~h:56':43''$
+\end{itemize}
 
-Finally, a video of a real time system execution is included in the CD-ROM.
+
+Once the \ac{AOI} Lorca image was obtained, the \emph{Processing Chain} sends it
+to the \emph{Archive and Catalogue} module. The transfer data rate between
+\bonfire machines is $1~Gbps$ again, so the transferring time is short. By using the shared storage for
+implementing the background filesystem, this time is avoid. The \emph{Archive
+  and Catalogue} stores and catalogues the image. A workspace and a data store
+are created for storing the image. It receives the image, creates a workspace and a data
+store where that image is located. Once the image is in \emph{GeoServer}
+software, layers, tiles and image pyramids can be created. Thus a layer is
+created and the image is commisioning in it. The cataloguing time of any image
+is near to cero in the local implementation of the storage, and it is nil in the implementation of the shared
+storage because the image is already in the filesystem. 
+The next step consists of to publish the catalogue by using
+a \ac{CSW} service or using a web interface. By using the web-browser, the Lorca
+image were visualized in the map-view of \emph{GeoServer}. The image was
+catalogued in a workspace and it was available for end users.
+
+
+Furthermore, the implemented architecture in ICE was checked. All funcionalities
+which the cloud architecture based on \ac{SSH} were implemented in it. A client
+to test that architecture were accomplished. The client was executed and all the
+components done their functions as they should. The  \emph{Orchestrator}
+component ingests in the system the images acquired by the satellites, the
+\emph{Processing Chains} transforms the raw data to orthorectified and
+geolocated images, and finally the \emph{Archive and Catalogue} performs the
+archiving and cataloguing successfully. 
+
+Finally, a video of a real time system execution is included in the ``video''
+folder in the attached CD-ROM.
 
