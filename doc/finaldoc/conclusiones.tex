@@ -1,9 +1,5 @@
 \chapter{Conclusions}
 \label{chap:conclusions}
-This file contains the conclusionso
-
-\section{Conclusions}
-
 \drop{T}{he} objectives and subobjectives proposed in the
 Chapter~\ref{chap:objetivos} were tackled for their implementation during the
 development time (see Chapter~\ref{chap:evolution}). In this Chapter the main
@@ -11,11 +7,174 @@ aspects obtained of the accomplished milestones, the relevant solutions and
 decisions adopted, the problems encountered and finally some interesting lines
 of research are detailed.
 
-\subsection{Accomplised objectives}
+\subsection{Accomplished objectives}
 
+The objectives and subobjectives described in Chapter~\ref{chap:objetivos} were
+performed. GEO-Cloud is a modular and multiplatform cloud architecture for Earth Observation  which allows the simply and fastly deployment and
+execution of  experiments.
+
+The main objective can be summarized as the modelling and the implementation of
+a close to real world Earth Observation system in the \emph{Fed4FIRE} platform.
+This implementation includes the implementation of the \sss, the \pl
+experiment and the implementation of the cloud system. They together allows to
+simulate a real constellation obtaining images of the Earth surface and
+processing these images in a cloud architecture for collecting results.
+
+
+In the \pl experiment, topology networks were created to simulate
+the communications between the ground stations and the cloud
+infrastructure and between this and the end users accessing
+the web services. The experiment consisted of measuring the
+real network impairments (bandwidth, latency and loss rate)
+to model them. NEPI, Iperf and Ping were used to measure
+the impairments. The experience with those tools was positive,
+mainly with NEPI, which facilitated the implementation and
+automation of different processes very easily.
+21600 trials during 6 hours continuous execution were
+carried out between any node and the central node. A normal
+distribution was adjusted to the bandwidth and the latency
+measured between each pair of nodes. The loss rate was
+obtained in percentage.
+
+After obtaining the impairments for all the nodes, the
+bandwidth and the latency were fitted in function of the
+distance between nodes. The bandwidth best fitting was a
+hyperbolic function and that the latency linearly increased with
+the distance between nodes. In addition, the loss rate was
+obtained to be 0.053\% in mean, with a standard deviation of
+0.097\%. The previous results allowed to extrapolate the
+results to do load tests to the system implemented in GEO-Cloud.
+
+In the \vw testbed, the \sss was created to simulate the satellite
+constellation and the ground station network distributed around the world.
+The \sss was splitted on two parts: the \satss and the \emph{Ground Station
+  System Simulator}. With the first one, the simulation of
+the designed satellite constellation was accomplised. The data of each satellite and each
+satellite access to each ground station were obtained. Then, these data was
+processed, sorted and stored in a database. \\
+The types of acquisition were
+analysed and identified in the scenarios. Thus, different kinds of functions
+were performed in order to schedule them depending on the area in which the
+satellite is in each moment. Moreover, the raw data, the bandwidth that the
+network between the satellites and the ground stations were analysed. The
+bandwith requirements was $160~Mbps$ and this network did not provide this data
+rate. So, several kinds of packets meaning the satellite acquisition were
+accomplished. \\
+The satellite constellation performed the simulation of the real constellation.
+The second one is composed by the network of ground stations distributed around
+the world. The results obtained in the \pl experiment were used to customize the
+ground stations links
+between the node and the \bonfire nodes. This allowed to simulate the real
+network behaviour of the real ground
+stations (see Section~\ref{subsubsec:design-flight-ground}), connected to the \bonfire cloud
+node. Then, the process of the packets were done. \\
+The creation of images by
+counting the receives packets of data were elaborated. At the end, the creation
+of the raw data files to be ingested by the \emph{Orchestrator} in the cloud was
+performed.
+
+
+In the \bonfire testbed, the cloud architecture was developed. This
+infrastructure for \ac{EO} provided the automatic ingestion of raw data and processing the raw data to
+obtain images, and later storing and cataloguing transparently, dynamically and automatically. The \emph{Orchestrator}, \emph{Processing Chain} and the \emph{Archive and
+  Catalogue} were implemented. At first, the interfaces between the system were
+studied. Then, these components were designed and accomplished. The
+\emph{Orchestrator} automatically ingested the raw data of the \emph{FTP} ground
+stations connections. Then, these data was sent to the \emph{Processing Chain}
+module. It processed the raw data obtaining the geolocated and orthorectified
+images.  \\
+Finally, these images were catalogued in the \emph{Archive and
+  Catalogue} module. Furthermore, there were implemented two filesystems: the
+first one was the datablock storage which was locally to each component, and the
+second one was the shared storage. This last one was shared between all the cloud
+components facilitating the implementation and deleting the data submissions
+between the cloud components. The performance in these filesystems was
+calculated. 
+
+
+The Graphical User Interface was implemented. It managed the nodes implemented
+in \vw testbed. It provided the experimentation by executing a scenario automatically. It connected with the \vw nodes and
+started the simulation of the scenario in them.
+
+The next step was to create the experiment integrating  the developments in
+all testbeds. Then, the cloud architecture implemented in \bonfire was
+validated. One of the defined scenarios was executed and the results were
+obtained.  The cloud architecture, the \sss and the \ac{GUI} were integrated
+and worked properly.
 
 
 \section{Future Work}
 
-GeoCloud 
+The GEO-Cloud experiment is a cloud implementation for testing and validating the
+use of the cloud platforms and the future internet technologies in \ac{EO}
+systems.
 
+Next, several lines for research are proposed:
+\begin{itemize}
+\item \textbf{To improve the cloud implementation}: The cloud implementation
+  presented in this project can be more flexible and dynamic. The
+  \emph{Processing Chain} was statically implemented due to the troubles with
+  the \emph{Fed4FIRE} testbeds, so as future work the implementation of this
+  component as a dynamic and on demand component by using an elastic service or
+  similar, is proposed. Furthermore, the
+  \emph{Orchestrator} does not manage all the stages of the processing
+  independently. This approach consists of to create several \emph{Processing
+    Chains} components in order to the \emph{Orchestrator} can select which
+  \emph{Processing Chain} is less overloaded and to implement a load balancing algorithm. In
+  addition, the approach of the implementation of the \emph{Processing Chain}
+  component as a Grid is proposed.
+
+\item \textbf{To check the cloud implementation in other cloud platforms}: The
+  cloud architecture implemented was only tested in the \bonfire cloud with the
+  services which that platform provides. It would be interesting to test the architecture
+  in others cloud systems such as \emph{Amazon}, \emph{Azure}, \emph{IBM Cloud}
+  and \emph{Citrix} among others. 
+
+\item \textbf{To implement the ICE architecture in cloud}: The implementation of
+  the ICE architecture provides an integrated cloud system for \ac{EO} images
+  processing. This architecture was tested in a local machine, so it is proposed
+  to implement it and to check it in a cloud platform. 
+  The \emph{Processing Chain} components
+  were joinned in a Replica Group for load balancing. It would be interesting to
+  implement them forming a Grid and to take advantage of the free resources of
+  the system.
+
+\item \textbf{To integrate the \ac{GUI}}: To
+  execute an experiment, it is necesary to accomplish the deployment of the nodes of both
+  testbeds \bonfire and \vw before to execute the \ac{GUI}. Thus, it may be interesting
+  to deploy an experiment without knowing where it is  deployed and how the set
+  up of the nodes was performed.
+
+\item \textbf{To improve the \sss}: The \sss was ad-hoc implemented for
+  GEO-Cloud. The implementation of a customizable \sss may be potentially
+  important to deploy experiments with other kind of satellites and features.
+
+\item \textbf{Building a Web Site}: A major milestone for the expansion of this system
+  is building a website where you can download the source code of this
+  platform. Moreover a section may be added to lay tutorials for new users to have more facilities in their learning
+  use. Another interesting section would be a bug tracker where experimenters can make
+  suggestions and report bugs.
+
+\end{itemize}
+
+\section{Personal conclusion}
+
+The development of a system like GEO-Cloud, and any Master Thesis, generally implies a close to real work experience that any aspirant to be a Computer
+Engineer will play for the rest of his life. It must be studied and domining a wide range of areas, platforms, libraries and work methods, always
+thinking of the end user. This is a new approach
+compared to the role which the student has done during his formative years which
+brings maturity to deal with their immediate future.
+
+When a student performs his Master Thesis, he shows that the Computer Engineers
+are not secondhand engineers that repair computers, or format operating
+systems. A Computer Engineer must have quite knowledge of many areas
+and very diverse techniques, such as linear algebra, networking, distributed
+systems, language processors,  computer architecture, software engineering or
+databases. 
+
+In my opinion, we must defend our identity with dignity, always asking for a deal and a respect commensurate with
+our training up to other engineering. That makes us rated engineers  in
+addition to carrying a full work around us of other kind of engineers. 
+
+Computer Engineering is a profession with much potential, growth  and versatility on market, so it is an honour and a pleasure to have
+made this choice five years ago.

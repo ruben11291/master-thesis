@@ -1,33 +1,33 @@
 \section{GEO-Cloud Graphical User Interface}
 \label{sec:interfaz}
 In this section, the \ac{GUI} developed for managing the execution of the defined
-scenarios in GEO-Cloud experiment is exposed. First, the architecture is
-explained. The components of the graphical user interface are described. Then, the interface is shown to identify the components.
+scenarios in the GEO-Cloud experiment is exposed. Firstly, the architecture is
+explained. Secondly, the components of the graphical user interface are described. Finally, the interface is shown to identify the components.
 
 \subsection{Architecture}
 
-The graphical user interface of GEO-Cloud experiment is composed by the following classes:
+The graphical user interface of the GEO-Cloud experiment is composed by the following classes:
 
 \begin{itemize}
 
-\item \emph{Experiment Controller}: it manages the \sss turning on or shutting it down by using \ac{SSH} connections and it obtains the workload of the \emph{Orchestrator} and \emph{Processing Chain} machine.
+\item \emph{Experiment Controller}: it manages the \sss turning it on or shutting it down by using \ac{SSH} connections and obtains the workload of the \emph{Orchestrator} and the \emph{Processing Chain} machine.
 \item \emph{SSH Connection}: it creates an \emph{SSH} connection with a \vw machine.
-\item \emph{SSH Order}: it remotely executes an  \emph{SSH} order in a \emph{SSH Connection}.
-\item \emph{getLoad}: it obtains the workload of the \emph{Orchestrator} and \emph{Processing Chain} machines.
+\item \emph{SSH Order}: it remotely executes an  \emph{SSH} order in an \emph{SSH Connection} object.
+\item \emph{getLoad}: it obtains the workload of the \emph{Orchestrator} and the \emph{Processing Chain} machines.
 \item \emph{JFedParser}: it parsers the \emph{Rspec} obtained from the \emph{JFed} software once the \vw deployment was made to obtain the hostnames of the \vw nodes.
 \item \emph{UI Controller}: it manages the graphical widgets and the \emph{Experiment Controller} interactions.
-\item \emph{Video Widget}: it shows a video demonstration of the satellite constellation acquiring images at same time that the satellites do it in \vw.
+\item \emph{Video Widget}: it shows a video demonstration of the satellite constellation acquiring images at the same time that the satellites record the Earth's surface in the simulator implemented in \emph{Virtual Wall}.
 \item \emph{About Widget}: it shows the \emph{About} window where the acknowledments are shown.
 \item \emph{Log Widget}: it prints the logs which receives from satellites and ground stations.
 \item \emph{Tab Widget}: it contains two graphics to plot the workload of the \emph{Orchestrator} and the \emph{Processing Chain} machines.
 \end{itemize}
 
-The Figure~\ref{fig:gui-class} shows the class diagram where the relations between the components are pictured.
+The Figure~\ref{fig:gui-class} shows the class diagram in which the relations between the components are depicted.
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{gui/gui-class.jpg}
-\caption{Class diagram of the graphical user interface}
+\caption{Class diagram of the graphical user interface.}
 \label{fig:gui-class}
 \end{center}
 \end{figure}
@@ -40,7 +40,7 @@ The functions of the \emph{Experiment Controller} are the following:
 \item To obtain the hostnames of the \vw nodes included in the \emph{Rspec} file located in ``source/gui/resources/jfed.out''. It creates a \emph{JFedParser} object to do this. These hostnames are used to create \emph{SSH Connections} objects to send orders to the \vw nodes.
 \item To create the \emph{SSH Connections} of all the nodes deployed in \vw.
 \item To create the \emph{SSH Commands} to manage the experimentation in \vw.
-\item To obtain the workload of both the \emph{Orchestrator} and \emph{Processing Chain} machines. Then, these measures are sent to the \emph{UI Controller} for plotting.
+\item To obtain the workload of both the \emph{Orchestrator} and the \emph{Processing Chain} machines. Then, these measures are sent to the \emph{UI Controller} for plotting.
 \item To communicate the experiment logs from \vw to the \emph{UI Controller}.
 \end{itemize}
 
@@ -49,88 +49,88 @@ The functions of the \emph{Experiment Controller} are the following:
 The workflow of the \emph{Experiment Controller} is the following:
 \begin{enumerate}
 \item The file which contains the \emph{Rspec} is parsed.
-\item Using the hostnames obtained, it creates a \emph{SSH Connection} per hostname obtained.
-\item When the experimenter selects an scenario and pushes the start button, the \emph{Experiment Controller} creates \emph{SSH Commands} indicating to start the selected scenario and sends to \vw nodes by using the \emph{SSH Connection} objects. Moreover, it starts the reproduction of the video of the selected scenario.
-\item When the experimenter selects an scenario and pushes the stop button, the \emph{Experiment Controller} creates \emph{SSH Commands} indicating to stop the selected scenario and sends to \vw nodes by using the \emph{SSH Connection} objects.
-\item The log from the \emph{SSH Commands} performed is collected and it sends them to the \emph{UI Controller}.
+\item Using the hostnames obtained, the \emph{Experiment Controller} creates an \emph{SSH Connection} per hostname obtained.
+\item When the experimenter selects a scenario and pushes the start button, the \emph{Experiment Controller} creates \emph{SSH Commands} indicating to start the selected scenario. Moreover, it starts the reproduction of the video of the selected scenario.
+\item When the experimenter selects an scenario and pushes the stop button, the \emph{Experiment Controller} creates \emph{SSH Commands} indicating to \vw nodes that the selected scenario must to be stopped.
+\item The log from the \emph{SSH Commands} performed is collected and it is sent to the \emph{UI Controller}.
 \item Two \emph{getLoad} objects are created to connect with the \emph{Orchestrator} and the \emph{Processing Chain} machines to obtain in real time their workload by using \emph{SSH Connections}. The workloads are passed to the \emph{UI Controller} for plotting.
 \end{enumerate}
 
 \subsubsection{SSH Connection}
 
-This class connects through the \emph{Virtuall Wall Bastion} machine to the \vw nodes. This connection is performed by using the public key obtained in Section~\ref{sec:first-steps}.
+This class connects the \emph{Virtuall Wall Bastion} machine to the \vw nodes. This connection is performed by using the public key described in Section~\ref{sec:first-steps}.
 
-This class has the \emph{executeCommand} method in order to remotely carry out the commands given by the \emph{Experiment Controller}
+This class has the \emph{executeCommand} method in order to remotely carry out the commands given by the \emph{Experiment Controller}.
 
 \paragraph{SSH Connection Workflow}~\\
 
 The workflow of the \emph{SSH Connection} is the following:
 \begin{enumerate}
-\item The object is created by passing as arguments: the hostname of the \vw machine to connect and the \ac{IP} address of the \vw \emph{Bastion} machine.
+\item The object is created by passing as arguments: the hostname of the \vw machine and the \ac{IP} address of the \vw \emph{Bastion} machine.
 \item By using \emph{Paramiko} library, the connection is performed.
-\item When a command is executed, the log is returned and sended to the \emph{Experiment Controller} class.
+\item When a command is executed, the log is returned and sent to the \emph{Experiment Controller} class.
 \end{enumerate}
 
 
 \subsubsection{SSH Order}
 
-This class creates a \emph{SSH order} to send it through a \emph{SSH Connection} object.
+This class creates an \emph{SSH order} to be sent through an \emph{SSH Connection} object to a \vw node.
 
 \paragraph{SSH Connection Workflow}~\\
 
 The workflow of the \emph{SSH Connection} is the following:
 \begin{enumerate}
-\item The object is created by passing as argument the order to remotely be executed.
+\item The object is created by passing the order that has to be remotely executed as argument.
 \end{enumerate}
 
 \subsubsection{getLoad}
 
-This class obtains the  workload of the both \emph{Orchestrator} and  \emph{Processing Chain} machines by using a \emph{SSH Command} through their \emph{SSH Connections} objects.
+This class obtains the  workload of  both the \emph{Orchestrator} and  the \emph{Processing Chain} machines by using an \emph{SSH Command} through their \emph{SSH Connections} objects.
 
 \paragraph{getLoad Workflow}~\\
 
 The workflow of the \emph{getLoad} is the following:
 \begin{enumerate}
-\item The object is created by passing as argument the \ac{IP} address of remote machine.
-\item A \emph{SSH Connection} to machine is created.
-\item Periodically, it sends a \emph{SSH Order} to get the workload though the \emph{SSH Connection}.
+\item The object is created by passing the \ac{IP} address of the remote machine as argument.
+\item An \emph{SSH Connection} is created.
+\item Periodically, \emph{getLoad} sends a \emph{SSH Order} to get the workload through the \emph{SSH Connection}.
 \end{enumerate}
 
 \subsubsection{JFedParser}
 
-This class parser the  \emph{Rspec} of the \emph{JFed} to obtain the hostnames of the \vw nodes.
+This class parses the  \emph{Rspec} of the \emph{JFed} to obtain the hostnames of the \vw nodes.
 
 \paragraph{JFedParser Workflow}~\\
 
 The workflow of the \emph{JFedParser} is the following:
 \begin{enumerate}
 \item The object is created by passing as argument the path of the \emph{Rspec} file.
-\item By using a \ac{XML} Python parser (Minidom library) obtains the hostnames of all nodes deployed in \vw.
+\item By using an \ac{XML} Python parser (Minidom library), the hostnames of all nodes deployed in \vw are obtained.
 \item When the operation \emph{getHostnames} is called, the hostnames are returned.
 \end{enumerate}
 
 \subsubsection{UI Controller}
 
-The \emph{UI Controller} is based in the \emph{Controller} design pattern and it has the following functionalities:
+The \emph{UI Controller} is based on the \emph{Controller} design pattern and it has the following functionalities:
 \begin{itemize}
-\item To manage the experiment status through graphical widget interactions and sends them to the \emph{Experiment Controller}.
-\item To show the experiment status such as the workload, logs and video from \emph{Experiment Controller}.
+\item To manage the experiment status through the graphical widget interactions and to send them to the \emph{Experiment Controller}.
+\item To show the experiment status such as the workload, logs and video from the \emph{Experiment Controller}.
 \end{itemize}
 
 \paragraph{UI Controller Workflow}~\\
 
 The workflow of the \emph{UI Controller} is the following:
 \begin{enumerate}
-\item It commands to the \emph{Experiment Controller} to execute the experiment when the user selects an scenario and  it and clicks the start button. When the users starts the execution, the video of the selected scenario is started by calling to the \emph{Video Widget} with the selected scenario.
-\item  It commands to the \emph{Experiment Controller} to stop the execution of the experiment when the user clicks the stop button
-\item It receives the logs from the \emph{Experiment Controller} and sends to the \emph{Log Widget} to show them.
-\item It receives the workloads from the \emph{Experiment Controller} and sends to the \emph{Tab Widget} to plot them.
-\item When the user pushes the \emph{About Button}, the \emph{About Widget} is created and shown.
+\item It commands the \emph{Experiment Controller} to execute the experiment when the user selects an scenario and  the start button is clicked. When the user starts the execution, the video of the selected scenario is started by calling to the \emph{Video Widget} with the selected scenario.
+\item  It commands to the \emph{Experiment Controller} to stop the execution of the experiment when the stop button is clicked.
+\item It receives the logs from the \emph{Experiment Controller} and sends them to the \emph{Log Widget}.
+\item It receives the workloads from the \emph{Experiment Controller} and sends them to the \emph{Tab Widget} to be plotted.
+\item When the \emph{About Button} is clicked, the \emph{About Widget} is created and shown in the screen.
 \end{enumerate}
 
 \subsubsection{Video Widget}
 
-This class reproduces the video corresponding of the selected scenario. 
+This class reproduces the video  of the selected scenario. 
 
 \paragraph{Video Widget Workflow}~\\
 
@@ -163,8 +163,8 @@ The workflow of the \emph{Log Widget} class is the following:
 
 \subsection{Tab Widget}
 
-This class has two \emph{CPUPlotter} objects. The first one plots the \emph{Orchestrator} workload and the second one, the \emph{Processing Chain} workload. Each one of them are located in a tab in which ones the user can see the workload of the both machines simply changing between them.
-The \emph{CPUPlotter} class were carryied out by using the \emph{QWT} libraries of the \emph{QT} framework. It creates a linear plot which changes with the input of new data. It were distributed with \emph{Psymon} application (it was developed by Dimitris Diamantis) under the \ac{GPL}v3 and it was reused in this project.
+This class has two \emph{CPUPlotter} objects. The first one plots the \emph{Orchestrator} workload and the second one, the \emph{Processing Chain} workload. Each machine of them are located in a tab in which  the experimenter can see the workload of the machines.
+The \emph{CPUPlotter} class was developed by using the \emph{QWT} libraries of the \emph{QT} framework. It creates a linear plot which changes with the input of new data. It was distributed with \emph{Psymon} application (developed by Dimitris Diamantis) under the \ac{GPL}v3, reused in this project.
 
 \paragraph{Tab Widget  Workflow}~\\
 
@@ -179,7 +179,7 @@ The workflow of the \emph{Log Widget} class is the following:
 
 
 The implementation of this module was done in Python 2.7. The python's libraries
-needed to implement the software are listed in
+needed to implement the software  listed in
 Table~\ref{table:gui-libraries}.
 
 \begin{table}[!h]
@@ -214,7 +214,7 @@ The \acl{GUI} is composed by four well diferenciated elements:
 \item \emph{Video zone}: it is the zone where the video of each scenario is reproduced.
 \item \emph{Log zone}: it is the zone where the logs are shown during the experiment.
 \item \emph{Workload zone}: it is the zone where the workloads of the \emph{Orchestrator} and the \emph{Processing Chain} machines are shown.
-\item \emph{User interaction zone}: it is the zone where the experimenter selects the scenario and manages the experiment.
+\item \emph{User interaction zone}: it is the zone where the experimenter  manages the experiment.
 \end{itemize}
 
 The Figure~\ref{fig:gui-components} shows the different components of the graphical user interface.

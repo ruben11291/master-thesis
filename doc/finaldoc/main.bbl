@@ -1,0 +1,260 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{HAHB{\etalchar{+}}12}
+
+\bibitem[Aas98]{Aase1998}
+J.~Aase.
+\newblock Netcps.
+\newblock Online, February 1998.
+
+\bibitem[ACG{\etalchar{+}}10]{Avetisyan2010}
+A.I. Avetisyan, R.~Campbell, I.~Gupta, M.~T. Heath, S.~Y. Ko, G.~R. Granger,
+  M.~A. Kozuch, D.~O'Hallaron, M.~Kunze, T.~T. Kwan, K.~Lai, M.~Lyons, D.~S.
+  Milojicic, K.~Yan Lee, Y.~Chai Soh, N.~Kwang, J.~Luke, and H.~Namgoong.
+\newblock Open cirrus: a global cloud computing testbed.
+\newblock {\em COMPUTER}, page~9, 2010.
+
+\bibitem[Amb10]{Ambrust2010}
+M.~Ambrust.
+\newblock A view of cloud computing.
+\newblock {\em Communications of the ACM}, 53(4):50--58, 2010.
+
+\bibitem[Ath14]{Athanasias2014}
+D.~Athanasias.
+\newblock Gui programming in python.
+\newblock Online, March 2014.
+
+\bibitem[Bal13]{Ball2013}
+H.~Ball.
+\newblock {\em Satellite AIS for Dummies}.
+\newblock John Wiley \& Sons, Inc, 2013.
+
+\bibitem[BCL{\etalchar{+}}14]{Berman2014}
+M.~Berman, J.~S. Chase, L.~Landweber, A.~Nakao, M.~Ott, D.~Raychaudhuri,
+  R.~Ricci, and I.~Seskar.
+\newblock Geni: A federated testbed for innovative network experiments.
+\newblock {\em Computer Networks}, 61:5--23, 2014.
+
+\bibitem[Bec14]{Becedas2014}
+J.~Becedas.
+\newblock The geo-cloud experiment: Global earth observation system computed in
+  cloud.
+\newblock In {\em The Eighth International Conference on Innovative Mobile and
+  Internet Services in Ubiquitous Computin, IMIS}, pages 2--4, Birmingham,
+  United Kingdom, July 2014.
+
+\bibitem[Bon14]{BonFIRE2014}
+BonFIRE.
+\newblock Bonfire project, 2014.
+
+\bibitem[Bra13]{Braeunig2013}
+R.~A. Braeunig.
+\newblock Ororbit mechanics.
+\newblock Online, 2013.
+
+\bibitem[Com]{Community}
+Ruby Community.
+\newblock Ruby.
+\newblock Online.
+
+\bibitem[Com12]{Company2012}
+Hewlett-Packard Company.
+\newblock Care and feeding of netperf 2.6.x.
+\newblock Online, 2012.
+
+\bibitem[Com14]{Community2014}
+The~GeoNetwork Community.
+\newblock Geonetwork opensource.
+\newblock online, January 2014.
+
+\bibitem[Coo14]{Cooper2014}
+M.~Cooper.
+\newblock Advanced bash-scripting guide.
+\newblock online, March 2014.
+
+\bibitem[Der07]{Deren2007}
+L.~Deren.
+\newblock Remote sensing can help monitoring and predication natural disasters.
+\newblock {\em Science \& Technology Review}, 25(6):3, 2007.
+
+\bibitem[ESA09]{ESA2009}
+ESA.
+\newblock History of earth observation.
+\newblock Online, November 2009.
+
+\bibitem[Eur10]{Euroconsult2010}
+Euroconsult.
+\newblock {\em Satellite-based Earth Observation, Market Prospects to 2019}.
+\newblock Euroconsult, 2010.
+
+\bibitem[Eur14]{Europe2014}
+PlanetLab Europe.
+\newblock Planetlab europe project, 2014.
+
+\bibitem[Fed14a]{Fed4FIRE2014a}
+Fed4FIRE.
+\newblock Fed4fire project, 2014.
+
+\bibitem[Fed14b]{Fed4FIRE2014}
+Fed4FIRE.
+\newblock Fed4fire: Tools, 2014.
+
+\bibitem[Fou08]{Foundation2008}
+The Apache~Software Foundation.
+\newblock Hadoop documentation.
+\newblock Online, October 2008.
+
+\bibitem[Fou14a]{Foundation2014a}
+Python~Software Foundation.
+\newblock Unittest - unit testing framework.
+\newblock Online, August 2014.
+
+\bibitem[Fou14b]{Foundation2014b}
+The Apache~Software Foundation.
+\newblock Apache tomcat 7.documentation index.
+\newblock Online, July 2014.
+
+\bibitem[Geo14]{Geoserver2014}
+Geoserver.
+\newblock Geoserver, March 2014.
+
+\bibitem[GGV{\etalchar{+}}13]{Garcia2013}
+J.~Garc{\'i}a, F.O. Garc{\'i}a, Pelechano V., Vallecillo A., Vara J.M, and
+  Vicente-Chicote C.
+\newblock {\em Desarrollo de software dirigido por modelos: Conceptos,
+  m{\'e}todos y herramientas}.
+\newblock RA-MA Editorial, 2013.
+
+\bibitem[GPB{\etalchar{+}}14]{Gonzalez2014}
+G.~Gonz{\'a}lez, R.~P{\'e}rez, J.~Becedas, M.~Latorre, and F.~Pedrera.
+\newblock Measurement and modelling of planetlab network impairments for
+  fed4fire's geo-cloud experiment.
+\newblock In {\em 26th International Teletraffic Congress - Workshop on Future
+  Internet and Distributed Clouds (FIDC 2014)}, Karlskrona, Sweden, September
+  2014.
+
+\bibitem[Gro10]{Group2010}
+S.~Deckelmann. PostgreSQL Global~Development Group.
+\newblock Which databdata solve my problem? a survey of open source databases,
+  2010.
+
+\bibitem[GW09]{Ge2009}
+X.~Ge and H.~Wang.
+\newblock Cloud-based service for big spatial data technology in emergency
+  management.
+\newblock In {\em Proceedings of the ISPRS ({ISPRS}'09)}, pages 126--129, 2009.
+
+\bibitem[HAHB{\etalchar{+}}12]{Hume2012}
+A.~C. Hume, Y.~Al-Hazmi, B.~Belter, K.~Campowsky, L.~M. Carril, G.~Carrozzo,
+  and G.~Van Seghbroeck.
+\newblock {\em BonFIRE: A Multi-cloud Test Facility for Internet of Services
+  Experimentation. In Testbeds and Research Infrastructure. Development of
+  Networks and Communities}, pages 81--96.
+\newblock Springer Berlin Heidelberg, 2012.
+
+\bibitem[INR14]{INRIA2014}
+INRIA.
+\newblock Nepi, 2014.
+
+\bibitem[Ipe14]{Iperf2014}
+Iperf.
+\newblock Iperf, 2014.
+
+\bibitem[Lau98]{St.Laurent1998}
+S.~Laurent.
+\newblock Why xml?
+\newblock Online, 1998.
+
+\bibitem[MG11]{Mell2011}
+P.~Mell and T.~Grance.
+\newblock The nist definition of cloud computing.
+\newblock {\em Recommendations of the National Institute of Standards and
+  Technology}, page~3, 2011.
+
+\bibitem[Mic13a]{Microsoft2013}
+Microsoft.
+\newblock Ntttcp version 5.28 now available, July 2013.
+
+\bibitem[Mic13b]{Microsystems2013}
+Sun Microsystems.
+\newblock Uperf. a network performance tool.
+\newblock Online, December 2013.
+
+\bibitem[NAS]{NASA}
+NASA.
+\newblock Remote sensing: Remote sensing methods.
+\newblock Online.
+
+\bibitem[NSI]{NSIDC}
+NSIDC.
+\newblock Remote sensing: Active microwave.
+\newblock Online.
+
+\bibitem[OPS14]{Oetiker2014}
+T.~Oetiker, H.~Partl, and E.~Schlegl.
+\newblock The not so short introduction to latex2{$\varepsilon$}.
+\newblock 2014.
+
+\bibitem[Org]{Organization}
+JSON Organization.
+\newblock Json: The fat-free alternative to xml.
+\newblock Online.
+
+\bibitem[Org14]{Organization2014}
+Lua Organization.
+\newblock Lua 5.2 reference manual.
+\newblock Online, January 2014.
+
+\bibitem[PCVB13]{Pelsser2013}
+C.~Pelsser, L.~Cittadini, S.~Vissicchio, and R.~Bush.
+\newblock From paris to tokyo: On the suitability of ping to measure latency.
+\newblock In {\em Proceedings of the 2013 conference on Internet measurement
+  conference}, pages 427--432, 2013.
+
+\bibitem[PGB{\etalchar{+}}14]{Perez2014}
+R.~P{\'e}rez, G.~Gonz{\'a}lez, J.~Becedas, M.~Latorre, and F.~Pedrera.
+\newblock Testest cloud computing for massive space data processing, storage
+  and distribution with open-source geo-software.
+\newblock In {\em FOSS4G-Europe Congress - Workshop on Free and Open Source
+  Software for Geospatial, INSPIRE and Big Data (FOSS4G-Europe 2014)}, Bremen,
+  Germany, July 2014.
+
+\bibitem[{Pyt}14]{Foundation2014}
+{Python Software Foundation}.
+\newblock Python v2.7.6 documentation, March 2014.
+
+\bibitem[San09]{Sandau2009}
+R.~Sandau.
+\newblock Satellite earth observation and surveillance payloads.
+\newblock In NATO, editor, {\em Systems Concepts and Integration Panel}, page
+  16p, April 2009.
+
+\bibitem[Ste14]{Stern2014}
+Dr.~D. Stern.
+\newblock Kepler's three laws of planetary motion.
+\newblock Online, April 2014.
+
+\bibitem[Tan03]{Tanenbaum2003}
+A.~S. Tanenbaum.
+\newblock {\em Redes de Computadoras}.
+\newblock Editorial Alhambra S.A. (SP), 2003.
+
+\bibitem[Tea13]{Team2013}
+Paramiko Team.
+\newblock Paramiko - ssh2 protocol for python.
+\newblock Online, April 2013.
+
+\bibitem[TvS08]{Tanenbaum2008}
+A.~S. Tanenbaum and M.~van Steen.
+\newblock {\em Distributed Systems: Principles and Paradigms}.
+\newblock Prentice-Hall International, 2nd rev. ed. edition, 2008.
+
+\bibitem[Wal14]{Wall2014}
+Virtual Wall.
+\newblock Virtual wall facility, 2014.
+
+\bibitem[Zer13]{ZeroC2013}
+ZeroC.
+\newblock Ice manual.
+\newblock Online, 2013.
+
+\end{thebibliography}

@@ -1,0 +1,110 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: alpha.bst
+Database file #1: references.bib
+Warning--entry type for "Aase1998" isn't style-file defined
+--line 7 of file references.bib
+Warning--entry type for "Athanasias2014" isn't style-file defined
+--line 297 of file references.bib
+Warning--entry type for "BonFIRE2014" isn't style-file defined
+--line 729 of file references.bib
+Warning--entry type for "Braeunig2013" isn't style-file defined
+--line 883 of file references.bib
+Warning--entry type for "Community" isn't style-file defined
+--line 977 of file references.bib
+Warning--entry type for "Community2014" isn't style-file defined
+--line 999 of file references.bib
+Warning--entry type for "Company2012" isn't style-file defined
+--line 1025 of file references.bib
+Warning--entry type for "Cooper2014" isn't style-file defined
+--line 1049 of file references.bib
+Warning--entry type for "ESA2009" isn't style-file defined
+--line 1371 of file references.bib
+Warning--entry type for "Europe2014" isn't style-file defined
+--line 1451 of file references.bib
+Warning--entry type for "Fed4FIRE2014" isn't style-file defined
+--line 1569 of file references.bib
+Warning--entry type for "Fed4FIRE2014a" isn't style-file defined
+--line 1591 of file references.bib
+Warning--entry type for "Foundation2014a" isn't style-file defined
+--line 1671 of file references.bib
+Warning--entry type for "Foundation2014b" isn't style-file defined
+--line 1699 of file references.bib
+Warning--entry type for "Foundation2008" isn't style-file defined
+--line 1727 of file references.bib
+Warning--entry type for "Geoserver2014" isn't style-file defined
+--line 1841 of file references.bib
+Warning--entry type for "Group2010" isn't style-file defined
+--line 1995 of file references.bib
+Warning--entry type for "INRIA2014" isn't style-file defined
+--line 2115 of file references.bib
+Warning--entry type for "Iperf2014" isn't style-file defined
+--line 2249 of file references.bib
+Warning--entry type for "Microsoft2013" isn't style-file defined
+--line 2853 of file references.bib
+Warning--entry type for "Microsystems2013" isn't style-file defined
+--line 2875 of file references.bib
+Warning--entry type for "NASA" isn't style-file defined
+--line 3103 of file references.bib
+Warning--entry type for "NSIDC" isn't style-file defined
+--line 3337 of file references.bib
+Warning--entry type for "Organization" isn't style-file defined
+--line 3413 of file references.bib
+Warning--entry type for "Organization2014" isn't style-file defined
+--line 3437 of file references.bib
+Warning--entry type for "Foundation2014" isn't style-file defined
+--line 3723 of file references.bib
+Warning--entry type for "St.Laurent1998" isn't style-file defined
+--line 4125 of file references.bib
+Warning--entry type for "Stern2014" isn't style-file defined
+--line 4149 of file references.bib
+Warning--entry type for "Team2013" isn't style-file defined
+--line 4223 of file references.bib
+Warning--entry type for "Wall2014" isn't style-file defined
+--line 4457 of file references.bib
+Warning--entry type for "ZeroC2013" isn't style-file defined
+--line 4741 of file references.bib
+Warning--empty booktitle in Oetiker2014
+You've used 49 entries,
+            2543 wiz_defined-function locations,
+            797 strings with 9730 characters,
+and the built_in function-call counts, 16072 in all, are:
+= -- 1480
+> -- 726
+< -- 45
++ -- 239
+- -- 232
+* -- 942
+:= -- 2598
+add.period$ -- 136
+call.type$ -- 49
+change.case$ -- 291
+chr.to.int$ -- 46
+cite$ -- 50
+duplicate$ -- 670
+empty$ -- 1312
+format.name$ -- 313
+if$ -- 3340
+int.to.chr$ -- 4
+int.to.str$ -- 0
+missing$ -- 24
+newline$ -- 238
+num.names$ -- 149
+pop$ -- 475
+preamble$ -- 1
+purify$ -- 345
+quote$ -- 0
+skip$ -- 589
+stack$ -- 0
+substring$ -- 475
+swap$ -- 95
+text.length$ -- 45
+text.prefix$ -- 38
+top$ -- 0
+type$ -- 368
+warning$ -- 1
+while$ -- 124
+width$ -- 54
+write$ -- 578
+(There were 32 warnings)

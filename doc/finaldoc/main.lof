@@ -1,0 +1,74 @@
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The GEO-Cloud Concept.}}{2}{figure.caption.10}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Different images acquired by \acs {USGS}/\acs {NASA} Landsat.\relax }}{4}{figure.caption.11}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Image acquired in blue, near infrared and short wave infrared spectral bands.}}}{4}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Image acquired from \ac {SRTM} conforming a 3D image.}}}{4}{subfigure.2.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Resolutions of different sensing applications.\relax }}{4}{figure.caption.13}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces GSD vs Revisit Time.\relax }}{5}{figure.caption.14}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces GEO-Cloud implementation in Fed4FIRE.\relax }}{9}{figure.caption.18}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Conceptual map of this chapter.\relax }}{14}{figure.caption.20}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Geographical distribution of PlanetLab Europe.\relax }}{22}{figure.caption.34}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces BonFIRE testbeds.\relax }}{23}{figure.caption.36}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Iterative-Incremental model scheme.\relax }}{33}{figure.caption.56}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Land surface to be acquired in a daily basis.\relax }}{38}{figure.caption.59}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Constellation of 17 satellites in a SSO at $646~km$.\relax }}{40}{figure.caption.63}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Footprints of the selected Ground Stations.\relax }}{41}{figure.caption.64}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Example of strip imaging.\relax }}{42}{figure.caption.65}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Diagram of images adquisition.\relax }}{43}{figure.caption.66}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Different types of the AOI acquisitions.\relax }}{44}{figure.caption.67}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Simple acquisition.}}}{44}{subfigure.6.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Multiple consecutive acquisitions.}}}{44}{subfigure.6.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Multiple non-consecutive acquisitions.}}}{44}{subfigure.6.3}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Multiplexed images downloading.\relax }}{47}{figure.caption.69}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Space System Simulator's Architecture.\relax }}{52}{figure.caption.77}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Database architecture.\relax }}{54}{figure.caption.78}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Satellite Simulator Architecture.\relax }}{57}{figure.caption.79}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Satellite Simulator Workflow.\relax }}{58}{figure.caption.80}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Sheduling Process on the Satellite Simulator.\relax }}{62}{figure.caption.84}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Satellite Simulator Activity Diagram.\relax }}{63}{figure.caption.85}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Ground Station Simulator Architecture.\relax }}{66}{figure.caption.88}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Ground Station Simulator Workflow.\relax }}{67}{figure.caption.89}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Ground Station Simulator Activity Diagram.\relax }}{68}{figure.caption.90}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Topology Network in \emph {Virtual~Wall }\relax }}{70}{figure.caption.92}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Topology Network in \emph {Virtual~Wall }\relax }}{71}{figure.caption.93}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Configuration of \emph {Virtual~Wall }nodes\relax }}{71}{figure.caption.94}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces \emph {Orchestrator} interactions.\relax }}{76}{figure.caption.96}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Stages of the product processing.\relax }}{77}{figure.caption.97}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Scheme of the \emph {Archive and Catalogue} module.\relax }}{80}{figure.caption.98}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces First architecture on cloud.\relax }}{81}{figure.caption.99}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces \emph {Orchestrator} workflow.\relax }}{82}{figure.caption.100}
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Cloud architecture using ZeroC ICE.\relax }}{93}{figure.caption.107}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces PlanetLab and modelled links equivalences\relax }}{110}{figure.caption.114}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces System description\relax }}{111}{figure.caption.116}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Scheme of the system implemented in Geo-Cloud\relax }}{111}{figure.caption.117}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces PlanetLab Network Scheme\relax }}{113}{figure.caption.118}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Flow diagrams of the scripts developed for the \emph {PlanetLab }experiment.\relax }}{118}{figure.caption.119}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Flow diagram of the \emph {bandwidthEndUser.py} and \emph {lossRateEndUser.py} scripts.}}}{118}{subfigure.30.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Flow diagram of the \emph {bandwidthGS.py} and \emph {lossRateGS.py} scripts.}}}{118}{subfigure.30.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Flow diagram of the \emph {latencyGS.py} script.}}}{118}{subfigure.30.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Flow diagram of the \emph {latencyEndUser.py} script.}}}{118}{subfigure.30.4}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Class diagram of the graphical user interface.\relax }}{119}{figure.caption.120}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Components of the GUI\relax }}{124}{figure.caption.122}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Source code evolution.\relax }}{132}{figure.caption.126}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Evolution of the number of commits.\relax }}{133}{figure.caption.127}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Bandwidth of the node representing Chetumal ground station}}}{136}{subfigure.1.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Latency of the node representing Chetumal ground station}}}{136}{subfigure.1.2}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Bandwidth of all nodes\relax }}{144}{figure.caption.130}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Latency of all nodes\relax }}{145}{figure.caption.131}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Bandwidth of all nodes.\relax }}{146}{figure.caption.132}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Fed4FIRE webpage for creating an account\relax }}{154}{figure.caption.139}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces BonFIRE platform webpage\relax }}{154}{figure.caption.140}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Loading specification in JFed\relax }}{155}{figure.caption.141}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Rspec in JFed\relax }}{155}{figure.caption.142}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Running experiment in JFed\relax }}{156}{figure.caption.143}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Nodes deployed in JFed\relax }}{156}{figure.caption.144}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Orchestrator execution\relax }}{157}{figure.caption.145}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces GUI main window\relax }}{157}{figure.caption.146}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces GeoServer catalogue\relax }}{158}{figure.caption.147}
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Region of Murcia (Spain) (image from \url {www.20minutos.es})\relax }}{169}{figure.caption.151}
+\contentsline {figure}{\numberline {D.2}{\ignorespaces High Speed line Medina-La Meca in Saudi Arabia}}{170}{figure.caption.152}
+\contentsline {figure}{\numberline {D.3}{\ignorespaces South West of England}}{172}{figure.caption.154}
+\contentsline {figure}{\numberline {D.4}{\ignorespaces Map of Argentina}}{174}{figure.caption.155}
+\contentsline {figure}{\numberline {D.5}{\ignorespaces NASA's Blue Marble from December with topography and bathymetry (from \url {http://visibleearth.nasa.gov/view.php?id=73909}\relax }}{175}{figure.caption.156}

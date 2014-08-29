@@ -1,0 +1,320 @@
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\contentsline {chapter}{Abstract}{xi}{chapter*.1}
+\contentsline {chapter}{Contents}{xiii}{chapter*.3}
+\contentsline {chapter}{List of Tables}{xix}{chapter*.4}
+\contentsline {chapter}{List of Figures}{xxi}{chapter*.5}
+\contentsline {chapter}{Listings}{xxiii}{chapter*.6}
+\contentsline {chapter}{List of acronyms}{xxv}{chapter*.7}
+\contentsline {chapter}{Acknowledgements}{xxix}{chapter*.8}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Earth Observation}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Cloud Computing}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}The Fed4FIRE European Project}{6}{section.1.3}
+\contentsline {section}{\numberline {1.4}The GEO-Cloud Experiment Overview}{7}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Experiment Description}{7}{subsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.1.1}Experiment Design}{7}{subsubsection.1.4.1.1}
+\contentsline {paragraph}{\numberline {1.4.1.1.1}Implementation of the acquisition of geo-data in Virtual Wall and PlanetLab}{8}{paragraph.1.4.1.1.1}
+\contentsline {paragraph}{\numberline {1.4.1.1.2}Implementation of the cloud based services in BonFIRE}{8}{paragraph.1.4.1.1.2}
+\contentsline {subsection}{\numberline {1.4.2}Impact in Fed4FIRE}{9}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Scientific and Technological Impact}{9}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Socio-Economic Impact}{10}{subsection.1.4.4}
+\contentsline {section}{\numberline {1.5}Document Structure}{10}{section.1.5}
+\contentsline {chapter}{\numberline {2}Project Background}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Earth Observation Satellites}{13}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Orbital Mechanics}{13}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Spatial Telescopes}{15}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Data Management}{15}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Ground Segment}{15}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}High-level languages}{16}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}XML}{16}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}JSON}{17}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Scripting languages}{17}{subsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3.1}Python}{17}{subsubsection.2.2.3.1}
+\contentsline {subsubsection}{\numberline {2.2.3.2}Bash Script}{17}{subsubsection.2.2.3.2}
+\contentsline {subsubsection}{\numberline {2.2.3.3}Ruby}{17}{subsubsection.2.2.3.3}
+\contentsline {subsubsection}{\numberline {2.2.3.4}Lua}{18}{subsubsection.2.2.3.4}
+\contentsline {section}{\numberline {2.3}Networking}{18}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Impairments}{18}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Networking Software}{19}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Federated Infrastructures}{19}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Fed4FIRE Testbeds}{21}{subsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.1.1}Virtual Wall}{21}{subsubsection.2.4.1.1}
+\contentsline {subsubsection}{\numberline {2.4.1.2}PlanetLab Europe}{22}{subsubsection.2.4.1.2}
+\contentsline {subsubsection}{\numberline {2.4.1.3}BonFIRE}{22}{subsubsection.2.4.1.3}
+\contentsline {subsection}{\numberline {2.4.2}Federated Tools}{24}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Graphical User Interfaces}{24}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Frameworks}{24}{subsection.2.5.1}
+\contentsline {section}{\numberline {2.6}Database}{25}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}DBMS}{25}{subsection.2.6.1}
+\contentsline {section}{\numberline {2.7}Distributed Systems}{26}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Middleware}{27}{subsection.2.7.1}
+\contentsline {subsubsection}{\numberline {2.7.1.1}Hadoop}{27}{subsubsection.2.7.1.1}
+\contentsline {subsubsection}{\numberline {2.7.1.2}ZeroC ICE}{27}{subsubsection.2.7.1.2}
+\contentsline {section}{\numberline {2.8}Software Design}{28}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Multiplatform source}{28}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Software Development Life Cycles}{28}{subsection.2.8.2}
+\contentsline {subsection}{\numberline {2.8.3}Design Patterns}{29}{subsection.2.8.3}
+\contentsline {subsection}{\numberline {2.8.4}Testing}{29}{subsection.2.8.4}
+\contentsline {chapter}{\numberline {3}Objectives}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}Specific Objectives}{31}{section.3.1}
+\contentsline {chapter}{\numberline {4}Method of work}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}Development Methodology}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}Tools used in the project}{34}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Programming Languages}{34}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Hardware}{34}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Software}{35}{subsection.4.2.3}
+\contentsline {chapter}{\numberline {5}The Geo-Cloud Experiment}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Satellite System Design}{38}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Design of the flight and ground segments}{38}{subsection.5.1.1}
+\contentsline {paragraph}{\numberline {5.1.1.0.1}Global Daily Coverage}{38}{paragraph.5.1.1.0.1}
+\contentsline {paragraph}{\numberline {5.1.1.0.2}Flight Segment}{38}{paragraph.5.1.1.0.2}
+\contentsline {subparagraph}{\numberline {5.1.1.0.2.1}Satellite performances}{39}{subparagraph.5.1.1.0.2.1}
+\contentsline {subparagraph}{\numberline {5.1.1.0.2.2}Orbit definition}{39}{subparagraph.5.1.1.0.2.2}
+\contentsline {subparagraph}{\numberline {5.1.1.0.2.3}Number of satellites in the constellation}{40}{subparagraph.5.1.1.0.2.3}
+\contentsline {paragraph}{\numberline {5.1.1.0.3}Ground Stations design}{40}{paragraph.5.1.1.0.3}
+\contentsline {subsection}{\numberline {5.1.2}Generated Data Volume}{40}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Satellite System Development}{41}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Image Acquisition}{42}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}Assumptions in satellite image acquisition}{43}{subsubsection.5.2.1.1}
+\contentsline {subsubsection}{\numberline {5.2.1.2}Types of acquisition of the AOI by a single satellite}{44}{subsubsection.5.2.1.2}
+\contentsline {subsubsection}{\numberline {5.2.1.3}Parameters required for the simulation of the scenarios}{44}{subsubsection.5.2.1.3}
+\contentsline {subsection}{\numberline {5.2.2}Image Downloading}{46}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Getting the satellite data}{49}{subsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.3.1}Extraction of the real behaviour of the satellite constellation in the scenarios}{49}{subsubsection.5.2.3.1}
+\contentsline {subsubsection}{\numberline {5.2.3.2}Exportation of data to the simulator}{49}{subsubsection.5.2.3.2}
+\contentsline {subsubsection}{\numberline {5.2.3.3}Processing of the Scenario\_<NUM>\_<SCENE>.csv and All\_Scenarios.csv}{50}{subsubsection.5.2.3.3}
+\contentsline {subsection}{\numberline {5.2.4}Space System Simulator}{51}{subsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.4.1}Database}{53}{subsubsection.5.2.4.1}
+\contentsline {subsubsection}{\numberline {5.2.4.2}Database Filling}{55}{subsubsection.5.2.4.2}
+\contentsline {subsection}{\numberline {5.2.5}Satellite System Simulator}{56}{subsection.5.2.5}
+\contentsline {subsubsection}{\numberline {5.2.5.1}Satellite Simulator}{57}{subsubsection.5.2.5.1}
+\contentsline {paragraph}{\numberline {5.2.5.1.1}Satellite Simulator Workflow}{57}{paragraph.5.2.5.1.1}
+\contentsline {subparagraph}{\numberline {5.2.5.1.1.1}Schedule of data download process}{59}{subparagraph.5.2.5.1.1.1}
+\contentsline {paragraph}{\numberline {5.2.5.1.2}Satellite Simulator Implementation}{61}{paragraph.5.2.5.1.2}
+\contentsline {paragraph}{\numberline {5.2.5.1.3}Execution}{63}{paragraph.5.2.5.1.3}
+\contentsline {subsection}{\numberline {5.2.6}Ground Station System Simulator}{64}{subsection.5.2.6}
+\contentsline {subsubsection}{\numberline {5.2.6.1}Ground Station Simulator}{64}{subsubsection.5.2.6.1}
+\contentsline {subsubsection}{\numberline {5.2.6.2}Ground Station Simulator Workflow}{66}{subsubsection.5.2.6.2}
+\contentsline {paragraph}{\numberline {5.2.6.2.1}Implementation}{67}{paragraph.5.2.6.2.1}
+\contentsline {paragraph}{\numberline {5.2.6.2.2}Execution}{68}{paragraph.5.2.6.2.2}
+\contentsline {section}{\numberline {5.3}Implementation in Virtual Wall}{69}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Topology network}{70}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.1}Nodes Reservation and Setup}{70}{subsubsection.5.3.1.1}
+\contentsline {paragraph}{\numberline {5.3.1.1.1}Satellite Simulator Nodes Setup}{71}{paragraph.5.3.1.1.1}
+\contentsline {subsubsection}{\numberline {5.3.1.2}Ground Station Simulator Nodes Setup}{73}{subsubsection.5.3.1.2}
+\contentsline {section}{\numberline {5.4}Cloud Architecture}{75}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Cloud components in GeoCloud}{76}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}Orchestrator}{76}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}Processing Chain}{77}{subsubsection.5.4.1.2}
+\contentsline {paragraph}{\numberline {5.4.1.2.1}The L0 Processor}{78}{paragraph.5.4.1.2.1}
+\contentsline {paragraph}{\numberline {5.4.1.2.2}The L1A Processor}{78}{paragraph.5.4.1.2.2}
+\contentsline {paragraph}{\numberline {5.4.1.2.3}The L1B Processor}{78}{paragraph.5.4.1.2.3}
+\contentsline {paragraph}{\numberline {5.4.1.2.4}The L1C Processor}{79}{paragraph.5.4.1.2.4}
+\contentsline {subsubsection}{\numberline {5.4.1.3}Archive and Catalogue}{79}{subsubsection.5.4.1.3}
+\contentsline {subsection}{\numberline {5.4.2}Implementation of the cloud architecture using SSH and SCP}{80}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}Implementation of the Orchestrator}{81}{subsubsection.5.4.2.1}
+\contentsline {paragraph}{\numberline {5.4.2.1.1}Orchestrator Workflow}{81}{paragraph.5.4.2.1.1}
+\contentsline {paragraph}{\numberline {5.4.2.1.2}Orchestrator Interfaces}{82}{paragraph.5.4.2.1.2}
+\contentsline {subparagraph}{\numberline {5.4.2.1.2.1}Interfaces with the Ground Stations implemented in Virtual Wall}{83}{subparagraph.5.4.2.1.2.1}
+\contentsline {subparagraph}{\numberline {5.4.2.1.2.2}Interfaces with the Product Processors}{83}{subparagraph.5.4.2.1.2.2}
+\contentsline {paragraph}{\numberline {5.4.2.1.3}Orchestrator Design}{83}{paragraph.5.4.2.1.3}
+\contentsline {paragraph}{\numberline {5.4.2.1.4}Orchestrator Implementation}{84}{paragraph.5.4.2.1.4}
+\contentsline {paragraph}{\numberline {5.4.2.1.5}Orchestrator Execution}{85}{paragraph.5.4.2.1.5}
+\contentsline {paragraph}{\numberline {5.4.2.1.6}Implementation in BonFIRE}{85}{paragraph.5.4.2.1.6}
+\contentsline {subsubsection}{\numberline {5.4.2.2}Implementation of the Processing Chain}{85}{subsubsection.5.4.2.2}
+\contentsline {paragraph}{\numberline {5.4.2.2.1}Processing Chain Workflow}{86}{paragraph.5.4.2.2.1}
+\contentsline {paragraph}{\numberline {5.4.2.2.2}Processing Chain Interfaces}{86}{paragraph.5.4.2.2.2}
+\contentsline {subparagraph}{\numberline {5.4.2.2.2.1}Interfaces with the Orchestrator}{86}{subparagraph.5.4.2.2.2.1}
+\contentsline {subparagraph}{\numberline {5.4.2.2.2.2}Interfaces with the Archive and Catalogue}{87}{subparagraph.5.4.2.2.2.2}
+\contentsline {paragraph}{\numberline {5.4.2.2.3}Processing Chain Design}{87}{paragraph.5.4.2.2.3}
+\contentsline {paragraph}{\numberline {5.4.2.2.4}Processing Chain Implementation}{87}{paragraph.5.4.2.2.4}
+\contentsline {paragraph}{\numberline {5.4.2.2.5}Processing Chain Execution}{88}{paragraph.5.4.2.2.5}
+\contentsline {paragraph}{\numberline {5.4.2.2.6}Implementation in BonFIRE}{88}{paragraph.5.4.2.2.6}
+\contentsline {subsubsection}{\numberline {5.4.2.3}Archive and Catalogue}{89}{subsubsection.5.4.2.3}
+\contentsline {paragraph}{\numberline {5.4.2.3.1}Archive and Catalogue Workflow}{89}{paragraph.5.4.2.3.1}
+\contentsline {paragraph}{\numberline {5.4.2.3.2}Archive and Catalogue Interfaces}{89}{paragraph.5.4.2.3.2}
+\contentsline {subparagraph}{\numberline {5.4.2.3.2.1}Interfaces with the Processing Chain}{90}{subparagraph.5.4.2.3.2.1}
+\contentsline {subparagraph}{\numberline {5.4.2.3.2.2}Interfaces with the GeoServer software}{90}{subparagraph.5.4.2.3.2.2}
+\contentsline {subparagraph}{\numberline {5.4.2.3.2.3}Interfaces with CSW clients}{90}{subparagraph.5.4.2.3.2.3}
+\contentsline {paragraph}{\numberline {5.4.2.3.3}Archive and Catalogue Design}{90}{paragraph.5.4.2.3.3}
+\contentsline {paragraph}{\numberline {5.4.2.3.4}Archive and Catalogue Implementation}{90}{paragraph.5.4.2.3.4}
+\contentsline {paragraph}{\numberline {5.4.2.3.5}Archive and Catalogue Execution}{91}{paragraph.5.4.2.3.5}
+\contentsline {paragraph}{\numberline {5.4.2.3.6}Implementation in BonFIRE}{91}{paragraph.5.4.2.3.6}
+\contentsline {subsection}{\numberline {5.4.3}Implementation of the cloud architecture using ZeroC ICE}{92}{subsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.3.1}ICE interfaces}{94}{subsubsection.5.4.3.1}
+\contentsline {subsubsection}{\numberline {5.4.3.2}Implementation of the Orchestrator}{94}{subsubsection.5.4.3.2}
+\contentsline {paragraph}{\numberline {5.4.3.2.1}Orchestrator Workflow}{94}{paragraph.5.4.3.2.1}
+\contentsline {paragraph}{\numberline {5.4.3.2.2}Orchestrator Interfaces}{96}{paragraph.5.4.3.2.2}
+\contentsline {subparagraph}{\numberline {5.4.3.2.2.1}Interfaces with the Ground Stations implemented in Virtuall Wall}{96}{subparagraph.5.4.3.2.2.1}
+\contentsline {subparagraph}{\numberline {5.4.3.2.2.2}Interfaces with the Processing Chains}{96}{subparagraph.5.4.3.2.2.2}
+\contentsline {subparagraph}{\numberline {5.4.3.2.2.3}Interfaces with the Archive and Catalogue}{96}{subparagraph.5.4.3.2.2.3}
+\contentsline {paragraph}{\numberline {5.4.3.2.3}Orchestrator Design}{97}{paragraph.5.4.3.2.3}
+\contentsline {paragraph}{\numberline {5.4.3.2.4}Orchestrator Implementation}{97}{paragraph.5.4.3.2.4}
+\contentsline {paragraph}{\numberline {5.4.3.2.5}OrchestratorExecution}{97}{paragraph.5.4.3.2.5}
+\contentsline {subsubsection}{\numberline {5.4.3.3}Implementation of the Processing Chain}{99}{subsubsection.5.4.3.3}
+\contentsline {paragraph}{\numberline {5.4.3.3.1}Processing Chain Workflow}{99}{paragraph.5.4.3.3.1}
+\contentsline {paragraph}{\numberline {5.4.3.3.2}Processing Chain Interfaces}{99}{paragraph.5.4.3.3.2}
+\contentsline {subparagraph}{\numberline {5.4.3.3.2.1}Interfaces with the Orchestrator}{99}{subparagraph.5.4.3.3.2.1}
+\contentsline {paragraph}{\numberline {5.4.3.3.3}Processing Chain Design}{99}{paragraph.5.4.3.3.3}
+\contentsline {subparagraph}{\numberline {5.4.3.3.3.1}ProcessingChainReplica}{100}{subparagraph.5.4.3.3.3.1}
+\contentsline {paragraph}{\numberline {5.4.3.3.4}Processing Chain Implementation}{100}{paragraph.5.4.3.3.4}
+\contentsline {paragraph}{\numberline {5.4.3.3.5}Processing Chain Execution}{100}{paragraph.5.4.3.3.5}
+\contentsline {subsubsection}{\numberline {5.4.3.4}Implementation of the Archive and Catalogue}{101}{subsubsection.5.4.3.4}
+\contentsline {paragraph}{\numberline {5.4.3.4.1}Archive and Catalogue Workflow}{101}{paragraph.5.4.3.4.1}
+\contentsline {paragraph}{\numberline {5.4.3.4.2}Archive and Catalogue Interfaces}{101}{paragraph.5.4.3.4.2}
+\contentsline {subparagraph}{\numberline {5.4.3.4.2.1}Interfaces with the Orchestrator}{101}{subparagraph.5.4.3.4.2.1}
+\contentsline {subparagraph}{\numberline {5.4.3.4.2.2}Interfaces with the GeoServer software}{101}{subparagraph.5.4.3.4.2.2}
+\contentsline {paragraph}{\numberline {5.4.3.4.3}Archive and Catalogue Design}{102}{paragraph.5.4.3.4.3}
+\contentsline {paragraph}{\numberline {5.4.3.4.4}Archive and Catalogue Implementation}{102}{paragraph.5.4.3.4.4}
+\contentsline {paragraph}{\numberline {5.4.3.4.5}Archive and Catalogue Execution}{103}{paragraph.5.4.3.4.5}
+\contentsline {subsubsection}{\numberline {5.4.3.5}Implementation of the Broker}{103}{subsubsection.5.4.3.5}
+\contentsline {paragraph}{\numberline {5.4.3.5.1}Broker Workflow}{103}{paragraph.5.4.3.5.1}
+\contentsline {paragraph}{\numberline {5.4.3.5.2}Broker Interfaces}{104}{paragraph.5.4.3.5.2}
+\contentsline {subparagraph}{\numberline {5.4.3.5.2.1}Interfaces with the Orchestrator}{104}{subparagraph.5.4.3.5.2.1}
+\contentsline {subparagraph}{\numberline {5.4.3.5.2.2}Interfaces with all the cloud components}{104}{subparagraph.5.4.3.5.2.2}
+\contentsline {subparagraph}{\numberline {5.4.3.5.2.3}Interfaces with the clients}{104}{subparagraph.5.4.3.5.2.3}
+\contentsline {paragraph}{\numberline {5.4.3.5.3}Broker Design}{104}{paragraph.5.4.3.5.3}
+\contentsline {paragraph}{\numberline {5.4.3.5.4}Broker Implementation}{105}{paragraph.5.4.3.5.4}
+\contentsline {paragraph}{\numberline {5.4.3.5.5}Broker Execution}{105}{paragraph.5.4.3.5.5}
+\contentsline {subsubsection}{\numberline {5.4.3.6}Implementation of the client}{105}{subsubsection.5.4.3.6}
+\contentsline {paragraph}{\numberline {5.4.3.6.1}Client Execution}{106}{paragraph.5.4.3.6.1}
+\contentsline {subsubsection}{\numberline {5.4.3.7}Deployment of the ICE architecture}{106}{subsubsection.5.4.3.7}
+\contentsline {section}{\numberline {5.5}Profilling Tool in PlanetLab}{107}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Definitions}{107}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Platform description}{108}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}Tools description}{108}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.5.4}PlanetLab Experiment}{109}{subsection.5.5.4}
+\contentsline {subsubsection}{\numberline {5.5.4.1}System Modeling}{110}{subsubsection.5.5.4.1}
+\contentsline {subsubsection}{\numberline {5.5.4.2}Network Design}{112}{subsubsection.5.5.4.2}
+\contentsline {subsubsection}{\numberline {5.5.4.3}Experiment Design and Execution}{112}{subsubsection.5.5.4.3}
+\contentsline {paragraph}{\numberline {5.5.4.3.1}The bandwidthGS.py script}{113}{paragraph.5.5.4.3.1}
+\contentsline {paragraph}{\numberline {5.5.4.3.2}The bandwidthEndUser.py script}{114}{paragraph.5.5.4.3.2}
+\contentsline {paragraph}{\numberline {5.5.4.3.3}The lossRateGS.py script}{115}{paragraph.5.5.4.3.3}
+\contentsline {paragraph}{\numberline {5.5.4.3.4}The lossRateEndUser.py script}{116}{paragraph.5.5.4.3.4}
+\contentsline {paragraph}{\numberline {5.5.4.3.5}The latencyGS.py script}{116}{paragraph.5.5.4.3.5}
+\contentsline {paragraph}{\numberline {5.5.4.3.6}The latencyEndUser.py script}{117}{paragraph.5.5.4.3.6}
+\contentsline {section}{\numberline {5.6}GEO-Cloud Graphical User Interface}{117}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Architecture}{117}{subsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.1.1}Experiment Controller}{119}{subsubsection.5.6.1.1}
+\contentsline {paragraph}{\numberline {5.6.1.1.1}Experiment Controller Workflow}{119}{paragraph.5.6.1.1.1}
+\contentsline {subsubsection}{\numberline {5.6.1.2}SSH Connection}{120}{subsubsection.5.6.1.2}
+\contentsline {paragraph}{\numberline {5.6.1.2.1}SSH Connection Workflow}{120}{paragraph.5.6.1.2.1}
+\contentsline {subsubsection}{\numberline {5.6.1.3}SSH Order}{120}{subsubsection.5.6.1.3}
+\contentsline {paragraph}{\numberline {5.6.1.3.1}SSH Connection Workflow}{120}{paragraph.5.6.1.3.1}
+\contentsline {subsubsection}{\numberline {5.6.1.4}getLoad}{121}{subsubsection.5.6.1.4}
+\contentsline {paragraph}{\numberline {5.6.1.4.1}getLoad Workflow}{121}{paragraph.5.6.1.4.1}
+\contentsline {subsubsection}{\numberline {5.6.1.5}JFedParser}{121}{subsubsection.5.6.1.5}
+\contentsline {paragraph}{\numberline {5.6.1.5.1}JFedParser Workflow}{121}{paragraph.5.6.1.5.1}
+\contentsline {subsubsection}{\numberline {5.6.1.6}UI Controller}{121}{subsubsection.5.6.1.6}
+\contentsline {paragraph}{\numberline {5.6.1.6.1}UI Controller Workflow}{121}{paragraph.5.6.1.6.1}
+\contentsline {subsubsection}{\numberline {5.6.1.7}Video Widget}{122}{subsubsection.5.6.1.7}
+\contentsline {paragraph}{\numberline {5.6.1.7.1}Video Widget Workflow}{122}{paragraph.5.6.1.7.1}
+\contentsline {subsection}{\numberline {5.6.2}About Widget}{122}{subsection.5.6.2}
+\contentsline {paragraph}{\numberline {5.6.2.0.2}About Widget Workflow}{122}{paragraph.5.6.2.0.2}
+\contentsline {subsection}{\numberline {5.6.3}Log Widget}{122}{subsection.5.6.3}
+\contentsline {paragraph}{\numberline {5.6.3.0.3}Log Widget Workflow}{122}{paragraph.5.6.3.0.3}
+\contentsline {subsection}{\numberline {5.6.4}Tab Widget}{123}{subsection.5.6.4}
+\contentsline {paragraph}{\numberline {5.6.4.0.4}Tab Widget Workflow}{123}{paragraph.5.6.4.0.4}
+\contentsline {subsection}{\numberline {5.6.5}Implementation of the Graphical User Interface}{123}{subsection.5.6.5}
+\contentsline {subsection}{\numberline {5.6.6}Execution of the Graphical User Interface}{123}{subsection.5.6.6}
+\contentsline {subsection}{\numberline {5.6.7}Components of the Graphical User Interface}{124}{subsection.5.6.7}
+\contentsline {chapter}{\numberline {6}Evolution and Costs}{127}{chapter.6}
+\contentsline {section}{\numberline {6.1}Project Evolution}{127}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Training stage}{127}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Preliminary requirements analysis}{127}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}General design}{128}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Iterations of the development}{128}{subsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.4.1}Iteration 1}{128}{subsubsection.6.1.4.1}
+\contentsline {subsubsection}{\numberline {6.1.4.2}Iteration 2}{129}{subsubsection.6.1.4.2}
+\contentsline {subsubsection}{\numberline {6.1.4.3}Iteration 3}{130}{subsubsection.6.1.4.3}
+\contentsline {subsubsection}{\numberline {6.1.4.4}Iteration 4}{130}{subsubsection.6.1.4.4}
+\contentsline {subsubsection}{\numberline {6.1.4.5}Iteration 5}{131}{subsubsection.6.1.4.5}
+\contentsline {subsubsection}{\numberline {6.1.4.6}Iteration 6}{131}{subsubsection.6.1.4.6}
+\contentsline {section}{\numberline {6.2}Resources and costs}{131}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Economic cost}{131}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Repository statistics}{132}{subsection.6.2.2}
+\contentsline {chapter}{\numberline {7}Results}{135}{chapter.7}
+\contentsline {section}{\numberline {7.1}PlanetLab Experiment Results}{135}{section.7.1}
+\contentsline {section}{\numberline {7.2}GEO-Cloud Experiment Results}{137}{section.7.2}
+\contentsline {section}{\numberline {7.3}Publications}{142}{section.7.3}
+\contentsline {chapter}{\numberline {8}Conclusions}{147}{chapter.8}
+\contentsline {subsection}{\numberline {8.0.1}Accomplished objectives}{147}{subsection.8.0.1}
+\contentsline {section}{\numberline {8.1}Fed4FIRE infrastructure conclusion}{149}{section.8.1}
+\contentsline {section}{\numberline {8.2}Future Work}{149}{section.8.2}
+\contentsline {section}{\numberline {8.3}Personal conclusion}{150}{section.8.3}
+\contentsline {chapter}{\numberline {A}User Manual}{153}{appendix.A}
+\contentsline {section}{\numberline {A.1}First steps}{153}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}Creating a Fed4FIRE account}{153}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Creating a BonFIRE account}{153}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Creating an SSH key}{154}{subsection.A.1.3}
+\contentsline {section}{\numberline {A.2}Execution of a Scenario}{154}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Execution of the Satellite System Simulator in Virtual Wall}{155}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}Execution of the Cloud Architecture in BonFIRE}{156}{subsection.A.2.2}
+\contentsline {subsection}{\numberline {A.2.3}Execution of the GUI}{156}{subsection.A.2.3}
+\contentsline {subsection}{\numberline {A.2.4}Collection of the results}{158}{subsection.A.2.4}
+\contentsline {chapter}{\numberline {B}PlanetLab Nodes}{159}{appendix.B}
+\contentsline {chapter}{\numberline {C}Summary Table of PlanetLab Results}{163}{appendix.C}
+\contentsline {chapter}{\numberline {D}Definition of Scenarios}{167}{appendix.D}
+\contentsline {section}{\numberline {D.1}Scenario 1: Emergencies - Lorca Earthquake (Spain)}{167}{section.D.1}
+\contentsline {subsection}{\numberline {D.1.1}Scenario description}{167}{subsection.D.1.1}
+\contentsline {subsection}{\numberline {D.1.2}Response}{167}{subsection.D.1.2}
+\contentsline {subsection}{\numberline {D.1.3}Data distribution}{168}{subsection.D.1.3}
+\contentsline {subsection}{\numberline {D.1.4}Area of Interest}{168}{subsection.D.1.4}
+\contentsline {subsection}{\numberline {D.1.5}Users}{168}{subsection.D.1.5}
+\contentsline {subsection}{\numberline {D.1.6}Service Type}{169}{subsection.D.1.6}
+\contentsline {subsection}{\numberline {D.1.7}Processing Level}{169}{subsection.D.1.7}
+\contentsline {subsection}{\numberline {D.1.8}Storage Level}{169}{subsection.D.1.8}
+\contentsline {subsection}{\numberline {D.1.9}Communications Level}{169}{subsection.D.1.9}
+\contentsline {subsection}{\numberline {D.1.10}Demand Variability}{169}{subsection.D.1.10}
+\contentsline {section}{\numberline {D.2}Scenario 2: Infrastructure monitoring. Affection in railway infrastructures by sand movement in desert areas (Spain)}{170}{section.D.2}
+\contentsline {subsection}{\numberline {D.2.1}Scenario description}{170}{subsection.D.2.1}
+\contentsline {subsection}{\numberline {D.2.2}Response}{170}{subsection.D.2.2}
+\contentsline {subsection}{\numberline {D.2.3}Data distribution}{171}{subsection.D.2.3}
+\contentsline {subsection}{\numberline {D.2.4}Area of Interest}{171}{subsection.D.2.4}
+\contentsline {subsection}{\numberline {D.2.5}Users}{171}{subsection.D.2.5}
+\contentsline {subsection}{\numberline {D.2.6}Service Type}{171}{subsection.D.2.6}
+\contentsline {subsection}{\numberline {D.2.7}Processing Level}{171}{subsection.D.2.7}
+\contentsline {subsection}{\numberline {D.2.8}Storage Level}{171}{subsection.D.2.8}
+\contentsline {subsection}{\numberline {D.2.9}Communications Level}{171}{subsection.D.2.9}
+\contentsline {subsection}{\numberline {D.2.10}Demand Variability}{171}{subsection.D.2.10}
+\contentsline {section}{\numberline {D.3}Scenario 3: Land Management-South West of England}{171}{section.D.3}
+\contentsline {subsection}{\numberline {D.3.1}Scenario description}{171}{subsection.D.3.1}
+\contentsline {subsection}{\numberline {D.3.2}Response}{172}{subsection.D.3.2}
+\contentsline {subsection}{\numberline {D.3.3}Data distribution}{172}{subsection.D.3.3}
+\contentsline {subsection}{\numberline {D.3.4}Area of Interest}{172}{subsection.D.3.4}
+\contentsline {subsection}{\numberline {D.3.5}Users}{172}{subsection.D.3.5}
+\contentsline {subsection}{\numberline {D.3.6}Service Type}{173}{subsection.D.3.6}
+\contentsline {subsection}{\numberline {D.3.7}Processing Level}{173}{subsection.D.3.7}
+\contentsline {subsection}{\numberline {D.3.8}Storage Level}{173}{subsection.D.3.8}
+\contentsline {subsection}{\numberline {D.3.9}Communications Level}{173}{subsection.D.3.9}
+\contentsline {subsection}{\numberline {D.3.10}Demand Variability}{173}{subsection.D.3.10}
+\contentsline {section}{\numberline {D.4}Scenario 4: Precision Agriculture-Argentina}{173}{section.D.4}
+\contentsline {subsection}{\numberline {D.4.1}Scenario description}{173}{subsection.D.4.1}
+\contentsline {subsection}{\numberline {D.4.2}Response}{173}{subsection.D.4.2}
+\contentsline {subsection}{\numberline {D.4.3}Data distribution}{173}{subsection.D.4.3}
+\contentsline {subsection}{\numberline {D.4.4}Area of Interest}{174}{subsection.D.4.4}
+\contentsline {subsection}{\numberline {D.4.5}Users}{174}{subsection.D.4.5}
+\contentsline {subsection}{\numberline {D.4.6}Service Type}{174}{subsection.D.4.6}
+\contentsline {subsection}{\numberline {D.4.7}Processing Level}{174}{subsection.D.4.7}
+\contentsline {subsection}{\numberline {D.4.8}Storage Level}{175}{subsection.D.4.8}
+\contentsline {subsection}{\numberline {D.4.9}Communications Level}{175}{subsection.D.4.9}
+\contentsline {subsection}{\numberline {D.4.10}Demand Variability}{175}{subsection.D.4.10}
+\contentsline {section}{\numberline {D.5}Scenario 5: Basemaps-Worldwide}{175}{section.D.5}
+\contentsline {subsection}{\numberline {D.5.1}Scenario description}{175}{subsection.D.5.1}
+\contentsline {subsection}{\numberline {D.5.2}Response}{176}{subsection.D.5.2}
+\contentsline {subsection}{\numberline {D.5.3}Data distribution}{176}{subsection.D.5.3}
+\contentsline {subsection}{\numberline {D.5.4}Area of Interest}{176}{subsection.D.5.4}
+\contentsline {subsection}{\numberline {D.5.5}Users}{176}{subsection.D.5.5}
+\contentsline {subsection}{\numberline {D.5.6}Service Type}{176}{subsection.D.5.6}
+\contentsline {subsection}{\numberline {D.5.7}Processing Level}{176}{subsection.D.5.7}
+\contentsline {subsection}{\numberline {D.5.8}Storage Level}{176}{subsection.D.5.8}
+\contentsline {subsection}{\numberline {D.5.9}Communications Level}{176}{subsection.D.5.9}
+\contentsline {subsection}{\numberline {D.5.10}Demand Variability}{177}{subsection.D.5.10}
+\contentsline {chapter}{\numberline {E}Source code}{179}{appendix.E}
+\contentsline {section}{\numberline {E.1}Space System Simulator files}{179}{section.E.1}
+\contentsline {section}{\numberline {E.2}Virtual Wall deployment files}{179}{section.E.2}
+\contentsline {section}{\numberline {E.3}Orchestrator, Archive and Catalogue, Database and Processing Chain files}{180}{section.E.3}
+\contentsline {section}{\numberline {E.4}PlanetLab experiment files}{181}{section.E.4}
+\contentsline {chapter}{Bibliography}{183}{appendix*.157}

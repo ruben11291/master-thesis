@@ -1,8 +1,8 @@
 \chapter{Introduction}
 
 \drop{E}{arth} Observation (\acs{EO}) commercial data sales have increased a 550\% in
-the last decade~\cite{Euroconsult2010}. This area is considered a key element in the
-space industry and an opportunity market for the next years.
+the last decade. This area is considered a key element in the
+space industry and an opportunity market for the next years~\cite{Euroconsult2010}.
 
 \ac{EO} industries implement on-premises conventional infrastructures to acquire,
 store, process and distribute the geo-information generated.
@@ -55,7 +55,7 @@ acquired from the emulated satellites is transferred to the \bonfire cloud
 for storage, processing and distribution to end users. End users accessing and
 broadcasting will be emulated in another network implemented in \vw. In
 order to implement realistic impairments in \vw, real networks will be
-tested in \pl. This project was accomplished in the \emph{Elecnor Deimos
+tested in \pl. This project was accomplished in  \emph{Elecnor Deimos
   Satellite Systems} located in Puertollano. 
 
 \section{Earth Observation}
@@ -92,7 +92,7 @@ sunlight over the Earth's surface. Passive remote sensors are radiometers, for
 measuring the electromagnetic radiation; photography, to acquire the light
 reflected by the chemical elements in the visible spectral band; charge-coupled
 devices, to acquire ultraviolet spectrum, and infrared sensors, which obtain thermal
-images. Moreover, the \ac{EO} acquisition is also categorized by three types of
+images (see Figure~\ref{fig:two}). Moreover, the \ac{EO} acquisition is also categorized by three types of
 resolution in the images acquired~\cite{Sandau2009}: spectral , geometric and temporal
 resolutions. The spectral resolution depends on the object to be
 sensed. Panchromatic, blue, green , red, near-infrared and thermal infrared are the
@@ -114,6 +114,7 @@ most used spectral bands.
     \label{fig:3d-image}
   }
 \caption{Different images acquired by \acs{USGS}/\acs{NASA} Landsat.}
+\label{fig:two}
 \end{center}
 \end{figure*}
 
@@ -140,18 +141,18 @@ most used spectral bands.
 The geometric resolution is selected depending on how much definition the
 telescopes or imaging sensors have. Some examples are the acquisition of a cloud
 for weather applications, about $100~km$ resolution, or monitoring of roads and
-highways for traffic monitoring purpose, under $1~m$ resolution.
+highways for traffic monitoring purpose, under $1~m$ resolution (see Figure~\ref{fig:intr-resolution-spectral}).
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{detaildesign/resolution-spectral.png}
-\caption{Resolutions of different sensing applications}
+\caption{Resolutions of different sensing applications.}
 \label{fig:intr-resolution-spectral}
 \end{center}
 \end{figure}
 
 The temporal resolution is the related to the visit frequency between two
-consecutive acquisitions of the same location. This is known in remote sensing
+consecutive acquisitions of the same location (see Figure~\ref{fig:intr-gsd-revisit-time}). This is known in remote sensing
 as revisit time. Depending on the
 image application, the revisit time can vary. For example, for environmental
 monitoring, geology or precision agriculture the revisit time is longer that the
@@ -160,7 +161,7 @@ required revisit time for military or maritime surveillance~\cite{Sandau2009}.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.9\textwidth]{detaildesign/gsd-revisit-time.png}
-\caption{GSD vs Revisit Time}
+\caption{GSD vs Revisit Time.}
 \label{fig:intr-gsd-revisit-time}
 \end{center}
 \end{figure}
@@ -170,7 +171,7 @@ payloads for image acquisition are installed. These platforms can be summarized
 in two groups: spacecrafts and aircrafts. Aircrafts involve aerodines (planes,
 and helicopters among others) and aerostats (balloons and
 dirigibles). Spacecrafts are systems designed to fly over the atmosphere and
-could be used for many different purposes such as communications,remote sensing,
+could be used for many different purposes such as communications, remote sensing,
 meteorology and planetary exploration among others.
 
 
@@ -230,12 +231,12 @@ The cloud computing infrastructure offers different kinds of services that are
 summarized as follows:
 
 \begin{itemize}
-\item \emph{\ac{SaaS}:} It is the capacity provided to the consumer
+\item \emph{\acl{SaaS} (SaaS):} It is the capacity provided to the consumer
   to use  the infrastructure with provider's applications.
-\item \emph{\ac{PaaS}:} It is the capacity provided to the consumer which
+\item \emph{\acl{PaaS} (PaaS):} It is the capacity provided to the consumer which
   consists of the  applications created by the consumer using languages, libraries
   and tools supported by the platform owner, can be deployed on the cloud.
-\item \emph{\ac{IaaS}:} The capacity provided to the
+\item \emph{\acl{IaaS} (IaaS):} The capacity provided to the
   consumer consists of provisioning computing resources in order to facilitate
   the deployment and run its developed software.
 \end{itemize}
@@ -263,11 +264,11 @@ scale, industry driven innovative experiments.
   {\small
   \input{tables/partners.tex}
   }
-  \caption{Partners of the Fed4FIRE European Project}
+  \caption{Partners of the Fed4FIRE European Project.}
   \label{table:partners}
 \end{table}
 
-\section{The Geo-Cloud Experiment Overview}
+\section{The GEO-Cloud Experiment Overview}
 
 
 \subsection{Experiment Description}
@@ -335,7 +336,7 @@ Thus, the whole \ac{EO} system is completely implemented in \emph{Fed4FIRE} (see
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=1.1\textwidth]{statement/testbeds-geocloud.png}
-\caption{Geo-Cloud implementation in Fed4FIRE}
+\caption{GEO-Cloud implementation in Fed4FIRE.}
 \label{fig:intr-testbeds-geocloud}
 \end{center}
 \end{figure}
@@ -371,7 +372,7 @@ the current cloud computing technology for its application in Earth Observation.
 
 \subsection{Socio-Economic Impact}
 
-The Geo-Cloud project is used as a framework to offer services from \ac{EO}
+The GEO-Cloud project is used as a framework to offer services from \ac{EO}
 users. The benchmark developed in the experiment allows us to establish the
 frontiers of viable and not viable cloud solutions in \ac{EO} depending on the
 type of demand and service offered. This will establish the basis to satisfy the

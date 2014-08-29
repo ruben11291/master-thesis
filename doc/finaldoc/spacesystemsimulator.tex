@@ -21,7 +21,7 @@ The detailed design of the \sss and its implementation in \vw are next presented
 
 The first step is to implement the acquisition of images by the satellites of
 the six predefined scenarios (for an extended description on the scenarios see
-Anexo~\ref{anex:scenarios}) with the satellite
+Appendix~\ref{anex:scenarios}) with the satellite
 constellation:
 %\begin{enumerate}[label=\bfseries Scenario \arabic*:]
 
@@ -38,7 +38,7 @@ during the simulation. The in orbit satellites are nadir pointing in order to ac
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.6\textwidth]{spaceSystemSimulator/strip-imaging.png}
-\caption{Example of strip imaging}
+\caption{Example of strip imaging.}
 \label{fig:sss-example-strip}
   \end{center}
 \end{figure}
@@ -52,10 +52,10 @@ as possible are described for the scenarios. Note that the \emph{AOI} of the sce
 The \emph{AOI} in each scenario can be acquired by one or more satellites depending on
 the size of the \emph{AOI} relatively to the scene size (note that the GEO-Cloud
 satellites have a swath of $160~km$, thus we divide the acquisition into scenes of
-$160~km$ x $160~km$).
+$160~km$ x $160~km$.
 In each scenario we call \emph{main satellites} to the satellites with the task
 of acquiring the \emph{AOI} (note that all satellites are \emph{main satellites} in the
-model for the scenarios 5 and 6).
+model for the scenario 5).
 
 Along the duration of the scenario other satellites acquire images of the areas
 of the Earth surface they are passing over. Those images are not in the area of
@@ -67,7 +67,7 @@ During the experiments in \bonfire, they will be processed but not stored into t
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{spaceSystemSimulator/images-adquisition-diagram.png}
-\caption{Diagram of images adquisition}
+\caption{Diagram of images adquisition.}
 \label{fig:sss-acquisition-diagram}
 \end{center}
 \end{figure}
@@ -77,7 +77,7 @@ downloaded to the ground stations, transferred to the cloud and processed, but
 not stored, neither catalogued. In addition, it has to be taken into account
 that the main satellites can also acquire some images out of the \emph{AOI}
 during the duration of each scenario. Those acquired images are also considered
-non \emph{AOI} images.
+non \emph{AOI} images (see Figure~\ref{fig:sss-acquisition-diagram}).
 
 In every scenario the time is set to 0 when the simulation starts in the Fed4FIRE environment.
 
@@ -130,21 +130,21 @@ fits in a strip with several scenes.
 % \end{figure}
 \begin{figure*}
 \begin{center}
-  \subfloat[Simple acquisition]{
+  \subfloat[Simple acquisition.]{
     \includegraphics[width=0.25\textwidth]{spaceSystemSimulator/simple-acquisition.png}
     \label{fig:sss-simple-acquisition}
   }
  \hspace{0.01\textwidth}
- \subfloat[Multiple consecutive acquisitions]{
+ \subfloat[Multiple consecutive acquisitions.]{
     \includegraphics[width=0.25\textwidth]{spaceSystemSimulator/multiple-consecutive-acquisitions.png}
     \label{fig:sss-multiple-consecutive-acquisition}
   }
 \hspace{0.01\textwidth}
- \subfloat[Multiple non-consecutive acquisitions]{
+ \subfloat[Multiple non-consecutive acquisitions.]{
     \includegraphics[width=0.25\textwidth]{spaceSystemSimulator/non-consecutive-acquisitions.png}
     \label{fig:sss-non-consecutive-acquisition}
   }
-\caption{Different types of the AOI acquisitions}
+\caption{Different types of the AOI acquisitions.}
 \label{fig:sss-types-aoi-acquisitions}
 \end{center}
 \end{figure*}
@@ -235,7 +235,7 @@ As an example, the Table~\ref{table:sss-acquisitions-scenario2} shows the data w
   {\small
   \input{tables/acquisitions-scenario2.tex}
   }
-  \caption{Example of data of image acquisition for Scenario 2}
+  \caption{Example of data of image acquisition for Scenario 2.}
   \label{table:sss-acquisitions-scenario2}
 \end{table}
 
@@ -269,7 +269,7 @@ downloading task (see section \ref{subsubsec:parameters-required} for a wider ex
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.5\textwidth]{spaceSystemSimulator/multiplexed-downloading.png}
-\caption{Multiplexed images downloading}
+\caption{Multiplexed images downloading.}
 \label{fig:sss-multiplexed-downloading}
 \end{center}
 \end{figure}
@@ -298,7 +298,7 @@ As an example, the data of the accesses for the Scenario 2 are included in Table
   {\small
   \input{tables/accesses-scenario2.tex}
   }
-  \caption{Example of data of accesses for Scenario 2}
+  \caption{Example of data of accesses for Scenario 2.}
   \label{table:sss-accesses-scenario2}
 \end{table}
 
@@ -386,7 +386,7 @@ and $[T_{AOI}]_{fi}$ of all the scenarios is shown in Listing~\ref{code:sss-all-
 
 \begin{listing}[
   float=h!,
-  caption  = {Extract of the \emph{All\_Scenarios.csv} code of the Lorca scenario},
+  caption  = {Extract of the \emph{All\_Scenarios.csv} code of the Lorca scenario.},
   label    = code:sss-all-scenarios,
 style=customc]
 Scenario,Start Sce,End Sce,Sat,Start sat,End Sat,Images
@@ -413,7 +413,7 @@ of the satellites acquiring the \emph{AOI} are the depicted in Table~\ref{table:
   {\small
   \input{tables/headings-scenario.tex}
   }
-  \caption{Columns headings \emph{Scenario\_<NUM>\_<SCENE>.csv} files}
+  \caption{Columns headings \emph{Scenario\_<NUM>\_<SCENE>.csv} files.}
   \label{table:sss-headings-scenario2}
 \end{table}
 %\end{center}
@@ -425,7 +425,7 @@ of the satellites acquiring the \emph{AOI} are the depicted in Table~\ref{table:
   {\small
   \input{tables/all-scenario.tex}
   }
-  \caption{Columns headings of the \emph{All\_Scenarios.csv} file}
+  \caption{Columns headings of the \emph{All\_Scenarios.csv} file.}
   \label{table:sss-all-scenarios}
 \end{table}
 %\end{center}
@@ -451,7 +451,7 @@ To execute \emph{setDatabase.py} the arguments depicted in Table~\ref{table:sss-
   {\small
   \input{tables/arguments-setdatabase.tex}
   }
-  \caption{Arguments of \emph{setDatabase.py}}
+  \caption{Arguments of \emph{setDatabase.py}.}
   \label{table:sss-arguments-setdatabase}
 \end{table}
 
@@ -486,7 +486,7 @@ representing the \emph{Space System Simulator}.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{spaceSystemSimulator/sss-architecture.jpg}
-\caption{Space System Simulator's Architecture}
+\caption{Space System Simulator's Architecture.}
 \label{fig:sss-architecture}
 \end{center}
 \end{figure}
@@ -515,7 +515,7 @@ The design of the database architecture is shown in Figure~\ref{fig:sss-database
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.85\textwidth]{spaceSystemSimulator/database-architecture.png}
-\caption{Database architecture}
+\caption{Database architecture.}
 \label{fig:sss-database-architecture}
 \end{center}
 \end{figure}
@@ -607,7 +607,7 @@ Figure~\ref{fig:sss-sat-simulator-architecture} shows the relation between the p
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{spaceSystemSimulator/sat-simulator-architecture.jpg}
-\caption{Satellite Simulator Architecture}
+\caption{Satellite Simulator Architecture.}
 \label{fig:sss-sat-simulator-architecture}
 \end{center}
 \end{figure}
@@ -629,7 +629,7 @@ interactions with the other subsystems (see also Figure~\ref{fig:sss-sat-simulat
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{spaceSystemSimulator/sat-simulator-workflow.jpg}
-\caption{Satellite Simulator Workflow}
+\caption{Satellite Simulator Workflow.}
 \label{fig:sss-sat-simulator-workflow}
 \end{center}
 \end{figure}
@@ -667,7 +667,7 @@ The function has implemented the pseudo-code in Listing~\ref{code:sss-notinteres
 
 \begin{listing}[
   float=h!,
-  caption  = {Pseudocode of \emph{NotInterestingZone} function},
+  caption  = {Pseudocode of \emph{NotInterestingZone} function.},
   label    = code:sss-notinterestingzone,
 style=customc]
 function NotInterestingZone (t_ini,t_end,ipGroundStation):
@@ -699,7 +699,7 @@ socket.close()
 The function has implemented the  pseudo-code in Listing~\ref{code:sss-interestingZone}:
 \begin{listing}[
   float=h!,
-  caption  = {Pseudocode of \emph{InterestingZone} function},
+  caption  = {Pseudocode of \emph{InterestingZone} function.},
   label    = code:sss-interestingZone,
   style=customc]
 function InterestingZone (t_ini,t_end,offset_time,ipGroundStation):
@@ -738,7 +738,7 @@ The function has implemented the pseudo-code in Listing~\ref{code:sss-outofvisib
 
 \begin{listing}[
   float=h!,
-  caption  = {Pseudocode of \emph{OutOfVisibility} function},
+  caption  = {Pseudocode of \emph{OutOfVisibility} function.},
   label    = code:sss-outofvisibility,
 style=customc]
 function OutOfVisibility (t_ini,t_end):
@@ -766,9 +766,9 @@ ground stations. This is done as follows:
 \begin{enumerate}
 
 \item If the area the satellite is flying over is not \emph{AOI}, the function
-  \emph{NotInterestingZone} is scheduled to be executed as follows:
+  \emph{NotInterestingZone} is scheduled to be executed as follows:\\
   \mbox{\emph{NotInterestingZone(ipGroundStation, $[T_{GS}]_{0ij}$, $[T_ {GS}]_{fij}$)}}. The
-  function \emph{OutOfVisibility} is scheduled to be executed as follows:
+  function \emph{OutOfVisibility} is scheduled to be executed as follows:\\
   \emph{OutOfVisibility($[T_{GS}]_{fij}$, $[T_{GS}]_{(0i(j+1)})$)}, and the scheduling process finishes.
 \item Otherwise three cases can take place:
 \begin{itemize}
@@ -785,7 +785,7 @@ ground stations. This is done as follows:
 \end{itemize}
 \item The \emph{NotInterestingZone} function is scheduled to be executed as\\ \mbox{\emph{NotInterestingZone(ipGroundStation,}}\emph{$[T_{AOI}]_{fij}$, $[T_{GS}]_{fij}$)}.
 \item The function \emph{OutOfVisibility} is scheduled to be executed as
-  follows: \emph{OutOfVisibility($[T_{GS}]_{fij}$, $[T_{GS}]_{(0i(j+1)})$)}, and
+  follows:\\ \emph{OutOfVisibility($[T_{GS}]_{fij}$, $[T_{GS}]_{(0i(j+1)})$)}, and
   the scheduling process finishes.
 \end{enumerate}
 
@@ -795,7 +795,7 @@ Figure~\ref{fig:sss-sheduling-process} graphically shows the scheduling process 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=1\textwidth]{spaceSystemSimulator/sheduling-process.jpg}
-\caption{Sheduling Process on the Satellite Simulator}
+\caption{Sheduling Process on the Satellite Simulator.}
 \label{fig:sss-sheduling-process}
 \end{center}
 \end{figure}
@@ -807,7 +807,7 @@ depicted in Figure~\ref{fig:sss-satellite-activity}.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.6\textwidth]{spaceSystemSimulator/sat-simulator-activity.jpg}
-\caption{Satellite Simulator Activity Diagram}
+\caption{Satellite Simulator Activity Diagram.}
 \label{fig:sss-satellite-activity}
 \end{center}
 \end{figure}
@@ -825,7 +825,7 @@ implement the software are listed in Table~\ref{table:sss-satellite-libraries}.
   {\small
   \input{tables/sat-libraries.tex}
   }
-  \caption{Satellite Simulator's Python Libraries}
+  \caption{Satellite Simulator's Python Libraries.}
   \label{table:sss-satellite-libraries}
 \end{table}
 
@@ -855,7 +855,7 @@ and probably changed. The Table~\ref{table:sss-scenario-relative-time} shows the
   {\small
   \input{tables/scenarios-relatives-times.tex}
   }
-  \caption{Scenarios relative times}
+  \caption{Scenarios relative times.}
   \label{table:sss-scenario-relative-time}
 \end{table}
 
@@ -929,7 +929,7 @@ Figure~\ref{fig:sss-ground-station-architecture} shows the relation between the 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{spaceSystemSimulator/ground-station-architecture.jpg}
-\caption{Ground Station Simulator Architecture}
+\caption{Ground Station Simulator Architecture.}
 \label{fig:sss-ground-station-architecture}
 \end{center}
 \end{figure}
@@ -967,7 +967,7 @@ Figure~\ref{fig:sss-ground-station-workflow} shows the process explained above. 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.85\textwidth]{spaceSystemSimulator/ground-station-workflow.jpg}
-\caption{Ground Station Simulator Workflow}
+\caption{Ground Station Simulator Workflow.}
 \label{fig:sss-ground-station-workflow}
 \end{center}
 \end{figure}
@@ -978,7 +978,7 @@ in Figure~\ref{fig:sss-ground-station-activity}.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=0.9\textwidth]{spaceSystemSimulator/ground-station-activity.jpg}
-\caption{Ground Station Simulator Activity Diagram}
+\caption{Ground Station Simulator Activity Diagram.}
 \label{fig:sss-ground-station-activity}
 \end{center}
 \end{figure}
@@ -992,7 +992,7 @@ Table~\ref{table:sss-ground-libraries}.
   {\small
   \input{tables/gs-libraries.tex}
   }
-  \caption{Ground Station Simulator Python Libraries}
+  \caption{Ground Station Simulator Python Libraries.}
   \label{table:sss-ground-libraries}
 \end{table}
 
