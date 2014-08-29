@@ -1,174 +1,173 @@
-\BOOKMARK [0][-]{chapter*.1}{Abstract}{}% 1
-\BOOKMARK [0][-]{chapter*.3}{Contents}{}% 2
-\BOOKMARK [0][-]{chapter*.4}{List of Tables}{}% 3
-\BOOKMARK [0][-]{chapter*.5}{List of Figures}{}% 4
-\BOOKMARK [0][-]{chapter*.6}{Listings}{}% 5
-\BOOKMARK [0][-]{chapter*.7}{List of acronyms}{}% 6
-\BOOKMARK [0][-]{chapter*.8}{Acknowledgements}{}% 7
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 8
-\BOOKMARK [1][-]{section.1.1}{Earth Observation}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.2}{Cloud Computing}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.3}{The Fed4FIRE European Project}{chapter.1}% 11
-\BOOKMARK [1][-]{section.1.4}{The GEO-Cloud Experiment Overview}{chapter.1}% 12
-\BOOKMARK [2][-]{subsection.1.4.1}{Experiment Description}{section.1.4}% 13
-\BOOKMARK [2][-]{subsection.1.4.2}{Impact in Fed4FIRE}{section.1.4}% 14
-\BOOKMARK [2][-]{subsection.1.4.3}{Scientific and Technological Impact}{section.1.4}% 15
-\BOOKMARK [2][-]{subsection.1.4.4}{Socio-Economic Impact}{section.1.4}% 16
-\BOOKMARK [1][-]{section.1.5}{Document Structure}{chapter.1}% 17
-\BOOKMARK [0][-]{chapter.2}{Project Background}{}% 18
-\BOOKMARK [1][-]{section.2.1}{Earth Observation Satellites}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.1.1}{Orbital Mechanics}{section.2.1}% 20
-\BOOKMARK [2][-]{subsection.2.1.2}{Spatial Telescopes}{section.2.1}% 21
-\BOOKMARK [2][-]{subsection.2.1.3}{Data Management}{section.2.1}% 22
-\BOOKMARK [2][-]{subsection.2.1.4}{Ground Segment}{section.2.1}% 23
-\BOOKMARK [1][-]{section.2.2}{High-level languages}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.2.1}{XML}{section.2.2}% 25
-\BOOKMARK [2][-]{subsection.2.2.2}{JSON}{section.2.2}% 26
-\BOOKMARK [2][-]{subsection.2.2.3}{Scripting languages}{section.2.2}% 27
-\BOOKMARK [1][-]{section.2.3}{Networking}{chapter.2}% 28
-\BOOKMARK [2][-]{subsection.2.3.1}{Impairments}{section.2.3}% 29
-\BOOKMARK [2][-]{subsection.2.3.2}{Networking Software}{section.2.3}% 30
-\BOOKMARK [1][-]{section.2.4}{Federated Infrastructures}{chapter.2}% 31
-\BOOKMARK [2][-]{subsection.2.4.1}{Fed4FIRE Testbeds}{section.2.4}% 32
-\BOOKMARK [2][-]{subsection.2.4.2}{Federated Tools}{section.2.4}% 33
-\BOOKMARK [1][-]{section.2.5}{Graphical User Interfaces}{chapter.2}% 34
-\BOOKMARK [2][-]{subsection.2.5.1}{Frameworks}{section.2.5}% 35
-\BOOKMARK [1][-]{section.2.6}{Database}{chapter.2}% 36
-\BOOKMARK [2][-]{subsection.2.6.1}{DBMS}{section.2.6}% 37
-\BOOKMARK [1][-]{section.2.7}{Distributed Systems}{chapter.2}% 38
-\BOOKMARK [2][-]{subsection.2.7.1}{Middleware}{section.2.7}% 39
-\BOOKMARK [1][-]{section.2.8}{Software Design}{chapter.2}% 40
-\BOOKMARK [2][-]{subsection.2.8.1}{Multiplatform source}{section.2.8}% 41
-\BOOKMARK [2][-]{subsection.2.8.2}{Software Development Life Cycles}{section.2.8}% 42
-\BOOKMARK [2][-]{subsection.2.8.3}{Design Patterns}{section.2.8}% 43
-\BOOKMARK [2][-]{subsection.2.8.4}{Testing}{section.2.8}% 44
-\BOOKMARK [0][-]{chapter.3}{Objectives}{}% 45
-\BOOKMARK [1][-]{section.3.1}{Specific Objectives}{chapter.3}% 46
-\BOOKMARK [0][-]{chapter.4}{Method of work}{}% 47
-\BOOKMARK [1][-]{section.4.1}{Development Methodology}{chapter.4}% 48
-\BOOKMARK [1][-]{section.4.2}{Tools used in the project}{chapter.4}% 49
-\BOOKMARK [2][-]{subsection.4.2.1}{Programming Languages}{section.4.2}% 50
-\BOOKMARK [2][-]{subsection.4.2.2}{Hardware}{section.4.2}% 51
-\BOOKMARK [2][-]{subsection.4.2.3}{Software}{section.4.2}% 52
-\BOOKMARK [0][-]{chapter.5}{The Geo-Cloud Experiment}{}% 53
-\BOOKMARK [1][-]{section.5.1}{Satellite System Design}{chapter.5}% 54
-\BOOKMARK [2][-]{subsection.5.1.1}{Design of the flight and ground segments}{section.5.1}% 55
-\BOOKMARK [2][-]{subsection.5.1.2}{Generated Data Volume}{section.5.1}% 56
-\BOOKMARK [1][-]{section.5.2}{Satellite System Development}{chapter.5}% 57
-\BOOKMARK [2][-]{subsection.5.2.1}{Image Acquisition}{section.5.2}% 58
-\BOOKMARK [2][-]{subsection.5.2.2}{Image Downloading}{section.5.2}% 59
-\BOOKMARK [2][-]{subsection.5.2.3}{Getting the satellite data}{section.5.2}% 60
-\BOOKMARK [2][-]{subsection.5.2.4}{Space System Simulator}{section.5.2}% 61
-\BOOKMARK [2][-]{subsection.5.2.5}{Satellite System Simulator}{section.5.2}% 62
-\BOOKMARK [2][-]{subsection.5.2.6}{Ground Station System Simulator}{section.5.2}% 63
-\BOOKMARK [1][-]{section.5.3}{Implementation in Virtual Wall}{chapter.5}% 64
-\BOOKMARK [2][-]{subsection.5.3.1}{Topology network}{section.5.3}% 65
-\BOOKMARK [1][-]{section.5.4}{Cloud Architecture}{chapter.5}% 66
-\BOOKMARK [2][-]{subsection.5.4.1}{Cloud components in GeoCloud}{section.5.4}% 67
-\BOOKMARK [2][-]{subsection.5.4.2}{Implementation of the cloud architecture using SSH and SCP}{section.5.4}% 68
-\BOOKMARK [2][-]{subsection.5.4.3}{Implementation of the cloud architecture using ZeroC ICE}{section.5.4}% 69
-\BOOKMARK [1][-]{section.5.5}{Profilling Tool in PlanetLab}{chapter.5}% 70
-\BOOKMARK [2][-]{subsection.5.5.1}{Definitions}{section.5.5}% 71
-\BOOKMARK [2][-]{subsection.5.5.2}{Platform description}{section.5.5}% 72
-\BOOKMARK [2][-]{subsection.5.5.3}{Tools description}{section.5.5}% 73
-\BOOKMARK [2][-]{subsection.5.5.4}{PlanetLab Experiment}{section.5.5}% 74
-\BOOKMARK [1][-]{section.5.6}{GEO-Cloud Graphical User Interface}{chapter.5}% 75
-\BOOKMARK [2][-]{subsection.5.6.1}{Architecture}{section.5.6}% 76
-\BOOKMARK [2][-]{subsection.5.6.2}{About Widget}{section.5.6}% 77
-\BOOKMARK [2][-]{subsection.5.6.3}{Log Widget}{section.5.6}% 78
-\BOOKMARK [2][-]{subsection.5.6.4}{Tab Widget}{section.5.6}% 79
-\BOOKMARK [2][-]{subsection.5.6.5}{Implementation of the Graphical User Interface}{section.5.6}% 80
-\BOOKMARK [2][-]{subsection.5.6.6}{Execution of the Graphical User Interface}{section.5.6}% 81
-\BOOKMARK [2][-]{subsection.5.6.7}{Components of the Graphical User Interface}{section.5.6}% 82
-\BOOKMARK [0][-]{chapter.6}{Evolution and Costs}{}% 83
-\BOOKMARK [1][-]{section.6.1}{Project Evolution}{chapter.6}% 84
-\BOOKMARK [2][-]{subsection.6.1.1}{Training stage}{section.6.1}% 85
-\BOOKMARK [2][-]{subsection.6.1.2}{Preliminary requirements analysis}{section.6.1}% 86
-\BOOKMARK [2][-]{subsection.6.1.3}{General design}{section.6.1}% 87
-\BOOKMARK [2][-]{subsection.6.1.4}{Iterations of the development}{section.6.1}% 88
-\BOOKMARK [1][-]{section.6.2}{Resources and costs}{chapter.6}% 89
-\BOOKMARK [2][-]{subsection.6.2.1}{Economic cost}{section.6.2}% 90
-\BOOKMARK [2][-]{subsection.6.2.2}{Repository statistics}{section.6.2}% 91
-\BOOKMARK [0][-]{chapter.7}{Results}{}% 92
-\BOOKMARK [1][-]{section.7.1}{PlanetLab Experiment Results}{chapter.7}% 93
-\BOOKMARK [1][-]{section.7.2}{GEO-Cloud Experiment Results}{chapter.7}% 94
-\BOOKMARK [1][-]{section.7.3}{Publications}{chapter.7}% 95
-\BOOKMARK [0][-]{chapter.8}{Conclusions}{}% 96
-\BOOKMARK [1][-]{subsection.8.0.1}{Accomplished objectives}{chapter.8}% 97
-\BOOKMARK [1][-]{section.8.1}{Fed4FIRE infrastructure conclusion}{chapter.8}% 98
-\BOOKMARK [1][-]{section.8.2}{Future Work}{chapter.8}% 99
-\BOOKMARK [1][-]{section.8.3}{Personal conclusion}{chapter.8}% 100
-\BOOKMARK [0][-]{appendix.A}{User Manual}{}% 101
-\BOOKMARK [1][-]{section.A.1}{First steps}{appendix.A}% 102
-\BOOKMARK [2][-]{subsection.A.1.1}{Creating a Fed4FIRE account}{section.A.1}% 103
-\BOOKMARK [2][-]{subsection.A.1.2}{Creating a BonFIRE account}{section.A.1}% 104
-\BOOKMARK [2][-]{subsection.A.1.3}{Creating an SSH key}{section.A.1}% 105
-\BOOKMARK [1][-]{section.A.2}{Execution of a Scenario}{appendix.A}% 106
-\BOOKMARK [2][-]{subsection.A.2.1}{Execution of the Satellite System Simulator in Virtual Wall}{section.A.2}% 107
-\BOOKMARK [2][-]{subsection.A.2.2}{Execution of the Cloud Architecture in BonFIRE}{section.A.2}% 108
-\BOOKMARK [2][-]{subsection.A.2.3}{Execution of the GUI}{section.A.2}% 109
-\BOOKMARK [2][-]{subsection.A.2.4}{Collection of the results}{section.A.2}% 110
-\BOOKMARK [0][-]{appendix.B}{PlanetLab Nodes}{}% 111
-\BOOKMARK [0][-]{appendix.C}{Summary Table of PlanetLab Results}{}% 112
-\BOOKMARK [0][-]{appendix.D}{Definition of Scenarios}{}% 113
-\BOOKMARK [1][-]{section.D.1}{Scenario 1: Emergencies - Lorca Earthquake \(Spain\)}{appendix.D}% 114
-\BOOKMARK [2][-]{subsection.D.1.1}{Scenario description}{section.D.1}% 115
-\BOOKMARK [2][-]{subsection.D.1.2}{Response}{section.D.1}% 116
-\BOOKMARK [2][-]{subsection.D.1.3}{Data distribution}{section.D.1}% 117
-\BOOKMARK [2][-]{subsection.D.1.4}{Area of Interest}{section.D.1}% 118
-\BOOKMARK [2][-]{subsection.D.1.5}{Users}{section.D.1}% 119
-\BOOKMARK [2][-]{subsection.D.1.6}{Service Type}{section.D.1}% 120
-\BOOKMARK [2][-]{subsection.D.1.7}{Processing Level}{section.D.1}% 121
-\BOOKMARK [2][-]{subsection.D.1.8}{Storage Level}{section.D.1}% 122
-\BOOKMARK [2][-]{subsection.D.1.9}{Communications Level}{section.D.1}% 123
-\BOOKMARK [2][-]{subsection.D.1.10}{Demand Variability}{section.D.1}% 124
-\BOOKMARK [1][-]{section.D.2}{Scenario 2: Infrastructure monitoring. Affection in railway infrastructures by sand movement in desert areas \(Spain\)}{appendix.D}% 125
-\BOOKMARK [2][-]{subsection.D.2.1}{Scenario description}{section.D.2}% 126
-\BOOKMARK [2][-]{subsection.D.2.2}{Response}{section.D.2}% 127
-\BOOKMARK [2][-]{subsection.D.2.3}{Data distribution}{section.D.2}% 128
-\BOOKMARK [2][-]{subsection.D.2.4}{Area of Interest}{section.D.2}% 129
-\BOOKMARK [2][-]{subsection.D.2.5}{Users}{section.D.2}% 130
-\BOOKMARK [2][-]{subsection.D.2.6}{Service Type}{section.D.2}% 131
-\BOOKMARK [2][-]{subsection.D.2.7}{Processing Level}{section.D.2}% 132
-\BOOKMARK [2][-]{subsection.D.2.8}{Storage Level}{section.D.2}% 133
-\BOOKMARK [2][-]{subsection.D.2.9}{Communications Level}{section.D.2}% 134
-\BOOKMARK [2][-]{subsection.D.2.10}{Demand Variability}{section.D.2}% 135
-\BOOKMARK [1][-]{section.D.3}{Scenario 3: Land Management-South West of England}{appendix.D}% 136
-\BOOKMARK [2][-]{subsection.D.3.1}{Scenario description}{section.D.3}% 137
-\BOOKMARK [2][-]{subsection.D.3.2}{Response}{section.D.3}% 138
-\BOOKMARK [2][-]{subsection.D.3.3}{Data distribution}{section.D.3}% 139
-\BOOKMARK [2][-]{subsection.D.3.4}{Area of Interest}{section.D.3}% 140
-\BOOKMARK [2][-]{subsection.D.3.5}{Users}{section.D.3}% 141
-\BOOKMARK [2][-]{subsection.D.3.6}{Service Type}{section.D.3}% 142
-\BOOKMARK [2][-]{subsection.D.3.7}{Processing Level}{section.D.3}% 143
-\BOOKMARK [2][-]{subsection.D.3.8}{Storage Level}{section.D.3}% 144
-\BOOKMARK [2][-]{subsection.D.3.9}{Communications Level}{section.D.3}% 145
-\BOOKMARK [2][-]{subsection.D.3.10}{Demand Variability}{section.D.3}% 146
-\BOOKMARK [1][-]{section.D.4}{Scenario 4: Precision Agriculture-Argentina}{appendix.D}% 147
-\BOOKMARK [2][-]{subsection.D.4.1}{Scenario description}{section.D.4}% 148
-\BOOKMARK [2][-]{subsection.D.4.2}{Response}{section.D.4}% 149
-\BOOKMARK [2][-]{subsection.D.4.3}{Data distribution}{section.D.4}% 150
-\BOOKMARK [2][-]{subsection.D.4.4}{Area of Interest}{section.D.4}% 151
-\BOOKMARK [2][-]{subsection.D.4.5}{Users}{section.D.4}% 152
-\BOOKMARK [2][-]{subsection.D.4.6}{Service Type}{section.D.4}% 153
-\BOOKMARK [2][-]{subsection.D.4.7}{Processing Level}{section.D.4}% 154
-\BOOKMARK [2][-]{subsection.D.4.8}{Storage Level}{section.D.4}% 155
-\BOOKMARK [2][-]{subsection.D.4.9}{Communications Level}{section.D.4}% 156
-\BOOKMARK [2][-]{subsection.D.4.10}{Demand Variability}{section.D.4}% 157
-\BOOKMARK [1][-]{section.D.5}{Scenario 5: Basemaps-Worldwide}{appendix.D}% 158
-\BOOKMARK [2][-]{subsection.D.5.1}{Scenario description}{section.D.5}% 159
-\BOOKMARK [2][-]{subsection.D.5.2}{Response}{section.D.5}% 160
-\BOOKMARK [2][-]{subsection.D.5.3}{Data distribution}{section.D.5}% 161
-\BOOKMARK [2][-]{subsection.D.5.4}{Area of Interest}{section.D.5}% 162
-\BOOKMARK [2][-]{subsection.D.5.5}{Users}{section.D.5}% 163
-\BOOKMARK [2][-]{subsection.D.5.6}{Service Type}{section.D.5}% 164
-\BOOKMARK [2][-]{subsection.D.5.7}{Processing Level}{section.D.5}% 165
-\BOOKMARK [2][-]{subsection.D.5.8}{Storage Level}{section.D.5}% 166
-\BOOKMARK [2][-]{subsection.D.5.9}{Communications Level}{section.D.5}% 167
-\BOOKMARK [2][-]{subsection.D.5.10}{Demand Variability}{section.D.5}% 168
-\BOOKMARK [0][-]{appendix.E}{Source code}{}% 169
-\BOOKMARK [1][-]{section.E.1}{Space System Simulator files}{appendix.E}% 170
-\BOOKMARK [1][-]{section.E.2}{Virtual Wall deployment files}{appendix.E}% 171
-\BOOKMARK [1][-]{section.E.3}{Orchestrator, Archive and Catalogue, Database and Processing Chain files}{appendix.E}% 172
-\BOOKMARK [1][-]{section.E.4}{PlanetLab experiment files}{appendix.E}% 173
-\BOOKMARK [0][-]{appendix*.157}{Bibliography}{}% 174
+\BOOKMARK [0][-]{chapter*.1}{Abstract}{}
+\BOOKMARK [0][-]{section*.4}{Contents}{}
+\BOOKMARK [0][-]{section*.6}{List of Tables}{}
+\BOOKMARK [0][-]{section*.8}{List of Figures}{}
+\BOOKMARK [0][-]{section*.10}{Listings}{}
+\BOOKMARK [0][-]{chapter*.11}{List of acronyms}{}
+\BOOKMARK [0][-]{chapter*.12}{Acknowledgements}{}
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}
+\BOOKMARK [1][-]{section.1.1}{Earth Observation}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Cloud Computing}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{The Fed4FIRE European Project}{chapter.1}
+\BOOKMARK [1][-]{section.1.4}{The GEO-Cloud Experiment Overview}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.4.1}{Experiment Description}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.2}{Impact in Fed4FIRE}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.3}{Scientific and Technological Impact}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.4}{Socio-Economic Impact}{section.1.4}
+\BOOKMARK [1][-]{section.1.5}{Document Structure}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Project Background}{}
+\BOOKMARK [1][-]{section.2.1}{Earth Observation Satellites}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.1.1}{Orbital Mechanics}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.2}{Spatial Telescopes}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.3}{Data Management}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.4}{Ground Segment}{section.2.1}
+\BOOKMARK [1][-]{section.2.2}{High-level languages}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.1}{XML}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.2}{JSON}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.3}{Scripting languages}{section.2.2}
+\BOOKMARK [1][-]{section.2.3}{Networking}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.3.1}{Impairments}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.2}{Networking Software}{section.2.3}
+\BOOKMARK [1][-]{section.2.4}{Federated Infrastructures}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.4.1}{Fed4FIRE Testbeds}{section.2.4}
+\BOOKMARK [2][-]{subsection.2.4.2}{Federated Tools}{section.2.4}
+\BOOKMARK [1][-]{section.2.5}{Graphical User Interfaces}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.5.1}{Frameworks}{section.2.5}
+\BOOKMARK [1][-]{section.2.6}{Database}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.6.1}{DBMS}{section.2.6}
+\BOOKMARK [1][-]{section.2.7}{Distributed Systems}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.7.1}{Middleware}{section.2.7}
+\BOOKMARK [1][-]{section.2.8}{Software Design}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.8.1}{Multiplatform source}{section.2.8}
+\BOOKMARK [2][-]{subsection.2.8.2}{Software Development Life Cycles}{section.2.8}
+\BOOKMARK [2][-]{subsection.2.8.3}{Design Patterns}{section.2.8}
+\BOOKMARK [2][-]{subsection.2.8.4}{Testing}{section.2.8}
+\BOOKMARK [0][-]{chapter.3}{Objectives}{}
+\BOOKMARK [1][-]{section.3.1}{Specific Objectives}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{Method of work}{}
+\BOOKMARK [1][-]{section.4.1}{Development Methodology}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{Tools used in the project}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{Programming Languages}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{Hardware}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.3}{Software}{section.4.2}
+\BOOKMARK [0][-]{chapter.5}{The Geo-Cloud Experiment}{}
+\BOOKMARK [1][-]{section.5.1}{Satellite System Design}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.1.1}{Design of the flight and ground segments}{section.5.1}
+\BOOKMARK [2][-]{subsection.5.1.2}{Generated Data Volume}{section.5.1}
+\BOOKMARK [1][-]{section.5.2}{Satellite System Development}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.2.1}{Image Acquisition}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.2}{Image Downloading}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.3}{Getting the satellite data}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.4}{Space System Simulator}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.5}{Satellite System Simulator}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.6}{Ground Station System Simulator}{section.5.2}
+\BOOKMARK [1][-]{section.5.3}{Implementation in Virtual Wall}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.3.1}{Topology network}{section.5.3}
+\BOOKMARK [1][-]{section.5.4}{Cloud Architecture}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.4.1}{Cloud components in GeoCloud}{section.5.4}
+\BOOKMARK [2][-]{subsection.5.4.2}{Implementation of the cloud architecture using SSH and SCP}{section.5.4}
+\BOOKMARK [2][-]{subsection.5.4.3}{Implementation of the cloud architecture using ZeroC ICE}{section.5.4}
+\BOOKMARK [1][-]{section.5.5}{Profilling Tool in PlanetLab}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.5.1}{Definitions}{section.5.5}
+\BOOKMARK [2][-]{subsection.5.5.2}{Platform description}{section.5.5}
+\BOOKMARK [2][-]{subsection.5.5.3}{Tools description}{section.5.5}
+\BOOKMARK [2][-]{subsection.5.5.4}{PlanetLab Experiment}{section.5.5}
+\BOOKMARK [1][-]{section.5.6}{GEO-Cloud Graphical User Interface}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.6.1}{Architecture}{section.5.6}
+\BOOKMARK [2][-]{subsection.5.6.2}{About Widget}{section.5.6}
+\BOOKMARK [2][-]{subsection.5.6.3}{Log Widget}{section.5.6}
+\BOOKMARK [2][-]{subsection.5.6.4}{Tab Widget}{section.5.6}
+\BOOKMARK [2][-]{subsection.5.6.5}{Implementation of the Graphical User Interface}{section.5.6}
+\BOOKMARK [2][-]{subsection.5.6.6}{Execution of the Graphical User Interface}{section.5.6}
+\BOOKMARK [2][-]{subsection.5.6.7}{Components of the Graphical User Interface}{section.5.6}
+\BOOKMARK [0][-]{chapter.6}{Evolution and Costs}{}
+\BOOKMARK [1][-]{section.6.1}{Project Evolution}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.1.1}{Training stage}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.2}{Preliminary requirements analysis}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.3}{General design}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.4}{Iterations of the development}{section.6.1}
+\BOOKMARK [1][-]{section.6.2}{Resources and costs}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.2.1}{Economic cost}{section.6.2}
+\BOOKMARK [2][-]{subsection.6.2.2}{Repository statistics}{section.6.2}
+\BOOKMARK [0][-]{chapter.7}{Results}{}
+\BOOKMARK [1][-]{section.7.1}{PlanetLab Experiment Results}{chapter.7}
+\BOOKMARK [1][-]{section.7.2}{GEO-Cloud Experiment Results}{chapter.7}
+\BOOKMARK [1][-]{section.7.3}{Publications}{chapter.7}
+\BOOKMARK [0][-]{chapter.8}{Conclusions}{}
+\BOOKMARK [1][-]{subsection.8.0.1}{Accomplished objectives}{chapter.8}
+\BOOKMARK [1][-]{section.8.1}{Future Work}{chapter.8}
+\BOOKMARK [1][-]{section.8.2}{Personal conclusion}{chapter.8}
+\BOOKMARK [0][-]{appendix.A}{User Manual}{}
+\BOOKMARK [1][-]{section.A.1}{First steps}{appendix.A}
+\BOOKMARK [2][-]{subsection.A.1.1}{Creating a Fed4FIRE account}{section.A.1}
+\BOOKMARK [2][-]{subsection.A.1.2}{Creating a BonFIRE account}{section.A.1}
+\BOOKMARK [2][-]{subsection.A.1.3}{Creating an SSH key}{section.A.1}
+\BOOKMARK [1][-]{section.A.2}{Execution of a Scenario}{appendix.A}
+\BOOKMARK [2][-]{subsection.A.2.1}{Execution of the Satellite System Simulator in Virtual Wall}{section.A.2}
+\BOOKMARK [2][-]{subsection.A.2.2}{Execution of the Cloud Architecture in BonFIRE}{section.A.2}
+\BOOKMARK [2][-]{subsection.A.2.3}{Execution of the GUI}{section.A.2}
+\BOOKMARK [2][-]{subsection.A.2.4}{Collection of the results}{section.A.2}
+\BOOKMARK [0][-]{appendix.B}{PlanetLab Nodes}{}
+\BOOKMARK [0][-]{appendix.C}{Summary Table of PlanetLab Results}{}
+\BOOKMARK [0][-]{appendix.D}{Definition of Scenarios}{}
+\BOOKMARK [1][-]{section.D.1}{Scenario 1: Emergencies - Lorca Earthquake \(Spain\)}{appendix.D}
+\BOOKMARK [2][-]{subsection.D.1.1}{Scenario description}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.2}{Response}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.3}{Data distribution}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.4}{Area of Interest}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.5}{Users}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.6}{Service Type}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.7}{Processing Level}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.8}{Storage Level}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.9}{Communications Level}{section.D.1}
+\BOOKMARK [2][-]{subsection.D.1.10}{Demand Variability}{section.D.1}
+\BOOKMARK [1][-]{section.D.2}{Scenario 2: Infrastructure monitoring. Affection in railway infrastructures by sand movement in desert areas \(Spain\)}{appendix.D}
+\BOOKMARK [2][-]{subsection.D.2.1}{Scenario description}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.2}{Response}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.3}{Data distribution}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.4}{Area of Interest}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.5}{Users}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.6}{Service Type}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.7}{Processing Level}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.8}{Storage Level}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.9}{Communications Level}{section.D.2}
+\BOOKMARK [2][-]{subsection.D.2.10}{Demand Variability}{section.D.2}
+\BOOKMARK [1][-]{section.D.3}{Scenario 3: Land Management-South West of England}{appendix.D}
+\BOOKMARK [2][-]{subsection.D.3.1}{Scenario description}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.2}{Response}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.3}{Data distribution}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.4}{Area of Interest}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.5}{Users}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.6}{Service Type}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.7}{Processing Level}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.8}{Storage Level}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.9}{Communications Level}{section.D.3}
+\BOOKMARK [2][-]{subsection.D.3.10}{Demand Variability}{section.D.3}
+\BOOKMARK [1][-]{section.D.4}{Scenario 4: Precision Agriculture-Argentina}{appendix.D}
+\BOOKMARK [2][-]{subsection.D.4.1}{Scenario description}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.2}{Response}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.3}{Data distribution}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.4}{Area of Interest}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.5}{Users}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.6}{Service Type}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.7}{Processing Level}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.8}{Storage Level}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.9}{Communications Level}{section.D.4}
+\BOOKMARK [2][-]{subsection.D.4.10}{Demand Variability}{section.D.4}
+\BOOKMARK [1][-]{section.D.5}{Scenario 5: Basemaps-Worldwide}{appendix.D}
+\BOOKMARK [2][-]{subsection.D.5.1}{Scenario description}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.2}{Response}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.3}{Data distribution}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.4}{Area of Interest}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.5}{Users}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.6}{Service Type}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.7}{Processing Level}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.8}{Storage Level}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.9}{Communications Level}{section.D.5}
+\BOOKMARK [2][-]{subsection.D.5.10}{Demand Variability}{section.D.5}
+\BOOKMARK [0][-]{appendix.E}{Source code}{}
+\BOOKMARK [1][-]{section.E.1}{Space System Simulator files}{appendix.E}
+\BOOKMARK [1][-]{section.E.2}{Virtual Wall deployment files}{appendix.E}
+\BOOKMARK [1][-]{section.E.3}{Orchestrator, Archive and Catalogue, Database and Processing Chain files}{appendix.E}
+\BOOKMARK [1][-]{section.E.4}{PlanetLab experiment files}{appendix.E}
+\BOOKMARK [0][-]{section*.163}{Bibliography}{}

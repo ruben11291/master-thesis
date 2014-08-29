@@ -7,7 +7,7 @@
       <x>112</x>
       <y>96</y>
       <w>776</w>
-      <h>640</h>
+      <h>616</h>
     </coordinates>
     <panel_attributes>Orchestrator</panel_attributes>
     <additional_attributes/>
@@ -350,7 +350,7 @@ creates(j1,j2,j3,j4,j5)</panel_attributes>
     <coordinates>
       <x>720</x>
       <y>576</y>
-      <w>112</w>
+      <w>116</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;
@@ -424,30 +424,6 @@ endChain(idChain)</panel_attributes>
       <h>16</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>256</x>
-      <y>648</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;
-sendToCatalog(img)</panel_attributes>
-    <additional_attributes>656;40;24;40</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.custom.Component</type>
-    <coordinates>
-      <x>912</x>
-      <y>648</y>
-      <w>104</w>
-      <h>64</h>
-    </coordinates>
-    <panel_attributes> 
-Archive&amp;Catalog</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

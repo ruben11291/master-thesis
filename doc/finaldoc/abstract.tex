@@ -12,7 +12,16 @@ In this work we present the detailed design, architecture and implementation of
 the GEO-Cloud experiment to value if future internet technologies can be used to
 overcome the previously defined limitations. 
 
-
-
 The whole system implements a complete highly demanding \acs{EO} system making use of future internet technology and cloud computing to define a framework to make \acs{EO} industry more competitive and adaptable to the new requirements of massive data processing and instant access to satellite information.
 
+The system developed in this Project is constituted of two modules. The first
+module consists of a \emph{Space System Simulator}. This simulator is divided
+into two interconnected simulators running in real time: on the one hand, a
+\emph{Satellite System Simulator} that simulates the physical behavior of a
+constellation of 17 optical satellites covering the world in a daily basis at a
+resolution of 6.7m, generating about 20TB of imagery data every day. On the
+other hand, a globally distributed network of ground stations to download the
+generated data.
+
+
+The second module is a complete Earth Observation data center computed in cloud. For that purpose a novel architecture was designed adapted to the requirements of the real system implemented in \emph{Elecnor Deimos Satellite Systems} (Puertollano, Spain).  In the data center computed in cloud the images in raw data format downloaded in the ground stations are transferred for their processing and distribution through the Internet.

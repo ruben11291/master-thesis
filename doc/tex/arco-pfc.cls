@@ -214,7 +214,8 @@
 
 %% -- BIBLIOGRAFÍA -------------------------------------------------------------
 %\renewcommand{\bibname}{Referencias}
-\bibliographystyle{alpha}
+%\bibliographystyle{alpha}
+\bibliographystyle{IEEEtran}
 
 \newcommand{\bibfont}{\small}      % Bibliography's font size
 %% \setlength{\bibhang}{4ex}       % Indent of Bibliography entries

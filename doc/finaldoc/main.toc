@@ -2,23 +2,23 @@
 \select@language {english}
 \select@language {english}
 \contentsline {chapter}{Abstract}{xi}{chapter*.1}
-\contentsline {chapter}{Contents}{xiii}{chapter*.3}
-\contentsline {chapter}{List of Tables}{xix}{chapter*.4}
-\contentsline {chapter}{List of Figures}{xxi}{chapter*.5}
-\contentsline {chapter}{Listings}{xxiii}{chapter*.6}
-\contentsline {chapter}{List of acronyms}{xxv}{chapter*.7}
-\contentsline {chapter}{Acknowledgements}{xxix}{chapter*.8}
+\contentsline {chapter}{Contents}{xiii}{section*.4}
+\contentsline {chapter}{List of Tables}{xix}{section*.6}
+\contentsline {chapter}{List of Figures}{xxi}{section*.8}
+\contentsline {chapter}{Listings}{xxiii}{section*.10}
+\contentsline {chapter}{List of acronyms}{xxv}{chapter*.11}
+\contentsline {chapter}{Acknowledgements}{xxix}{chapter*.12}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Earth Observation}{2}{section.1.1}
-\contentsline {section}{\numberline {1.2}Cloud Computing}{4}{section.1.2}
-\contentsline {section}{\numberline {1.3}The Fed4FIRE European Project}{6}{section.1.3}
-\contentsline {section}{\numberline {1.4}The GEO-Cloud Experiment Overview}{7}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Experiment Description}{7}{subsection.1.4.1}
-\contentsline {subsubsection}{\numberline {1.4.1.1}Experiment Design}{7}{subsubsection.1.4.1.1}
+\contentsline {section}{\numberline {1.2}Cloud Computing}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}The Fed4FIRE European Project}{7}{section.1.3}
+\contentsline {section}{\numberline {1.4}The GEO-Cloud Experiment Overview}{8}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Experiment Description}{8}{subsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.1.1}Experiment Design}{8}{subsubsection.1.4.1.1}
 \contentsline {paragraph}{\numberline {1.4.1.1.1}Implementation of the acquisition of geo-data in Virtual Wall and PlanetLab}{8}{paragraph.1.4.1.1.1}
-\contentsline {paragraph}{\numberline {1.4.1.1.2}Implementation of the cloud based services in BonFIRE}{8}{paragraph.1.4.1.1.2}
+\contentsline {paragraph}{\numberline {1.4.1.1.2}Implementation of the cloud based services in BonFIRE}{9}{paragraph.1.4.1.1.2}
 \contentsline {subsection}{\numberline {1.4.2}Impact in Fed4FIRE}{9}{subsection.1.4.2}
-\contentsline {subsection}{\numberline {1.4.3}Scientific and Technological Impact}{9}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.3}Scientific and Technological Impact}{10}{subsection.1.4.3}
 \contentsline {subsection}{\numberline {1.4.4}Socio-Economic Impact}{10}{subsection.1.4.4}
 \contentsline {section}{\numberline {1.5}Document Structure}{10}{section.1.5}
 \contentsline {chapter}{\numberline {2}Project Background}{13}{chapter.2}
@@ -43,13 +43,13 @@
 \contentsline {subsubsection}{\numberline {2.4.1.1}Virtual Wall}{21}{subsubsection.2.4.1.1}
 \contentsline {subsubsection}{\numberline {2.4.1.2}PlanetLab Europe}{22}{subsubsection.2.4.1.2}
 \contentsline {subsubsection}{\numberline {2.4.1.3}BonFIRE}{22}{subsubsection.2.4.1.3}
-\contentsline {subsection}{\numberline {2.4.2}Federated Tools}{24}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.2}Federated Tools}{23}{subsection.2.4.2}
 \contentsline {section}{\numberline {2.5}Graphical User Interfaces}{24}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Frameworks}{24}{subsection.2.5.1}
 \contentsline {section}{\numberline {2.6}Database}{25}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}DBMS}{25}{subsection.2.6.1}
 \contentsline {section}{\numberline {2.7}Distributed Systems}{26}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}Middleware}{27}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.1}Middleware}{26}{subsection.2.7.1}
 \contentsline {subsubsection}{\numberline {2.7.1.1}Hadoop}{27}{subsubsection.2.7.1.1}
 \contentsline {subsubsection}{\numberline {2.7.1.2}ZeroC ICE}{27}{subsubsection.2.7.1.2}
 \contentsline {section}{\numberline {2.8}Software Design}{28}{section.2.8}
@@ -110,116 +110,116 @@
 \contentsline {subsubsection}{\numberline {5.4.1.2}Processing Chain}{77}{subsubsection.5.4.1.2}
 \contentsline {paragraph}{\numberline {5.4.1.2.1}The L0 Processor}{78}{paragraph.5.4.1.2.1}
 \contentsline {paragraph}{\numberline {5.4.1.2.2}The L1A Processor}{78}{paragraph.5.4.1.2.2}
-\contentsline {paragraph}{\numberline {5.4.1.2.3}The L1B Processor}{78}{paragraph.5.4.1.2.3}
+\contentsline {paragraph}{\numberline {5.4.1.2.3}The L1B Processor}{79}{paragraph.5.4.1.2.3}
 \contentsline {paragraph}{\numberline {5.4.1.2.4}The L1C Processor}{79}{paragraph.5.4.1.2.4}
-\contentsline {subsubsection}{\numberline {5.4.1.3}Archive and Catalogue}{79}{subsubsection.5.4.1.3}
+\contentsline {subsubsection}{\numberline {5.4.1.3}Archive and Catalogue}{80}{subsubsection.5.4.1.3}
 \contentsline {subsection}{\numberline {5.4.2}Implementation of the cloud architecture using SSH and SCP}{80}{subsection.5.4.2}
 \contentsline {subsubsection}{\numberline {5.4.2.1}Implementation of the Orchestrator}{81}{subsubsection.5.4.2.1}
 \contentsline {paragraph}{\numberline {5.4.2.1.1}Orchestrator Workflow}{81}{paragraph.5.4.2.1.1}
-\contentsline {paragraph}{\numberline {5.4.2.1.2}Orchestrator Interfaces}{82}{paragraph.5.4.2.1.2}
+\contentsline {paragraph}{\numberline {5.4.2.1.2}Orchestrator Interfaces}{83}{paragraph.5.4.2.1.2}
 \contentsline {subparagraph}{\numberline {5.4.2.1.2.1}Interfaces with the Ground Stations implemented in Virtual Wall}{83}{subparagraph.5.4.2.1.2.1}
 \contentsline {subparagraph}{\numberline {5.4.2.1.2.2}Interfaces with the Product Processors}{83}{subparagraph.5.4.2.1.2.2}
-\contentsline {paragraph}{\numberline {5.4.2.1.3}Orchestrator Design}{83}{paragraph.5.4.2.1.3}
+\contentsline {paragraph}{\numberline {5.4.2.1.3}Orchestrator Design}{84}{paragraph.5.4.2.1.3}
 \contentsline {paragraph}{\numberline {5.4.2.1.4}Orchestrator Implementation}{84}{paragraph.5.4.2.1.4}
-\contentsline {paragraph}{\numberline {5.4.2.1.5}Orchestrator Execution}{85}{paragraph.5.4.2.1.5}
-\contentsline {paragraph}{\numberline {5.4.2.1.6}Implementation in BonFIRE}{85}{paragraph.5.4.2.1.6}
-\contentsline {subsubsection}{\numberline {5.4.2.2}Implementation of the Processing Chain}{85}{subsubsection.5.4.2.2}
-\contentsline {paragraph}{\numberline {5.4.2.2.1}Processing Chain Workflow}{86}{paragraph.5.4.2.2.1}
-\contentsline {paragraph}{\numberline {5.4.2.2.2}Processing Chain Interfaces}{86}{paragraph.5.4.2.2.2}
-\contentsline {subparagraph}{\numberline {5.4.2.2.2.1}Interfaces with the Orchestrator}{86}{subparagraph.5.4.2.2.2.1}
-\contentsline {subparagraph}{\numberline {5.4.2.2.2.2}Interfaces with the Archive and Catalogue}{87}{subparagraph.5.4.2.2.2.2}
-\contentsline {paragraph}{\numberline {5.4.2.2.3}Processing Chain Design}{87}{paragraph.5.4.2.2.3}
-\contentsline {paragraph}{\numberline {5.4.2.2.4}Processing Chain Implementation}{87}{paragraph.5.4.2.2.4}
-\contentsline {paragraph}{\numberline {5.4.2.2.5}Processing Chain Execution}{88}{paragraph.5.4.2.2.5}
-\contentsline {paragraph}{\numberline {5.4.2.2.6}Implementation in BonFIRE}{88}{paragraph.5.4.2.2.6}
-\contentsline {subsubsection}{\numberline {5.4.2.3}Archive and Catalogue}{89}{subsubsection.5.4.2.3}
-\contentsline {paragraph}{\numberline {5.4.2.3.1}Archive and Catalogue Workflow}{89}{paragraph.5.4.2.3.1}
-\contentsline {paragraph}{\numberline {5.4.2.3.2}Archive and Catalogue Interfaces}{89}{paragraph.5.4.2.3.2}
-\contentsline {subparagraph}{\numberline {5.4.2.3.2.1}Interfaces with the Processing Chain}{90}{subparagraph.5.4.2.3.2.1}
-\contentsline {subparagraph}{\numberline {5.4.2.3.2.2}Interfaces with the GeoServer software}{90}{subparagraph.5.4.2.3.2.2}
-\contentsline {subparagraph}{\numberline {5.4.2.3.2.3}Interfaces with CSW clients}{90}{subparagraph.5.4.2.3.2.3}
-\contentsline {paragraph}{\numberline {5.4.2.3.3}Archive and Catalogue Design}{90}{paragraph.5.4.2.3.3}
-\contentsline {paragraph}{\numberline {5.4.2.3.4}Archive and Catalogue Implementation}{90}{paragraph.5.4.2.3.4}
-\contentsline {paragraph}{\numberline {5.4.2.3.5}Archive and Catalogue Execution}{91}{paragraph.5.4.2.3.5}
-\contentsline {paragraph}{\numberline {5.4.2.3.6}Implementation in BonFIRE}{91}{paragraph.5.4.2.3.6}
-\contentsline {subsection}{\numberline {5.4.3}Implementation of the cloud architecture using ZeroC ICE}{92}{subsection.5.4.3}
-\contentsline {subsubsection}{\numberline {5.4.3.1}ICE interfaces}{94}{subsubsection.5.4.3.1}
-\contentsline {subsubsection}{\numberline {5.4.3.2}Implementation of the Orchestrator}{94}{subsubsection.5.4.3.2}
-\contentsline {paragraph}{\numberline {5.4.3.2.1}Orchestrator Workflow}{94}{paragraph.5.4.3.2.1}
-\contentsline {paragraph}{\numberline {5.4.3.2.2}Orchestrator Interfaces}{96}{paragraph.5.4.3.2.2}
-\contentsline {subparagraph}{\numberline {5.4.3.2.2.1}Interfaces with the Ground Stations implemented in Virtuall Wall}{96}{subparagraph.5.4.3.2.2.1}
-\contentsline {subparagraph}{\numberline {5.4.3.2.2.2}Interfaces with the Processing Chains}{96}{subparagraph.5.4.3.2.2.2}
-\contentsline {subparagraph}{\numberline {5.4.3.2.2.3}Interfaces with the Archive and Catalogue}{96}{subparagraph.5.4.3.2.2.3}
-\contentsline {paragraph}{\numberline {5.4.3.2.3}Orchestrator Design}{97}{paragraph.5.4.3.2.3}
-\contentsline {paragraph}{\numberline {5.4.3.2.4}Orchestrator Implementation}{97}{paragraph.5.4.3.2.4}
-\contentsline {paragraph}{\numberline {5.4.3.2.5}OrchestratorExecution}{97}{paragraph.5.4.3.2.5}
-\contentsline {subsubsection}{\numberline {5.4.3.3}Implementation of the Processing Chain}{99}{subsubsection.5.4.3.3}
-\contentsline {paragraph}{\numberline {5.4.3.3.1}Processing Chain Workflow}{99}{paragraph.5.4.3.3.1}
-\contentsline {paragraph}{\numberline {5.4.3.3.2}Processing Chain Interfaces}{99}{paragraph.5.4.3.3.2}
-\contentsline {subparagraph}{\numberline {5.4.3.3.2.1}Interfaces with the Orchestrator}{99}{subparagraph.5.4.3.3.2.1}
-\contentsline {paragraph}{\numberline {5.4.3.3.3}Processing Chain Design}{99}{paragraph.5.4.3.3.3}
-\contentsline {subparagraph}{\numberline {5.4.3.3.3.1}ProcessingChainReplica}{100}{subparagraph.5.4.3.3.3.1}
-\contentsline {paragraph}{\numberline {5.4.3.3.4}Processing Chain Implementation}{100}{paragraph.5.4.3.3.4}
-\contentsline {paragraph}{\numberline {5.4.3.3.5}Processing Chain Execution}{100}{paragraph.5.4.3.3.5}
-\contentsline {subsubsection}{\numberline {5.4.3.4}Implementation of the Archive and Catalogue}{101}{subsubsection.5.4.3.4}
-\contentsline {paragraph}{\numberline {5.4.3.4.1}Archive and Catalogue Workflow}{101}{paragraph.5.4.3.4.1}
-\contentsline {paragraph}{\numberline {5.4.3.4.2}Archive and Catalogue Interfaces}{101}{paragraph.5.4.3.4.2}
-\contentsline {subparagraph}{\numberline {5.4.3.4.2.1}Interfaces with the Orchestrator}{101}{subparagraph.5.4.3.4.2.1}
-\contentsline {subparagraph}{\numberline {5.4.3.4.2.2}Interfaces with the GeoServer software}{101}{subparagraph.5.4.3.4.2.2}
-\contentsline {paragraph}{\numberline {5.4.3.4.3}Archive and Catalogue Design}{102}{paragraph.5.4.3.4.3}
-\contentsline {paragraph}{\numberline {5.4.3.4.4}Archive and Catalogue Implementation}{102}{paragraph.5.4.3.4.4}
-\contentsline {paragraph}{\numberline {5.4.3.4.5}Archive and Catalogue Execution}{103}{paragraph.5.4.3.4.5}
-\contentsline {subsubsection}{\numberline {5.4.3.5}Implementation of the Broker}{103}{subsubsection.5.4.3.5}
-\contentsline {paragraph}{\numberline {5.4.3.5.1}Broker Workflow}{103}{paragraph.5.4.3.5.1}
-\contentsline {paragraph}{\numberline {5.4.3.5.2}Broker Interfaces}{104}{paragraph.5.4.3.5.2}
-\contentsline {subparagraph}{\numberline {5.4.3.5.2.1}Interfaces with the Orchestrator}{104}{subparagraph.5.4.3.5.2.1}
-\contentsline {subparagraph}{\numberline {5.4.3.5.2.2}Interfaces with all the cloud components}{104}{subparagraph.5.4.3.5.2.2}
-\contentsline {subparagraph}{\numberline {5.4.3.5.2.3}Interfaces with the clients}{104}{subparagraph.5.4.3.5.2.3}
-\contentsline {paragraph}{\numberline {5.4.3.5.3}Broker Design}{104}{paragraph.5.4.3.5.3}
-\contentsline {paragraph}{\numberline {5.4.3.5.4}Broker Implementation}{105}{paragraph.5.4.3.5.4}
-\contentsline {paragraph}{\numberline {5.4.3.5.5}Broker Execution}{105}{paragraph.5.4.3.5.5}
-\contentsline {subsubsection}{\numberline {5.4.3.6}Implementation of the client}{105}{subsubsection.5.4.3.6}
-\contentsline {paragraph}{\numberline {5.4.3.6.1}Client Execution}{106}{paragraph.5.4.3.6.1}
-\contentsline {subsubsection}{\numberline {5.4.3.7}Deployment of the ICE architecture}{106}{subsubsection.5.4.3.7}
-\contentsline {section}{\numberline {5.5}Profilling Tool in PlanetLab}{107}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Definitions}{107}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Platform description}{108}{subsection.5.5.2}
-\contentsline {subsection}{\numberline {5.5.3}Tools description}{108}{subsection.5.5.3}
-\contentsline {subsection}{\numberline {5.5.4}PlanetLab Experiment}{109}{subsection.5.5.4}
-\contentsline {subsubsection}{\numberline {5.5.4.1}System Modeling}{110}{subsubsection.5.5.4.1}
-\contentsline {subsubsection}{\numberline {5.5.4.2}Network Design}{112}{subsubsection.5.5.4.2}
-\contentsline {subsubsection}{\numberline {5.5.4.3}Experiment Design and Execution}{112}{subsubsection.5.5.4.3}
-\contentsline {paragraph}{\numberline {5.5.4.3.1}The bandwidthGS.py script}{113}{paragraph.5.5.4.3.1}
-\contentsline {paragraph}{\numberline {5.5.4.3.2}The bandwidthEndUser.py script}{114}{paragraph.5.5.4.3.2}
-\contentsline {paragraph}{\numberline {5.5.4.3.3}The lossRateGS.py script}{115}{paragraph.5.5.4.3.3}
-\contentsline {paragraph}{\numberline {5.5.4.3.4}The lossRateEndUser.py script}{116}{paragraph.5.5.4.3.4}
-\contentsline {paragraph}{\numberline {5.5.4.3.5}The latencyGS.py script}{116}{paragraph.5.5.4.3.5}
-\contentsline {paragraph}{\numberline {5.5.4.3.6}The latencyEndUser.py script}{117}{paragraph.5.5.4.3.6}
-\contentsline {section}{\numberline {5.6}GEO-Cloud Graphical User Interface}{117}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Architecture}{117}{subsection.5.6.1}
-\contentsline {subsubsection}{\numberline {5.6.1.1}Experiment Controller}{119}{subsubsection.5.6.1.1}
-\contentsline {paragraph}{\numberline {5.6.1.1.1}Experiment Controller Workflow}{119}{paragraph.5.6.1.1.1}
-\contentsline {subsubsection}{\numberline {5.6.1.2}SSH Connection}{120}{subsubsection.5.6.1.2}
-\contentsline {paragraph}{\numberline {5.6.1.2.1}SSH Connection Workflow}{120}{paragraph.5.6.1.2.1}
-\contentsline {subsubsection}{\numberline {5.6.1.3}SSH Order}{120}{subsubsection.5.6.1.3}
-\contentsline {paragraph}{\numberline {5.6.1.3.1}SSH Connection Workflow}{120}{paragraph.5.6.1.3.1}
-\contentsline {subsubsection}{\numberline {5.6.1.4}getLoad}{121}{subsubsection.5.6.1.4}
-\contentsline {paragraph}{\numberline {5.6.1.4.1}getLoad Workflow}{121}{paragraph.5.6.1.4.1}
-\contentsline {subsubsection}{\numberline {5.6.1.5}JFedParser}{121}{subsubsection.5.6.1.5}
-\contentsline {paragraph}{\numberline {5.6.1.5.1}JFedParser Workflow}{121}{paragraph.5.6.1.5.1}
-\contentsline {subsubsection}{\numberline {5.6.1.6}UI Controller}{121}{subsubsection.5.6.1.6}
-\contentsline {paragraph}{\numberline {5.6.1.6.1}UI Controller Workflow}{121}{paragraph.5.6.1.6.1}
-\contentsline {subsubsection}{\numberline {5.6.1.7}Video Widget}{122}{subsubsection.5.6.1.7}
-\contentsline {paragraph}{\numberline {5.6.1.7.1}Video Widget Workflow}{122}{paragraph.5.6.1.7.1}
-\contentsline {subsection}{\numberline {5.6.2}About Widget}{122}{subsection.5.6.2}
-\contentsline {paragraph}{\numberline {5.6.2.0.2}About Widget Workflow}{122}{paragraph.5.6.2.0.2}
-\contentsline {subsection}{\numberline {5.6.3}Log Widget}{122}{subsection.5.6.3}
-\contentsline {paragraph}{\numberline {5.6.3.0.3}Log Widget Workflow}{122}{paragraph.5.6.3.0.3}
-\contentsline {subsection}{\numberline {5.6.4}Tab Widget}{123}{subsection.5.6.4}
-\contentsline {paragraph}{\numberline {5.6.4.0.4}Tab Widget Workflow}{123}{paragraph.5.6.4.0.4}
-\contentsline {subsection}{\numberline {5.6.5}Implementation of the Graphical User Interface}{123}{subsection.5.6.5}
-\contentsline {subsection}{\numberline {5.6.6}Execution of the Graphical User Interface}{123}{subsection.5.6.6}
-\contentsline {subsection}{\numberline {5.6.7}Components of the Graphical User Interface}{124}{subsection.5.6.7}
+\contentsline {paragraph}{\numberline {5.4.2.1.5}Orchestrator Execution}{86}{paragraph.5.4.2.1.5}
+\contentsline {paragraph}{\numberline {5.4.2.1.6}Implementation in BonFIRE}{86}{paragraph.5.4.2.1.6}
+\contentsline {subsubsection}{\numberline {5.4.2.2}Implementation of the Processing Chain}{86}{subsubsection.5.4.2.2}
+\contentsline {paragraph}{\numberline {5.4.2.2.1}Processing Chain Workflow}{87}{paragraph.5.4.2.2.1}
+\contentsline {paragraph}{\numberline {5.4.2.2.2}Processing Chain Interfaces}{87}{paragraph.5.4.2.2.2}
+\contentsline {subparagraph}{\numberline {5.4.2.2.2.1}Interfaces with the Orchestrator}{87}{subparagraph.5.4.2.2.2.1}
+\contentsline {subparagraph}{\numberline {5.4.2.2.2.2}Interfaces with the Archive and Catalogue}{88}{subparagraph.5.4.2.2.2.2}
+\contentsline {paragraph}{\numberline {5.4.2.2.3}Processing Chain Design}{88}{paragraph.5.4.2.2.3}
+\contentsline {paragraph}{\numberline {5.4.2.2.4}Processing Chain Implementation}{88}{paragraph.5.4.2.2.4}
+\contentsline {paragraph}{\numberline {5.4.2.2.5}Processing Chain Execution}{89}{paragraph.5.4.2.2.5}
+\contentsline {paragraph}{\numberline {5.4.2.2.6}Implementation in BonFIRE}{89}{paragraph.5.4.2.2.6}
+\contentsline {subsubsection}{\numberline {5.4.2.3}Archive and Catalogue}{90}{subsubsection.5.4.2.3}
+\contentsline {paragraph}{\numberline {5.4.2.3.1}Archive and Catalogue Workflow}{90}{paragraph.5.4.2.3.1}
+\contentsline {paragraph}{\numberline {5.4.2.3.2}Archive and Catalogue Interfaces}{90}{paragraph.5.4.2.3.2}
+\contentsline {subparagraph}{\numberline {5.4.2.3.2.1}Interfaces with the Processing Chain}{91}{subparagraph.5.4.2.3.2.1}
+\contentsline {subparagraph}{\numberline {5.4.2.3.2.2}Interfaces with the GeoServer software}{91}{subparagraph.5.4.2.3.2.2}
+\contentsline {subparagraph}{\numberline {5.4.2.3.2.3}Interfaces with CSW clients}{91}{subparagraph.5.4.2.3.2.3}
+\contentsline {paragraph}{\numberline {5.4.2.3.3}Archive and Catalogue Design}{91}{paragraph.5.4.2.3.3}
+\contentsline {paragraph}{\numberline {5.4.2.3.4}Archive and Catalogue Implementation}{91}{paragraph.5.4.2.3.4}
+\contentsline {paragraph}{\numberline {5.4.2.3.5}Archive and Catalogue Execution}{92}{paragraph.5.4.2.3.5}
+\contentsline {paragraph}{\numberline {5.4.2.3.6}Implementation in BonFIRE}{92}{paragraph.5.4.2.3.6}
+\contentsline {subsection}{\numberline {5.4.3}Implementation of the cloud architecture using ZeroC ICE}{93}{subsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.3.1}ICE interfaces}{95}{subsubsection.5.4.3.1}
+\contentsline {subsubsection}{\numberline {5.4.3.2}Implementation of the Orchestrator}{95}{subsubsection.5.4.3.2}
+\contentsline {paragraph}{\numberline {5.4.3.2.1}Orchestrator Workflow}{95}{paragraph.5.4.3.2.1}
+\contentsline {paragraph}{\numberline {5.4.3.2.2}Orchestrator Interfaces}{97}{paragraph.5.4.3.2.2}
+\contentsline {subparagraph}{\numberline {5.4.3.2.2.1}Interfaces with the Ground Stations implemented in Virtuall Wall}{97}{subparagraph.5.4.3.2.2.1}
+\contentsline {subparagraph}{\numberline {5.4.3.2.2.2}Interfaces with the Processing Chains}{97}{subparagraph.5.4.3.2.2.2}
+\contentsline {subparagraph}{\numberline {5.4.3.2.2.3}Interfaces with the Archive and Catalogue}{97}{subparagraph.5.4.3.2.2.3}
+\contentsline {paragraph}{\numberline {5.4.3.2.3}Orchestrator Design}{98}{paragraph.5.4.3.2.3}
+\contentsline {paragraph}{\numberline {5.4.3.2.4}Orchestrator Implementation}{98}{paragraph.5.4.3.2.4}
+\contentsline {paragraph}{\numberline {5.4.3.2.5}OrchestratorExecution}{98}{paragraph.5.4.3.2.5}
+\contentsline {subsubsection}{\numberline {5.4.3.3}Implementation of the Processing Chain}{100}{subsubsection.5.4.3.3}
+\contentsline {paragraph}{\numberline {5.4.3.3.1}Processing Chain Workflow}{100}{paragraph.5.4.3.3.1}
+\contentsline {paragraph}{\numberline {5.4.3.3.2}Processing Chain Interfaces}{100}{paragraph.5.4.3.3.2}
+\contentsline {subparagraph}{\numberline {5.4.3.3.2.1}Interfaces with the Orchestrator}{100}{subparagraph.5.4.3.3.2.1}
+\contentsline {paragraph}{\numberline {5.4.3.3.3}Processing Chain Design}{100}{paragraph.5.4.3.3.3}
+\contentsline {subparagraph}{\numberline {5.4.3.3.3.1}ProcessingChainReplica}{101}{subparagraph.5.4.3.3.3.1}
+\contentsline {paragraph}{\numberline {5.4.3.3.4}Processing Chain Implementation}{101}{paragraph.5.4.3.3.4}
+\contentsline {paragraph}{\numberline {5.4.3.3.5}Processing Chain Execution}{101}{paragraph.5.4.3.3.5}
+\contentsline {subsubsection}{\numberline {5.4.3.4}Implementation of the Archive and Catalogue}{102}{subsubsection.5.4.3.4}
+\contentsline {paragraph}{\numberline {5.4.3.4.1}Archive and Catalogue Workflow}{102}{paragraph.5.4.3.4.1}
+\contentsline {paragraph}{\numberline {5.4.3.4.2}Archive and Catalogue Interfaces}{102}{paragraph.5.4.3.4.2}
+\contentsline {subparagraph}{\numberline {5.4.3.4.2.1}Interfaces with the Orchestrator}{102}{subparagraph.5.4.3.4.2.1}
+\contentsline {subparagraph}{\numberline {5.4.3.4.2.2}Interfaces with the GeoServer software}{102}{subparagraph.5.4.3.4.2.2}
+\contentsline {paragraph}{\numberline {5.4.3.4.3}Archive and Catalogue Design}{103}{paragraph.5.4.3.4.3}
+\contentsline {paragraph}{\numberline {5.4.3.4.4}Archive and Catalogue Implementation}{103}{paragraph.5.4.3.4.4}
+\contentsline {paragraph}{\numberline {5.4.3.4.5}Archive and Catalogue Execution}{104}{paragraph.5.4.3.4.5}
+\contentsline {subsubsection}{\numberline {5.4.3.5}Implementation of the Broker}{104}{subsubsection.5.4.3.5}
+\contentsline {paragraph}{\numberline {5.4.3.5.1}Broker Workflow}{104}{paragraph.5.4.3.5.1}
+\contentsline {paragraph}{\numberline {5.4.3.5.2}Broker Interfaces}{105}{paragraph.5.4.3.5.2}
+\contentsline {subparagraph}{\numberline {5.4.3.5.2.1}Interfaces with the Orchestrator}{105}{subparagraph.5.4.3.5.2.1}
+\contentsline {subparagraph}{\numberline {5.4.3.5.2.2}Interfaces with all the cloud components}{105}{subparagraph.5.4.3.5.2.2}
+\contentsline {subparagraph}{\numberline {5.4.3.5.2.3}Interfaces with the clients}{105}{subparagraph.5.4.3.5.2.3}
+\contentsline {paragraph}{\numberline {5.4.3.5.3}Broker Design}{105}{paragraph.5.4.3.5.3}
+\contentsline {paragraph}{\numberline {5.4.3.5.4}Broker Implementation}{106}{paragraph.5.4.3.5.4}
+\contentsline {paragraph}{\numberline {5.4.3.5.5}Broker Execution}{106}{paragraph.5.4.3.5.5}
+\contentsline {subsubsection}{\numberline {5.4.3.6}Implementation of the client}{106}{subsubsection.5.4.3.6}
+\contentsline {paragraph}{\numberline {5.4.3.6.1}Client Execution}{107}{paragraph.5.4.3.6.1}
+\contentsline {subsubsection}{\numberline {5.4.3.7}Deployment of the ICE architecture}{107}{subsubsection.5.4.3.7}
+\contentsline {section}{\numberline {5.5}Profilling Tool in PlanetLab}{108}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Definitions}{108}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Platform description}{109}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}Tools description}{109}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.5.4}PlanetLab Experiment}{110}{subsection.5.5.4}
+\contentsline {subsubsection}{\numberline {5.5.4.1}System Modeling}{111}{subsubsection.5.5.4.1}
+\contentsline {subsubsection}{\numberline {5.5.4.2}Network Design}{113}{subsubsection.5.5.4.2}
+\contentsline {subsubsection}{\numberline {5.5.4.3}Experiment Design and Execution}{113}{subsubsection.5.5.4.3}
+\contentsline {paragraph}{\numberline {5.5.4.3.1}The bandwidthGS.py script}{114}{paragraph.5.5.4.3.1}
+\contentsline {paragraph}{\numberline {5.5.4.3.2}The bandwidthEndUser.py script}{115}{paragraph.5.5.4.3.2}
+\contentsline {paragraph}{\numberline {5.5.4.3.3}The lossRateGS.py script}{116}{paragraph.5.5.4.3.3}
+\contentsline {paragraph}{\numberline {5.5.4.3.4}The lossRateEndUser.py script}{117}{paragraph.5.5.4.3.4}
+\contentsline {paragraph}{\numberline {5.5.4.3.5}The latencyGS.py script}{117}{paragraph.5.5.4.3.5}
+\contentsline {paragraph}{\numberline {5.5.4.3.6}The latencyEndUser.py script}{118}{paragraph.5.5.4.3.6}
+\contentsline {section}{\numberline {5.6}GEO-Cloud Graphical User Interface}{118}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Architecture}{118}{subsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.1.1}Experiment Controller}{120}{subsubsection.5.6.1.1}
+\contentsline {paragraph}{\numberline {5.6.1.1.1}Experiment Controller Workflow}{120}{paragraph.5.6.1.1.1}
+\contentsline {subsubsection}{\numberline {5.6.1.2}SSH Connection}{121}{subsubsection.5.6.1.2}
+\contentsline {paragraph}{\numberline {5.6.1.2.1}SSH Connection Workflow}{121}{paragraph.5.6.1.2.1}
+\contentsline {subsubsection}{\numberline {5.6.1.3}SSH Order}{121}{subsubsection.5.6.1.3}
+\contentsline {paragraph}{\numberline {5.6.1.3.1}SSH Connection Workflow}{121}{paragraph.5.6.1.3.1}
+\contentsline {subsubsection}{\numberline {5.6.1.4}getLoad}{122}{subsubsection.5.6.1.4}
+\contentsline {paragraph}{\numberline {5.6.1.4.1}getLoad Workflow}{122}{paragraph.5.6.1.4.1}
+\contentsline {subsubsection}{\numberline {5.6.1.5}JFedParser}{122}{subsubsection.5.6.1.5}
+\contentsline {paragraph}{\numberline {5.6.1.5.1}JFedParser Workflow}{122}{paragraph.5.6.1.5.1}
+\contentsline {subsubsection}{\numberline {5.6.1.6}UI Controller}{122}{subsubsection.5.6.1.6}
+\contentsline {paragraph}{\numberline {5.6.1.6.1}UI Controller Workflow}{122}{paragraph.5.6.1.6.1}
+\contentsline {subsubsection}{\numberline {5.6.1.7}Video Widget}{123}{subsubsection.5.6.1.7}
+\contentsline {paragraph}{\numberline {5.6.1.7.1}Video Widget Workflow}{123}{paragraph.5.6.1.7.1}
+\contentsline {subsection}{\numberline {5.6.2}About Widget}{123}{subsection.5.6.2}
+\contentsline {paragraph}{\numberline {5.6.2.0.2}About Widget Workflow}{123}{paragraph.5.6.2.0.2}
+\contentsline {subsection}{\numberline {5.6.3}Log Widget}{123}{subsection.5.6.3}
+\contentsline {paragraph}{\numberline {5.6.3.0.3}Log Widget Workflow}{123}{paragraph.5.6.3.0.3}
+\contentsline {subsection}{\numberline {5.6.4}Tab Widget}{124}{subsection.5.6.4}
+\contentsline {paragraph}{\numberline {5.6.4.0.4}Tab Widget Workflow}{124}{paragraph.5.6.4.0.4}
+\contentsline {subsection}{\numberline {5.6.5}Implementation of the Graphical User Interface}{124}{subsection.5.6.5}
+\contentsline {subsection}{\numberline {5.6.6}Execution of the Graphical User Interface}{124}{subsection.5.6.6}
+\contentsline {subsection}{\numberline {5.6.7}Components of the Graphical User Interface}{125}{subsection.5.6.7}
 \contentsline {chapter}{\numberline {6}Evolution and Costs}{127}{chapter.6}
 \contentsline {section}{\numberline {6.1}Project Evolution}{127}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}Training stage}{127}{subsection.6.1.1}
@@ -241,9 +241,8 @@
 \contentsline {section}{\numberline {7.3}Publications}{142}{section.7.3}
 \contentsline {chapter}{\numberline {8}Conclusions}{147}{chapter.8}
 \contentsline {subsection}{\numberline {8.0.1}Accomplished objectives}{147}{subsection.8.0.1}
-\contentsline {section}{\numberline {8.1}Fed4FIRE infrastructure conclusion}{149}{section.8.1}
-\contentsline {section}{\numberline {8.2}Future Work}{149}{section.8.2}
-\contentsline {section}{\numberline {8.3}Personal conclusion}{150}{section.8.3}
+\contentsline {section}{\numberline {8.1}Future Work}{149}{section.8.1}
+\contentsline {section}{\numberline {8.2}Personal conclusion}{150}{section.8.2}
 \contentsline {chapter}{\numberline {A}User Manual}{153}{appendix.A}
 \contentsline {section}{\numberline {A.1}First steps}{153}{section.A.1}
 \contentsline {subsection}{\numberline {A.1.1}Creating a Fed4FIRE account}{153}{subsection.A.1.1}
@@ -317,4 +316,4 @@
 \contentsline {section}{\numberline {E.2}Virtual Wall deployment files}{179}{section.E.2}
 \contentsline {section}{\numberline {E.3}Orchestrator, Archive and Catalogue, Database and Processing Chain files}{180}{section.E.3}
 \contentsline {section}{\numberline {E.4}PlanetLab experiment files}{181}{section.E.4}
-\contentsline {chapter}{Bibliography}{183}{appendix*.157}
+\contentsline {chapter}{Bibliography}{183}{section*.163}

@@ -1,110 +1,58 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: main.aux
-The style file: alpha.bst
+The style file: IEEEtran.bst
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: references.bib
-Warning--entry type for "Aase1998" isn't style-file defined
---line 7 of file references.bib
-Warning--entry type for "Athanasias2014" isn't style-file defined
---line 297 of file references.bib
-Warning--entry type for "BonFIRE2014" isn't style-file defined
---line 729 of file references.bib
-Warning--entry type for "Braeunig2013" isn't style-file defined
---line 883 of file references.bib
-Warning--entry type for "Community" isn't style-file defined
---line 977 of file references.bib
-Warning--entry type for "Community2014" isn't style-file defined
---line 999 of file references.bib
-Warning--entry type for "Company2012" isn't style-file defined
---line 1025 of file references.bib
-Warning--entry type for "Cooper2014" isn't style-file defined
---line 1049 of file references.bib
-Warning--entry type for "ESA2009" isn't style-file defined
---line 1371 of file references.bib
-Warning--entry type for "Europe2014" isn't style-file defined
---line 1451 of file references.bib
-Warning--entry type for "Fed4FIRE2014" isn't style-file defined
---line 1569 of file references.bib
-Warning--entry type for "Fed4FIRE2014a" isn't style-file defined
---line 1591 of file references.bib
-Warning--entry type for "Foundation2014a" isn't style-file defined
---line 1671 of file references.bib
-Warning--entry type for "Foundation2014b" isn't style-file defined
---line 1699 of file references.bib
-Warning--entry type for "Foundation2008" isn't style-file defined
---line 1727 of file references.bib
-Warning--entry type for "Geoserver2014" isn't style-file defined
---line 1841 of file references.bib
+Warning--I'm ignoring BonFIRE2014's extra "year" field
+--line 741 of file references.bib
 Warning--entry type for "Group2010" isn't style-file defined
---line 1995 of file references.bib
-Warning--entry type for "INRIA2014" isn't style-file defined
---line 2115 of file references.bib
-Warning--entry type for "Iperf2014" isn't style-file defined
---line 2249 of file references.bib
-Warning--entry type for "Microsoft2013" isn't style-file defined
---line 2853 of file references.bib
-Warning--entry type for "Microsystems2013" isn't style-file defined
---line 2875 of file references.bib
-Warning--entry type for "NASA" isn't style-file defined
---line 3103 of file references.bib
-Warning--entry type for "NSIDC" isn't style-file defined
---line 3337 of file references.bib
-Warning--entry type for "Organization" isn't style-file defined
---line 3413 of file references.bib
-Warning--entry type for "Organization2014" isn't style-file defined
---line 3437 of file references.bib
-Warning--entry type for "Foundation2014" isn't style-file defined
---line 3723 of file references.bib
-Warning--entry type for "St.Laurent1998" isn't style-file defined
---line 4125 of file references.bib
-Warning--entry type for "Stern2014" isn't style-file defined
---line 4149 of file references.bib
-Warning--entry type for "Team2013" isn't style-file defined
---line 4223 of file references.bib
-Warning--entry type for "Wall2014" isn't style-file defined
---line 4457 of file references.bib
-Warning--entry type for "ZeroC2013" isn't style-file defined
---line 4741 of file references.bib
+--line 1999 of file references.bib
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty title in BonFIRE2014
 Warning--empty booktitle in Oetiker2014
+
+Done.
 You've used 49 entries,
-            2543 wiz_defined-function locations,
-            797 strings with 9730 characters,
-and the built_in function-call counts, 16072 in all, are:
-= -- 1480
-> -- 726
-< -- 45
-+ -- 239
-- -- 232
-* -- 942
-:= -- 2598
-add.period$ -- 136
+            4039 wiz_defined-function locations,
+            1098 strings with 14642 characters,
+and the built_in function-call counts, 23695 in all, are:
+= -- 1933
+> -- 456
+< -- 58
++ -- 232
+- -- 101
+* -- 1018
+:= -- 4221
+add.period$ -- 133
 call.type$ -- 49
-change.case$ -- 291
-chr.to.int$ -- 46
-cite$ -- 50
-duplicate$ -- 670
-empty$ -- 1312
-format.name$ -- 313
-if$ -- 3340
-int.to.chr$ -- 4
-int.to.str$ -- 0
-missing$ -- 24
-newline$ -- 238
-num.names$ -- 149
-pop$ -- 475
+change.case$ -- 45
+chr.to.int$ -- 123
+cite$ -- 51
+duplicate$ -- 1770
+empty$ -- 2208
+format.name$ -- 112
+if$ -- 5246
+int.to.chr$ -- 0
+int.to.str$ -- 49
+missing$ -- 393
+newline$ -- 248
+num.names$ -- 51
+pop$ -- 1052
 preamble$ -- 1
-purify$ -- 345
-quote$ -- 0
-skip$ -- 589
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1853
 stack$ -- 0
-substring$ -- 475
-swap$ -- 95
-text.length$ -- 45
-text.prefix$ -- 38
-top$ -- 0
-type$ -- 368
-warning$ -- 1
-while$ -- 124
-width$ -- 54
-write$ -- 578
-(There were 32 warnings)
+substring$ -- 298
+swap$ -- 1249
+text.length$ -- 17
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 49
+warning$ -- 2
+while$ -- 76
+width$ -- 51
+write$ -- 543
+(There were 4 warnings)
