@@ -5,11 +5,6 @@ import threading
 import os
 from orchestator import *
 import paramiko
-import signal
-from collections import deque
-import Queue
-import time
-
 
 class processingChainController:
     """ProcessingChainController Class.
@@ -28,7 +23,6 @@ class processingChainController:
 
     @classmethod
     def get(cls):
-
         if ( cls._controller == None ):
             cls._controller = processingChainController()
         return cls._controller
@@ -38,42 +32,17 @@ class processingChainController:
         self.petitions = {}
         self.maxPetitions = 100
         self.sem = threading.Lock()
-        self.queue=Queue.Queue()
-        self.available_pp = deque()
-        self.busy_pp = {}
-
-        signal.signal(signal.SIGUSR1, self.processed)
-        
         if self._controller is not None:
             raise ValueError("[ProcessingChainController] An instantiation already exists")
 
     def setOrchestrator(self,orchestrator):
         self.orchestrator = orchestrator
 
-    def setProcessingChains(self,pp_ips):
-        if pp_ips is not None:
-            self.sem.acquire()
-            self.available_pp = deque(pp_ips)
-            self.sem.release()
-
-    def any_available_pp(self):
-        self.sem.acquire()
-        if len(self.available_pp) > 0:
-            ret=True
-        else:
-            ret = False
-        self.sem.release()
-        return ret
-
-
     def createProcessingChain(self,pathRawData):
-        self.sem.acquire()
-        selected = self.available_pp.popleft()
-        pc = processingChain(pathRawData, selected ,self.sem ,self.queue ,os.getpid())
-        pc.start()
+        pc = processingChain(pathRawData,self.orchestrator.getPP(),self.sem)
         print "[ProcessingChainController] Creating processing chain %s!"%(str(pc.getIdent()))
-        print "Processing chain : ",selected
-        self.busy_pp.update({pc.getIdent():selected})
+        pc.start()
+        self.sem.acquire()
         self.actives.update({pc.getIdent():pc})
         self.petitions.update({pc.getIdent():pathRawData})
         self.sem.release()
@@ -84,35 +53,23 @@ class processingChainController:
         del self.petitions[idThread]
         del self.actives[idThread]
 
-    def processed(self,signal,frame):
-        t=self.queue.get()
-        self.sem.acquire()
-
-        fileOutput = self.petitions[t.getIdent()]
-        print "ask"
-#bloquea aqui deadlock
-        self.available_pp.append(self.busy_pp[t.getIdent()])
-
-        del self.busy_pp[t.getIdent()]
-
-        self.deleteProcessingChain(t.getIdent())
-        self.sem.release()
-        self.orchestrator.processedRawData(fileOutput)
+    def processed(self, idThread, fileOutput):
         print "[ProcessingChainController] Processed and sending to orchestrator file data: %s!"%(fileOutput)
+        self.orchestrator.processedRawData(self.petitions[idThread])
+        self.deleteProcessingChain(idThread)
 
 class processingChain(threading.Thread):
     
-    def __init__(self,pathRawData,PP_ip,sem,queue,idMain):
+    def __init__(self,pathRawData,PP_ip,sem):
         threading.Thread.__init__(self)
         self.path = pathRawData
         self.defaultJobOrder = jobOrder(pathRawData)
         self.PP_IP = PP_ip
         self.sem = sem
-        self.queue = queue
-        self.idMain = idMain
-
+        
     def getIdent(self):
         return self.ident
+       
 
     def run(self):
         
@@ -130,12 +87,9 @@ class processingChain(threading.Thread):
         # #ejecutar PL1C y comprobar resultado
         # #capturar excepciones 
         #var = os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"bash /mnt/disco/PPscript.sh %s\""%(self.PP_IP, self.path))
-        #os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"time bash /mnt/disco/PPscript.sh %s %s\""%(self.PP_IP,reduce,scenario))
-        print "Processing %s"%(os.getpid())
-        time.sleep(5.0)
+        os.system("ssh -o \"StrictHostKeyChecking no\" d2pp@%s \"time bash /mnt/disco/PPscript.sh %s %s\""%(self.PP_IP,reduce,scenario))
         #contr.processed(thread.get_ident(),l1CJobOrder.getOutput())#return thread identity 
         self.sem.acquire()
         controller = processingChainController.get()
-        self.queue.put(self)
-        os.kill(self.idMain, signal.SIGUSR1)
+        controller.processed(self.getIdent(),self.path)
         self.sem.release()

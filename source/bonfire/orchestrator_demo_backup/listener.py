@@ -57,7 +57,7 @@ send it to orchestrator"""
                 print "[Listener] all_errors",e
 
     def pooling(self):
-        #pdb.set_trace()
+        
         while True:
             try:
                 for i in self.ftpconex:
@@ -131,7 +131,6 @@ send it to orchestrator"""
                 hour = hour.split(':')
 
                 newdatetime = datetime(int(date[2]),int(date[1]),int(date[0]),int(hour[0]),int(hour[1]),int(hour[2]))
-		return True
                 return newdatetime > olddatetime
             except Exception as e:
                 print "[Listener] Unexpected Exception" ,e 

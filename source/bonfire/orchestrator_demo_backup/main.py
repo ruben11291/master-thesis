@@ -55,7 +55,6 @@ if __name__ == "__main__":
     from orchestator import orchestator,Iorchestator
     import listener
     from listener import listener
-    import os
 
     service_ips,ftp_user,ftp_passwd,ground_stations_address = load_data()
     orch =  orchestator(service_ips)
